@@ -67,7 +67,7 @@ class SentimentModel:
         
         # Saving BoW dictionary to later use in prediction
         os.makedirs('bow', exist_ok=True)
-        bow_path = 'bow\c1_BoW_Sentiment_Model.pkl'
+        bow_path = 'bow/c1_BoW_Sentiment_Model.pkl'
         pickle.dump(cv, open(bow_path, "wb"))
         
         return X, y
