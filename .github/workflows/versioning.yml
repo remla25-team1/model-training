@@ -1,0 +1,31 @@
+name: Automated Pre-Release Versioning 
+
+on:
+  workflow_dispatch:  # manually run the workflow everytime via Actions on Github
+
+jobs:
+  generate-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Read base version and generate tag
+        id: tag
+        run: |
+          BASE_VERSION="v$(cat VERSION.txt)-pre"
+          DATE=$(date +'%Y%m%d')
+          COUNT=$(git tag | grep "${BASE_VERSION}-${DATE}" | wc -l)
+          NEW_TAG="${BASE_VERSION}-${DATE}-$(printf "%03d" $((COUNT + 1)))"
+          echo "Generated tag: $NEW_TAG"
+          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
+
+      - name: Create and push tag
+        run: |
+          git tag ${{ steps.tag.outputs.new_tag }}
+          git push origin ${{ steps.tag.outputs.new_tag }}
