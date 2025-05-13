@@ -1,4 +1,4 @@
-name: Automated Pre-Release Versioning
+name: Automated Pre-Release Versioning 
 
 on:
   workflow_dispatch:  # manually run the workflow everytime via Actions on Github
