@@ -17,12 +17,15 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
+      - name: Fetch all tags
+        run: git fetch --tags
+
       - name: Read base version and generate tag
         id: tag
         run: |
           BASE_VERSION="v$(cat VERSION.txt)-pre"
           DATE=$(date +'%Y%m%d')
-          COUNT=$(git tag | grep "${BASE_VERSION}-${DATE}" | wc -l)
+          COUNT=$(git tag --list "${BASE_VERSION}-${DATE}-*" | wc -l)
           NEW_TAG="${BASE_VERSION}-${DATE}-$(printf "%03d" $((COUNT + 1)))"
           echo "Generated tag: $NEW_TAG"
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
