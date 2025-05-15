@@ -2,6 +2,7 @@ name: Release model-training
 on:
     push:
         tags:
+            - 'v*.*.*'
             - 'v*.*.*-pre-*' 
 
 jobs:
