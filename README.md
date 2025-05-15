@@ -1,5 +1,4 @@
 # model-training
-Trained ML model available at https://github.com/remla25-team1/model-training/releases/tag/v0.0.2 
 
 ## To trigger the automated version release:
 1) Go to repo model-training on GitHub.
