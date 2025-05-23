@@ -13,7 +13,7 @@ This project uses **Poetry** to manage Python dependencies and virtual environme
 If you don’t have Poetry installed yet, run the following command:
 
 ```bash
-pip install poetry
+pipx install poetry
 ```
 
 ####  2. Install Dependencies
@@ -30,7 +30,7 @@ This will create a virtual environment and install all required packages.
 
 To activate the Poetry-managed virtual environment shell, run:
 ```bash 
-poetry shell
+eval $(poetry env activate)
 ```
 
 Any Python commands you run inside this shell will use the installed dependencies.
