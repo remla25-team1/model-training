@@ -23,7 +23,7 @@ def transform_data(dataset, bow_output_path):
     - y: array-like, the target variable
     '''
     corpus = dataset["Review"].tolist()
-    y = dataset["Liked"].values 
+    y = dataset["Label"].values 
     cv = CountVectorizer(max_features=1420)
     X = cv.fit_transform(corpus).toarray()
 

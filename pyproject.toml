@@ -19,10 +19,8 @@ dependencies = [
     "loguru (>=0.7.3,<0.8.0)",
     "typer (>=0.15.4,<0.16.0)",
     "dotenv (>=0.9.9,<0.10.0)",
+    "lib-ml @ git+https://github.com/remla25-team1/lib-ml.git@v0.0.1",
 ]
-
-[tool.poetry.dependencies]
-lib-ml = { git = "https://github.com/remla25-team1/lib-ml.git", tag = "v0.0.1" }
 
 
 [build-system]
