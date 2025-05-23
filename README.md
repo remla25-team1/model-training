@@ -22,8 +22,6 @@ Sentiment analysis model.
 ├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
 ├── README.md          <- The top-level README for developers using this project.
 ├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
 │   ├── processed      <- The final, canonical data sets for modeling.
 │   └── raw            <- The original, immutable data dump.
 │
@@ -48,9 +46,9 @@ Sentiment analysis model.
 │
 ├── setup.cfg          <- Configuration file for flake8
 │
-└── model-training   <- Source code for use in this project.
+└── model_training   <- Source code for use in this project.
     │
-    ├── __init__.py             <- Makes model-training a Python module
+    ├── __init__.py             <- Makes model_training a Python module
     │
     ├── config.py               <- Store useful variables and configuration
     │
@@ -60,6 +58,7 @@ Sentiment analysis model.
     │
     ├── modeling                
     │   ├── __init__.py 
+    │   └── evaluate.py         <- Code to evaluate trained model
     │   ├── predict.py          <- Code to run model inference with trained models          
     │   └── train.py            <- Code to train models
     │
