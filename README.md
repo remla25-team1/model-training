@@ -2,6 +2,63 @@
 
 Sentiment analysis model.
 
+## Poetry for Dependency Management
+
+This project uses **Poetry** to manage Python dependencies and virtual environments. Poetry simplifies package management and ensures consistent environments across different machines.
+
+### Getting Started
+
+#### 1. Install Poetry
+
+If you don’t have Poetry installed yet, run the following command:
+
+```bash
+pip install poetry
+```
+
+####  2. Install Dependencies
+
+After installing Poetry, navigate to the project root directory (where the pyproject.toml file is located) and run:
+
+```bash 
+poetry install
+```
+
+This will create a virtual environment and install all required packages.
+
+#### 3. Activate the Virtual Environment (optional)
+
+To activate the Poetry-managed virtual environment shell, run:
+```bash 
+poetry shell
+```
+
+Any Python commands you run inside this shell will use the installed dependencies.
+
+#### 4. Running the Code
+
+You can run your Python scripts in two ways:
+
+- **Inside the Poetry shell:**
+
+```bash 
+python path/to/your_script.py [options]
+```
+
+- **Directly, without activating the shell, by prefixing with poetry run:**
+
+```bash 
+poetry run python path/to/your_script.py [options]
+```
+
+**Example:**
+
+To evaluate a model version named v1.0.0:
+
+```bash 
+poetry run python evaluate.py --version v1.0.0
+```
+
 ## Automatic Versioning
 
 ### To trigger the automated version release:
