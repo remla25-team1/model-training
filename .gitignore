@@ -1,3 +1,7 @@
+# Do not upload data or models to git
+data/raw/*
+data/processed/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
