@@ -78,17 +78,24 @@ jobs:
           git commit -m "Bump version to $(cat VERSION.txt)"
           git push
 
-  dvc_pipeline:
-    needs: generate-version
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Setup DVC
-        uses: iterative/setup-dvc@v1
-
-      - name: Pass version to DVC
+      - name: Create or update dynamic_version.txt
         run: |
-          echo "${{ needs.generate_version.outputs.full_version }}" > dynamic_version.txt
-          dvc repro --single-item train_model
+          # Get the newly created tag from previous job
+          NEW_VERSION="${{ needs.generate-version.outputs.new_tag }}"
+          
+          # Create directory if it doesn't exist
+          mkdir -p $(dirname dynamic_version.txt)
+          
+          # Write the version to file
+          echo "$NEW_VERSION" > dynamic_version.txt
+          
+          # Commit and push the change (optional)
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add dynamic_version.txt
+          git commit -m "Update dynamic_version.txt to $NEW_VERSION"
+          git push
+
+      - name: Output dynamic version
+        run: |
+          echo "Current dynamic version: $(cat dynamic_version.txt)"
