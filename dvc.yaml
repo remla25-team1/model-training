@@ -24,9 +24,9 @@ stages:
     - data/processed/labels_train.npy
     - models/c1_BoW_Sentiment_model.pkl
   train_model:
-    cmd: python model_training/train.py --version $(cat dynamic_version.txt)
+    cmd: python model_training/modeling/train.py --version $(cat dynamic_version.txt)
     deps:
-      - model_training/train.py
+      - model_training/modeling/train.py
       - data/processed/features_train.npy
       - data/processed/labels_train.npy
       - dynamic_version.txt
