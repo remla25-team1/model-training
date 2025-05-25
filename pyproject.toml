@@ -4,7 +4,7 @@ version = "0.0.3"
 description = "Sentiment analysis model training."
 authors = ["team1"]
 readme = "README.md"
-packages = [{include = "model-training"}]  # Explicitly declare packages to include
+packages = [{include = "model_training"}]  # Explicitly declare packages to include
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
