@@ -22,13 +22,21 @@ stages:
     - data/processed/features_train.npy
     - data/processed/labels_test.npy
     - data/processed/labels_train.npy
-    - models/c1_BoW_Sentiment_model.pkl
+    - models/c1_BoW_Sentiment_Model.pkl
+  updating_params:
+    cmd: python model_training/modeling/ensure_versioning.py
+    deps:
+    - model_training/modeling/ensure_versioning.py
+    outs:
+    - params.yaml
   train_model:
-    cmd: python model_training/modeling/train.py --version $(cat dynamic_version.txt)
+    cmd: python model_training/modeling/train.py
     deps:
       - model_training/modeling/train.py
       - data/processed/features_train.npy
       - data/processed/labels_train.npy
       - dynamic_version.txt
+    params:
+      - version  
     outs:
-      - models/$(cat dynamic_version.txt)/$(cat dynamic_version.txt)_Sentiment_Model.pkl
+      - models/${version}/${version}_Sentiment_Model.pkl

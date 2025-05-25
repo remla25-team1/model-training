@@ -1,14 +1,18 @@
-from pathlib import Path
-from loguru import logger
 import typer
 import joblib
 import numpy as np
+import dvc.api
+import yaml
+
+from pathlib import Path
+from loguru import logger
+from pathlib import Path
 from sklearn.naive_bayes import GaussianNB
+from ensure_versioning import Ensurance
 
 from model_training.config import MODELS_DIR, PROCESSED_DATA_DIR
 
 app = typer.Typer()
-
 
 def train_and_save_model(version, X_train, y_train):
     ''' 
@@ -37,14 +41,9 @@ def main(
     features_path: Path = PROCESSED_DATA_DIR / "features_train.npy",
     labels_path: Path = PROCESSED_DATA_DIR / "labels_train.npy",
 ):
-    # Priority: dynamic_version.txt > VERSION.txt
-    version_file = Path("dynamic_version.txt")
-    if version_file.exists():
-        with open(version_file) as f:
-            version = f.read().strip()
-    else:
-        with open("VERSION.txt") as f:
-            version = f.read().strip()  # Fallback to base version
+    # Make an instance of the ensurance we need
+    ensurance = Ensurance()
+    version = ensurance.return_version()
 
     # Load training data
     logger.info(f"Loading training data from {features_path} and {labels_path}")
