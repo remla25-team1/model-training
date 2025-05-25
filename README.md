@@ -1,10 +1,10 @@
 # Model Training
 
-Sentiment analysis model.
+Repository for training a sentiment analysis model.
 
 ## Poetry for Dependency Management
 
-This project uses **Poetry** to manage Python dependencies and virtual environments. Poetry simplifies package management and ensures consistent environments across different machines.
+This project uses **Poetry** to manage Python dependencies and virtual environments.
 
 ### Getting Started
 
@@ -55,11 +55,58 @@ poetry run python path/to/your_script.py [options]
 
 **Example:**
 
-To evaluate a model version named v1.0.0:
+To evaluate a model version named `v1.0.0`:
 
 ```bash 
 poetry run python evaluate.py --version v1.0.0
 ```
+
+## Running Model Training Pipeline
+
+From the project root directory, execute the following scripts in order to run the full model training pipeline:
+
+#### 1. Download and save the dataset
+
+```bash 
+python model_training/dataset.py
+```
+
+- This script downloads the raw dataset and stores it in the `data/raw/` folder.
+
+#### 2. Preprocess the data
+
+```bash 
+python model_training/preprocessing.py
+```
+
+- Cleans the text data (e.g. lowercasing, removing punctuation, etc.) and saves the processed version to `data/processed/`.
+
+#### 3. Extract features
+
+```bash 
+python model_training/features.py
+```
+
+- Converts the cleaned text into numerical features using Bag-of-Words, and prepares it for modeling.
+
+#### 4. Train the model
+
+```bash 
+python model_training/modeling/train.py --version v0.0.3
+```
+
+- Trains the machine learning model, evaluates performance, and saves the trained model to the `models/` directory.
+- The `--version` flag is used to tag the saved model with a specific version name (e.g., `v0.0.3`). This helps with tracking changes, reproducibility, and model deployment — especially when maintaining multiple versions over time.
+
+#### 4. Evaluate the model
+
+```bash 
+python model_training/modeling/evaluate.py --version v0.0.3
+```
+
+- Evaluates the performance of a trained model corresponding to the specified version.
+- The --version flag tells the script which model version to load from the `models/` directory for evaluation.
+- The script outputs key metrics like accuracy and confusion matrix to help you understand how well the model performs on test data.
 
 ## Automatic Versioning
 
@@ -77,14 +124,11 @@ poetry run python evaluate.py --version v1.0.0
 ## Project Organization
 
 ```
-├── LICENSE            <- Open-source license if one is chosen
 ├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
 ├── README.md          <- The top-level README for developers using this project.
 ├── data
 │   ├── processed      <- The final, canonical data sets for modeling.
 │   └── raw            <- The original, immutable data dump.
-│
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
 │
 ├── models             <- Trained and serialized models, model predictions, or model summaries
 │
@@ -118,8 +162,8 @@ poetry run python evaluate.py --version v1.0.0
     ├── modeling                
     │   ├── __init__.py 
     │   └── evaluate.py         <- Code to evaluate trained model
-    │   ├── predict.py          <- Code to run model inference with trained models          
     │   └── train.py            <- Code to train models
+    |models          
     │
     └── plots.py                <- Code to create visualizations
 ```
