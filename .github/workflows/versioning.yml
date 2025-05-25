@@ -80,20 +80,15 @@ jobs:
 
       - name: Create or update dynamic_version.txt
         run: |
-          # Get the newly created tag from previous job
-          NEW_VERSION="${{ needs.generate-version.outputs.new_tag }}"
-          
-          # Create directory if it doesn't exist
-          mkdir -p $(dirname dynamic_version.txt)
+          # Get the newly created tag from the current job
+          NEW_VERSION="${{ steps.tag.outputs.new_tag }}"
           
           # Write the version to file
           echo "$NEW_VERSION" > dynamic_version.txt
           
-          # Commit and push the change (optional)
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          # Commit and push the change
           git add dynamic_version.txt
-          git commit -m "Update dynamic_version.txt to $NEW_VERSION"
+          git commit -m "Update dynamic_version.txt to $NEW_VERSION" || echo "No changes to commit"
           git push
 
       - name: Output dynamic version
