@@ -32,7 +32,7 @@ jobs:
 
       - name: Train and save model
         run: |
-          poetry run python model_training/modeling/train.py ${{ github.ref_name }}
+          poetry run python model_training/modeling/train.py 
 
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
