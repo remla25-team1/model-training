@@ -34,20 +34,18 @@ def train_and_save_model(version, X_train, y_train):
 
 @app.command()
 def main(
-    version: str = typer.Option(..., help="Model version name (e.g., v1.0.0)"),
     features_path: Path = PROCESSED_DATA_DIR / "features_train.npy",
     labels_path: Path = PROCESSED_DATA_DIR / "labels_train.npy",
 ):
-    # Priority: CLI arg > dynamic_version.txt > VERSION.txt
-    if version is None:
-        version_file = Path("dynamic_version.txt")
-        if version_file.exists():
-            with open(version_file) as f:
-                version = f.read().strip()
-        else:
-            with open("VERSION.txt") as f:
-                version = f.read().strip()  # Fallback to base version
-                
+    # Priority: dynamic_version.txt > VERSION.txt
+    version_file = Path("dynamic_version.txt")
+    if version_file.exists():
+        with open(version_file) as f:
+            version = f.read().strip()
+    else:
+        with open("VERSION.txt") as f:
+            version = f.read().strip()  # Fallback to base version
+
     # Load training data
     logger.info(f"Loading training data from {features_path} and {labels_path}")
     X_train = np.load(features_path)
