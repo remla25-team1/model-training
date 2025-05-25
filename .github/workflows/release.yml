@@ -32,6 +32,10 @@ jobs:
 
       - name: Train and save model
         run: |
+          poetry run python model_training/dataset.py
+          poetry run python model_training/preprocessing.py
+          poetry run python model_training/features.py
+          poetry run python model_training/modeling/ensure_versioning.py
           poetry run python model_training/modeling/train.py 
 
       - name: Upload to GitHub Release
