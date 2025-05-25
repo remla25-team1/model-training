@@ -61,6 +61,16 @@ To evaluate a model version named `v1.0.0`:
 poetry run python evaluate.py --version v1.0.0
 ```
 
+#### 5. Exiting the Poetry Virtual Environment
+
+To leave the Poetry virtual environment and return to your system’s default shell, simply run:
+```bash
+exit
+```
+or press `Ctrl+D`.
+
+This will terminate the current virtual environment session and bring you back to your normal terminal environment.
+
 ## Running Model Training Pipeline
 
 From the project root directory, execute the following scripts in order to run the full model training pipeline:
