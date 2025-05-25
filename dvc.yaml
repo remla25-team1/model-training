@@ -1,0 +1,34 @@
+stages:
+  get_data:
+    cmd: python model_training/dataset.py
+    deps:
+    - model_training/dataset.py
+    outs:
+    - data/raw/a1_RestaurantReviews_HistoricDump.tsv
+  pre_process:
+    cmd: python model_training/preprocessing.py
+    deps:
+    - model_training/preprocessing.py
+    - data/raw/a1_RestaurantReviews_HistoricDump.tsv
+    outs:
+    - data/processed/a1_RestaurantReviews_HistoricDump.tsv
+  transform_data:
+    cmd: python model_training/features.py
+    deps:
+    - model_training/features.py
+    - data/processed/a1_RestaurantReviews_HistoricDump.tsv
+    outs:
+    - data/processed/features_test.npy
+    - data/processed/features_train.npy
+    - data/processed/labels_test.npy
+    - data/processed/labels_train.npy
+    - models/c1_BoW_Sentiment_model.pkl
+  train_model:
+    cmd: python model_training/train.py --version $(cat dynamic_version.txt)
+    deps:
+      - model_training/train.py
+      - data/processed/features_train.npy
+      - data/processed/labels_train.npy
+      - dynamic_version.txt
+    outs:
+      - models/$(cat dynamic_version.txt)/$(cat dynamic_version.txt)_Sentiment_Model.pkl

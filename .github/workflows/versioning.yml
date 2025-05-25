@@ -77,3 +77,18 @@ jobs:
           git add VERSION.txt
           git commit -m "Bump version to $(cat VERSION.txt)"
           git push
+
+dvc_pipeline:
+  needs: generate_version
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Setup DVC
+      uses: iterative/setup-dvc@v1
+
+    - name: Pass version to DVC
+      run: |
+        echo "${{ needs.generate_version.outputs.full_version }}" > dynamic_version.txt
+        dvc repro --single-item train_model
