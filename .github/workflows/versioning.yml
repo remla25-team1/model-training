@@ -79,7 +79,7 @@ jobs:
           git push
 
   dvc_pipeline:
-    needs: generate_version
+    needs: generate-version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
