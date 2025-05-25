@@ -98,7 +98,7 @@ python model_training/modeling/train.py --version v0.0.3
 - Trains the machine learning model, evaluates performance, and saves the trained model to the `models/` directory.
 - The `--version` flag is used to tag the saved model with a specific version name (e.g., `v0.0.3`). This helps with tracking changes, reproducibility, and model deployment — especially when maintaining multiple versions over time.
 
-#### 4. Evaluate the model
+#### 5. Evaluate the model
 
 ```bash 
 python model_training/modeling/evaluate.py --version v0.0.3
