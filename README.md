@@ -13,7 +13,7 @@ This project uses **Poetry** to manage Python dependencies and virtual environme
 If you don’t have Poetry installed yet, run the following command:
 
 ```bash
-pipx install poetry
+pip install poetry
 ```
 
 ####  2. Install Dependencies
@@ -25,6 +25,8 @@ poetry install
 ```
 
 This will create a virtual environment and install all required packages.
+
+If you decide to add dependencies to ```pyproject.toml```, you need to update the ```poetry.lock``` file by running ```poetry lock```. Afterwards you can run ```poetry install``` again to install the updates packages.
 
 #### 3. Activate the Virtual Environment (optional)
 
