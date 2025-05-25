@@ -102,11 +102,10 @@ python model_training/features.py
 #### 4. Train the model
 
 ```bash 
-python model_training/modeling/train.py --version v0.0.3
+python model_training/modeling/train.py 
 ```
 
 - Trains the machine learning model, evaluates performance, and saves the trained model to the `models/` directory.
-- The `--version` flag is used to tag the saved model with a specific version name (e.g., `v0.0.3`). This helps with tracking changes, reproducibility, and model deployment — especially when maintaining multiple versions over time.
 
 #### 5. Evaluate the model
 
@@ -119,17 +118,15 @@ python model_training/modeling/evaluate.py --version v0.0.3
 - The script outputs key metrics like accuracy and confusion matrix to help you understand how well the model performs on test data.
 
 ## Automatic Versioning
+We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is used for production. These will always be versions that work. The latter tag is an experimental model for developing purposes, this doesn't always have to be a working version. The version bump is now done automatically, so if v0.0.1 already exists, it will automatically bump the VERSION.txt up one count. Same story for the experimental tags, they will be based on the VERSION.txt as a base and increment based on date and based on last three digits if there are multiple models on the same day.
 
 ### To trigger the automated version release:
 1) Go to repo model-training on GitHub.
 2) Click on the "Actions" tab.
-3) Select "Automated Pre-Release Versioning" from the list on the left (the name from name: Automated Pre-Release Versioning).
+3) Select "Versioning Workflow (SemVer + Dated Pre-Releases) " from the list on the left.
 4) Click the “Run workflow” button.
-
-### To do version bump:
-1) Update VERSION.txt to new base version.
-2) Commit and push it.
-3) Run above steps to trigger automated version release.
+5) When this workflow has finished, go to Release model-training from the list on the left
+6) You will now see that this workflow has been triggered automatically by the previous workflow.
 
 ## Project Organization
 
