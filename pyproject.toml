@@ -1,0 +1,28 @@
+[project]
+name = "model-training"
+version = "0.0.3"
+description = "Sentiment analysis model training."
+authors = [
+    {name = "team1"}
+]
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "scikit-learn (>=1.6.1,<2.0.0)",
+    "joblib (>=1.4.2,<2.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "numpy (>=2.2.5,<3.0.0)",
+    "setuptools (>=80.1.0,<81.0.0)",
+    "setuptools-scm (>=8.3.1,<9.0.0)",
+    "gdown (>=5.2.0,<6.0.0)",
+    "loguru (>=0.7.3,<0.8.0)",
+    "typer (>=0.15.4,<0.16.0)",
+    "dotenv (>=0.9.9,<0.10.0)",
+    "nltk (>=3.8.1,<4.0.0)",
+    "lib-ml @ git+https://github.com/remla25-team1/lib-ml.git@v0.0.1",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
