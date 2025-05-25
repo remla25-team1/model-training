@@ -36,12 +36,16 @@ def main(
 
     # Preprocess data
     corpus = preprocess_data(dataset)
-
-    # Save preprocessed data to file
     processed_df = pd.DataFrame({
         "Review": corpus,
-        "Label": dataset["Liked"]
+        "Liked": dataset["Liked"]
     })
+
+    # Remove any rows with missing or empty reviews
+    processed_df.dropna(subset=["Review"], inplace=True)
+    processed_df = processed_df[processed_df["Review"].str.strip() != ""]
+
+    # Save cleaned data
     processed_df.to_csv(output_path, sep="\t", index=False)
     logger.info(f"Saved preprocessed data to {output_path}")
 
