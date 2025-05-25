@@ -1,7 +1,16 @@
-name: Automated Pre-Release Versioning 
+name: Versioning Workflow (SemVer + Dated Pre-Releases)
 
 on:
-  workflow_dispatch:  # manually run the workflow everytime via Actions on Github
+  workflow_dispatch:
+    inputs:
+      version_type:
+        description: 'Versioning scheme ("semver" or "dated-pre")'
+        required: true
+        default: 'dated-pre'
+        type: choice
+        options:
+        - semver
+        - dated-pre
 
 jobs:
   generate-version:
@@ -20,17 +29,32 @@ jobs:
       - name: Fetch all tags
         run: git fetch --tags
 
-      - name: Read base version and generate tag
+      - name: Generate version tag
         id: tag
         run: |
-          BASE_VERSION="v$(cat VERSION.txt)-pre"
-          DATE=$(date +'%Y%m%d')
-          COUNT=$(git tag --list "${BASE_VERSION}-${DATE}-*" | wc -l)
-          NEW_TAG="${BASE_VERSION}-${DATE}-$(printf "%03d" $((COUNT + 1)))"
-          echo "Generated tag: $NEW_TAG"
+          if [ "${{ inputs.version_type }}" = "semver" ]; then
+            # Semantic versioning (e.g., v0.0.1)
+            NEW_TAG="v$(cat VERSION.txt)"
+            echo "Using semantic version: $NEW_TAG"
+          else
+            # Dated pre-release (e.g., v0.0.1-pre-20240526-001)
+            BASE_VERSION="v$(cat VERSION.txt)-pre"
+            DATE=$(date +'%Y%m%d')
+            COUNT=$(git tag --list "${BASE_VERSION}-${DATE}-*" | wc -l)
+            NEW_TAG="${BASE_VERSION}-${DATE}-$(printf "%03d" $((COUNT + 1)))"
+            echo "Using dated pre-release: $NEW_TAG"
+          fi
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
 
       - name: Create and push tag
         run: |
           git tag ${{ steps.tag.outputs.new_tag }}
           git push origin ${{ steps.tag.outputs.new_tag }}
+
+      - name: Update Version.txt (for semver)
+        if: ${{ inputs.version_type == 'semver' }}
+        run: |
+          echo "$(cat VERSION.txt)" > VERSION.txt  # Optional: Increment version here
+          git add VERSION.txt
+          git commit -m "Bump version to $(cat VERSION.txt)"
+          git push
