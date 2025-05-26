@@ -48,6 +48,6 @@ jobs:
         with:
           files: |
             models/${{ github.ref_name }}/*.pkl
-            bow/*.pkl
+            c1_BoW_Sentiment_Model.pkl
         env:
           GITHUB_TOKEN: ${{ secrets.OP_TOKEN }}
