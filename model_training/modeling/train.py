@@ -1,3 +1,4 @@
+from typing import Optional
 import typer
 import joblib
 import numpy as np
@@ -40,10 +41,10 @@ def train_and_save_model(version, X_train, y_train):
 def main(
     features_path: Path = PROCESSED_DATA_DIR / "features_train.npy",
     labels_path: Path = PROCESSED_DATA_DIR / "labels_train.npy",
+    version: Optional[str] = None,  # Allow override
 ):
-    # Make an instance of the ensurance we need
-    ensurance = Ensurance()
-    version = ensurance.return_version()
+    version = version or Ensurance().return_version()
+    logger.info(f"Using model version: {version} (from {'CLI' if version else 'Ensurance'})")
 
     # Load training data
     logger.info(f"Loading training data from {features_path} and {labels_path}")

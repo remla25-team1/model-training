@@ -102,10 +102,11 @@ python model_training/features.py
 #### 4. Train the model
 
 ```bash 
-python model_training/modeling/train.py 
+python model_training/modeling/train.py --version=v0.0.1
 ```
 
 - Trains the machine learning model, evaluates performance, and saves the trained model to the `models/` directory.
+- version is the version you want to train. In release.yml this is automated to latest tag.
 
 #### 5. Evaluate the model
 
