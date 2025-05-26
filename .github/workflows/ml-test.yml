@@ -1,0 +1,88 @@
+name: ML Auto-Test
+
+on:
+  workflow_dispatch:  # manually run the workflow everytime via Actions on Github
+
+jobs:
+  generate-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.OP_TOKEN }}
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Fetch all tags
+        run: git fetch --tags
+
+      - name: Read base version and generate tag
+        id: tag
+        run: |
+          BASE_VERSION="v$(cat VERSION.txt)-pre"
+          DATE=$(date +'%Y%m%d')
+          COUNT=$(git tag --list "${BASE_VERSION}-${DATE}-*" | wc -l)
+          NEW_TAG="${BASE_VERSION}-${DATE}-$(printf "%03d" $((COUNT + 1)))"
+          echo "Generated tag: $NEW_TAG"
+          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
+
+      - name: Create and push tag
+        run: |
+          git tag ${{ steps.tag.outputs.new_tag }}
+          git push origin ${{ steps.tag.outputs.new_tag }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install coverage pytest flake8
+
+      - name: Run linters
+        run: |
+          echo "Running flake8..."
+          flake8 model_training tests || (echo 'Lint errors found.' && exit 1)
+
+      - name: Run tests with coverage
+        run: |
+          echo "Running tests with coverage..."
+          coverage run -m pytest -s tests > test_output.txt
+          coverage report -m > coverage.txt  
+
+      - name: Extract test adequacy info and update README
+        run: |
+          ACCURACY=$(grep '\[Accuracy\]' test_output.txt | awk '{print $NF}')
+          POS_RATIO=$(grep '\[Prediction Ratio\]' test_output.txt | awk '{print $NF}')
+          CONSISTENCY=$(grep '\[Slice Test\]' test_output.txt | sed -E 's/.*Positive: ([0-9.]+), Negative: ([0-9.]+).*/\1 \/ \2/')
+          SPARSITY=$(grep '\[Sparsity\]' test_output.txt | awk '{print $NF}')
+          LATENCY=$(grep '\[Latency\]' test_output.txt | awk '{print $NF}')
+          MEMORY=$(grep '\[Memory\]' test_output.txt | awk '{print $NF}')
+          COVERAGE=$(tail -n1 coverage.txt | awk '{print $4}')
+
+          sed -i "s|<!-- COVERAGE -->.*|<!-- COVERAGE --> Coverage: ${COVERAGE}|" README.md
+
+          cat << EOF > .tmp_adequacy
+          <!-- ADEQUACY -->  
+          - Accuracy: ${ACCURACY}  
+          - Prediction Positive Ratio: ${POS_RATIO}  
+          - Slice Consistency (Pos/Neg Acc): ${CONSISTENCY}  
+          - Sparsity: ${SPARSITY}  
+          - Latency: ${LATENCY}  
+          - Peak Memory: ${MEMORY}
+          EOF
+          sed -i '/<!-- ADEQUACY -->/r .tmp_adequacy' README.md
+
+      - name: Commit and push updated README
+        run: |
+          git add README.md
+          git commit -m "Update test adequacy and coverage in README"
+          git push origin HEAD
+
+

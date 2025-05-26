@@ -125,7 +125,7 @@ class SentimentModel:
 
         accuracy_score(y_test, y_pred)
         logger.info(f"Accuracy: {accuracy_score(y_test, y_pred)}")
-        
+        return classifier
 if __name__ == "__main__":
     # Example usage
     dataset_path = 'data/a1_RestaurantReviews_HistoricDump.tsv'  # Path to your dataset
