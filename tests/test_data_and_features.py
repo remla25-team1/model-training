@@ -1,7 +1,7 @@
-import pytest
-import pandas as pd
-import numpy as np
 import time
+
+import numpy as np
+import pandas as pd
 from lib_ml.preprocessing import Preprocessor
 from sklearn.feature_extraction.text import CountVectorizer
 
@@ -48,5 +48,3 @@ def test_feature_preprocessing_latency():
     latency = (time.time() - start) / len(sample)
     print(f"[Latency] Avg preprocessing time per review: {latency:.5f}s (on {len(sample)} samples)")
     assert latency < 0.01, f"Feature processing latency too high: {latency:.5f}s"
-
-

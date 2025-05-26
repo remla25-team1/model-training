@@ -11,3 +11,8 @@ Trained ML model available at https://github.com/remla25-team1/model-training/re
 1) Update VERSION.txt to new base version.
 2) Commit and push it.
 3) Run above steps to trigger automated version release.
+
+## ML auto testing
+<!-- COVERAGE -->
+
+<!-- ADEQUACY -->

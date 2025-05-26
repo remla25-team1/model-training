@@ -68,7 +68,7 @@ def test_model_consistency_on_labels():
     acc_neg = get_accuracy(neg_corpus, neg_df["Liked"])
     print(f"[Slice Test] Accuracy Positive: {acc_pos:.2f}, Negative: {acc_neg:.2f}")
     assert abs(acc_pos - acc_neg) < 0.15, (
-        f"Model performs very differently on positive vs negative samples: {acc_pos:.2f} vs {acc_neg:.2f}"
+        f"Model performs differently on pos vs neg samples: {acc_pos:.2f} vs {acc_neg:.2f}"
     )
 
 
@@ -95,7 +95,7 @@ def test_memory_usage_during_vectorization():
     vectorizer = CountVectorizer(max_features=1420)
     tracemalloc.start()
     vectorizer.fit_transform(corpus)
-    current, peak = tracemalloc.get_traced_memory()
+    _, peak = tracemalloc.get_traced_memory()
     tracemalloc.stop()
 
     peak_mb = peak / (1024 * 1024)  

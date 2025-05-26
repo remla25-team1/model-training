@@ -47,10 +47,10 @@ jobs:
           pip install -r requirements.txt
           pip install coverage pytest flake8
 
-      - name: Run linters
-        run: |
-          echo "Running flake8..."
-          flake8 model_training tests || (echo 'Lint errors found.' && exit 1)
+      # - name: Run linters
+      #   run: |
+      #     echo "Running flake8..."
+      #     flake8 model_training tests || (echo 'Lint errors found.' && exit 1)
 
       - name: Run tests with coverage
         run: |

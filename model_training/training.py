@@ -1,16 +1,15 @@
-import numpy as np
-import pandas as pd
-import pickle
-import joblib
-import os
 import logging
+import os
+import pickle
 import sys
 
+import joblib
+import pandas as pd
+from lib_ml.preprocessing import Preprocessor
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
-from sklearn.metrics import confusion_matrix, accuracy_score
-from lib_ml.preprocessing import Preprocessor
 
 # Global logging config (silences 3rd-party libraries)
 logging.basicConfig(
