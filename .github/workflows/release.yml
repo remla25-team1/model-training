@@ -12,8 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref }}  # The exact tag being released
-          fetch-depth: 0  # Get full history for version checking
+          ref: ${{ github.ref }}    # The exact tag being released
+          fetch-depth: 0            # Get full history for version checking
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          poetry install --no-interaction --no-ansi  
+          poetry install --no-interaction --no-ansi
           poetry run pip install setuptools wheel twine
 
       - name: Train and save model
@@ -38,7 +38,7 @@ jobs:
           poetry run python model_training/dataset.py
           poetry run python model_training/preprocessing.py
           poetry run python model_training/features.py
-          poetry run python model_training/modeling/ensure_versioning.py 
+          poetry run python model_training/modeling/ensure_versioning.py
           poetry run python model_training/modeling/train.py --version=${{ github.ref_name }}
 
       - name: Upload to GitHub Release
