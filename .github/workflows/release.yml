@@ -1,38 +1,51 @@
 name: Release model-training
 on:
-    push:
-        tags:
-            - 'v*.*.*'
-            - 'v*.*.*-pre-*' 
+  push:
+    tags:
+      - 'v*.*.*'
+      - 'v*.*.*-pre-*-*'
 
 jobs:
-    build:
-        runs-on: ubuntu-24.04
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}    # The exact tag being released
+          fetch-depth: 0            # Get full history for version checking
 
-            - name: Set up Python 3.12.2
-              uses: actions/setup-python@v5
-              with:
-                  python-version: 3.12.2
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.2"
 
-            - name: Install dependencies
-              run: |
-                  python -m pip install --upgrade pip
-                  pip install -r requirements.txt
-                  pip install setuptools wheel twine
-                
-            - name: Train and save model
-              run: |
-                python model_training/training.py ${{ github.ref_name }}
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: "1.8.2"
+          virtualenvs-create: true
+          virtualenvs-in-project: true
 
-                    
-            - name: Upload to GitHub Release
-              uses: softprops/action-gh-release@v2
-              with:
-                files: |
-                  models/${{ github.ref_name }}/*.pkl
-                  bow/*.pkl
-              env:
-                GITHUB_TOKEN: ${{ secrets.OP_TOKEN }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          poetry install --no-interaction --no-ansi
+          poetry run pip install setuptools wheel twine
+
+      - name: Train and save model
+        run: |
+          poetry run python model_training/dataset.py
+          poetry run python model_training/preprocessing.py
+          poetry run python model_training/features.py
+          poetry run python model_training/modeling/ensure_versioning.py
+          poetry run python model_training/modeling/train.py --version=${{ github.ref_name }}
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            models/${{ github.ref_name }}/${{ github.ref_name }}_Sentiment_Model.pkl
+            models/c1_BoW_Sentiment_Model.pkl
+        env:
+          GITHUB_TOKEN: ${{ secrets.OP_TOKEN }}

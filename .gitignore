@@ -1,3 +1,8 @@
+# Do not upload data, models or reports to git
+data/*
+models/*
+reports/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -172,3 +177,5 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+/collection
+/params.yaml
