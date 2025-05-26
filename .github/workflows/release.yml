@@ -25,7 +25,7 @@ jobs:
                 
             - name: Train and save model
               run: |
-                python model-training/training.py ${{ github.ref_name }}
+                python model_training/training.py ${{ github.ref_name }}
 
                     
             - name: Upload to GitHub Release
