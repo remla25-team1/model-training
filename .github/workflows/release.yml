@@ -45,7 +45,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            models/${{ github.ref_name }}/*.pkl
-            c1_BoW_Sentiment_Model.pkl
+            models/${{ github.ref_name }}/${{ github.ref_name }}_Sentiment_Model.pkl
+            models/c1_BoW_Sentiment_Model.pkl
         env:
           GITHUB_TOKEN: ${{ secrets.OP_TOKEN }}
