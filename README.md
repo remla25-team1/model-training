@@ -15,7 +15,7 @@ Trained ML model available at https://github.com/remla25-team1/model-training/re
 ## ML auto testing
 ### Coverage
 
-<!-- COVERAGE --> Coverage: 88%
+<!-- COVERAGE -->
 
 ### Test Adequacy
 
