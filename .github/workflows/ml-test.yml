@@ -55,8 +55,8 @@ jobs:
       - name: Run tests with coverage
         run: |
           echo "Running tests with coverage..."
-          coverage run -m pytest -s tests > test_output.txt
-          coverage report -m > coverage.txt  
+          coverage run --rcfile=.coveragerc -m pytest -s tests > test_output.txt
+          coverage report --rcfile=.coveragerc -m > coverage.txt
 
       - name: Extract test adequacy info and update README
         run: |
@@ -64,7 +64,7 @@ jobs:
           POS_RATIO=$(grep '\[Prediction Ratio\]' test_output.txt | awk '{print $NF}')
           CONSISTENCY=$(grep '\[Slice Test\]' test_output.txt | sed -E 's/.*Positive: ([0-9.]+), Negative: ([0-9.]+).*/\1 \/ \2/')
           SPARSITY=$(grep '\[Sparsity\]' test_output.txt | awk '{print $NF}')
-          LATENCY=$(grep '\[Latency\]' test_output.txt | awk '{print $NF}')
+          LATENCY=$(grep '\[Latency\]' test_output.txt | sed -E 's/.*: //')
           MEMORY=$(grep '\[Memory\]' test_output.txt | awk '{print $NF}')
           COVERAGE=$(tail -n1 coverage.txt | awk '{print $4}')
 
