@@ -12,3 +12,4 @@ python-dotenv~=1.0.1
 nltk
 dvc~=3.59.2
 coverage~=7.5.0
+loguru~=0.7.3
