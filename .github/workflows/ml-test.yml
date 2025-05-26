@@ -58,12 +58,16 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install coverage pytest flake8 isort black pylint
-      
+
       - name: Run format
         run: make format
 
       - name: Run lint
         run: make lint
+
+      - name: Download NLTK data
+        run: |
+          python -m nltk.downloader stopwords wordnet omw-1.4
 
       - name: Run tests with coverage
         run: |
