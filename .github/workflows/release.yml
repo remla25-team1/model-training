@@ -9,13 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Pull latest changes
-        run: |
-          git fetch --tags
-          git pull origin main  # or your default branch name if not main
+        with:
+          ref: ${{ github.ref }}  # The exact tag being released
+          fetch-depth: 0  # Get full history for version checking
 
       - name: Set up Python
         uses: actions/setup-python@v5
