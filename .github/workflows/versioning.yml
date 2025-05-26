@@ -1,7 +1,16 @@
-name: Automated Pre-Release Versioning 
+name: Versioning Workflow (SemVer + Dated Pre-Releases)
 
 on:
-  workflow_dispatch:  # manually run the workflow everytime via Actions on Github
+  workflow_dispatch:
+    inputs:
+      version_type:
+        description: 'Versioning scheme ("semver" or "dated-pre")'
+        required: true
+        default: 'dated-pre'
+        type: choice
+        options:
+        - semver
+        - dated-pre
 
 jobs:
   generate-version:
@@ -20,17 +29,68 @@ jobs:
       - name: Fetch all tags
         run: git fetch --tags
 
-      - name: Read base version and generate tag
+      - name: Auto-increment SemVer (if needed)
+        if: ${{ inputs.version_type == 'semver' }}
+        id: increment
+        run: |
+          CURRENT_VERSION=$(cat VERSION.txt)
+          # Check if tag exists (e.g., v0.0.1)
+          if git rev-parse "v${CURRENT_VERSION}" >/dev/null 2>&1; then
+            echo "Tag v${CURRENT_VERSION} already exists - incrementing..."
+            # Split into MAJOR.MINOR.PATCH
+            IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
+            NEW_PATCH=$((PATCH + 1))
+            NEW_VERSION="${MAJOR}.${MINOR}.${NEW_PATCH}"
+            echo "$NEW_VERSION" > VERSION.txt
+            echo "new_version=${NEW_VERSION}" >> $GITHUB_OUTPUT
+          else
+            echo "Tag v${CURRENT_VERSION} does not exist - using as-is."
+            echo "new_version=${CURRENT_VERSION}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate version tag
         id: tag
         run: |
-          BASE_VERSION="v$(cat VERSION.txt)-pre"
-          DATE=$(date +'%Y%m%d')
-          COUNT=$(git tag --list "${BASE_VERSION}-${DATE}-*" | wc -l)
-          NEW_TAG="${BASE_VERSION}-${DATE}-$(printf "%03d" $((COUNT + 1)))"
-          echo "Generated tag: $NEW_TAG"
+          if [ "${{ inputs.version_type }}" = "semver" ]; then
+            # Semantic versioning (e.g., v0.0.1)
+            NEW_TAG="v$(cat VERSION.txt)"
+            echo "Using semantic version: $NEW_TAG"
+          else
+            # Dated pre-release (e.g., v0.0.1-pre-20240526-001)
+            BASE_VERSION="v$(cat VERSION.txt)-pre"
+            DATE=$(date +'%Y%m%d')
+            COUNT=$(git tag --list "${BASE_VERSION}-${DATE}-*" | wc -l)
+            NEW_TAG="${BASE_VERSION}-${DATE}-$(printf "%03d" $((COUNT + 1)))"
+            echo "Using dated pre-release: $NEW_TAG"
+          fi
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
 
       - name: Create and push tag
         run: |
           git tag ${{ steps.tag.outputs.new_tag }}
           git push origin ${{ steps.tag.outputs.new_tag }}
+
+      - name: Update Version.txt (for semver)
+        if: ${{ inputs.version_type == 'semver' }}
+        run: |
+          echo "$(cat VERSION.txt)" > VERSION.txt  
+          git add VERSION.txt
+          git commit -m "Bump version to $(cat VERSION.txt)"
+          git push
+
+      - name: Create or update dynamic_version.txt
+        run: |
+          # Get the newly created tag from the current job
+          NEW_VERSION="${{ steps.tag.outputs.new_tag }}"
+          
+          # Write the version to file
+          echo "$NEW_VERSION" > dynamic_version.txt
+          
+          # Commit and push the change
+          git add dynamic_version.txt
+          git commit -m "Update dynamic_version.txt to $NEW_VERSION" || echo "No changes to commit"
+          git push
+
+      - name: Output dynamic version
+        run: |
+          echo "Current dynamic version: $(cat dynamic_version.txt)"
