@@ -12,6 +12,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Pull latest changes
+        run: |
+          git fetch --tags
+          git pull origin main  # or your default branch name if not main
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
