@@ -26,20 +26,32 @@ clean:
 	find . -type d -name "__pycache__" -delete
 
 
-## Lint using flake8, black, and isort (use `make format` to do formatting)
-.PHONY: lint
-lint:
-	flake8 model-training
-	isort --check --diff model-training
-	black --check model-training
-
-## Format source code with black
 .PHONY: format
 format:
-	isort model-training
-	black model-training
+	@echo "Running isort..."
+	isort model_training tests
+	@echo "Running black..."
+	black model_training tests
+	@echo "Removing unused imports/vars with autoflake..."
+	autoflake --in-place --remove-unused-variables \
+	          --remove-all-unused-imports \
+	          --recursive model_training tests
+	@echo "Formatting docstrings with docformatter..."
+	docformatter --in-place --recursive model_training tests
 
 
+.PHONY: lint
+lint:
+	@echo "Running flake8..."
+	flake8 --config=.flake8 model_training
+	@echo "Running isort..."
+	isort --check --diff model_training
+	@echo "Running black..."
+	black --check model_training
+	@echo "Running pylint using lib-ml's shared config..."
+	pylint model_training tests
+
+##pylint --rcfile=$$(python -c "import lib_ml, os; print(os.path.join(lib_ml.__path__[0], '.pylintrc'))") model_training tests
 
 ## Run tests
 .PHONY: test

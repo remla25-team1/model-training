@@ -1,3 +1,5 @@
+"""Configuration and path setup for the model training package."""
+
 from pathlib import Path
 
 from dotenv import load_dotenv

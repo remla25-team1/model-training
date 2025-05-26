@@ -1,9 +1,12 @@
+"""Evaluation utilities and CLI for the sentiment analysis model."""
+
 from pathlib import Path
-from loguru import logger
-import typer
+
 import joblib
 import numpy as np
-from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
+import typer
+from loguru import logger
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 from model_training.config import MODELS_DIR, PROCESSED_DATA_DIR, REPORTS_DIR
 
@@ -11,43 +14,46 @@ app = typer.Typer()
 
 
 def save_confusion_matrix(y_true, y_pred, output_path):
-    '''
+    """
     Save confusion matrix of classifier on test data.
+
     input:
     - y_true: array-like, true labels
     - y_pred: array-like, predicted labels
     - output_path: str, where to store the confusion matrix
-    '''
+    """
     cm = confusion_matrix(y_true, y_pred)
     np.save(output_path, cm)
     logger.info(f"Confusion matrix saved to {output_path}")
 
 
 def save_classification_report(y_true, y_pred, output_path):
-    '''
+    """
     Save classification report to file.
+
     input:
     - y_true: array-like, true labels
     - y_pred: array-like, predicted labels
     - output_path: str, where to store the classification report
-    '''
+    """
     report = classification_report(y_true, y_pred)
-    with open(output_path, "w") as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write(report)
     logger.info(f"Classification report saved to {output_path}")
 
 
-def evaluate_model(version, classifier, X_test, y_test):
-    '''
+def evaluate_model(version, classifier, x_test, y_test):
+    """
     Evaluate the trained model on test data.
+
     input:
     - version: str, model version name
     - classifier: trained model
-    - X_test: array-like, test features
+    - x_test: array-like, test features
     - y_test: array-like, true test labels
-    '''
-    # Predict 
-    y_pred = classifier.predict(X_test)
+    """
+    # Predict
+    y_pred = classifier.predict(x_test)
 
     # Save confusion matrix and classification report
     cm_path = REPORTS_DIR / f"{version}_confusion_matrix.npy"
@@ -66,9 +72,14 @@ def main(
     features_path: Path = PROCESSED_DATA_DIR / "features_test.npy",
     labels_path: Path = PROCESSED_DATA_DIR / "labels_test.npy",
 ):
+    """
+    CLI entry point for evaluating the sentiment analysis model.
+
+    Loads test data and model, evaluates, and saves reports.
+    """
     # Load test data
     logger.info(f"Loading test data from {features_path} and {labels_path}")
-    X_test = np.load(features_path)
+    x_test = np.load(features_path)
     y_test = np.load(labels_path)
 
     # Load model
@@ -77,7 +88,7 @@ def main(
     classifier = joblib.load(model_path)
 
     # Evaluate
-    evaluate_model(version, classifier, X_test, y_test)
+    evaluate_model(version, classifier, x_test, y_test)
 
 
 if __name__ == "__main__":
