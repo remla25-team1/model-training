@@ -4,11 +4,13 @@ on:
   workflow_dispatch:  # manually run the workflow everytime via Actions on Github
   push:                  
     branches:
-      - tests  
+      - tests 
+    paths-ignore:
+      - README.md   
 jobs:
-  update-readme-and-test:
-    if: github.actor != 'github-actions'
+
   generate-version:
+    if: github.actor != 'github-actions' 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
