@@ -68,23 +68,20 @@ jobs:
           MEMORY=$(grep '\[Memory\]' test_output.txt | awk '{print $NF}')
           COVERAGE=$(tail -n1 coverage.txt | awk '{print $4}')
 
+          # Update coverage line
           sed -i "s|<!-- COVERAGE -->.*|<!-- COVERAGE --> Coverage: ${COVERAGE}|" README.md
 
-          cat << EOF > .tmp_adequacy
-          <!-- ADEQUACY -->  
+          # Delete old ADEQUACY block content
+          sed -i '/<!-- ADEQUACY START -->/,/<!-- ADEQUACY END -->/d' README.md
+
+          # Append updated adequacy block at the end (or re-insert at correct location)
+          cat <<EOF >> README.md
+          <!-- ADEQUACY START -->
           - Accuracy: ${ACCURACY}  
           - Prediction Positive Ratio: ${POS_RATIO}  
           - Slice Consistency (Pos/Neg Acc): ${CONSISTENCY}  
           - Sparsity: ${SPARSITY}  
           - Latency: ${LATENCY}  
           - Peak Memory: ${MEMORY}
+          <!-- ADEQUACY END -->
           EOF
-          sed -i '/<!-- ADEQUACY -->/r .tmp_adequacy' README.md
-
-      - name: Commit and push updated README
-        run: |
-          git add README.md
-          git commit -m "Update test adequacy and coverage in README"
-          git push origin HEAD
-
-
