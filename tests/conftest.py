@@ -7,7 +7,7 @@ import pytest
 from model_training.training import SentimentModel
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="module", name="model_file")
 def trained_model_file():
     """
     Fixture to ensure the model is trained before running tests.
