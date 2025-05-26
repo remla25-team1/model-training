@@ -58,7 +58,7 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install coverage pytest flake8 isort black pylint
-
+      
       - name: Run format
         run: make format
 
