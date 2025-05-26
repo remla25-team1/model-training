@@ -23,3 +23,17 @@ Trained ML model available at https://github.com/remla25-team1/model-training/re
 - Sparsity: 0.9962  
 - Latency: 0.00000s (on 100 samples)  
 - Peak Memory: 0.44MB
+<!-- ADEQUACY -->  
+<!-- ADEQUACY -->  
+- Accuracy: 0.67  
+- Prediction Positive Ratio: 0.57  
+- Slice Consistency (Pos/Neg Acc): 1.00 / 1.00  
+- Sparsity: 0.9962  
+- Latency: 0.00000s (on 100 samples)  
+- Peak Memory: 0.44MB
+- Accuracy: 0.67  
+- Prediction Positive Ratio: 0.57  
+- Slice Consistency (Pos/Neg Acc): 1.00 / 1.00  
+- Sparsity: 0.9962  
+- Latency: 0.00000s (on 100 samples)  
+- Peak Memory: 0.44MB
