@@ -1,4 +1,5 @@
-import os
+"""Unit and integration tests for model development and training pipeline."""
+
 import tracemalloc
 
 import joblib
@@ -13,31 +14,13 @@ from sklearn.naive_bayes import GaussianNB
 from model_training.training import SentimentModel
 
 
-@pytest.fixture(scope="module")
-def trained_model_file():
-    """
-    Fixture to ensure the model is trained before running tests.
-
-    If the model file does not exist, it will train the model and return the path.
-    """
-    model_version = "test_model_dev"
-    model_path = f"models/{model_version}/{model_version}_Sentiment_Model.pkl"
-    if not os.path.exists(model_path):
-        model = SentimentModel("data/a1_RestaurantReviews_HistoricDump.tsv")
-        corpus = model.preprocess_data()
-        X, y = model.transform_data(corpus)
-        X_train, X_test, y_train, y_test = model.divide_data(X, y)
-        model.fitting(model_version, X_train, X_test, y_train, y_test)
-    return model_path
-
-
-def test_model_prediction_accuracy(trained_model_file):
+def test_model_prediction_accuracy(model_file):
     """
     Test the accuracy of the trained model on a test set.
 
     This test checks if the model achieves at least 65% accuracy.
     """
-    model_path = trained_model_file
+    model_path = model_file
     classifier = joblib.load(model_path)
     dataset = pd.read_csv(
         "data/a1_RestaurantReviews_HistoricDump.tsv", delimiter="\t", quoting=3
@@ -45,10 +28,10 @@ def test_model_prediction_accuracy(trained_model_file):
     preprocessor = Preprocessor()
     corpus = preprocessor.process(dataset)
     vectorizer = joblib.load("bow/c1_BoW_Sentiment_Model.pkl")
-    X = vectorizer.transform(corpus).toarray()
+    x = vectorizer.transform(corpus).toarray()
     y = dataset.iloc[:, -1].values
-    _, X_test, _, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
-    y_pred = classifier.predict(X_test)
+    _, x_test, _, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+    y_pred = classifier.predict(x_test)
     acc = accuracy_score(y_test, y_pred)
     print(f"[Accuracy] Model accuracy on test set: {acc:.2f}")
     assert acc >= 0.65, f"Model accuracy too low: {acc:.2f}"
@@ -67,15 +50,15 @@ def get_accuracy(corpus, labels):
         pytest.skip("Too few valid documents after preprocessing")
     vectorizer = CountVectorizer(max_features=1420)
     try:
-        X = vectorizer.fit_transform(corpus).toarray()
+        x = vectorizer.fit_transform(corpus).toarray()
     except ValueError as e:
         pytest.skip(f"Vectorizer failed: {e}")
-    y = labels[: len(X)]
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=0
+    y = labels[: len(x)]
+    x_train, x_test, y_train, y_test = train_test_split(
+        x, y, test_size=0.2, random_state=0
     )
-    clf = GaussianNB().fit(X_train, y_train)
-    return accuracy_score(y_test, clf.predict(X_test))
+    clf = GaussianNB().fit(x_train, y_train)
+    return accuracy_score(y_test, clf.predict(x_test))
 
 
 def test_model_consistency_on_labels():
@@ -103,25 +86,25 @@ def test_model_consistency_on_labels():
     ), f"Model performs differently on pos vs neg samples: {acc_pos:.2f} vs {acc_neg:.2f}"
 
 
-def test_model_prediction_determinism(trained_model_file):
+def test_model_prediction_determinism(model_file):
     """
     Test that the model produces the same predictions on the same input across multiple
     runs.
 
     This test ensures that the model's predictions are deterministic.
     """
-    clf = joblib.load(trained_model_file)
+    clf = joblib.load(model_file)
     dataset = pd.read_csv(
         "data/a1_RestaurantReviews_HistoricDump.tsv", delimiter="\t", quoting=3
     )
     preprocessor = Preprocessor()
     corpus = preprocessor.process(dataset)
     vectorizer = joblib.load("bow/c1_BoW_Sentiment_Model.pkl")
-    X = vectorizer.transform(corpus).toarray()
+    x = vectorizer.transform(corpus).toarray()
     y = dataset.iloc[:, -1].values
-    _, X_test, _, _ = train_test_split(X, y, test_size=0.2, random_state=0)
-    pred1 = clf.predict(X_test)
-    pred2 = clf.predict(X_test)
+    _, x_test, _, _ = train_test_split(x, y, test_size=0.2, random_state=0)
+    pred1 = clf.predict(x_test)
+    pred2 = clf.predict(x_test)
     assert (pred1 == pred2).all(), "Predictions differ between identical runs"
 
 

@@ -1,3 +1,5 @@
+"""Preprocessing utilities for the sentiment analysis model training pipeline."""
+
 from pathlib import Path
 
 import pandas as pd
@@ -32,6 +34,7 @@ def main(
     input_path: Path = RAW_DATA_DIR / "a1_RestaurantReviews_HistoricDump.tsv",
     output_path: Path = PROCESSED_DATA_DIR / "a1_RestaurantReviews_HistoricDump.tsv",
 ):
+    """CLI entry point for preprocessing the dataset."""
     # Load raw data from file
     logger.info(f"Loading dataset from: {input_path}")
     dataset = pd.read_csv(input_path, delimiter="\t", quoting=3)

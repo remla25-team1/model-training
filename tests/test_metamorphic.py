@@ -1,3 +1,5 @@
+"""Metamorphic testing for sentiment analysis model robustness."""
+
 import os
 import pickle
 import random
@@ -126,7 +128,8 @@ def generate_metamorphic_dataset(input_path, output_path):
         input_path (str): Path to the input .tsv file containing two columns: "text" and "label".
         output_path (str): Path to the output .tsv file to write the transformed data.
 
-    The function reads the input data, splits it into four subsets, and applies a different transformation to each subset:
+    The function reads the input data, splits it into four subsets, and applies
+    a different transformation to each subset:
         - MR1: Synonym Replacement (label unchanged)
         - MR2: Negation Inversion (label inverted)
         - MR3: Word Order Shuffling (label unchanged)
@@ -164,6 +167,9 @@ def generate_metamorphic_dataset(input_path, output_path):
             elif i == 3:  # MR4: Add Irrelevant Information
                 transformed = add_irrelevant_info(text)
                 new_label = label
+            else:
+                # handle unexpected cases
+                raise ValueError(f"Unexpected subset index: {i}")
 
             all_transformed.append((text, label, transformed, new_label))
 
@@ -191,29 +197,29 @@ def load_model(path="sentiment_model.pkl"):
     Returns:
         model: The loaded sentiment analysis model.
     """
-    with open(path, "rb") as f:
-        return pickle.load(f)
+    with open(path, "rb") as file:
+        return pickle.load(file)
 
 
-def predict(model, texts):
+def predict(trained_model, texts):
     """
     Predict sentiment labels for a list of texts using the provided model.
 
     Args:
-        model: The pre-trained sentiment analysis model.
+        trained_model: The pre-trained sentiment analysis model.
         texts (list): A list of text strings to predict.
     Returns:
         list: Predicted sentiment labels for the input texts.
     """
-    return model.predict(texts)
+    return trained_model.predict(texts)
 
 
 # metrics
-def evaluate_model(model, df):
+def evaluate_model(trained_model, df):
     """
     Evaluate the metamorphic robustness of a sentiment analysis model on a given DataFrame.
     Args:
-        model: The pre-trained sentiment analysis model.
+        trained_model: The pre-trained sentiment analysis model.
         df (DataFrame): A DataFrame containing the original and transformed texts and labels.
             It should have the following columns:
             - original_text: The original text.
@@ -221,10 +227,11 @@ def evaluate_model(model, df):
             - transformed_text: The text after metamorphic transformation.
             - transformed_label: The expected label after transformation.
     Returns:
-        DataFrame: The input DataFrame with additional columns for predictions and evaluation metrics.
+        DataFrame: The input DataFrame with additional columns
+        for predictions and evaluation metrics.
     """
-    pred_orig = predict(model, df["original_text"])
-    pred_trans = predict(model, df["transformed_text"])
+    pred_orig = predict(trained_model, df["original_text"])
+    pred_trans = predict(trained_model, df["transformed_text"])
 
     df["pred_original"] = pred_orig
     df["pred_transformed"] = pred_trans
@@ -279,9 +286,9 @@ if __name__ == "__main__":
 
         metamorphic_df = pd.read_csv(metamorphic_data_path, sep="\t")
 
-        model = load_model(model_path)
+        loaded_model = load_model(model_path)
 
-        results_df = evaluate_model(model, metamorphic_df)
+        results_df = evaluate_model(loaded_model, metamorphic_df)
 
         results_df.to_csv(
             os.path.join(data_base_dir, "metamorphic_predictions.tsv"),

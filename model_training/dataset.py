@@ -1,3 +1,5 @@
+"""Dataset download utility for the sentiment analysis project."""
+
 from pathlib import Path
 
 import gdown
@@ -28,6 +30,7 @@ def download_dataset(output_path):
 def main(
     output_path: Path = RAW_DATA_DIR / "a1_RestaurantReviews_HistoricDump.tsv",
 ):
+    """CLI entry point for downloading the dataset."""
     download_dataset(output_path)
 
 

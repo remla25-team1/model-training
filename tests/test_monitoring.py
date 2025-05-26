@@ -1,30 +1,9 @@
-import os
+"""Tests for model monitoring and prediction on fresh inputs."""
 
 import joblib
 import numpy as np
 import pandas as pd
-import pytest
 from lib_ml.preprocessing import Preprocessor
-
-from model_training.training import SentimentModel
-
-
-@pytest.fixture(scope="module")
-def trained_model_file():
-    """
-    Fixture to ensure the model is trained before running tests.
-
-    If the model file does not exist, it will train the model and return the path.
-    """
-    model_version = "test_model_dev"
-    model_path = f"models/{model_version}/{model_version}_Sentiment_Model.pkl"
-    if not os.path.exists(model_path):
-        model = SentimentModel("data/a1_RestaurantReviews_HistoricDump.tsv")
-        corpus = model.preprocess_data()
-        x, y = model.transform_data(corpus)
-        X_train, X_test, y_train, y_test = model.divide_data(x, y)
-        model.fitting(model_version, X_train, X_test, y_train, y_test)
-    return model_path
 
 
 def test_model_on_simulated_fresh_inputs(trained_model_file):

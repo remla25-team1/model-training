@@ -1,3 +1,6 @@
+"""Unit tests for data quality and feature extraction in the sentiment analysis
+pipeline."""
+
 import time
 
 import numpy as np
@@ -32,15 +35,15 @@ def test_feature_distribution():
     preprocessor = Preprocessor()
     processed_reviews = [preprocessor.process_item(r) for r in reviews]
     vectorizer = CountVectorizer(max_features=1420)
-    X = vectorizer.fit_transform(processed_reviews)
+    x = vectorizer.fit_transform(processed_reviews)
     # check structure
-    print(f"[Feature Distribution] Sample size: {X.shape[0]}, Features: {X.shape[1]}")
-    assert X.shape[0] == len(
+    print(f"[Feature Distribution] Sample size: {x.shape[0]}, Features: {x.shape[1]}")
+    assert x.shape[0] == len(
         processed_reviews
     ), "Number of rows in feature matrix doesn't match input"
-    assert X.shape[1] == 1420, "Unexpected number of feature columns"
+    assert x.shape[1] == 1420, "Unexpected number of feature columns"
     # check for NaN / Inf
-    dense = X.toarray()
+    dense = x.toarray()
     assert np.isfinite(dense).all(), "Feature matrix contains NaN or Inf"
     # check sparsity
     sparsity = (dense == 0).mean()

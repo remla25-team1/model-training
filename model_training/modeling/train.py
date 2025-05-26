@@ -1,26 +1,29 @@
+"""Training entry point and utilities for the sentiment analysis model."""
+
 from pathlib import Path
 from typing import Optional
 
 import joblib
 import numpy as np
 import typer
-from ensure_versioning import Ensurance
 from loguru import logger
 from sklearn.naive_bayes import GaussianNB
 
 from model_training.config import MODELS_DIR, PROCESSED_DATA_DIR
 
+from .ensure_versioning import Ensurance
+
 app = typer.Typer()
 
 
-def train_and_save_model(version, X_train, y_train):
+def train_and_save_model(version, x_train, y_train):
     """
     Trains the Gaussian Naive Bayes model and creates a directory for the model version
     and saves the trained model in that directory.
 
     input:
     - version: str, model version name
-    - X_train: array-like, training data features
+    - x_train: array-like, training data features
     - y_train: array-like, training data labels
     """
     # Create directory for output model
@@ -30,7 +33,7 @@ def train_and_save_model(version, X_train, y_train):
 
     # Fit a Gaussian Naive Bayes classifier to the training data
     classifier = GaussianNB()
-    classifier.fit(X_train, y_train)
+    classifier.fit(x_train, y_train)
 
     # Save model
     joblib.dump(classifier, model_path)
@@ -43,6 +46,12 @@ def main(
     labels_path: Path = PROCESSED_DATA_DIR / "labels_train.npy",
     version: Optional[str] = None,  # Allow override
 ):
+    """
+    CLI entry point for training and saving the sentiment analysis model.
+
+    Loads features and labels, trains the model, and saves it with the specified
+    version.
+    """
     version = version or Ensurance().return_version()
     logger.info(
         f"Using model version: {version} (from {'CLI' if version else 'Ensurance'})"
@@ -50,12 +59,12 @@ def main(
 
     # Load training data
     logger.info(f"Loading training data from {features_path} and {labels_path}")
-    X_train = np.load(features_path)
+    x_train = np.load(features_path)
     y_train = np.load(labels_path)
 
     # Train and save model
     logger.info(f"Training model version: {version}")
-    train_and_save_model(version, X_train, y_train)
+    train_and_save_model(version, x_train, y_train)
 
 
 if __name__ == "__main__":
