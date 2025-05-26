@@ -43,8 +43,7 @@ format:
 .PHONY: lint
 lint:
 	@echo "Running flake8..."
-	flake8 --config=$$(python -c "import lib_ml, os; print(os.path.join(lib_ml.__path__[0], '.flake8'))") model_training
-	flake8 model_training
+	flake8 --config=.flake8 model_training
 	@echo "Running isort..."
 	isort --check --diff model_training
 	@echo "Running black..."
