@@ -2,7 +2,9 @@ name: ML Auto-Test
 
 on:
   workflow_dispatch:  # manually run the workflow everytime via Actions on Github
-
+  push:                  
+    branches:
+      - tests  
 jobs:
   generate-version:
     runs-on: ubuntu-latest
