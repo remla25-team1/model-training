@@ -6,4 +6,5 @@ git+https://github.com/remla25-team1/lib-ml.git@v0.0.1
 setuptools~=80.1.0
 setuptools_scm~=8.3.1
 pytest ~= 8.3.5
-autoflake
+autoflake ~=1.4.0
+docformatter ~=1.7.5
