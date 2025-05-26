@@ -72,7 +72,7 @@ jobs:
       - name: Run tests with coverage
         run: |
           echo "Running tests with coverage..."
-          coverage run --rcfile=.coveragerc -m pytest -s tests > test_output.txt
+          coverage run --rcfile=.coveragerc -m pytest -s tests
           coverage report --rcfile=.coveragerc -m > coverage.txt
 
       - name: Extract test adequacy info and update README
