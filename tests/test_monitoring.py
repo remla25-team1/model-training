@@ -13,7 +13,7 @@ def test_model_on_simulated_fresh_inputs(trained_model_file):
     This test checks if the model can handle new data and provides a reasonable
     prediction ratio.
     """
-    fresh_df = pd.read_csv("data/a1_RestaurantReviews_HistoricDump.tsv", sep="\t")
+    fresh_df = pd.read_csv("data/raw/a1_RestaurantReviews_HistoricDump.tsv", sep="\t")
     model = joblib.load(trained_model_file)
     vectorizer = joblib.load("bow/c1_BoW_Sentiment_Model.pkl")
     pre = Preprocessor()

@@ -55,7 +55,7 @@ def test_feature_preprocessing_latency():
     """Test the latency of feature preprocessing by measuring the time taken to
     preprocess a sample of reviews."""
 
-    dataset = pd.read_csv("data/a1_RestaurantReviews_HistoricDump.tsv", sep="\t")
+    dataset = pd.read_csv("data/raw/a1_RestaurantReviews_HistoricDump.tsv", sep="\t")
     sample = dataset["Review"].dropna().sample(min(100, len(dataset)))
     start = time.time()
     for review in sample:

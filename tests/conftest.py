@@ -17,7 +17,7 @@ def trained_model_file():
     model_version = "test_model_dev"
     model_path = f"models/{model_version}/{model_version}_Sentiment_Model.pkl"
     if not os.path.exists(model_path):
-        model = SentimentModel("data/a1_RestaurantReviews_HistoricDump.tsv")
+        model = SentimentModel("data/raw/a1_RestaurantReviews_HistoricDump.tsv")
         corpus = model.preprocess_data()
         x, y = model.transform_data(corpus)
         x_train, x_test, y_train, y_test = model.divide_data(x, y)

@@ -23,7 +23,7 @@ def test_model_prediction_accuracy(model_file):
     model_path = model_file
     classifier = joblib.load(model_path)
     dataset = pd.read_csv(
-        "data/a1_RestaurantReviews_HistoricDump.tsv", delimiter="\t", quoting=3
+        "data/raw/a1_RestaurantReviews_HistoricDump.tsv", delimiter="\t", quoting=3
     )
     preprocessor = Preprocessor()
     corpus = preprocessor.process(dataset)
@@ -95,7 +95,7 @@ def test_model_prediction_determinism(model_file):
     """
     clf = joblib.load(model_file)
     dataset = pd.read_csv(
-        "data/a1_RestaurantReviews_HistoricDump.tsv", delimiter="\t", quoting=3
+        "data/raw/a1_RestaurantReviews_HistoricDump.tsv", delimiter="\t", quoting=3
     )
     preprocessor = Preprocessor()
     corpus = preprocessor.process(dataset)
