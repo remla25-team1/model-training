@@ -1,7 +1,9 @@
-import yaml
 from pathlib import Path
 
-class Ensurance():
+import yaml
+
+
+class Ensurance:
     def ensure_version_file_exists(self):
         """Create params.yaml with version before any DVC commands run."""
 
@@ -21,9 +23,9 @@ class Ensurance():
             yaml.dump({"version": version}, f)
 
         return version
-    
+
     def return_version(self):
-        """ Return the version for needy functions. """
+        """Return the version for needy functions."""
         version_file = Path("dynamic_version.txt")
 
         # Priority: dynamic_version.txt > VERSION.txt
@@ -35,7 +37,8 @@ class Ensurance():
                 version = f.read().strip()
 
         return version
-    
+
+
 if __name__ == "__main__":
     ensurance = Ensurance()
     ensurance.ensure_version_file_exists()

@@ -1,18 +1,24 @@
-import pandas as pd
-import random
-import nltk
-from nltk.corpus import wordnet
 import os
-import numpy as np
-import sys
 import pickle
+import random
+import sys
+
+import nltk
+import pandas as pd
+from nltk.corpus import wordnet
 from sklearn.metrics import accuracy_score
 
 nltk.download("wordnet")
 nltk.download("omw-1.4")
 
+
 # metamorphic transformation functions
 def get_synonym(word):
+    """
+    Get a random synonym for a given word using WordNet.
+
+    If no synonym is found, return the original word.
+    """
     synsets = wordnet.synsets(word)
     if synsets:
         lemmas = synsets[0].lemmas()
@@ -27,11 +33,21 @@ def get_synonym(word):
 
 
 def replace_synonyms(text):
+    """
+    Replace each word in the text with a random synonym.
+
+    If no synonym is found, the original word is kept.
+    """
     words = text.split()
     return " ".join(get_synonym(w) for w in words)
 
 
 def invert_negation(text):
+    """
+    Invert the negation in the text.
+
+    If "not" is present, remove it; otherwise, add "not" after the first word.
+    """
     tokens = text.split()
     if "not" in tokens:
         tokens = [t for t in tokens if t.lower() != "not"]
@@ -44,6 +60,12 @@ def invert_negation(text):
 
 
 def shuffle_word_order(text):
+    """
+    Shuffle the order of words in the text.
+
+    If there are more than 3 words, shuffle the middle words. If there are 3 or fewer
+    words, shuffle all words.
+    """
     tokens = text.split()
     if len(tokens) > 3:
         middle = tokens[1:-1]
@@ -55,6 +77,12 @@ def shuffle_word_order(text):
 
 
 def add_irrelevant_info(text):
+    """
+    Add a neutral phrase to the text that does not change its sentiment.
+
+    The phrase is chosen randomly from a predefined list of neutral phrases.
+    """
+    random.seed(42)
     neutral_phrases = [
         "I had cereal today.",
         "It's a sunny day.",
@@ -81,10 +109,35 @@ def add_irrelevant_info(text):
 
 
 def invert_label(label):
+    """
+    Invert the label from "0" to "1" or from "1" to "0".
+
+    This is used for transformations where the sentiment is expected to change.
+    """
     return "1" if label == "0" else "0"
 
 
 def generate_metamorphic_dataset(input_path, output_path):
+    """
+    Generate a metamorphic dataset by applying various metamorphic transformations to
+    the input data.
+
+    Args:
+        input_path (str): Path to the input .tsv file containing two columns: "text" and "label".
+        output_path (str): Path to the output .tsv file to write the transformed data.
+
+    The function reads the input data, splits it into four subsets, and applies a different transformation to each subset:
+        - MR1: Synonym Replacement (label unchanged)
+        - MR2: Negation Inversion (label inverted)
+        - MR3: Word Order Shuffling (label unchanged)
+        - MR4: Add Irrelevant Information (label unchanged)
+
+    The output .tsv file will have four columns:
+        - original_text: The original input text.
+        - original_label: The original label.
+        - transformed_text: The text after metamorphic transformation.
+        - transformed_label: The expected label after transformation.
+    """
     # read .tsv input file
     df = pd.read_csv(input_path, sep="\t", names=["text", "label"])
 
@@ -117,7 +170,12 @@ def generate_metamorphic_dataset(input_path, output_path):
     # Write to output file with 4 columns
     transformed_df = pd.DataFrame(
         all_transformed,
-        columns=["original_text", "original_label", "transformed_text", "transformed_label"]
+        columns=[
+            "original_text",
+            "original_label",
+            "transformed_text",
+            "transformed_label",
+        ],
     )
 
     transformed_df.to_csv(output_path, sep="\t", index=False)
@@ -125,14 +183,46 @@ def generate_metamorphic_dataset(input_path, output_path):
 
 
 def load_model(path="sentiment_model.pkl"):
+    """
+    Load a pre-trained sentiment analysis model from a pickle file.
+
+    Args:
+        path (str): Path to the model file. Default is "sentiment_model.pkl".
+    Returns:
+        model: The loaded sentiment analysis model.
+    """
     with open(path, "rb") as f:
         return pickle.load(f)
 
+
 def predict(model, texts):
+    """
+    Predict sentiment labels for a list of texts using the provided model.
+
+    Args:
+        model: The pre-trained sentiment analysis model.
+        texts (list): A list of text strings to predict.
+    Returns:
+        list: Predicted sentiment labels for the input texts.
+    """
     return model.predict(texts)
+
 
 # metrics
 def evaluate_model(model, df):
+    """
+    Evaluate the metamorphic robustness of a sentiment analysis model on a given DataFrame.
+    Args:
+        model: The pre-trained sentiment analysis model.
+        df (DataFrame): A DataFrame containing the original and transformed texts and labels.
+            It should have the following columns:
+            - original_text: The original text.
+            - original_label: The original label.
+            - transformed_text: The text after metamorphic transformation.
+            - transformed_label: The expected label after transformation.
+    Returns:
+        DataFrame: The input DataFrame with additional columns for predictions and evaluation metrics.
+    """
     pred_orig = predict(model, df["original_text"])
     pred_trans = predict(model, df["transformed_text"])
 
@@ -173,6 +263,7 @@ def evaluate_model(model, df):
 
     return df
 
+
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print("Usage: python test_metamorphic.py <input_data.tsv> <model.pkl>")
@@ -192,4 +283,8 @@ if __name__ == "__main__":
 
         results_df = evaluate_model(model, metamorphic_df)
 
-        results_df.to_csv(os.path.join(data_base_dir, "metamorphic_predictions.tsv"), sep="\t", index=False)
+        results_df.to_csv(
+            os.path.join(data_base_dir, "metamorphic_predictions.tsv"),
+            sep="\t",
+            index=False,
+        )

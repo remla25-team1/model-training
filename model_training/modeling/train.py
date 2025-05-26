@@ -1,37 +1,37 @@
+from pathlib import Path
 from typing import Optional
-import typer
+
 import joblib
 import numpy as np
-import dvc.api
-import yaml
-
-from pathlib import Path
-from loguru import logger
-from pathlib import Path
-from sklearn.naive_bayes import GaussianNB
+import typer
 from ensure_versioning import Ensurance
+from loguru import logger
+from sklearn.naive_bayes import GaussianNB
 
 from model_training.config import MODELS_DIR, PROCESSED_DATA_DIR
 
 app = typer.Typer()
 
+
 def train_and_save_model(version, X_train, y_train):
-    ''' 
-    Trains the Gaussian Naive Bayes model and creates a directory for the model version and saves the trained model in that directory.
+    """
+    Trains the Gaussian Naive Bayes model and creates a directory for the model version
+    and saves the trained model in that directory.
+
     input:
     - version: str, model version name
     - X_train: array-like, training data features
     - y_train: array-like, training data labels
-    '''
+    """
     # Create directory for output model
     model_dir = MODELS_DIR / version
     model_dir.mkdir(parents=True, exist_ok=True)
     model_path = model_dir / f"{version}_Sentiment_Model.pkl"
-    
+
     # Fit a Gaussian Naive Bayes classifier to the training data
     classifier = GaussianNB()
     classifier.fit(X_train, y_train)
-    
+
     # Save model
     joblib.dump(classifier, model_path)
     logger.info(f"Model trained and saved to: {model_path}")
@@ -44,7 +44,9 @@ def main(
     version: Optional[str] = None,  # Allow override
 ):
     version = version or Ensurance().return_version()
-    logger.info(f"Using model version: {version} (from {'CLI' if version else 'Ensurance'})")
+    logger.info(
+        f"Using model version: {version} (from {'CLI' if version else 'Ensurance'})"
+    )
 
     # Load training data
     logger.info(f"Loading training data from {features_path} and {labels_path}")

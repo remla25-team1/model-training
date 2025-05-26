@@ -1,18 +1,25 @@
-from sklearn.metrics import accuracy_score
-from model_training.training import SentimentModel
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import GaussianNB
+import os
 import tracemalloc
+
 import joblib
 import pandas as pd
-from lib_ml.preprocessing import Preprocessor
 import pytest
-import os
+from lib_ml.preprocessing import Preprocessor
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+
+from model_training.training import SentimentModel
 
 
 @pytest.fixture(scope="module")
 def trained_model_file():
+    """
+    Fixture to ensure the model is trained before running tests.
+
+    If the model file does not exist, it will train the model and return the path.
+    """
     model_version = "test_model_dev"
     model_path = f"models/{model_version}/{model_version}_Sentiment_Model.pkl"
     if not os.path.exists(model_path):
@@ -25,9 +32,16 @@ def trained_model_file():
 
 
 def test_model_prediction_accuracy(trained_model_file):
+    """
+    Test the accuracy of the trained model on a test set.
+
+    This test checks if the model achieves at least 65% accuracy.
+    """
     model_path = trained_model_file
     classifier = joblib.load(model_path)
-    dataset = pd.read_csv("data/a1_RestaurantReviews_HistoricDump.tsv", delimiter='\t', quoting=3)
+    dataset = pd.read_csv(
+        "data/a1_RestaurantReviews_HistoricDump.tsv", delimiter="\t", quoting=3
+    )
     preprocessor = Preprocessor()
     corpus = preprocessor.process(dataset)
     vectorizer = joblib.load("bow/c1_BoW_Sentiment_Model.pkl")
@@ -41,6 +55,13 @@ def test_model_prediction_accuracy(trained_model_file):
 
 
 def get_accuracy(corpus, labels):
+    """
+    Helper function to compute accuracy of a Naive Bayes classifier on a given corpus
+    and labels.
+
+    This function preprocesses the corpus, vectorizes it, and trains a Gaussian Naive
+    Bayes classifier. It returns the accuracy score on a test set.
+    """
     corpus = [doc for doc in corpus if doc.strip()]
     if len(corpus) < 5:
         pytest.skip("Too few valid documents after preprocessing")
@@ -49,12 +70,22 @@ def get_accuracy(corpus, labels):
         X = vectorizer.fit_transform(corpus).toarray()
     except ValueError as e:
         pytest.skip(f"Vectorizer failed: {e}")
-    y = labels[:len(X)] 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+    y = labels[: len(X)]
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=0
+    )
     clf = GaussianNB().fit(X_train, y_train)
     return accuracy_score(y_test, clf.predict(X_test))
 
+
 def test_model_consistency_on_labels():
+    """
+    Test the model's performance on positive and negative samples.
+
+    This test checks if the model performs similarly on both classes. It computes the
+    accuracy for positive and negative samples separately and asserts that the
+    difference in accuracy is less than 15%.
+    """
     model = SentimentModel("data/a1_RestaurantReviews_HistoricDump.tsv")
     df = model.dataset.copy()
     preprocessor = Preprocessor()
@@ -67,16 +98,22 @@ def test_model_consistency_on_labels():
     acc_pos = get_accuracy(pos_corpus, pos_df["Liked"])
     acc_neg = get_accuracy(neg_corpus, neg_df["Liked"])
     print(f"[Slice Test] Accuracy Positive: {acc_pos:.2f}, Negative: {acc_neg:.2f}")
-    assert abs(acc_pos - acc_neg) < 0.15, (
-        f"Model performs differently on pos vs neg samples: {acc_pos:.2f} vs {acc_neg:.2f}"
-    )
-
-
+    assert (
+        abs(acc_pos - acc_neg) < 0.15
+    ), f"Model performs differently on pos vs neg samples: {acc_pos:.2f} vs {acc_neg:.2f}"
 
 
 def test_model_prediction_determinism(trained_model_file):
+    """
+    Test that the model produces the same predictions on the same input across multiple
+    runs.
+
+    This test ensures that the model's predictions are deterministic.
+    """
     clf = joblib.load(trained_model_file)
-    dataset = pd.read_csv("data/a1_RestaurantReviews_HistoricDump.tsv", delimiter='\t', quoting=3)
+    dataset = pd.read_csv(
+        "data/a1_RestaurantReviews_HistoricDump.tsv", delimiter="\t", quoting=3
+    )
     preprocessor = Preprocessor()
     corpus = preprocessor.process(dataset)
     vectorizer = joblib.load("bow/c1_BoW_Sentiment_Model.pkl")
@@ -89,6 +126,11 @@ def test_model_prediction_determinism(trained_model_file):
 
 
 def test_memory_usage_during_vectorization():
+    """
+    Test the memory usage during the vectorization process.
+
+    This test checks if the peak memory usage during vectorization is below a threshold.
+    """
     model = SentimentModel("data/a1_RestaurantReviews_HistoricDump.tsv")
     corpus = model.preprocess_data()
 
@@ -98,6 +140,6 @@ def test_memory_usage_during_vectorization():
     _, peak = tracemalloc.get_traced_memory()
     tracemalloc.stop()
 
-    peak_mb = peak / (1024 * 1024)  
+    peak_mb = peak / (1024 * 1024)
     print(f"[Memory] Peak vectorization memory usage: {peak_mb:.2f}MB")
     assert peak_mb < 100, f"Vectorization peak memory usage too high: {peak_mb:.2f}MB"

@@ -1,16 +1,16 @@
 name: ML Auto-Test
 
 on:
-  workflow_dispatch:  # manually run the workflow everytime via Actions on Github
-  push:                  
+  workflow_dispatch:
+  push:
     branches:
-      - tests 
+      - tests
     paths-ignore:
-      - README.md   
-jobs:
+      - README.md
 
+jobs:
   generate-version:
-    if: github.actor != 'github-actions' 
+    if: github.actor != 'github-actions'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -44,17 +44,26 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
+
+      - name: Cache pip # for speed up of Github Action runs
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
 
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install coverage pytest flake8
+          pip install coverage pytest flake8 isort black pylint
 
-      # - name: Run linters
-      #   run: |
-      #     echo "Running flake8..."
-      #     flake8 model_training tests || (echo 'Lint errors found.' && exit 1)
+      - name: Run format
+        run: make format
+
+      - name: Run lint
+        run: make lint
 
       - name: Run tests with coverage
         run: |
@@ -72,13 +81,8 @@ jobs:
           MEMORY=$(grep '\[Memory\]' test_output.txt | awk '{print $NF}')
           COVERAGE=$(tail -n1 coverage.txt | awk '{print $4}')
 
-          # Update coverage line
           sed -i "s|<!-- COVERAGE -->.*|<!-- COVERAGE --> Coverage: ${COVERAGE}|" README.md
-
-          # Delete old ADEQUACY block content
           sed -i '/<!-- ADEQUACY START -->/,/<!-- ADEQUACY END -->/d' README.md
-
-          # Append updated adequacy block at the end (or re-insert at correct location)
           cat <<EOF >> README.md
           <!-- ADEQUACY START -->
           - Accuracy: ${ACCURACY}  
@@ -89,10 +93,9 @@ jobs:
           - Peak Memory: ${MEMORY}
           <!-- ADEQUACY END -->
           EOF
+
       - name: Commit and push updated README
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git diff --quiet README.md || (git add README.md && git commit -m "Update README" && git push origin HEAD)
-
-          

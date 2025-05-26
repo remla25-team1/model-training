@@ -13,7 +13,7 @@ This project uses **Poetry** to manage Python dependencies and virtual environme
 If you don’t have Poetry installed yet, run the following command:
 
 ```bash
-pipx install poetry
+pip install poetry
 ```
 
 ####  2. Install Dependencies

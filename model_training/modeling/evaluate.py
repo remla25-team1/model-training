@@ -1,9 +1,10 @@
 from pathlib import Path
-from loguru import logger
-import typer
+
 import joblib
 import numpy as np
-from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
+import typer
+from loguru import logger
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 from model_training.config import MODELS_DIR, PROCESSED_DATA_DIR, REPORTS_DIR
 
@@ -11,26 +12,28 @@ app = typer.Typer()
 
 
 def save_confusion_matrix(y_true, y_pred, output_path):
-    '''
+    """
     Save confusion matrix of classifier on test data.
+
     input:
     - y_true: array-like, true labels
     - y_pred: array-like, predicted labels
     - output_path: str, where to store the confusion matrix
-    '''
+    """
     cm = confusion_matrix(y_true, y_pred)
     np.save(output_path, cm)
     logger.info(f"Confusion matrix saved to {output_path}")
 
 
 def save_classification_report(y_true, y_pred, output_path):
-    '''
+    """
     Save classification report to file.
+
     input:
     - y_true: array-like, true labels
     - y_pred: array-like, predicted labels
     - output_path: str, where to store the classification report
-    '''
+    """
     report = classification_report(y_true, y_pred)
     with open(output_path, "w") as f:
         f.write(report)
@@ -38,15 +41,16 @@ def save_classification_report(y_true, y_pred, output_path):
 
 
 def evaluate_model(version, classifier, X_test, y_test):
-    '''
+    """
     Evaluate the trained model on test data.
+
     input:
     - version: str, model version name
     - classifier: trained model
     - X_test: array-like, test features
     - y_test: array-like, true test labels
-    '''
-    # Predict 
+    """
+    # Predict
     y_pred = classifier.predict(X_test)
 
     # Save confusion matrix and classification report

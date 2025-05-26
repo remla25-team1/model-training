@@ -1,29 +1,31 @@
-from pathlib import Path
-from loguru import logger
-import typer
 import pickle
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import CountVectorizer
+from pathlib import Path
 
-from model_training.config import PROCESSED_DATA_DIR, MODELS_DIR
+import numpy as np
+import pandas as pd
+import typer
+from loguru import logger
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.model_selection import train_test_split
+
+from model_training.config import MODELS_DIR, PROCESSED_DATA_DIR
 
 app = typer.Typer()
 
 
 def transform_data(dataset, bow_output_path):
-    '''
+    """
     Transforms the dataset into a bag-of-words representation using CountVectorizer.
+
     input:
     - dataset: DataFrame, the preprocessed dataset containing the text data and labels
     - bow_output_path: str, where to store the CountVectorizer model
     output:
     - X: array-like, the transformed feature set
     - y: array-like, the target variable
-    '''
+    """
     corpus = dataset["Review"].tolist()
-    y = dataset["Liked"].values 
+    y = dataset["Liked"].values
     cv = CountVectorizer(max_features=1420)
     X = cv.fit_transform(corpus).toarray()
 
@@ -36,20 +38,23 @@ def transform_data(dataset, bow_output_path):
 
 
 def split_data(X, y, test_size, random_state):
-    '''
+    """
     Splits the dataset into training and testing sets.
+
     input:
     - X: array-like, feature set
     - y: array-like, target variable
     - test_size: int, size of test set
-    - random_state: int, seed used when splitting 
+    - random_state: int, seed used when splitting
     output:
     - X_train: array-like, training feature set
     - X_test: array-like, testing feature set
     - y_train: array-like, training target variable
     - y_test: array-like, testing target variable
-    '''
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
+    """
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=test_size, random_state=random_state
+    )
     logger.info(f"Split data into train and test sets with test size {test_size}")
 
     return X_train, X_test, y_train, y_test
@@ -64,7 +69,7 @@ def main(
     labels_test_path: Path = PROCESSED_DATA_DIR / "labels_test.npy",
     bow_output_path: Path = MODELS_DIR / "c1_BoW_Sentiment_Model.pkl",
     test_size: float = 0.2,
-    random_state: int = 1
+    random_state: int = 1,
 ):
     # Load preprocessed data from file
     logger.info(f"Loading dataset from: {input_path}")
@@ -73,7 +78,7 @@ def main(
     # Transform data
     X, y = transform_data(dataset, bow_output_path)
 
-    # Split data 
+    # Split data
     X_train, X_test, y_train, y_test = split_data(X, y, test_size, random_state)
 
     # Save splits
