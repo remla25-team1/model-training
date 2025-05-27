@@ -1,10 +1,12 @@
 """Unit tests for data quality and feature extraction in the sentiment analysis
 pipeline."""
 
+import os
 import time
 
 import numpy as np
 import pandas as pd
+import pytest
 from lib_ml.preprocessing import Preprocessor
 from sklearn.feature_extraction.text import CountVectorizer
 
@@ -12,7 +14,11 @@ from sklearn.feature_extraction.text import CountVectorizer
 def test_data_quality():
     """Test the quality of the dataset by checking for null values, empty strings, and
     label consistency."""
-    dataset = pd.read_csv("data/raw/a1_RestaurantReviews_HistoricDump.tsv", sep="\t")
+    data_path = "data/raw/a1_RestaurantReviews_HistoricDump.tsv"
+    if not os.path.exists(data_path):
+        pytest.skip(f"Test data not found: {data_path}")
+
+    dataset = pd.read_csv(data_path, sep="\t")
     # check null values
     assert dataset["Review"].notnull().all(), "Data contains null reviews"
     assert dataset["Liked"].notnull().all(), "Data contains null labels"
@@ -30,7 +36,11 @@ def test_feature_distribution():
     """Test the feature distribution by checking the number of features, sparsity, and
     the presence of NaN or Inf values in the feature matrix."""
     # Load dataset and preprocess reviews
-    dataset = pd.read_csv("data/raw/a1_RestaurantReviews_HistoricDump.tsv", sep="\t")
+    data_path = "data/raw/a1_RestaurantReviews_HistoricDump.tsv"
+    if not os.path.exists(data_path):
+        pytest.skip(f"Test data not found: {data_path}")
+
+    dataset = pd.read_csv(data_path, sep="\t")
     reviews = dataset["Review"].dropna().tolist()
     preprocessor = Preprocessor()
     processed_reviews = [preprocessor.process_item(r) for r in reviews]
@@ -55,7 +65,11 @@ def test_feature_preprocessing_latency():
     """Test the latency of feature preprocessing by measuring the time taken to
     preprocess a sample of reviews."""
 
-    dataset = pd.read_csv("data/raw/a1_RestaurantReviews_HistoricDump.tsv", sep="\t")
+    data_path = "data/raw/a1_RestaurantReviews_HistoricDump.tsv"
+    if not os.path.exists(data_path):
+        pytest.skip(f"Test data not found: {data_path}")
+
+    dataset = pd.read_csv(data_path, sep="\t")
     sample = dataset["Review"].dropna().sample(min(100, len(dataset)))
     start = time.time()
     for review in sample:

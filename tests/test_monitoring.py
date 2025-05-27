@@ -1,8 +1,11 @@
 """Tests for model monitoring and prediction on fresh inputs."""
 
+import os
+
 import joblib
 import numpy as np
 import pandas as pd
+import pytest
 from lib_ml.preprocessing import Preprocessor
 
 
@@ -13,7 +16,11 @@ def test_model_on_simulated_fresh_inputs(model_file):
     This test checks if the model can handle new data and provides a reasonable
     prediction ratio.
     """
-    fresh_df = pd.read_csv("data/raw/a1_RestaurantReviews_HistoricDump.tsv", sep="\t")
+    data_path = "data/raw/a1_RestaurantReviews_HistoricDump.tsv"
+    if not os.path.exists(data_path):
+        pytest.skip(f"Test data not found: {data_path}")
+
+    fresh_df = pd.read_csv(data_path, sep="\t")
     model = joblib.load(model_file)
     vectorizer = joblib.load("bow/c1_BoW_Sentiment_Model.pkl")
     pre = Preprocessor()

@@ -1,5 +1,6 @@
 """Unit and integration tests for model development and training pipeline."""
 
+import os
 import tracemalloc
 
 import joblib
@@ -20,11 +21,13 @@ def test_model_prediction_accuracy(model_file):
 
     This test checks if the model achieves at least 65% accuracy.
     """
+    data_path = "data/raw/a1_RestaurantReviews_HistoricDump.tsv"
+    if not os.path.exists(data_path):
+        pytest.skip(f"Test data not found: {data_path}")
+
     model_path = model_file
     classifier = joblib.load(model_path)
-    dataset = pd.read_csv(
-        "data/raw/a1_RestaurantReviews_HistoricDump.tsv", delimiter="\t", quoting=3
-    )
+    dataset = pd.read_csv(data_path, delimiter="\t", quoting=3)
     preprocessor = Preprocessor()
     corpus = preprocessor.process(dataset)
     vectorizer = joblib.load("bow/c1_BoW_Sentiment_Model.pkl")
@@ -69,7 +72,11 @@ def test_model_consistency_on_labels():
     accuracy for positive and negative samples separately and asserts that the
     difference in accuracy is less than 15%.
     """
-    model = SentimentModel("data/a1_RestaurantReviews_HistoricDump.tsv")
+    data_path = "data/raw/a1_RestaurantReviews_HistoricDump.tsv"
+    if not os.path.exists(data_path):
+        pytest.skip(f"Test data not found: {data_path}")
+
+    model = SentimentModel(data_path)
     df = model.dataset.copy()
     preprocessor = Preprocessor()
     corpus = preprocessor.process(df)
@@ -93,10 +100,12 @@ def test_model_prediction_determinism(model_file):
 
     This test ensures that the model's predictions are deterministic.
     """
+    data_path = "data/raw/a1_RestaurantReviews_HistoricDump.tsv"
+    if not os.path.exists(data_path):
+        pytest.skip(f"Test data not found: {data_path}")
+
     clf = joblib.load(model_file)
-    dataset = pd.read_csv(
-        "data/raw/a1_RestaurantReviews_HistoricDump.tsv", delimiter="\t", quoting=3
-    )
+    dataset = pd.read_csv(data_path, delimiter="\t", quoting=3)
     preprocessor = Preprocessor()
     corpus = preprocessor.process(dataset)
     vectorizer = joblib.load("bow/c1_BoW_Sentiment_Model.pkl")
@@ -114,7 +123,11 @@ def test_memory_usage_during_vectorization():
 
     This test checks if the peak memory usage during vectorization is below a threshold.
     """
-    model = SentimentModel("data/a1_RestaurantReviews_HistoricDump.tsv")
+    data_path = "data/raw/a1_RestaurantReviews_HistoricDump.tsv"
+    if not os.path.exists(data_path):
+        pytest.skip(f"Test data not found: {data_path}")
+
+    model = SentimentModel(data_path)
     corpus = model.preprocess_data()
 
     vectorizer = CountVectorizer(max_features=1420)
