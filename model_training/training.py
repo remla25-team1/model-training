@@ -1,5 +1,4 @@
 # pylint: disable=redefined-outer-name
-
 """Training utilities and CLI for the sentiment analysis model."""
 
 import logging
