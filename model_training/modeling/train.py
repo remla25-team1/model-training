@@ -11,7 +11,7 @@ from sklearn.naive_bayes import GaussianNB
 
 from model_training.config import MODELS_DIR, PROCESSED_DATA_DIR
 
-from .ensure_versioning import Ensurance
+from model_training.modeling.ensure_versioning import Ensurance
 
 app = typer.Typer()
 

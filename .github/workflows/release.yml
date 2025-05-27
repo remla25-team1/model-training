@@ -39,7 +39,7 @@ jobs:
           poetry run python model_training/preprocessing.py
           poetry run python model_training/features.py
           poetry run python model_training/modeling/ensure_versioning.py
-          poetry run python model_training/modeling/train.py --version=${{ github.ref_name }}
+          poetry run python -m model_training.modeling.train --version=${{ github.ref_name }}
 
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
