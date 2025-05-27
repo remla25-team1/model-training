@@ -12,7 +12,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 def test_data_quality():
     """Test the quality of the dataset by checking for null values, empty strings, and
     label consistency."""
-    dataset = pd.read_csv("data/a1_RestaurantReviews_HistoricDump.tsv", sep="\t")
+    dataset = pd.read_csv("data/raw/a1_RestaurantReviews_HistoricDump.tsv", sep="\t")
     # check null values
     assert dataset["Review"].notnull().all(), "Data contains null reviews"
     assert dataset["Liked"].notnull().all(), "Data contains null labels"
@@ -30,7 +30,7 @@ def test_feature_distribution():
     """Test the feature distribution by checking the number of features, sparsity, and
     the presence of NaN or Inf values in the feature matrix."""
     # Load dataset and preprocess reviews
-    dataset = pd.read_csv("data/a1_RestaurantReviews_HistoricDump.tsv", sep="\t")
+    dataset = pd.read_csv("data/raw/a1_RestaurantReviews_HistoricDump.tsv", sep="\t")
     reviews = dataset["Review"].dropna().tolist()
     preprocessor = Preprocessor()
     processed_reviews = [preprocessor.process_item(r) for r in reviews]

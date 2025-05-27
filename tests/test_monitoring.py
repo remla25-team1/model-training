@@ -6,7 +6,7 @@ import pandas as pd
 from lib_ml.preprocessing import Preprocessor
 
 
-def test_model_on_simulated_fresh_inputs(trained_model_file):
+def test_model_on_simulated_fresh_inputs(model_file):
     """
     Test the model's prediction on simulated fresh inputs.
 
@@ -14,7 +14,7 @@ def test_model_on_simulated_fresh_inputs(trained_model_file):
     prediction ratio.
     """
     fresh_df = pd.read_csv("data/raw/a1_RestaurantReviews_HistoricDump.tsv", sep="\t")
-    model = joblib.load(trained_model_file)
+    model = joblib.load(model_file)
     vectorizer = joblib.load("bow/c1_BoW_Sentiment_Model.pkl")
     pre = Preprocessor()
     processed = [pre.process_item(text) for text in fresh_df["Review"]]

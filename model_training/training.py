@@ -1,3 +1,5 @@
+# pylint: disable=redefined-outer-name
+
 """Training utilities and CLI for the sentiment analysis model."""
 
 import logging
@@ -91,7 +93,7 @@ class SentimentModel:
         return x_train, x_test, y_train, y_test
 
     # pylint: disable=too-many-arguments,too-many-positional-arguments
-    def fitting(self, version, x_train, x_test, y_train, y_test):
+    def fit_and_save(self, version, x_train, y_train):
         """
         Trains the Gaussian Naive Bayes model and creates a directory for the model
         version and saves the trained model in that directory.
@@ -112,7 +114,10 @@ class SentimentModel:
         joblib.dump(classifier, model_path)
         logger.info("Model saved to %s", model_path)
         logger.info("Model version: %s", version)
+        return classifier
 
+    def predict(self, classifier, x_test, y_test):
+        """Makes predictions and logs metrics."""
         y_pred = classifier.predict(x_test)
         logger.info("Predictions: %s", y_pred)
 
@@ -121,7 +126,7 @@ class SentimentModel:
 
         acc = accuracy_score(y_test, y_pred)
         logger.info("Accuracy: %s", acc)
-        return classifier
+        return y_pred, cm, acc
 
 
 if __name__ == "__main__":
@@ -149,6 +154,7 @@ if __name__ == "__main__":
     )
 
     # Fit the model and save it
-    sentiment_model.fitting(
-        model_version, x_train_main, x_test_main, y_train_main, y_test_main
-    )
+    classifier = sentiment_model.fit_and_save(model_version, x_train_main, y_train_main)
+
+    # Make predictions and evaluate the model
+    y_pred, cm, acc = sentiment_model.predict(classifier, x_test_main, y_test_main)
