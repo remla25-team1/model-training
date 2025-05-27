@@ -15,7 +15,7 @@ nltk.download("wordnet")
 nltk.download("omw-1.4")
 
 # Skip all tests in this module if the metamorphic data file is missing
-METAMORPHIC_DATA_PATH = "data/raw/metamorphic_data.tsv"
+METAMORPHIC_DATA_PATH = "data/processed/metamorphic_data.tsv"
 if not os.path.exists(METAMORPHIC_DATA_PATH):
     pytest.skip(
         f"Metamorphic data not found: {METAMORPHIC_DATA_PATH}", allow_module_level=True
