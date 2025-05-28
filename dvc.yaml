@@ -1,6 +1,6 @@
 stages:
   get_data:
-    cmd: python model_training/dataset.py
+    cmd: python model_training/dataset.py main
     deps:
     - model_training/dataset.py
     outs:
@@ -30,6 +30,7 @@ stages:
     cmd: python model_training/ensure_versioning.py
     deps:
     - model_training/ensure_versioning.py
+    - dynamic_version.txt
     outs:
     - params.yaml
 
@@ -44,8 +45,8 @@ stages:
     - version
     outs:
     - models/${version}/${version}_Sentiment_Model.pkl
-    - data/processed/features_test.npy
-    - data/processed/labels_test.npy
+    # - data/processed/features_test.npy
+    # - data/processed/labels_test.npy
 
   evaluate_model:
     cmd: python model_training/evaluate.py --version ${version}

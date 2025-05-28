@@ -46,7 +46,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Cache pip # for speed up of Github Action runs
+      - name: Cache pip
         uses: actions/cache@v3
         with:
           path: ~/.cache/pip
@@ -69,12 +69,22 @@ jobs:
         run: |
           python -m nltk.downloader stopwords wordnet omw-1.4
 
-      - name: Run tests with coverage
+      - name: Download dataset
+        run: python model_training/dataset.py main
+
+      - name: Run tests with coverage (detailed output)
         run: |
-          echo "Running tests with coverage..."
-          coverage run --rcfile=.coveragerc -m pytest -s tests
+          echo "Running unit tests..."
+          coverage run --rcfile=.coveragerc -m pytest -v --tb=short --durations=10 tests
+
+          echo "Running metamorphic robustness test..."
+          coverage run --rcfile=.coveragerc --append src/metamorphic_test.py \
+            --input data/processed/training_data.tsv \
+            --model-version test_model_dev \
+            | tee metamorphic_output.txt
+
           coverage report --rcfile=.coveragerc -m > coverage.txt
-      
+
       - name: Show coverage summary
         run: coverage report --rcfile=.coveragerc -m
 
@@ -88,6 +98,13 @@ jobs:
           MEMORY=$(grep '\[Memory\]' test_output.txt | awk '{print $NF}')
           COVERAGE=$(tail -n1 coverage.txt | awk '{print $4}')
 
+          # Extract from metamorphic_output.txt
+          META_CONSISTENCY=$(grep 'Consistency Rate:' metamorphic_output.txt | awk '{print $NF}')
+          META_PRESERVATION=$(grep 'Label Preservation Rate:' metamorphic_output.txt | awk '{print $NF}')
+          META_FLIPPING=$(grep 'Flipping Rate:' metamorphic_output.txt | awk '{print $NF}')
+          META_DELTA_ACC=$(grep 'Accuracy Drop' metamorphic_output.txt | awk '{print $NF}')
+
+          # Update README
           sed -i "s|<!-- COVERAGE -->.*|<!-- COVERAGE --> Coverage: ${COVERAGE}|" README.md
           sed -i '/<!-- ADEQUACY START -->/,/<!-- ADEQUACY END -->/d' README.md
           cat <<EOF >> README.md
@@ -98,6 +115,12 @@ jobs:
           - Sparsity: ${SPARSITY}  
           - Latency: ${LATENCY}  
           - Peak Memory: ${MEMORY}
+          
+          **Metamorphic Robustness**  
+          - Consistency Rate: ${META_CONSISTENCY}  
+          - Label Preservation Rate: ${META_PRESERVATION}  
+          - Flipping Rate: ${META_FLIPPING}  
+          - Accuracy Drop (Δ acc): ${META_DELTA_ACC}
           <!-- ADEQUACY END -->
           EOF
 
@@ -105,4 +128,4 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git diff --quiet README.md || (git add README.md && git commit -m "Update README" && git push origin HEAD)
+          git diff --quiet README.md || (git add README.md && git commit -m "Update README with metamorphic results" && git push

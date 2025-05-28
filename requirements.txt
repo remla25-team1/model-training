@@ -13,3 +13,4 @@ nltk
 dvc~=3.59.2
 coverage~=7.5.0
 loguru~=0.7.3
+gdown

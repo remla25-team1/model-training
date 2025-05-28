@@ -118,19 +118,6 @@ python model_training/modeling/evaluate.py --version v0.0.3
 - The --version flag tells the script which model version to load from the `models/` directory for evaluation.
 - The script outputs key metrics like accuracy and confusion matrix to help you understand how well the model performs on test data.
 
-## DVC remote repo set up for model and data
-```bash
-dvc remote add -d gdrive gdrive://1Tet4deaL1P0cZZprX-Y1CzYjY9YPx1kA     # our remla google drive URI
-dvc remote modify gdrive gdrive_use_service_account true
-dvc remote modify gdrive gdrive_service_account_json_file_path creds/gdrive-sa.json
-
-# Track your raw/processed data directory
-dvc add data/
-
-# Track your trained models directory
-dvc add models/
-
-```
 ## Automatic Versioning
 We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is used for production. These will always be versions that work. The latter tag is an experimental model for developing purposes, this doesn't always have to be a working version. The version bump is now done automatically, so if v0.0.1 already exists, it will automatically bump the VERSION.txt up one count. Same story for the experimental tags, they will be based on the VERSION.txt as a base and increment based on date and based on last three digits if there are multiple models on the same day.
 
