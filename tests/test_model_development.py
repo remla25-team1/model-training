@@ -12,8 +12,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 
-from model_training.training import SentimentModel
-
 
 def test_model_prediction_accuracy(model_file):
     """
@@ -25,8 +23,7 @@ def test_model_prediction_accuracy(model_file):
     if not os.path.exists(data_path):
         pytest.skip(f"Test data not found: {data_path}")
 
-    model_path = model_file
-    classifier = joblib.load(model_path)
+    classifier = joblib.load(model_file)
     dataset = pd.read_csv(data_path, delimiter="\t", quoting=3)
     preprocessor = Preprocessor()
     corpus = preprocessor.process(dataset)
@@ -76,15 +73,16 @@ def test_model_consistency_on_labels():
     if not os.path.exists(data_path):
         pytest.skip(f"Test data not found: {data_path}")
 
-    model = SentimentModel(data_path)
-    df = model.dataset.copy()
+    df = pd.read_csv(data_path, delimiter="\t", quoting=3)
     preprocessor = Preprocessor()
     corpus = preprocessor.process(df)
     df["cleaned"] = corpus
+
     pos_df = df[df["Liked"] == 1].reset_index(drop=True)
     neg_df = df[df["Liked"] == 0].reset_index(drop=True)
     pos_corpus = pos_df["cleaned"].tolist()
     neg_corpus = neg_df["cleaned"].tolist()
+
     acc_pos = get_accuracy(pos_corpus, pos_df["Liked"])
     acc_neg = get_accuracy(neg_corpus, neg_df["Liked"])
     print(f"[Slice Test] Accuracy Positive: {acc_pos:.2f}, Negative: {acc_neg:.2f}")
@@ -127,8 +125,9 @@ def test_memory_usage_during_vectorization():
     if not os.path.exists(data_path):
         pytest.skip(f"Test data not found: {data_path}")
 
-    model = SentimentModel(data_path)
-    corpus = model.preprocess_data()
+    df = pd.read_csv(data_path, delimiter="\t", quoting=3)
+    preprocessor = Preprocessor()
+    corpus = preprocessor.process(df)
 
     vectorizer = CountVectorizer(max_features=1420)
     tracemalloc.start()
