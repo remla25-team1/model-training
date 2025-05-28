@@ -190,12 +190,9 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 ### Test Adequacy
 
 <!-- ADEQUACY START -->
-- Accuracy:   
-- Prediction Positive Ratio:   
-- Slice Consistency (Pos/Neg Acc):   
+- Data Quality:   
 - Sparsity:   
 - Latency:   
-- Peak Memory: 
 
 **Metamorphic Robustness**  
 - Consistency Rate:   
