@@ -5,6 +5,7 @@ stages:
     - model_training/dataset.py
     outs:
     - data/raw/a1_RestaurantReviews_HistoricDump.tsv
+
   pre_process:
     cmd: python model_training/preprocessing.py
     deps:
@@ -12,6 +13,7 @@ stages:
     - data/raw/a1_RestaurantReviews_HistoricDump.tsv
     outs:
     - data/processed/a1_RestaurantReviews_HistoricDump.tsv
+
   transform_data:
     cmd: python model_training/features.py
     deps:
@@ -23,20 +25,35 @@ stages:
     - data/processed/labels_test.npy
     - data/processed/labels_train.npy
     - models/c1_BoW_Sentiment_Model.pkl
+
   updating_params:
-    cmd: python model_training/modeling/ensure_versioning.py
+    cmd: python model_training/ensure_versioning.py
     deps:
-    - model_training/modeling/ensure_versioning.py
+    - model_training/ensure_versioning.py
     outs:
     - params.yaml
+
   train_model:
-    cmd: python model_training/modeling/train.py
+    cmd: python model_training/train.py train
     deps:
-      - model_training/modeling/train.py
-      - data/processed/features_train.npy
-      - data/processed/labels_train.npy
-      - dynamic_version.txt
+    - model_training/train.py
+    - data/processed/features_train.npy
+    - data/processed/labels_train.npy
+    - dynamic_version.txt
     params:
-      - version  
+    - version
     outs:
-      - models/${version}/${version}_Sentiment_Model.pkl
+    - models/${version}/${version}_Sentiment_Model.pkl
+    - data/processed/features_test.npy
+    - data/processed/labels_test.npy
+
+  evaluate_model:
+    cmd: python model_training/evaluate.py --version ${version}
+    deps:
+    - model_training/evaluate.py
+    - data/processed/features_test.npy
+    - data/processed/labels_test.npy
+    - models/${version}/${version}_Sentiment_Model.pkl
+    outs:
+    - reports/${version}_confusion_matrix.npy
+    - reports/${version}_classification_report.txt
