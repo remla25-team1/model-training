@@ -185,7 +185,7 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 ## ML auto testing
 ### Coverage
 
-<!-- COVERAGE --> Coverage: 35%
+<!-- COVERAGE --> Coverage: 58%
 
 ### Test Adequacy
 
@@ -196,4 +196,10 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 - Sparsity:   
 - Latency:   
 - Peak Memory: 
+
+**Metamorphic Robustness**  
+- Consistency Rate:   
+- Label Preservation Rate:   
+- Flipping Rate:   
+- Accuracy Drop (Δ acc): 
 <!-- ADEQUACY END -->
