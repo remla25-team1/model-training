@@ -78,7 +78,7 @@ jobs:
           coverage run --rcfile=.coveragerc -m pytest -v --tb=short --durations=10 tests
 
           echo "Running metamorphic robustness test..."
-          coverage run --rcfile=.coveragerc --append src/metamorphic_test.py \
+          coverage run --rcfile=.coveragerc --append tests/metamorphic_test.py \
             --input data/processed/training_data.tsv \
             --model-version test_model_dev \
             | tee metamorphic_output.txt
@@ -128,4 +128,4 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git diff --quiet README.md || (git add README.md && git commit -m "Update README with metamorphic results" && git push
+          git diff --quiet README.md || (git add README.md && git commit -m "Update README with test results" && git push)
