@@ -185,7 +185,7 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 ## ML auto testing
 ### Coverage
 
-<!-- COVERAGE --> Coverage: 58%
+<!-- COVERAGE --> Coverage: 
 
 ### Test Adequacy
 
