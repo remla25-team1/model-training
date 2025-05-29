@@ -88,30 +88,26 @@ jobs:
       - name: Show coverage summary
         run: coverage report --rcfile=.coveragerc -m
 
+      - name: Re-checkout current branch
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.OP_TOKEN }}
+          fetch-depth: 0
+          ref: ${{ github.ref }}
+          persist-credentials: true
+
       - name: Extract test adequacy info and update README
         run: |
-          # Unit‐test prints
-          DATA_QUALITY=$(grep '^\[Data Quality\]' test_output.txt | awk -F'] ' '{print $2}')
-          SPARSITY=$(grep '^\[Sparsity\]' test_output.txt | awk '{print $NF}')
-          LATENCY=$(grep '^\[Latency\]' test_output.txt | awk '{print $NF}')
-
-          # Metamorphic prints
-          META_CONSISTENCY=$(grep 'Consistency Rate:' metamorphic_output.txt | awk '{print $NF}')
-          META_PRESERVATION=$(grep 'Label Preservation Rate:' metamorphic_output.txt | awk '{print $NF}')
-          META_FLIPPING=$(grep 'Flipping Rate:' metamorphic_output.txt | awk '{print $NF}')
-          META_DELTA_ACC=$(grep 'Accuracy Drop' metamorphic_output.txt | awk '{print $NF}')
-
-          COVERAGE=$(tail -n1 coverage.txt | awk '{print $4}')
-
-          # Update README
+          # extract your variables…
           sed -i "s|<!-- COVERAGE -->.*|<!-- COVERAGE --> Coverage: ${COVERAGE}|" README.md
           sed -i '/<!-- ADEQUACY START -->/,/<!-- ADEQUACY END -->/d' README.md
+
           cat <<EOF >> README.md
           <!-- ADEQUACY START -->
           - Data Quality: ${DATA_QUALITY}  
           - Sparsity: ${SPARSITY}  
           - Latency: ${LATENCY}  
-          
+
           **Metamorphic Robustness**  
           - Consistency Rate: ${META_CONSISTENCY}  
           - Label Preservation Rate: ${META_PRESERVATION}  
@@ -122,6 +118,6 @@ jobs:
 
       - name: Commit and push updated README
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git diff --quiet README.md || (git add README.md && git commit -m "Update README with test results" && git push)
+          git add README.md
+          git diff --cached --quiet || git commit -m "ci: update README with test results"
+          git push
