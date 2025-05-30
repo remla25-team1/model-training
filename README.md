@@ -187,16 +187,8 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 
 <!-- COVERAGE --> Coverage: 
 
-### Test Adequacy
+### Test Metrics Summary
 
-<!-- ADEQUACY START -->
-- Data Quality:   
-- Sparsity:   
-- Latency:   
+<!-- METRICS START -->
+<!-- METRICS END -->
 
-**Metamorphic Robustness**  
-- Consistency Rate:   
-- Label Preservation Rate:   
-- Flipping Rate:   
-- Accuracy Drop (Δ acc): 
-<!-- ADEQUACY END -->

@@ -7,7 +7,9 @@ import numpy as np
 import pandas as pd
 import pytest
 from lib_ml.preprocessing import Preprocessor
+from utils.log_metrics import log_metric
 
+category = "MONITORING_TESTING"
 
 def test_model_on_simulated_fresh_inputs(model_file):
     """
@@ -27,12 +29,21 @@ def test_model_on_simulated_fresh_inputs(model_file):
     processed = [pre.process_item(text) for text in fresh_df["Review"]]
     x = vectorizer.transform(processed).toarray()
     preds = model.predict(x)
-    assert preds.shape == (len(fresh_df),), "Unexpected prediction output shape"
+    # Validate output shape
+    correct_shape = preds.shape == (len(fresh_df),)
+    log_metric("FRESH_PREDICTION_SHAPE_OK", correct_shape, message="Prediction output shape matches input size", category=category)
+    assert correct_shape, "Unexpected prediction output shape"
+    # Analyze prediction distribution
     positive_ratio = np.mean(preds)
-    print(f"[Fresh Inputs] Total samples: {len(fresh_df)}")
-    print(
-        f"[Prediction Ratio] Positive: {positive_ratio:.2f}, Negative: {1 - positive_ratio:.2f}"
+    negative_ratio = 1 - positive_ratio
+    log_metric(
+        "FRESH_POSITIVE_RATIO",
+        positive_ratio,
+        message=f"Positive: {positive_ratio:.2f}, Negative: {negative_ratio:.2f}",
+        category=category,
+        precision=2
     )
+
     assert (
         0.2 < positive_ratio < 0.8
     ), f"Prediction distribution suspicious: {positive_ratio:.2f}"

@@ -96,25 +96,35 @@ jobs:
           ref: ${{ github.ref }}
           persist-credentials: true
 
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+    
       - name: Extract test adequacy info and update README
         run: |
-          # extract your variables…
-          sed -i "s|<!-- COVERAGE -->.*|<!-- COVERAGE --> Coverage: ${COVERAGE}|" README.md
-          sed -i '/<!-- ADEQUACY START -->/,/<!-- ADEQUACY END -->/d' README.md
+          # Remove old section
+          sed -i '/<!-- METRICS START -->/,/<!-- METRICS END -->/d' README.md
 
-          cat <<EOF >> README.md
-          <!-- ADEQUACY START -->
-          - Data Quality: ${DATA_QUALITY}  
-          - Sparsity: ${SPARSITY}  
-          - Latency: ${LATENCY}  
+          echo "<!-- METRICS START -->" >> README.md
+          echo "##Test Summary" >> README.md
+          echo "" >> README.md
 
-          **Metamorphic Robustness**  
-          - Consistency Rate: ${META_CONSISTENCY}  
-          - Label Preservation Rate: ${META_PRESERVATION}  
-          - Flipping Rate: ${META_FLIPPING}  
-          - Accuracy Drop (Δ acc): ${META_DELTA_ACC}
-          <!-- ADEQUACY END -->
-          EOF
+          # Group by category
+          for cat in data feature model metamorphic; do
+            echo "### ${cat^} Tests" >> README.md
+            echo "" >> README.md
+            echo "| Metric | Value | Message |" >> README.md
+            echo "|--------|-------|---------|" >> README.md
+            jq -r \
+              --arg cat "$cat" \
+              '. as $root | to_entries
+               | map(select(.value.category == $cat))
+               | .[] 
+               | "| \(.key) | \(.value.value) | \(.value.message // "-") |"' \
+              metrics.json >> README.md
+            echo "" >> README.md
+          done
+
+          echo "<!-- METRICS END -->" >> README.md
 
       - name: Commit and push updated README
         run: |
