@@ -99,6 +99,12 @@ jobs:
           ref: ${{ github.ref }}
           persist-credentials: true
 
+      - name: Debug check for metrics.json
+        run: |
+          echo "Current directory: $(pwd)"
+          ls -lah
+          cat metrics.json || echo "metrics.json not found!"
+
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
     
