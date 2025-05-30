@@ -71,6 +71,9 @@ jobs:
 
       - name: Download dataset
         run: python -m model_training.dataset
+        
+      - name: Prepare metrics file
+        run: echo '{}' > metrics.json
 
       - name: Run tests with coverage (detailed output)
         run: |
