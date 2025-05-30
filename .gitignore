@@ -1,5 +1,7 @@
 # Do not upload data, models or reports to git
-data/*
+data/raw/*
+data/processed/*
+data/.DS_Store
 models/*
 reports/*
 

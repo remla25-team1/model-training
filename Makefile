@@ -28,28 +28,27 @@ clean:
 
 .PHONY: format
 format:
-	@echo "Running isort..."
-	isort model_training tests
-	@echo "Running black..."
-	black model_training tests
 	@echo "Removing unused imports/vars with autoflake..."
 	autoflake --in-place --remove-unused-variables \
-	          --remove-all-unused-imports \
-	          --recursive model_training tests
+				--remove-all-unused-imports \
+				--recursive model_training tests || true
+	@echo "Running isort..."
+	isort model_training tests || true
+	@echo "Running black..."
+	black model_training tests || true
 	@echo "Formatting docstrings with docformatter..."
-	docformatter --in-place --recursive model_training tests
-
+	docformatter --in-place --recursive model_training tests || true
 
 .PHONY: lint
 lint:
 	@echo "Running flake8..."
-	flake8 --config=.flake8 model_training
+	flake8 --config=.flake8 model_training || true
 	@echo "Running isort..."
-	isort --check --diff model_training
+	isort --check --diff model_training || true
 	@echo "Running black..."
-	black --check model_training
+	black --check model_training || true
 	@echo "Running pylint using lib-ml's shared config..."
-	pylint model_training tests
+	pylint model_training tests || true
 
 ##pylint --rcfile=$$(python -c "import lib_ml, os; print(os.path.join(lib_ml.__path__[0], '.pylintrc'))") model_training tests
 

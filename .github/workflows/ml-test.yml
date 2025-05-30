@@ -46,7 +46,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Cache pip # for speed up of Github Action runs
+      - name: Cache pip
         uses: actions/cache@v3
         with:
           path: ~/.cache/pip
@@ -69,37 +69,55 @@ jobs:
         run: |
           python -m nltk.downloader stopwords wordnet omw-1.4
 
-      - name: Run tests with coverage
+      - name: Download dataset
+        run: python -m model_training.dataset
+
+      - name: Run tests with coverage (detailed output)
         run: |
-          echo "Running tests with coverage..."
-          coverage run --rcfile=.coveragerc -m pytest -s tests
+          echo "Running unit tests..."
+          coverage run --rcfile=.coveragerc -m pytest -v --tb=short --durations=10 tests | tee test_output.txt
+
+          echo "Running metamorphic robustness test..."
+          coverage run --rcfile=.coveragerc --append tests/metamorphic_test.py \
+            --input data/processed/a1_RestaurantReviews_HistoricDump.tsv \
+            --model-version test_model_dev \
+            | tee metamorphic_output.txt
+
           coverage report --rcfile=.coveragerc -m > coverage.txt
+
+      - name: Show coverage summary
+        run: coverage report --rcfile=.coveragerc -m
+
+      - name: Re-checkout current branch
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.OP_TOKEN }}
+          fetch-depth: 0
+          ref: ${{ github.ref }}
+          persist-credentials: true
 
       - name: Extract test adequacy info and update README
         run: |
-          ACCURACY=$(grep '\[Accuracy\]' test_output.txt | awk '{print $NF}')
-          POS_RATIO=$(grep '\[Prediction Ratio\]' test_output.txt | awk '{print $NF}')
-          CONSISTENCY=$(grep '\[Slice Test\]' test_output.txt | sed -E 's/.*Positive: ([0-9.]+), Negative: ([0-9.]+).*/\1 \/ \2/')
-          SPARSITY=$(grep '\[Sparsity\]' test_output.txt | awk '{print $NF}')
-          LATENCY=$(grep '\[Latency\]' test_output.txt | sed -E 's/.*: //')
-          MEMORY=$(grep '\[Memory\]' test_output.txt | awk '{print $NF}')
-          COVERAGE=$(tail -n1 coverage.txt | awk '{print $4}')
-
+          # extract your variables…
           sed -i "s|<!-- COVERAGE -->.*|<!-- COVERAGE --> Coverage: ${COVERAGE}|" README.md
           sed -i '/<!-- ADEQUACY START -->/,/<!-- ADEQUACY END -->/d' README.md
+
           cat <<EOF >> README.md
           <!-- ADEQUACY START -->
-          - Accuracy: ${ACCURACY}  
-          - Prediction Positive Ratio: ${POS_RATIO}  
-          - Slice Consistency (Pos/Neg Acc): ${CONSISTENCY}  
+          - Data Quality: ${DATA_QUALITY}  
           - Sparsity: ${SPARSITY}  
           - Latency: ${LATENCY}  
-          - Peak Memory: ${MEMORY}
+
+          **Metamorphic Robustness**  
+          - Consistency Rate: ${META_CONSISTENCY}  
+          - Label Preservation Rate: ${META_PRESERVATION}  
+          - Flipping Rate: ${META_FLIPPING}  
+          - Accuracy Drop (Δ acc): ${META_DELTA_ACC}
           <!-- ADEQUACY END -->
           EOF
 
       - name: Commit and push updated README
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git diff --quiet README.md || (git add README.md && git commit -m "Update README" && git push origin HEAD)
+          git add README.md
+          git diff --cached --quiet || git commit -m "ci: update README with test results"
+          git push

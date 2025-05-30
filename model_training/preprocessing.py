@@ -2,10 +2,13 @@
 
 from pathlib import Path
 
+import joblib
+import numpy as np
 import pandas as pd
 import typer
 from lib_ml.preprocessing import Preprocessor
 from loguru import logger
+from sklearn.feature_extraction.text import CountVectorizer
 
 from model_training.config import PROCESSED_DATA_DIR, RAW_DATA_DIR
 
@@ -33,6 +36,7 @@ def preprocess_data(dataset):
 def main(
     input_path: Path = RAW_DATA_DIR / "a1_RestaurantReviews_HistoricDump.tsv",
     output_path: Path = PROCESSED_DATA_DIR / "a1_RestaurantReviews_HistoricDump.tsv",
+    save_npy: bool = True,
 ):
     """CLI entry point for preprocessing the dataset."""
     # Load raw data from file
@@ -50,6 +54,17 @@ def main(
     # Save cleaned data
     processed_df.to_csv(output_path, sep="\t", index=False)
     logger.info(f"Saved preprocessed data to {output_path}")
+
+    if save_npy:
+        logger.info("Converting text to BoW features...")
+        vectorizer = CountVectorizer(max_features=1420)
+        x = vectorizer.fit_transform(processed_df["Review"]).toarray()
+        y = processed_df["Liked"].values
+
+        joblib.dump(vectorizer, PROCESSED_DATA_DIR / "c1_BoW_Sentiment_Model.pkl")
+        np.save(PROCESSED_DATA_DIR / "features_train.npy", x)
+        np.save(PROCESSED_DATA_DIR / "labels_train.npy", y)
+        logger.info("Saved features and labels as .npy files.")
 
 
 if __name__ == "__main__":

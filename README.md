@@ -185,15 +185,18 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 ## ML auto testing
 ### Coverage
 
-<!-- COVERAGE --> Coverage: 47%
+<!-- COVERAGE --> Coverage: 
 
 ### Test Adequacy
 
 <!-- ADEQUACY START -->
-- Accuracy: 0.67  
-- Prediction Positive Ratio: 0.58  
-- Slice Consistency (Pos/Neg Acc): 1.00 / 1.00  
-- Sparsity: 0.9962  
-- Latency: 0.00000s (on 100 samples)  
-- Peak Memory: 0.44MB
+- Data Quality:   
+- Sparsity:   
+- Latency:   
+
+**Metamorphic Robustness**  
+- Consistency Rate:   
+- Label Preservation Rate:   
+- Flipping Rate:   
+- Accuracy Drop (Δ acc): 
 <!-- ADEQUACY END -->

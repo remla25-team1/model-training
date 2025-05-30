@@ -1,5 +1,6 @@
 """Unit and integration tests for model development and training pipeline."""
 
+import os
 import tracemalloc
 
 import joblib
@@ -11,8 +12,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 
-from model_training.training import SentimentModel
-
 
 def test_model_prediction_accuracy(model_file):
     """
@@ -20,11 +19,12 @@ def test_model_prediction_accuracy(model_file):
 
     This test checks if the model achieves at least 65% accuracy.
     """
-    model_path = model_file
-    classifier = joblib.load(model_path)
-    dataset = pd.read_csv(
-        "data/raw/a1_RestaurantReviews_HistoricDump.tsv", delimiter="\t", quoting=3
-    )
+    data_path = "data/raw/a1_RestaurantReviews_HistoricDump.tsv"
+    if not os.path.exists(data_path):
+        pytest.skip(f"Test data not found: {data_path}")
+
+    classifier = joblib.load(model_file)
+    dataset = pd.read_csv(data_path, delimiter="\t", quoting=3)
     preprocessor = Preprocessor()
     corpus = preprocessor.process(dataset)
     vectorizer = joblib.load("bow/c1_BoW_Sentiment_Model.pkl")
@@ -69,15 +69,20 @@ def test_model_consistency_on_labels():
     accuracy for positive and negative samples separately and asserts that the
     difference in accuracy is less than 15%.
     """
-    model = SentimentModel("data/a1_RestaurantReviews_HistoricDump.tsv")
-    df = model.dataset.copy()
+    data_path = "data/raw/a1_RestaurantReviews_HistoricDump.tsv"
+    if not os.path.exists(data_path):
+        pytest.skip(f"Test data not found: {data_path}")
+
+    df = pd.read_csv(data_path, delimiter="\t", quoting=3)
     preprocessor = Preprocessor()
     corpus = preprocessor.process(df)
     df["cleaned"] = corpus
+
     pos_df = df[df["Liked"] == 1].reset_index(drop=True)
     neg_df = df[df["Liked"] == 0].reset_index(drop=True)
     pos_corpus = pos_df["cleaned"].tolist()
     neg_corpus = neg_df["cleaned"].tolist()
+
     acc_pos = get_accuracy(pos_corpus, pos_df["Liked"])
     acc_neg = get_accuracy(neg_corpus, neg_df["Liked"])
     print(f"[Slice Test] Accuracy Positive: {acc_pos:.2f}, Negative: {acc_neg:.2f}")
@@ -93,10 +98,12 @@ def test_model_prediction_determinism(model_file):
 
     This test ensures that the model's predictions are deterministic.
     """
+    data_path = "data/raw/a1_RestaurantReviews_HistoricDump.tsv"
+    if not os.path.exists(data_path):
+        pytest.skip(f"Test data not found: {data_path}")
+
     clf = joblib.load(model_file)
-    dataset = pd.read_csv(
-        "data/raw/a1_RestaurantReviews_HistoricDump.tsv", delimiter="\t", quoting=3
-    )
+    dataset = pd.read_csv(data_path, delimiter="\t", quoting=3)
     preprocessor = Preprocessor()
     corpus = preprocessor.process(dataset)
     vectorizer = joblib.load("bow/c1_BoW_Sentiment_Model.pkl")
@@ -114,8 +121,13 @@ def test_memory_usage_during_vectorization():
 
     This test checks if the peak memory usage during vectorization is below a threshold.
     """
-    model = SentimentModel("data/a1_RestaurantReviews_HistoricDump.tsv")
-    corpus = model.preprocess_data()
+    data_path = "data/raw/a1_RestaurantReviews_HistoricDump.tsv"
+    if not os.path.exists(data_path):
+        pytest.skip(f"Test data not found: {data_path}")
+
+    df = pd.read_csv(data_path, delimiter="\t", quoting=3)
+    preprocessor = Preprocessor()
+    corpus = preprocessor.process(df)
 
     vectorizer = CountVectorizer(max_features=1420)
     tracemalloc.start()
