@@ -75,6 +75,9 @@ jobs:
       - name: Prepare metrics file
         run: echo '{}' > metrics.json
 
+      - name: DEBUG List test directory
+        run: ls -R tests
+        
       - name: Run tests with coverage (detailed output)
         run: |
           echo "Running unit tests..."
