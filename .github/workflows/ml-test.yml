@@ -93,7 +93,7 @@ jobs:
         run: |
           echo "Current directory: $(pwd)"
           ls -lah
-          cat cat $GITHUB_WORKSPACE/metrics.json || echo "metrics.json not found!"
+          cat $GITHUB_WORKSPACE/metrics.json || echo "metrics.json not found!"
 
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
@@ -124,14 +124,6 @@ jobs:
           done
 
           echo "<!-- METRICS END -->" >> README.md
-
-      - name: Re-checkout current branch
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.OP_TOKEN }}
-          fetch-depth: 0
-          ref: ${{ github.ref }}
-          persist-credentials: true    
 
       - name: Commit and push updated README
         run: |
