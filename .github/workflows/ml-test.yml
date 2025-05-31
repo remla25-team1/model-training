@@ -89,9 +89,6 @@ jobs:
       - name: Show coverage summary
         run: coverage report --rcfile=.coveragerc -m
       
-      - name: DEBUG List test directory
-        run: ls -R
-    
       - name: Debug check for metrics.json
         run: |
           echo "Current directory: $(pwd)"
@@ -107,7 +104,7 @@ jobs:
           sed -i '/<!-- METRICS START -->/,/<!-- METRICS END -->/d' README.md
 
           echo "<!-- METRICS START -->" >> README.md
-          echo "##Test Summary" >> README.md
+          echo "## Test Summary" >> README.md
           echo "" >> README.md
 
           # Group by category
@@ -122,7 +119,7 @@ jobs:
                | map(select(.value.category == $cat))
                | .[] 
                | "| \(.key) | \(.value.value) | \(.value.message // "-") |"' \
-              cat metrics.json >> README.md
+               metrics.json >> README.md
             echo "" >> README.md
           done
 
