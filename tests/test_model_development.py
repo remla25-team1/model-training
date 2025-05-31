@@ -118,7 +118,7 @@ def test_model_prediction_determinism(model_file):
     _, x_test, _, _ = train_test_split(x, y, test_size=0.2, random_state=0)
     pred1 = clf.predict(x_test)
     pred2 = clf.predict(x_test)
-    deterministic = (pred1 == pred2).all()
+    deterministic = bool((pred1 == pred2).all())
     log_metric("PREDICTION_DETERMINISTIC", deterministic, message="Predictions are consistent across repeated inference", category=category)
     assert deterministic, "Predictions differ between identical runs"
 

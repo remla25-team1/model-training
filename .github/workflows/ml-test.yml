@@ -71,12 +71,6 @@ jobs:
 
       - name: Download dataset
         run: python -m model_training.dataset
-        
-      - name: Prepare metrics file
-        run: echo '{}' > metrics.json
-
-      - name: DEBUG List test directory
-        run: ls -R tests
 
       - name: Run tests with coverage (detailed output)
         run: |
@@ -102,7 +96,10 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.ref }}
           persist-credentials: true
-
+      
+      - name: DEBUG List test directory
+        run: ls -R tests
+    
       - name: Debug check for metrics.json
         run: |
           echo "Current directory: $(pwd)"
