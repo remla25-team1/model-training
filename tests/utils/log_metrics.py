@@ -24,3 +24,5 @@ def log_metric(name, value, message=None, precision=3, category=None, json_path=
 
     with open(json_path, "w") as f:
         json.dump(metrics, f, indent=2)
+        print(f"[log_metric] Written to: {os.path.abspath(json_path)}")
+
