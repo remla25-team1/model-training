@@ -189,6 +189,28 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 
 ### Test Metrics Summary
 
-<!-- METRICS START -->
-<!-- METRICS END -->
 
+<!-- METRICS START -->
+## Test Summary
+
+### Data Tests
+
+| Metric | Value | Message |
+|--------|-------|---------|
+
+### Feature Tests
+
+| Metric | Value | Message |
+|--------|-------|---------|
+
+### Model Tests
+
+| Metric | Value | Message |
+|--------|-------|---------|
+
+### Metamorphic Tests
+
+| Metric | Value | Message |
+|--------|-------|---------|
+
+<!-- METRICS END -->
