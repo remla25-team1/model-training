@@ -14,6 +14,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import accuracy_score
 
 from model_training.config import MODELS_DIR
+from utils.log_metrics import log_metric
 
 # Download required NLTK data
 nltk.download("wordnet")
@@ -25,6 +26,8 @@ METAMORPHIC_DATA_FILENAME = "metamorphic_data.tsv"
 # Preprocessor and vectorizer globals (will initialize later)
 preprocessor = Preprocessor()
 vectorizer = CountVectorizer(max_features=1420)
+
+category = "METAMORPHIC_TESTING"
 
 # ---------------- Metamorphic Transformations ----------------
 
@@ -198,13 +201,18 @@ def evaluate_model(trained_model, df):
     acc_trans = accuracy_score(df["transformed_label"], df["pred_transformed"])
     delta_acc = acc_orig - acc_trans
 
-    print("\nMetamorphic Robustness Evaluation:")
-    print(f"Consistency Rate:       {consistency:.3f}")
+    log_metric("CONSISTENCY_RATE", consistency, message="Same predictions before and after transformation", category=category)
+    if label_preservation is not None:
+        print(f"Consistency Rate:       {consistency:.3f}")
+        log_metric("LABEL_PRESERVATION_RATE", label_preservation, message="Labels preserved where they should be", category=category)
     if label_preservation is not None:
         print(f"Label Preservation Rate: {label_preservation:.3f}")
     if flipping_rate is not None:
         print(f"Flipping Rate:           {flipping_rate:.3f}")
+        log_metric("FLIPPING_RATE", flipping_rate, message="Predictions flipped where they should flip", category=category)
     print(f"Accuracy Drop (delta acc):    {delta_acc:.3f}")
+    log_metric("ACCURACY_DROP", delta_acc, message="Accuracy drop after metamorphic transformation", category=category)
+
 
     return df
 

@@ -185,18 +185,43 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 ## ML auto testing
 ### Coverage
 
-<!-- COVERAGE --> Coverage: 
+<!-- COVERAGE --> Coverage: 44%
 
-### Test Adequacy
+### Test Metrics Summary
 
-<!-- ADEQUACY START -->
-- Data Quality:   
-- Sparsity:   
-- Latency:   
 
-**Metamorphic Robustness**  
-- Consistency Rate:   
-- Label Preservation Rate:   
-- Flipping Rate:   
-- Accuracy Drop (Δ acc): 
-<!-- ADEQUACY END -->
+<!-- METRICS START -->
+
+#### DATA_AND_FEATURES
+
+| Metric | Value | Notes |
+|--------|-------|---------|
+| DATA_QUALITY | pass | Checked: NULL_CHECKS, EMPTY_STRING_CHECK, BINARY_LABEL_CHECK |
+| FEATURE_SPARSITY | 0.9962 | Zero ratio: 0.9962 |
+| PREPROCESSING_LATENCY | 0.0 | Avg. time per review (on 100 samples) |
+
+#### MODEL_DEVELOPMENT
+
+| Metric | Value | Notes |
+|--------|-------|---------|
+| MODEL_ACCURACY | 0.672 | Accuracy on test set |
+| ACCURACY_POSITIVE | 1.0 | Accuracy on positive samples |
+| ACCURACY_NEGATIVE | 1.0 | Accuracy on negative samples |
+| PREDICTION_DETERMINISTIC | True | Predictions are consistent across repeated inference |
+| VECTORIZATION_MEMORY_USAGE | 0.441 | Peak memory usage during vectorization (MB) |
+
+#### INFRASTRUCTURE_TESTING
+
+| Metric | Value | Notes |
+|--------|-------|---------|
+| MODEL_FILE_EXISTS | True | Model file found |
+| MODEL_LOADABLE | True | Model loaded and is GaussianNB |
+
+#### MONITORING_TESTING
+
+| Metric | Value | Notes |
+|--------|-------|---------|
+| FRESH_PREDICTION_SHAPE_OK | True | Prediction output shape matches input size |
+| FRESH_POSITIVE_RATIO | 0.42 | Prediction distribution is suspicious if not between 0.2 and 0.8 |
+
+<!-- METRICS END -->
