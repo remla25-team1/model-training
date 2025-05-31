@@ -90,7 +90,7 @@ jobs:
         run: coverage report --rcfile=.coveragerc -m
       
       - name: DEBUG List test directory
-        run: ls -R tests
+        run: ls -R
     
       - name: Debug check for metrics.json
         run: |
