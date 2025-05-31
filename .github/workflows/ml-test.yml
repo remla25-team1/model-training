@@ -88,14 +88,6 @@ jobs:
 
       - name: Show coverage summary
         run: coverage report --rcfile=.coveragerc -m
-
-      - name: Re-checkout current branch
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.OP_TOKEN }}
-          fetch-depth: 0
-          ref: ${{ github.ref }}
-          persist-credentials: true
       
       - name: DEBUG List test directory
         run: ls -R tests
@@ -130,11 +122,19 @@ jobs:
                | map(select(.value.category == $cat))
                | .[] 
                | "| \(.key) | \(.value.value) | \(.value.message // "-") |"' \
-              cat $GITHUB_WORKSPACE/metrics.json >> README.md
+              cat metrics.json >> README.md
             echo "" >> README.md
           done
 
           echo "<!-- METRICS END -->" >> README.md
+
+      - name: Re-checkout current branch
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.OP_TOKEN }}
+          fetch-depth: 0
+          ref: ${{ github.ref }}
+          persist-credentials: true    
 
       - name: Commit and push updated README
         run: |
