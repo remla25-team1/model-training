@@ -39,11 +39,10 @@ def test_model_on_simulated_fresh_inputs(model_file):
     log_metric(
         "FRESH_POSITIVE_RATIO",
         positive_ratio,
-        message=f"Positive: {positive_ratio:.2f}, Negative: {negative_ratio:.2f}",
+        message= "Prediction distribution is suspicious if not between 0.2 and 0.8",
         category=category,
         precision=2
     )
-
     assert (
         0.2 < positive_ratio < 0.8
     ), f"Prediction distribution suspicious: {positive_ratio:.2f}"

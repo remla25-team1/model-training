@@ -108,7 +108,7 @@ jobs:
           echo "" >> README.md
 
           # Group by category
-          for cat in data feature model metamorphic; do
+          for cat in DATA_AND_FEATURES MODEL_DEVELOPMENT INFRASTRUCTURE_TESTING MONITORING_TESTING; do
             echo "### ${cat^} Tests" >> README.md
             echo "" >> README.md
             echo "| Metric | Value | Message |" >> README.md
