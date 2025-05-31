@@ -76,7 +76,7 @@ jobs:
         run: |
           echo "Running unit tests..."
           export PYTHONPATH=$(pwd):$PYTHONPATH
-          coverage run --rcfile=.coveragerc -m pytest -v --tb=short --durations=10 tests | tee test_output.txt
+          coverage run --rcfile=.coveragerc -m pytest -v -s --tb=short --durations=10 tests | tee test_output.txt
 
           echo "Running metamorphic robustness test..."
           coverage run --rcfile=.coveragerc --append tests/test_metamorphic.py \

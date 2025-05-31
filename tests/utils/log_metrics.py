@@ -1,7 +1,6 @@
+import json
+import os
 def log_metric(name, value, message=None, precision=3, category=None, json_path="metrics.json"):
-    import json
-    import os
-
     if isinstance(value, float):
         value = round(value, precision)
     elif isinstance(value, bool):
@@ -25,4 +24,3 @@ def log_metric(name, value, message=None, precision=3, category=None, json_path=
     with open(json_path, "w") as f:
         json.dump(metrics, f, indent=2)
         print(f"[log_metric] Written to: {os.path.abspath(json_path)}")
-
