@@ -104,12 +104,11 @@ jobs:
           sed -i '/<!-- METRICS START -->/,/<!-- METRICS END -->/d' README.md
 
           echo "<!-- METRICS START -->" >> README.md
-          echo "## Test Summary" >> README.md
           echo "" >> README.md
 
           # Group by category
           for cat in DATA_AND_FEATURES MODEL_DEVELOPMENT INFRASTRUCTURE_TESTING MONITORING_TESTING; do
-            echo "### ${cat^} Tests" >> README.md
+            echo "#### ${cat^} Tests" >> README.md
             echo "" >> README.md
             echo "| Metric | Value | Notes |" >> README.md
             echo "|--------|-------|---------|" >> README.md
