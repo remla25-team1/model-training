@@ -77,14 +77,14 @@ jobs:
 
       - name: DEBUG List test directory
         run: ls -R tests
-        
+
       - name: Run tests with coverage (detailed output)
         run: |
           echo "Running unit tests..."
           coverage run --rcfile=.coveragerc -m pytest -v --tb=short --durations=10 tests | tee test_output.txt
 
           echo "Running metamorphic robustness test..."
-          coverage run --rcfile=.coveragerc --append tests/metamorphic_test.py \
+          coverage run --rcfile=.coveragerc --append tests/test_metamorphic.py \
             --input data/processed/a1_RestaurantReviews_HistoricDump.tsv \
             --model-version test_model_dev \
             | tee metamorphic_output.txt
