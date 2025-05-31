@@ -185,15 +185,14 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 ## ML auto testing
 ### Coverage
 
-<!-- COVERAGE --> Coverage: 
+<!-- COVERAGE --> Coverage: 44%
 
 ### Test Metrics Summary
 
 
 <!-- METRICS START -->
-## Test Summary
 
-### DATA_AND_FEATURES Tests
+#### DATA_AND_FEATURES
 
 | Metric | Value | Notes |
 |--------|-------|---------|
@@ -201,7 +200,7 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 | FEATURE_SPARSITY | 0.9962 | Zero ratio: 0.9962 |
 | PREPROCESSING_LATENCY | 0.0 | Avg. time per review (on 100 samples) |
 
-### MODEL_DEVELOPMENT Tests
+#### MODEL_DEVELOPMENT
 
 | Metric | Value | Notes |
 |--------|-------|---------|
@@ -211,14 +210,14 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 | PREDICTION_DETERMINISTIC | True | Predictions are consistent across repeated inference |
 | VECTORIZATION_MEMORY_USAGE | 0.441 | Peak memory usage during vectorization (MB) |
 
-### INFRASTRUCTURE_TESTING Tests
+#### INFRASTRUCTURE_TESTING
 
 | Metric | Value | Notes |
 |--------|-------|---------|
 | MODEL_FILE_EXISTS | True | Model file found |
 | MODEL_LOADABLE | True | Model loaded and is GaussianNB |
 
-### MONITORING_TESTING Tests
+#### MONITORING_TESTING
 
 | Metric | Value | Notes |
 |--------|-------|---------|
