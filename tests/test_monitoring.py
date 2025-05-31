@@ -35,7 +35,6 @@ def test_model_on_simulated_fresh_inputs(model_file):
     assert correct_shape, "Unexpected prediction output shape"
     # Analyze prediction distribution
     positive_ratio = np.mean(preds)
-    negative_ratio = 1 - positive_ratio
     log_metric(
         "FRESH_POSITIVE_RATIO",
         positive_ratio,
