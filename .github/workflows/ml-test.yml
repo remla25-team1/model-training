@@ -76,7 +76,7 @@ jobs:
         run: |
           echo "Running unit tests..."
           export PYTHONPATH=$(pwd):$PYTHONPATH
-          coverage run --rcfile=.coveragerc -m pytest -v -s --tb=short --durations=10 tests | tee test_output.txt
+          coverage run --rcfile=.coveragerc -m pytest -v --tb=short --durations=10 tests | tee test_output.txt
 
           echo "Running metamorphic robustness test..."
           coverage run --rcfile=.coveragerc --append tests/test_metamorphic.py \
@@ -104,7 +104,7 @@ jobs:
         run: |
           echo "Current directory: $(pwd)"
           ls -lah
-          cat metrics.json || echo "metrics.json not found!"
+          cat cat $GITHUB_WORKSPACE/metrics.json || echo "metrics.json not found!"
 
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
@@ -130,7 +130,7 @@ jobs:
                | map(select(.value.category == $cat))
                | .[] 
                | "| \(.key) | \(.value.value) | \(.value.message // "-") |"' \
-              metrics.json >> README.md
+              cat $GITHUB_WORKSPACE/metrics.json >> README.md
             echo "" >> README.md
           done
 
