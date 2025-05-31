@@ -81,6 +81,7 @@ jobs:
       - name: Run tests with coverage (detailed output)
         run: |
           echo "Running unit tests..."
+          export PYTHONPATH=$(pwd):$PYTHONPATH
           coverage run --rcfile=.coveragerc -m pytest -v --tb=short --durations=10 tests | tee test_output.txt
 
           echo "Running metamorphic robustness test..."

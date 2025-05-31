@@ -1,22 +1,18 @@
-import os
-import json
-from pathlib import Path
-
 def log_metric(name, value, message=None, precision=3, category=None, json_path="metrics.json"):
-    json_path = os.path.abspath(json_path)
+    import json
+    import os
 
     if isinstance(value, float):
         value = round(value, precision)
     elif isinstance(value, bool):
-        value = str(value).lower()
-        
+        value = "True" if value else "False"
+
     if os.path.exists(json_path):
-        try:
-            with open(json_path, "r") as f:
+        with open(json_path, "r") as f:
+            try:
                 metrics = json.load(f)
-        except json.JSONDecodeError:
-            print("[log_metric] Corrupted metrics.json. Resetting.")
-            metrics = {}
+            except json.JSONDecodeError:
+                metrics = {}
     else:
         metrics = {}
 
