@@ -12,6 +12,9 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 
+from utils.log_metrics import log_metric
+
+category = "MODEL_DEVELOPMENT"
 
 def test_model_prediction_accuracy(model_file):
     """
@@ -35,6 +38,7 @@ def test_model_prediction_accuracy(model_file):
     acc = accuracy_score(y_test, y_pred)
     print(f"[Accuracy] Model accuracy on test set: {acc:.2f}")
     assert acc >= 0.65, f"Model accuracy too low: {acc:.2f}"
+    log_metric("MODEL_ACCURACY", acc, message="Accuracy on test set", category=category)
 
 
 def get_accuracy(corpus, labels):
@@ -86,6 +90,8 @@ def test_model_consistency_on_labels():
     acc_pos = get_accuracy(pos_corpus, pos_df["Liked"])
     acc_neg = get_accuracy(neg_corpus, neg_df["Liked"])
     print(f"[Slice Test] Accuracy Positive: {acc_pos:.2f}, Negative: {acc_neg:.2f}")
+    log_metric("ACCURACY_POSITIVE", acc_pos, message="Accuracy on positive samples", category=category)
+    log_metric("ACCURACY_NEGATIVE", acc_neg, message="Accuracy on negative samples", category=category)
     assert (
         abs(acc_pos - acc_neg) < 0.15
     ), f"Model performs differently on pos vs neg samples: {acc_pos:.2f} vs {acc_neg:.2f}"
@@ -112,7 +118,10 @@ def test_model_prediction_determinism(model_file):
     _, x_test, _, _ = train_test_split(x, y, test_size=0.2, random_state=0)
     pred1 = clf.predict(x_test)
     pred2 = clf.predict(x_test)
-    assert (pred1 == pred2).all(), "Predictions differ between identical runs"
+    deterministic = bool((pred1 == pred2).all())
+    log_metric("PREDICTION_DETERMINISTIC", deterministic, message="Predictions are consistent across repeated inference", category=category)
+    assert deterministic, "Predictions differ between identical runs"
+
 
 
 def test_memory_usage_during_vectorization():
@@ -137,4 +146,5 @@ def test_memory_usage_during_vectorization():
 
     peak_mb = peak / (1024 * 1024)
     print(f"[Memory] Peak vectorization memory usage: {peak_mb:.2f}MB")
+    log_metric("VECTORIZATION_MEMORY_USAGE", peak_mb, message="Peak memory usage during vectorization (MB)", category=category)
     assert peak_mb < 100, f"Vectorization peak memory usage too high: {peak_mb:.2f}MB"
