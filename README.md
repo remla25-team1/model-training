@@ -1,4 +1,4 @@
-# Model Training
+# REMLA-25, Team 1, Model Training
 
 Repository for training a sentiment analysis model.
 
