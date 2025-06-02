@@ -14,7 +14,6 @@ Repository for training a sentiment analysis model.
 - [5. Evaluate the model](#5-evaluate-the-model)
 - [Automatic Versioning](#automatic-versioning)
 - [To trigger the automated version release](#to-trigger-the-automated-version-release)
-- [To do version bump](#to-do-version-bump)
 - [ML auto testing](#ml-auto-testing)
     - [Coverage](#coverage)
     - [Test Metrics Summary](#test-metrics-summary)
@@ -208,11 +207,6 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 4) Click the “Run workflow” button.
 5) When this workflow has finished, go to Release model-training from the list on the left
 6) You will now see that this workflow has been triggered automatically by the previous workflow.
-
-## To do version bump:
-1) Update VERSION.txt to new base version.
-2) Commit and push it.
-3) Run above steps to trigger automated version release.
 
 ## ML auto testing
 ### Coverage
