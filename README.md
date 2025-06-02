@@ -2,11 +2,73 @@
 
 Repository for training a sentiment analysis model.
 
-## Poetry for Dependency Management
+## Table of Contents
+- [Project Organization](#project-organization)
+- [Getting Started](#getting-started)
+- [Set up dvc remote](#set-up-dvc-remote)
+- [Running Model Training Pipeline](#running-model-training-pipeline)
+- [1. Download and save the dataset](#1-download-and-save-the-dataset)
+- [2. Preprocess the data](#2-preprocess-the-data)
+- [3. Extract features](#3-extract-features)
+- [4. Train the model](#4-train-the-model)
+- [5. Evaluate the model](#5-evaluate-the-model)
+- [Automatic Versioning](#automatic-versioning)
+- [To trigger the automated version release](#to-trigger-the-automated-version-release)
+- [To do version bump](#to-do-version-bump)
+- [ML auto testing](#ml-auto-testing)
+    - [Coverage](#coverage)
+    - [Test Metrics Summary](#test-metrics-summary)
+
+## Project Organization
+
+```
+├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
+├── README.md          <- The top-level README for developers using this project.
+├── data
+│   ├── processed      <- The final, canonical data sets for modeling.
+│   └── raw            <- The original, immutable data dump.
+│
+├── models             <- Trained and serialized models, model predictions, or model summaries
+│
+├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
+│                         the creator's initials, and a short `-` delimited description, e.g.
+│                         `1.0-jqp-initial-data-exploration`.
+│
+├── pyproject.toml     <- Project configuration file with package metadata for 
+│                         model-training and configuration for tools like black
+│
+├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+│
+├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
+│   └── figures        <- Generated graphics and figures to be used in reporting
+│
+├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
+│                         generated with `pip freeze > requirements.txt`
+│
+├── setup.cfg          <- Configuration file for flake8
+│
+└── model_training   <- Source code for use in this project.
+    │
+    ├── __init__.py             <- Makes model_training a Python module
+    │
+    ├── config.py               <- Store useful variables and configuration
+    │
+    ├── dataset.py              <- Scripts to download or generate data
+    │
+    ├── features.py             <- Code to create features for modeling
+    │
+    ├── evaluate.py             <- Code to evaluate trained model
+    │
+    ├── train.py                <- Code to train models        
+    │
+    └── plots.py                <- Code to create visualizations
+```
+
+--------
+
+## Getting Started
 
 This project uses **Poetry** to manage Python dependencies and virtual environments.
-
-### Getting Started
 
 #### 1. Install Poetry
 
@@ -147,54 +209,6 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 5) When this workflow has finished, go to Release model-training from the list on the left
 6) You will now see that this workflow has been triggered automatically by the previous workflow.
 
-## Project Organization
-
-```
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
-├── data
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
-│
-├── models             <- Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
-│
-├── pyproject.toml     <- Project configuration file with package metadata for 
-│                         model-training and configuration for tools like black
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
-├── setup.cfg          <- Configuration file for flake8
-│
-└── model_training   <- Source code for use in this project.
-    │
-    ├── __init__.py             <- Makes model_training a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   └── evaluate.py         <- Code to evaluate trained model
-    │   └── train.py            <- Code to train models
-    |models          
-    │
-    └── plots.py                <- Code to create visualizations
-```
-
---------
 ## To do version bump:
 1) Update VERSION.txt to new base version.
 2) Commit and push it.
