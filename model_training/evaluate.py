@@ -9,7 +9,7 @@ import json
 import os
 
 from loguru import logger
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, precision_score, recall_score, f1_score, roc_auc_score
 
 from model_training.config import MODELS_DIR, PROCESSED_DATA_DIR, REPORTS_DIR
 
@@ -64,12 +64,34 @@ def evaluate_model(version, classifier, x_test, y_test):
     save_confusion_matrix(y_test, y_pred, cm_path)
     save_classification_report(y_test, y_pred, report_path)
 
-    # Log accuracy
+    # Log accuracy: Correct predictions / total predictions
     accuracy = accuracy_score(y_test, y_pred)
     logger.info(f"Accuracy: {accuracy:.4f}")
 
+    # Log precision: Of all predicted positives, how many were actually positive
+    precision = precision_score(y_test, y_pred)
+    logger.info(f"Precision: {precision:.4f}")
+
+    # Log recall: Of all actual positives, how many did the model correctly predict
+    recall = recall_score(y_test, y_pred)
+    logger.info(f"Recall: {recall:.4f}")
+
+    # Log F1: Harmonic mean of precision and recall, balances false positives & negatives
+    f1 = f1_score(y_test, y_pred)
+    logger.info(f"F1: {f1:.4f}")
+
+    # Log AUC-ROC: Measures separability between classes
+    roc_auc = roc_auc_score(y_test, y_pred)
+    logger.info(f"AUC ROC: {roc_auc:.4f}")
+
     # Store accuracy in JSON
-    metrics = {"Accuracy": accuracy}
+    metrics = {
+        "accuracy":accuracy,
+        "precision": precision,
+        "recall": recall,
+        "f1": f1,
+        "AUC ROC": roc_auc
+    }
     # Make sure the directory exists
     os.makedirs("experiments", exist_ok=True)
     with open("experiments/metrics.json", "w") as f:
