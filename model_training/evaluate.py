@@ -69,12 +69,11 @@ def evaluate_model(version, classifier, x_test, y_test):
     logger.info(f"Accuracy: {accuracy:.4f}")
 
     # Store accuracy in JSON
-    metrics = {f"Accuracy: {accuracy:.4f}"}
+    metrics = {f"Accuracy: {accuracy}"}
     # Make sure the directory exists
     os.makedirs("experiments", exist_ok=True)
     with open("experiments/metrics.json", "w") as f:
         json.dump(metrics, f)
-
 
 
 @app.command()
