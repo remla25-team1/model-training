@@ -5,6 +5,9 @@ from pathlib import Path
 import joblib
 import numpy as np
 import typer
+import json
+import os
+
 from loguru import logger
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
@@ -64,6 +67,14 @@ def evaluate_model(version, classifier, x_test, y_test):
     # Log accuracy
     accuracy = accuracy_score(y_test, y_pred)
     logger.info(f"Accuracy: {accuracy:.4f}")
+
+    # Store accuracy in JSON
+    metrics = {f"Accuracy: {accuracy:.4f}"}
+    # Make sure the directory exists
+    os.makedirs("experiments", exist_ok=True)
+    with open("experiments/metrics.json", "w") as f:
+        json.dump(metrics, f)
+
 
 
 @app.command()

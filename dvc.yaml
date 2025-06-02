@@ -58,3 +58,5 @@ stages:
     outs:
     - reports/${version}_confusion_matrix.npy
     - reports/${version}_classification_report.txt
+    metrics:
+    - experiments/metrics.json
