@@ -71,6 +71,16 @@ or press `Ctrl+D`.
 
 This will terminate the current virtual environment session and bring you back to your normal terminal environment.
 
+## Set up dvc remote
+1) Activate the Virtual Environment from the Poetry setup (step 3).
+2) Make sure all the libraries are downloaded.
+3) Update the credentials.json to get access to the remote.
+4) Run 
+``` 
+dvc pull
+```
+
+
 ## Running Model Training Pipeline
 
 From the project root directory, execute the following scripts in order to run the full model training pipeline:
