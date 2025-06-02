@@ -1,0 +1,133 @@
+schema: '2.0'
+stages:
+  get_data:
+    cmd: python model_training/dataset.py
+    deps:
+    - path: model_training/dataset.py
+      hash: md5
+      md5: 14ba581705388994fac6da54b0fab7f5
+      size: 995
+    outs:
+    - path: data/raw/a1_RestaurantReviews_HistoricDump.tsv
+      hash: md5
+      md5: 102f1f4193e0bdebdd6cce7f13e0a839
+      size: 54686
+  pre_process:
+    cmd: python model_training/preprocessing.py
+    deps:
+    - path: data/raw/a1_RestaurantReviews_HistoricDump.tsv
+      hash: md5
+      md5: 102f1f4193e0bdebdd6cce7f13e0a839
+      size: 54686
+    - path: model_training/preprocessing.py
+      hash: md5
+      md5: 2005be7bf9c59fd16edd0ca25c2bcc6c
+      size: 2289
+    outs:
+    - path: data/processed/a1_RestaurantReviews_HistoricDump.tsv
+      hash: md5
+      md5: 0b59107fdc224caa0d25d31193cc1eab
+      size: 31606
+  transform_data:
+    cmd: python model_training/features.py
+    deps:
+    - path: data/processed/a1_RestaurantReviews_HistoricDump.tsv
+      hash: md5
+      md5: 0b59107fdc224caa0d25d31193cc1eab
+      size: 31606
+    - path: model_training/features.py
+      hash: md5
+      md5: f7350946015d374f7fbf4ceaf3b4d64d
+      size: 3317
+    outs:
+    - path: data/processed/features_test.npy
+      hash: md5
+      md5: 471105e60b8158e6616df7ecf12d7935
+      size: 2044928
+    - path: data/processed/features_train.npy
+      hash: md5
+      md5: 3704bdb9a1558820c8134452386f558f
+      size: 8167968
+    - path: data/processed/labels_test.npy
+      hash: md5
+      md5: ecda95740364dc73b9fa2dad7cd1c620
+      size: 1568
+    - path: data/processed/labels_train.npy
+      hash: md5
+      md5: b2a8855b2d52ed24be0a5a4bb4ddde80
+      size: 5880
+    - path: models/c1_BoW_Sentiment_Model.pkl
+      hash: md5
+      md5: 3fad7a4c0ec1b2a1fc95334240b40d81
+      size: 39432
+  updating_params:
+    cmd: python model_training/ensure_versioning.py
+    deps:
+    - path: dynamic_version.txt
+      hash: md5
+      md5: a089f6154a341c2c45c60fb0db78b500
+      size: 24
+    - path: model_training/ensure_versioning.py
+      hash: md5
+      md5: 2abaaf69d63023f06c93d49b6ef4bf28
+      size: 1460
+    outs:
+    - path: params.yaml
+      hash: md5
+      md5: 105b361ce39f116bd4270ff56a00c887
+      size: 33
+  train_model:
+    cmd: python model_training/train.py
+    deps:
+    - path: data/processed/features_train.npy
+      hash: md5
+      md5: 3704bdb9a1558820c8134452386f558f
+      size: 8167968
+    - path: data/processed/labels_train.npy
+      hash: md5
+      md5: b2a8855b2d52ed24be0a5a4bb4ddde80
+      size: 5880
+    - path: dynamic_version.txt
+      hash: md5
+      md5: a089f6154a341c2c45c60fb0db78b500
+      size: 24
+    - path: model_training/train.py
+      hash: md5
+      md5: 8403192ddee056092d744d80a491d933
+      size: 1934
+    params:
+      params.yaml:
+        version: v0.0.9-pre-20250527-005
+    outs:
+    - path: models/v0.0.9-pre-20250527-005/v0.0.9-pre-20250527-005_Sentiment_Model.pkl
+      hash: md5
+      md5: 85839778cd3b4ee6dda472ee5b3155f5
+      size: 46215
+  evaluate_model:
+    cmd: python model_training/evaluate.py --version v0.0.9-pre-20250527-005
+    deps:
+    - path: data/processed/features_test.npy
+      hash: md5
+      md5: 339d97517f7eb6924ff5b52d71244a3d
+      size: 1635968
+    - path: data/processed/labels_test.npy
+      hash: md5
+      md5: bc07919149b4c52dc7b1a208be45e614
+      size: 1280
+    - path: model_training/evaluate.py
+      hash: md5
+      md5: 5f7921ac8af118f753303921ba80c58b
+      size: 2835
+    - path: models/v0.0.9-pre-20250527-005/v0.0.9-pre-20250527-005_Sentiment_Model.pkl
+      hash: md5
+      md5: 85839778cd3b4ee6dda472ee5b3155f5
+      size: 46215
+    outs:
+    - path: reports/v0.0.9-pre-20250527-005_classification_report.txt
+      hash: md5
+      md5: eda2f120fb448ca6c012ff3dfca9a1fb
+      size: 326
+    - path: reports/v0.0.9-pre-20250527-005_confusion_matrix.npy
+      hash: md5
+      md5: f20bceb78a39cda42dd15105ff5321ad
+      size: 160
