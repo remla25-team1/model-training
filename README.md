@@ -84,7 +84,7 @@ dvc pull
 dvc repro
 git commit -am "You message"
 git push
-dvc push
+dvc push -r <myremote>
 ```
 
 
