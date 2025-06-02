@@ -108,26 +108,30 @@ stages:
     deps:
     - path: data/processed/features_test.npy
       hash: md5
-      md5: 339d97517f7eb6924ff5b52d71244a3d
-      size: 1635968
+      md5: 471105e60b8158e6616df7ecf12d7935
+      size: 2044928
     - path: data/processed/labels_test.npy
       hash: md5
-      md5: bc07919149b4c52dc7b1a208be45e614
-      size: 1280
+      md5: ecda95740364dc73b9fa2dad7cd1c620
+      size: 1568
     - path: model_training/evaluate.py
       hash: md5
-      md5: 5f7921ac8af118f753303921ba80c58b
-      size: 2835
+      md5: 9ce899445206a36c7f300b1e4b9377bd
+      size: 3091
     - path: models/v0.0.9-pre-20250527-005/v0.0.9-pre-20250527-005_Sentiment_Model.pkl
       hash: md5
       md5: 85839778cd3b4ee6dda472ee5b3155f5
       size: 46215
     outs:
+    - path: experiments/metrics.json
+      hash: md5
+      md5: 999b099e6ad6aa553a058405e85001ce
+      size: 18
     - path: reports/v0.0.9-pre-20250527-005_classification_report.txt
       hash: md5
-      md5: eda2f120fb448ca6c012ff3dfca9a1fb
+      md5: ebf09b244f2cb0740c818e5c56d8ec59
       size: 326
     - path: reports/v0.0.9-pre-20250527-005_confusion_matrix.npy
       hash: md5
-      md5: f20bceb78a39cda42dd15105ff5321ad
+      md5: 0a16ead80f9e2687e20add7044ddf84d
       size: 160
