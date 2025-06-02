@@ -75,8 +75,9 @@ This will terminate the current virtual environment session and bring you back t
 1) Activate the Virtual Environment from the Poetry setup (step 3).
 2) Make sure all the libraries are downloaded.
 3) Update the credentials.json to get access to the remote.
+    Or optionally: if you haven't set up a local ```dvc remote``` yet, then do so before continuing (for caching, and in the scenario where you do not have access to the remote).
 4) Run 
-``` 
+```bash
 dvc pull
 ```
 5) To push the changes you made, run 
@@ -119,7 +120,7 @@ python model_training/features.py
 #### 4. Train the model
 
 ```bash 
-python model_training/modeling/train.py --version=v0.0.1
+python model_training/train.py --version=v0.0.1
 ```
 
 - Trains the machine learning model, evaluates performance, and saves the trained model to the `models/` directory.
@@ -128,7 +129,7 @@ python model_training/modeling/train.py --version=v0.0.1
 #### 5. Evaluate the model
 
 ```bash 
-python model_training/modeling/evaluate.py --version v0.0.3
+python model_training/evaluate.py --version v0.0.3
 ```
 
 - Evaluates the performance of a trained model corresponding to the specified version.
