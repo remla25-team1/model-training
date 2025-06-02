@@ -1,6 +1,6 @@
 stages:
   get_data:
-    cmd: python model_training/dataset.py main
+    cmd: python model_training/dataset.py
     deps:
     - model_training/dataset.py
     outs:
@@ -35,7 +35,7 @@ stages:
     - params.yaml
 
   train_model:
-    cmd: python model_training/train.py train
+    cmd: python model_training/train.py 
     deps:
     - model_training/train.py
     - data/processed/features_train.npy
@@ -58,3 +58,5 @@ stages:
     outs:
     - reports/${version}_confusion_matrix.npy
     - reports/${version}_classification_report.txt
+    metrics:
+    - experiments/metrics.json
