@@ -116,8 +116,8 @@ stages:
       size: 1568
     - path: model_training/evaluate.py
       hash: md5
-      md5: 3f2b6cd7422781f8cad7326f71b67921
-      size: 3111
+      md5: 9ce899445206a36c7f300b1e4b9377bd
+      size: 3091
     - path: models/v0.0.9-pre-20250527-005/v0.0.9-pre-20250527-005_Sentiment_Model.pkl
       hash: md5
       md5: 85839778cd3b4ee6dda472ee5b3155f5
@@ -125,8 +125,8 @@ stages:
     outs:
     - path: experiments/metrics.json
       hash: md5
-      md5: 173d145c41cc3a7c5a500164e2d87c5a
-      size: 38
+      md5: 999b099e6ad6aa553a058405e85001ce
+      size: 18
     - path: reports/v0.0.9-pre-20250527-005_classification_report.txt
       hash: md5
       md5: ebf09b244f2cb0740c818e5c56d8ec59

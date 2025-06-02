@@ -79,6 +79,13 @@ This will terminate the current virtual environment session and bring you back t
 ``` 
 dvc pull
 ```
+5) To push the changes you made, run 
+```
+dvc repro
+git commit -am "You message"
+git push
+dvc push
+```
 
 
 ## Running Model Training Pipeline
