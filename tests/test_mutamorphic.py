@@ -1,4 +1,4 @@
-"""Metamorphic testing for sentiment analysis model robustness."""
+"""Mutamorphic testing for sentiment analysis model robustness."""
 
 import argparse
 import os
@@ -20,16 +20,16 @@ from utils.log_metrics import log_metric
 nltk.download("wordnet")
 nltk.download("omw-1.4")
 
-# Metamorphic data file path (will be generated)
-METAMORPHIC_DATA_FILENAME = "metamorphic_data.tsv"
+# Mutamorphic data file path (will be generated)
+MUTAMORPHIC_DATA_FILENAME = "mutamorphic_data.tsv"
 
 # Preprocessor and vectorizer globals (will initialize later)
 preprocessor = Preprocessor()
 vectorizer = CountVectorizer(max_features=1420)
 
-category = "METAMORPHIC_TESTING"
+category = "MUTAMORPHIC_TESTING"
 
-# ---------------- Metamorphic Transformations ----------------
+# ---------------- Mutamorphic Transformations ----------------
 
 
 def get_synonym(word):
@@ -105,7 +105,7 @@ def invert_label(label):
     return "1" if label == "0" else "0"
 
 
-def generate_metamorphic_dataset(input_path, output_path):
+def generate_mutamorphic_dataset(input_path, output_path):
     df = pd.read_csv(input_path, sep="\t", names=["text", "label"])
 
     df_shuffled = df.sample(frac=1, random_state=42).reset_index(drop=True)
@@ -145,7 +145,7 @@ def generate_metamorphic_dataset(input_path, output_path):
     )
 
     transformed_df.to_csv(output_path, sep="\t", index=False)
-    print(f"Metamorphic dataset written to {output_path}")
+    print(f"Mutamorphic dataset written to {output_path}")
 
 
 # ---------------- Model Loading & Prediction ----------------
@@ -211,7 +211,7 @@ def evaluate_model(trained_model, df):
         print(f"Flipping Rate:           {flipping_rate:.3f}")
         log_metric("FLIPPING_RATE", flipping_rate, message="Predictions flipped where they should flip", category=category)
     print(f"Accuracy Drop (delta acc):    {delta_acc:.3f}")
-    log_metric("ACCURACY_DROP", delta_acc, message="Accuracy drop after metamorphic transformation", category=category)
+    log_metric("ACCURACY_DROP", delta_acc, message="Accuracy drop after mutamorphic transformation", category=category)
 
 
     return df
@@ -221,7 +221,7 @@ def evaluate_model(trained_model, df):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Metamorphic Testing for Sentiment Analysis"
+        description="Mutamorphic Testing for Sentiment Analysis"
     )
     parser.add_argument(
         "--input", required=True, help="Input .tsv data file with text and label"
@@ -233,17 +233,17 @@ if __name__ == "__main__":
 
     input_path = args.input
     base_dir = os.path.dirname(os.path.abspath(input_path)) or "."
-    metamorphic_path = os.path.join(base_dir, METAMORPHIC_DATA_FILENAME)
+    mutamorphic_path = os.path.join(base_dir, MUTAMORPHIC_DATA_FILENAME)
 
     if not os.path.exists(input_path):
         print(f"Input data file not found: {input_path}")
         sys.exit(1)
 
-    # Generate metamorphic dataset
-    generate_metamorphic_dataset(input_path, metamorphic_path)
+    # Generate mutamorphic dataset
+    generate_mutamorphic_dataset(input_path, mutamorphic_path)
 
-    # Load metamorphic data
-    metamorphic_df = pd.read_csv(metamorphic_path, sep="\t")
+    # Load mutamorphic data
+    mutamorphic_df = pd.read_csv(mutamorphic_path, sep="\t")
 
     # Load model
     model = load_model(args.model_version)
@@ -252,10 +252,10 @@ if __name__ == "__main__":
     train_df = pd.read_csv(input_path, sep="\t", names=["text", "label"])
     fit_vectorizer_on_training_data(train_df["text"])
 
-    # Evaluate metamorphic robustness
-    results_df = evaluate_model(model, metamorphic_df)
+    # Evaluate mutamorphic robustness
+    results_df = evaluate_model(model, mutamorphic_df)
 
     # Save predictions
-    output_predictions_path = os.path.join(base_dir, "metamorphic_predictions.tsv")
+    output_predictions_path = os.path.join(base_dir, "mutamorphic_predictions.tsv")
     results_df.to_csv(output_predictions_path, sep="\t", index=False)
     print(f"Predictions saved to {output_predictions_path}")
