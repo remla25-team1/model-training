@@ -211,9 +211,6 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 
 ## ML auto testing
 ### Summary of Coverage
-
-### Test Metrics Summary
-
 <!-- COVERAGE_SUMMARY_START -->
 
 | File | Statements | Miss | Coverage | Missing Lines |
@@ -223,6 +220,8 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 | model_training/train.py | 38 | 24 | 37% |               38     24    37%   31-60, 64 |
 | ------------------------------------------------------------------- |  |  |  | ------------------------------------------------------------------- |
 <!-- COVERAGE_SUMMARY_END -->
+
+### Test Metrics Summary
 <!-- METRICS START -->
 
 #### DATA_AND_FEATURES
