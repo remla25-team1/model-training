@@ -80,33 +80,57 @@ jobs:
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
-      - name: Extract and update coverage badge below title
+      - name: Extract and update coverage and pylint badges below title
         run: |
+          # --- COVERAGE BADGE ---
           COVERAGE=$(tail -n1 coverage.txt | awk '{print $NF}')
           echo "Coverage: ${COVERAGE}"
 
           COVERAGE_VALUE=$(echo $COVERAGE | tr -d '%')
           if [ "$COVERAGE_VALUE" -ge 90 ]; then
-            COLOR="brightgreen"
+            COV_COLOR="brightgreen"
           elif [ "$COVERAGE_VALUE" -ge 75 ]; then
-            COLOR="yellow"
+            COV_COLOR="yellow"
           else
-            COLOR="red"
+            COV_COLOR="red"
           fi
 
-          BADGE="![coverage](https://img.shields.io/badge/coverage-${COVERAGE//%/%25}-$COLOR)"
+          COVERAGE_BADGE="![coverage](https://img.shields.io/badge/coverage-${COVERAGE//%/%25}-$COV_COLOR)"
 
-          # If a coverage badge already exists, replace it; else insert after title
-          if grep -q '!\[coverage\](https://img.shields.io/badge/coverage-' README.md; then
-            sed -i "s|!\[coverage\](https://img.shields.io/badge/coverage-[^)]*)|$BADGE|" README.md
+          # --- PYLINT BADGE ---
+          PYLINT_OUTPUT=$(pylint model_training tests || true)
+          echo "$PYLINT_OUTPUT"
+
+          SCORE_LINE=$(echo "$PYLINT_OUTPUT" | grep "Your code has been rated at")
+          SCORE=$(echo "$SCORE_LINE" | grep -oP '\d+\.\d+(?=/10)')
+          echo "Pylint Score: ${SCORE}"
+
+          SCORE_INT=${SCORE%.*}
+          if [ "$SCORE_INT" -ge 9 ]; then
+            PYLINT_COLOR="brightgreen"
+          elif [ "$SCORE_INT" -ge 7 ]; then
+            PYLINT_COLOR="yellow"
           else
-            # Insert badge below first non-empty line (usually the title)
-            awk -v badge="$BADGE" '
-              NR==1 {print; print ""; print badge; next}
+            PYLINT_COLOR="red"
+          fi
+
+          PYLINT_BADGE="![pylint](https://img.shields.io/badge/pylint-${SCORE//./%2E}%2F10-$PYLINT_COLOR)"
+
+          # --- BADGE UPDATE LOGIC ---
+          # Combine both badges
+          NEW_BADGES="$COVERAGE_BADGE $PYLINT_BADGE"
+
+          # If coverage badge exists, replace the whole line with new badges
+          if grep -q '!\[coverage\](https://img.shields.io/badge/coverage-' README.md; then
+            sed -i "s|!\[coverage\](https://img.shields.io/badge/coverage-[^)]*)[^!]*|$NEW_BADGES|" README.md
+          else
+            # Insert badges after first non-empty line (usually title)
+            awk -v badges="$NEW_BADGES" '
+              NR==1 {print; print ""; print badges; next}
               {print}
             ' README.md > README_tmp.md && mv README_tmp.md README.md
           fi
-
+          
       - name: Show coverage summary and update README
         run: |
           # Get coverage summary text
@@ -139,8 +163,6 @@ jobs:
 
             echo "$END_MARKER"
           } >> README.md
-
-
 
       - name: Extract test adequacy info and update README
         run: |
