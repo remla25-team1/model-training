@@ -1,3 +1,31 @@
+<!-- METRICS START -->
+
+#### DATA_AND_FEATURES
+
+![DATA_QUALITY](https://img.shields.io/badge/DATA%20QUALITY-pass-blue?label=DATA%20QUALITY)
+![FEATURE_SPARSITY](https://img.shields.io/badge/FEATURE%20SPARSITY-0.9962-red?label=FEATURE%20SPARSITY)
+![PREPROCESSING_LATENCY](https://img.shields.io/badge/PREPROCESSING%20LATENCY-0.0-red?label=PREPROCESSING%20LATENCY)
+
+#### MODEL_DEVELOPMENT
+
+![MODEL_ACCURACY](https://img.shields.io/badge/MODEL%20ACCURACY-0.672-red?label=MODEL%20ACCURACY)
+![ACCURACY_POSITIVE](https://img.shields.io/badge/ACCURACY%20POSITIVE-1.0-red?label=ACCURACY%20POSITIVE)
+![ACCURACY_NEGATIVE](https://img.shields.io/badge/ACCURACY%20NEGATIVE-1.0-red?label=ACCURACY%20NEGATIVE)
+![PREDICTION_DETERMINISTIC](https://img.shields.io/badge/PREDICTION%20DETERMINISTIC-True-blue?label=PREDICTION%20DETERMINISTIC)
+![VECTORIZATION_MEMORY_USAGE](https://img.shields.io/badge/VECTORIZATION%20MEMORY%20USAGE-0.441-red?label=VECTORIZATION%20MEMORY%20USAGE)
+
+#### INFRASTRUCTURE_TESTING
+
+![MODEL_FILE_EXISTS](https://img.shields.io/badge/MODEL%20FILE%20EXISTS-True-blue?label=MODEL%20FILE%20EXISTS)
+![MODEL_LOADABLE](https://img.shields.io/badge/MODEL%20LOADABLE-True-blue?label=MODEL%20LOADABLE)
+
+#### MONITORING_TESTING
+
+![FRESH_PREDICTION_SHAPE_OK](https://img.shields.io/badge/FRESH%20PREDICTION%20SHAPE%20OK-True-blue?label=FRESH%20PREDICTION%20SHAPE%20OK)
+![FRESH_POSITIVE_RATIO](https://img.shields.io/badge/FRESH%20POSITIVE%20RATIO-0.42-red?label=FRESH%20POSITIVE%20RATIO)
+
+<!-- METRICS END -->
+
 # REMLA-25, Team 1, Model Training
 
 Repository for training a sentiment analysis model.
@@ -216,30 +244,3 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 ### Test Metrics Summary
 
 
-<!-- METRICS START -->
-
-#### DATA_AND_FEATURES
-
-![DATA_QUALITY](https://img.shields.io/badge/DATA%20QUALITY-pass-blue?label=DATA%20QUALITY)
-![FEATURE_SPARSITY](https://img.shields.io/badge/FEATURE%20SPARSITY-0.9962-blue?label=FEATURE%20SPARSITY)
-![PREPROCESSING_LATENCY](https://img.shields.io/badge/PREPROCESSING%20LATENCY-0.0-blue?label=PREPROCESSING%20LATENCY)
-
-#### MODEL_DEVELOPMENT
-
-![MODEL_ACCURACY](https://img.shields.io/badge/MODEL%20ACCURACY-0.672-blue?label=MODEL%20ACCURACY)
-![ACCURACY_POSITIVE](https://img.shields.io/badge/ACCURACY%20POSITIVE-1.0-blue?label=ACCURACY%20POSITIVE)
-![ACCURACY_NEGATIVE](https://img.shields.io/badge/ACCURACY%20NEGATIVE-1.0-blue?label=ACCURACY%20NEGATIVE)
-![PREDICTION_DETERMINISTIC](https://img.shields.io/badge/PREDICTION%20DETERMINISTIC-True-blue?label=PREDICTION%20DETERMINISTIC)
-![VECTORIZATION_MEMORY_USAGE](https://img.shields.io/badge/VECTORIZATION%20MEMORY%20USAGE-0.441-blue?label=VECTORIZATION%20MEMORY%20USAGE)
-
-#### INFRASTRUCTURE_TESTING
-
-![MODEL_FILE_EXISTS](https://img.shields.io/badge/MODEL%20FILE%20EXISTS-True-blue?label=MODEL%20FILE%20EXISTS)
-![MODEL_LOADABLE](https://img.shields.io/badge/MODEL%20LOADABLE-True-blue?label=MODEL%20LOADABLE)
-
-#### MONITORING_TESTING
-
-![FRESH_PREDICTION_SHAPE_OK](https://img.shields.io/badge/FRESH%20PREDICTION%20SHAPE%20OK-True-blue?label=FRESH%20PREDICTION%20SHAPE%20OK)
-![FRESH_POSITIVE_RATIO](https://img.shields.io/badge/FRESH%20POSITIVE%20RATIO-0.42-blue?label=FRESH%20POSITIVE%20RATIO)
-
-<!-- METRICS END -->
