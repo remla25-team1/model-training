@@ -212,10 +212,8 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 6) You will now see that this workflow has been triggered automatically by the previous workflow.
 
 ## ML auto testing
-### Summary of Coverage
-
 ### Test Metrics Summary
-
+#### Summary of Coverage 
 <!-- COVERAGE_SUMMARY_START -->
 
 | File | Statements | Miss | Coverage | Missing Lines |
