@@ -213,6 +213,16 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 ### Test Metrics Summary
 
 
+
+<!-- COVERAGE_SUMMARY_START -->
+Name                                  Stmts   Miss  Cover   Missing
+-------------------------------------------------------------------
+model_training/config.py                 18      2    89%   31-32
+model_training/ensure_versioning.py      25     19    24%   13-28, 32-42, 46-47
+model_training/train.py                  38     24    37%   31-60, 64
+-------------------------------------------------------------------
+TOTAL                                    81     45    44%
+<!-- COVERAGE_SUMMARY_END -->
 <!-- METRICS START -->
 
 #### DATA_AND_FEATURES
