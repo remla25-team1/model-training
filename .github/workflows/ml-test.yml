@@ -106,10 +106,11 @@ jobs:
     
       - name: Extract test adequacy info and update README with badges
         run: |
-          # Remove old section
-          sed -i '/<!-- METRICS START -->/,/<!-- METRICS END -->/d' README.md
+          # Extract old README without metrics section
+          awk '/<!-- METRICS START -->/{f=1} !f {print} /<!-- METRICS END -->/{f=0}' README.md > README.tmp || cp README.md README.tmp
 
-          echo "<!-- METRICS START -->" >> README.md
+          # Start fresh README with new badges section
+          echo "<!-- METRICS START -->" > README.md
           echo "" >> README.md
 
           # Loop through categories and generate shields.io badges
@@ -124,18 +125,37 @@ jobs:
               | .[]
               | .key + "|" + (.value.value|tostring) + "|" + (.value.message // "-")' metrics.json \
             | while IFS="|" read -r key value message; do
-                # Normalize for badge
+                # Normalize
                 LABEL=$(echo "$key" | sed 's/_/%20/g')
-                VAL=$(echo "$value" | sed 's/ /%20/g')
-                COLOR=blue  # Optional: color logic can go here
+                VAL_ENC=$(echo "$value" | sed 's/ /%20/g')
 
-                echo "![${key}](https://img.shields.io/badge/${LABEL}-${VAL}-${COLOR}?label=${LABEL})" >> README.md
+                # Detect numeric value (supports percentages and floats)
+                RAW_VAL=$(echo "$value" | sed 's/%//')
+                if [[ "$RAW_VAL" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+                  NUM_VAL=$(printf "%.0f" "$RAW_VAL")
+                  if (( NUM_VAL >= 90 )); then
+                    COLOR="brightgreen"
+                  elif (( NUM_VAL >= 75 )); then
+                    COLOR="yellow"
+                  else
+                    COLOR="red"
+                  fi
+                else
+                  COLOR="blue"
+                fi
+
+                echo "![${key}](https://img.shields.io/badge/${LABEL}-${VAL_ENC}-${COLOR}?label=${LABEL})" >> README.md
             done
 
             echo "" >> README.md
           done
 
           echo "<!-- METRICS END -->" >> README.md
+          echo "" >> README.md
+
+          # Append rest of original README
+          cat README.tmp >> README.md
+
 
 
       - name: Commit and push updated README
