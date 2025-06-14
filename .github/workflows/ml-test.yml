@@ -50,6 +50,13 @@ jobs:
       - name: Run lint
         run: make lint
 
+      - name: Extract Pylint Score (from earlier run)
+        run: |
+          pylint model_training tests | tee pylint_output.txt || true
+          SCORE_LINE=$(grep "Your code has been rated at" pylint_output.txt)
+          SCORE=$(echo "$SCORE_LINE" | grep -oP '\d+\.\d+(?=/10)')
+          echo "PYLINT_SCORE=$SCORE" >> $GITHUB_ENV
+
       - name: Download NLTK data
         run: |
           python -m nltk.downloader stopwords wordnet omw-1.4
@@ -98,11 +105,9 @@ jobs:
           COVERAGE_BADGE="![coverage](https://img.shields.io/badge/coverage-${COVERAGE//%/%25}-$COV_COLOR)"
 
           # --- PYLINT BADGE ---
-          PYLINT_OUTPUT=$(pylint model_training tests || true)
-          echo "$PYLINT_OUTPUT"
+          # Read score from env if available
+          SCORE=${PYLINT_SCORE:-$(grep "Your code has been rated at" pylint_output.txt | grep -oP '\d+\.\d+(?=/10)')}
 
-          SCORE_LINE=$(echo "$PYLINT_OUTPUT" | grep "Your code has been rated at")
-          SCORE=$(echo "$SCORE_LINE" | grep -oP '\d+\.\d+(?=/10)')
           echo "Pylint Score: ${SCORE}"
 
           if (( $(echo "$SCORE >= 9.0" | bc -l) )); then
