@@ -146,7 +146,8 @@ dvc pull
 dvc remote add myremote gdrive://1R5ndxon7Ej5SDUo0pt9xJ_qCEGc5pE6u
 dvc remote default myremote
 ``` 
-Again, this should have been done already so it shouldn't be necessary to create it again.
+    Again, this should have been done already so it shouldn't be necessary to create it again.
+
 7) To push the changes you made, run 
 ```
 dvc repro
