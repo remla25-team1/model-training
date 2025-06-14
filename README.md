@@ -135,8 +135,7 @@ This will terminate the current virtual environment session and bring you back t
 ## Set up dvc remote
 1) Activate the Virtual Environment from the Poetry setup (step 3).
 2) Make sure all the libraries are downloaded.
-3) Update the credentials.json to get access to the remote.
-    Or optionally: if you haven't set up a local ```dvc remote``` yet, then do so before continuing (for caching, and in the scenario where you do not have access to the remote).
+3) Move the credential json file (remla-dvc-remote-g1-2591d1204b80) of the service account into .dvc/tmp.
 4) Run 
 ```bash
 dvc pull
@@ -144,7 +143,7 @@ dvc pull
 5) To push the changes you made, run 
 ```
 dvc repro
-git commit -am "You message"
+git commit -am "Your message"
 git push
 dvc push -r <myremote>
 ```
