@@ -113,7 +113,9 @@ jobs:
             PYLINT_COLOR="red"
           fi
 
-          PYLINT_BADGE="![pylint](https://img.shields.io/badge/pylint-${SCORE//./%2E}%2F10-$PYLINT_COLOR)"
+          ENCODED_SCORE=$(printf "%s" "${SCORE}/10" | sed 's/\//%2F/')
+          PYLINT_BADGE="![pylint](https://img.shields.io/badge/pylint-${ENCODED_SCORE}-${PYLINT_COLOR})"
+
 
           # --- BADGE UPDATE LOGIC ---
           NEW_BADGES="$COVERAGE_BADGE $PYLINT_BADGE"
