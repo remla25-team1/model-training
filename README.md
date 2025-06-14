@@ -233,10 +233,7 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 6) You will now see that this workflow has been triggered automatically by the previous workflow.
 
 ## ML auto testing
-### Test Metrics Summary
-
-
-
+### Summary of Coverage
 <!-- COVERAGE_SUMMARY_START -->
 Name                                  Stmts   Miss  Cover   Missing
 -------------------------------------------------------------------
@@ -246,6 +243,8 @@ model_training/train.py                  38     24    37%   31-60, 64
 -------------------------------------------------------------------
 TOTAL                                    81     45    44%
 <!-- COVERAGE_SUMMARY_END -->
+
+### Test Metrics Summary
 <!-- METRICS START -->
 
 #### DATA_AND_FEATURES
