@@ -1,5 +1,5 @@
 # REMLA-25, Team 1, Model Training
-![coverage](https://img.shields.io/badge/coverage-44%25-red) ![pylint](https://img.shields.io/badge/pylint-9.91
+![coverage](https://img.shields.io/badge/coverage-44%25-red) ![pylint](https://img.shields.io/badge/pylint-0.0%2F10-red)
 9.91%2F10-red)
 9%2E91%2F10-red)
 
@@ -217,6 +217,7 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 ### Test Metrics Summary
 
 
+
 <!-- COVERAGE_SUMMARY_START -->
 
 | File | Statements | Miss | Coverage | Missing Lines |
@@ -224,7 +225,7 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 | model_training/config.py | 18 | 2 | 89% |              18      2    89%   31-32 |
 | model_training/ensure_versioning.py | 25 | 19 | 24% |   25     19    24%   13-28, 32-42, 46-47 |
 | model_training/train.py | 38 | 24 | 37% |               38     24    37%   31-60, 64 |
-
+| ------------------------------------------------------------------- |  |  |  | ------------------------------------------------------------------- |
 <!-- COVERAGE_SUMMARY_END -->
 <!-- METRICS START -->
 
