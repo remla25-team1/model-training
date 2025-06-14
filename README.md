@@ -1,5 +1,7 @@
 
 
+<!-- COVERAGE --> ![coverage](https://img.shields.io/badge/coverage-44%25-red)
+
 
 # REMLA-25, Team 1, Model Training
 
@@ -237,7 +239,6 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 ## ML auto testing
 ### Coverage
 
-<!-- COVERAGE --> Coverage: 44%
 
 ### Test Metrics Summary
 
