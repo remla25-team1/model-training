@@ -59,7 +59,7 @@ jobs:
           echo "Raw line: $SCORE_LINE"
           echo "Extracted Score: $SCORE"
 
-          if [[ "$SCORE" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+          if echo "$SCORE" | grep -qE '^[0-9]+(\.[0-9]+)?$'; then
             echo "PYLINT_SCORE=$SCORE" >> $GITHUB_ENV
           else
             echo "Could not extract valid pylint score." >&2
