@@ -26,21 +26,6 @@ jobs:
       - name: Fetch all tags
         run: git fetch --tags
 
-      # - name: Read base version and generate tag
-      #   id: tag
-      #   run: |
-      #     BASE_VERSION="v$(cat VERSION.txt)-pre"
-      #     DATE=$(date +'%Y%m%d')
-      #     COUNT=$(git tag --list "${BASE_VERSION}-${DATE}-*" | wc -l)
-      #     NEW_TAG="${BASE_VERSION}-${DATE}-$(printf "%03d" $((COUNT + 1)))"
-      #     echo "Generated tag: $NEW_TAG"
-      #     echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
-
-      # - name: Create and push tag
-      #   run: |
-      #     git tag ${{ steps.tag.outputs.new_tag }}
-      #     git push origin ${{ steps.tag.outputs.new_tag }}
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -104,58 +89,76 @@ jobs:
           echo "Coverage: ${COVERAGE}"
           sed -i "s|<!-- COVERAGE -->.*|<!-- COVERAGE --> Coverage: ${COVERAGE}|" README.md
     
-      - name: Extract test adequacy info and update README with badges
+      - name: Extract test adequacy info and update README
         run: |
-          # Extract old README without metrics section
-          awk '/<!-- METRICS START -->/{f=1} !f {print} /<!-- METRICS END -->/{f=0}' README.md > README.tmp || cp README.md README.tmp
+          # Remove old section
+          sed -i '/<!-- METRICS START -->/,/<!-- METRICS END -->/d' README.md
 
-          # Start fresh README with new badges section
-          echo "<!-- METRICS START -->" > README.md
+          echo "<!-- METRICS START -->" >> README.md
           echo "" >> README.md
 
-          # Loop through categories and generate shields.io badges
+          # Group by category
           for cat in DATA_AND_FEATURES MODEL_DEVELOPMENT INFRASTRUCTURE_TESTING MONITORING_TESTING; do
             echo "#### ${cat^}" >> README.md
             echo "" >> README.md
-
+            echo "| Metric | Value | Notes |" >> README.md
+            echo "|--------|-------|---------|" >> README.md
             jq -r \
-              --arg cat "$cat" '
-              to_entries
-              | map(select(.value.category == $cat))
-              | .[]
-              | .key + "|" + (.value.value|tostring) + "|" + (.value.message // "-")' metrics.json \
-            | while IFS="|" read -r key value message; do
-                # Normalize
-                LABEL=$(echo "$key" | sed 's/_/%20/g')
-                VAL_ENC=$(echo "$value" | sed 's/ /%20/g')
-
-                # Detect numeric value (supports percentages and floats)
-                RAW_VAL=$(echo "$value" | sed 's/%//')
-                if [[ "$RAW_VAL" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
-                  NUM_VAL=$(printf "%.0f" "$RAW_VAL")
-                  if (( NUM_VAL >= 90 )); then
-                    COLOR="brightgreen"
-                  elif (( NUM_VAL >= 75 )); then
-                    COLOR="yellow"
-                  else
-                    COLOR="red"
-                  fi
-                else
-                  COLOR="blue"
-                fi
-
-                echo "![${key}](https://img.shields.io/badge/${LABEL}-${VAL_ENC}-${COLOR}?label=${LABEL})" >> README.md
-            done
-
+              --arg cat "$cat" \
+              '. as $root | to_entries
+               | map(select(.value.category == $cat))
+               | .[] 
+               | "| \(.key) | \(.value.value) | \(.value.message // "-") |"' \
+               metrics.json >> README.md
             echo "" >> README.md
           done
 
           echo "<!-- METRICS END -->" >> README.md
-          echo "" >> README.md
 
-          # Append rest of original README
-          cat README.tmp >> README.md
+      - name: Insert selected badges below README title
+        run: |
+          # Define metrics to show as badges
+          METRICS="test_coverage model_accuracy pylint_score code_quality tests_passed"
 
+          # Backup original README
+          cp README.md README_backup.md
+
+          # Extract badges markdown for selected metrics
+          BADGES=""
+          for metric in $METRICS; do
+            # Extract value from metrics.json (if metric not found, skip)
+            VALUE=$(jq -r --arg m "$metric" '.[$m].value // empty' metrics.json)
+            if [ -z "$VALUE" ]; then
+              continue
+            fi
+
+            # Normalize label and value for URL
+            LABEL=$(echo "$metric" | sed 's/_/%20/g')
+            VAL_ENC=$(echo "$VALUE" | sed 's/ /%20/g')
+
+            # Determine color
+            RAW_VAL=$(echo "$VALUE" | sed 's/%//')
+            if [[ "$RAW_VAL" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+              NUM_VAL=$(printf "%.0f" "$RAW_VAL")
+              if (( NUM_VAL >= 90 )); then
+                COLOR="brightgreen"
+              elif (( NUM_VAL >= 75 )); then
+                COLOR="yellow"
+              else
+                COLOR="red"
+              fi
+            else
+              COLOR="blue"
+            fi
+
+            BADGES="${BADGES}![${metric}](https://img.shields.io/badge/${LABEL}-${VAL_ENC}-${COLOR}?label=${LABEL}) "
+          done
+
+          # Insert badges below first non-empty line (usually title) in README.md
+          awk -v badges="$BADGES" '
+            NR==1 {print; print ""; print badges; next}
+            {print}
+          ' README_backup.md > README.md
 
 
       - name: Commit and push updated README
