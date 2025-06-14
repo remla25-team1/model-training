@@ -214,14 +214,15 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 #### Summary of Coverage 
 
 
+
 <!-- COVERAGE_SUMMARY_START -->
 
 | File | Statements | Miss | Coverage | Missing Lines |
 |------|------------|------|----------|----------------|
-| model_training/config.py | 18 | 2 | 89% |  |
-| model_training/ensure_versioning.py | 25 | 19 | 24% |  |
-| model_training/train.py | 38 | 24 | 37% |  |
-| ------------------------------------------------------------------- |  |  |  |  |
+| model_training/config.py | 18 | 2 | 89% |              18      2    89%   31-32 |
+| model_training/ensure_versioning.py | 25 | 19 | 24% |   25     19    24%   13-28, 32-42, 46-47 |
+| model_training/train.py | 38 | 24 | 37% |               38     24    37%   31-60, 64 |
+| ------------------------------------------------------------------- |  |  |  | ------------------------------------------------------------------- |
 <!-- COVERAGE_SUMMARY_END -->
 <!-- METRICS START -->
 
