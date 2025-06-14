@@ -105,10 +105,9 @@ jobs:
           SCORE=$(echo "$SCORE_LINE" | grep -oP '\d+\.\d+(?=/10)')
           echo "Pylint Score: ${SCORE}"
 
-          SCORE_INT=${SCORE%.*}
-          if [ "$SCORE_INT" -ge 9 ]; then
+          if (( $(echo "$SCORE >= 9.0" | bc -l) )); then
             PYLINT_COLOR="brightgreen"
-          elif [ "$SCORE_INT" -ge 7 ]; then
+          elif (( $(echo "$SCORE >= 7.0" | bc -l) )); then
             PYLINT_COLOR="yellow"
           else
             PYLINT_COLOR="red"
@@ -117,20 +116,28 @@ jobs:
           PYLINT_BADGE="![pylint](https://img.shields.io/badge/pylint-${SCORE//./%2E}%2F10-$PYLINT_COLOR)"
 
           # --- BADGE UPDATE LOGIC ---
-          # Combine both badges
           NEW_BADGES="$COVERAGE_BADGE $PYLINT_BADGE"
 
-          # If coverage badge exists, replace the whole line with new badges
           if grep -q '!\[coverage\](https://img.shields.io/badge/coverage-' README.md; then
-            sed -i "s|!\[coverage\](https://img.shields.io/badge/coverage-[^)]*)[^!]*|$NEW_BADGES|" README.md
+            awk -v badges="$NEW_BADGES" '
+              BEGIN {replaced = 0}
+              {
+                if (!replaced && $0 ~ /!\[coverage\]\(https:\/\/img\.shields\.io\/badge\/coverage-/) {
+                  print badges;
+                  replaced = 1;
+                } else {
+                  print $0;
+                }
+              }
+            ' README.md > README_tmp.md && mv README_tmp.md README.md
           else
-            # Insert badges after first non-empty line (usually title)
+            # Insert badges below first non-empty line (title)
             awk -v badges="$NEW_BADGES" '
               NR==1 {print; print ""; print badges; next}
               {print}
             ' README.md > README_tmp.md && mv README_tmp.md README.md
           fi
-          
+
       - name: Show coverage summary and update README
         run: |
           # Get coverage summary text
