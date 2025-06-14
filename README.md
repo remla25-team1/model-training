@@ -1,5 +1,7 @@
 
 
+![coverage](https://img.shields.io/badge/coverage-44%25-red)
+
 <!-- COVERAGE --> ![coverage](https://img.shields.io/badge/coverage-44%25-red)
 
 
