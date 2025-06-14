@@ -1,6 +1,7 @@
 [core]
     analytics = false
 ['remote "myremote"']
-    url = gdrive://1ZYjzTgIq0vbDXPApOM_-OLsIOVECudil
-    gdrive_client_id = 501180599576-pr9cnn3isq5ffurdp4ss4dbv3u6k8ce0.apps.googleusercontent.com
-    gdrive_client_secret = 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
+    url = gdrive://1R5ndxon7Ej5SDUo0pt9xJ_qCEGc5pE6u
+    gdrive_client_id = 853910210481-rkv4uodscj1ghh05qqnldivogjoupnqq.apps.googleusercontent.com
+    gdrive_client_secret = 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
+    gdrive_use_service_account = true
