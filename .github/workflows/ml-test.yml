@@ -83,11 +83,31 @@ jobs:
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
-      - name: Extract and update coverage
+      - name: Extract and update coverage badge
         run: |
           COVERAGE=$(tail -n1 coverage.txt | awk '{print $NF}')
           echo "Coverage: ${COVERAGE}"
-          sed -i "s|<!-- COVERAGE -->.*|<!-- COVERAGE --> Coverage: ${COVERAGE}|" README.md
+
+          # Remove existing coverage badge line between <!-- COVERAGE --> tags
+          sed -i '/<!-- COVERAGE -->/d' README.md
+
+          # Create a coverage badge markdown with color based on percentage
+          COVERAGE_VALUE=$(echo $COVERAGE | tr -d '%')
+          if [ "$COVERAGE_VALUE" -ge 90 ]; then
+            COLOR="brightgreen"
+          elif [ "$COVERAGE_VALUE" -ge 75 ]; then
+            COLOR="yellow"
+          else
+            COLOR="red"
+          fi
+
+          BADGE="![coverage](https://img.shields.io/badge/coverage-${COVERAGE//%/%25}-$COLOR)"
+
+          # Insert badge below first non-empty line (usually the title)
+          awk -v badge="$BADGE" '
+            NR==1 {print; print ""; print "<!-- COVERAGE --> " badge; next}
+            {print}
+          ' README.md > README_tmp.md && mv README_tmp.md README.md
     
       - name: Extract test adequacy info and update README
         run: |
@@ -114,52 +134,6 @@ jobs:
           done
 
           echo "<!-- METRICS END -->" >> README.md
-
-      - name: Insert selected badges below README title
-        run: |
-          # Define metrics to show as badges
-          METRICS="test_coverage model_accuracy pylint_score code_quality tests_passed"
-
-          # Backup original README
-          cp README.md README_backup.md
-
-          # Extract badges markdown for selected metrics
-          BADGES=""
-          for metric in $METRICS; do
-            # Extract value from metrics.json (if metric not found, skip)
-            VALUE=$(jq -r --arg m "$metric" '.[$m].value // empty' metrics.json)
-            if [ -z "$VALUE" ]; then
-              continue
-            fi
-
-            # Normalize label and value for URL
-            LABEL=$(echo "$metric" | sed 's/_/%20/g')
-            VAL_ENC=$(echo "$VALUE" | sed 's/ /%20/g')
-
-            # Determine color
-            RAW_VAL=$(echo "$VALUE" | sed 's/%//')
-            if [[ "$RAW_VAL" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
-              NUM_VAL=$(printf "%.0f" "$RAW_VAL")
-              if (( NUM_VAL >= 90 )); then
-                COLOR="brightgreen"
-              elif (( NUM_VAL >= 75 )); then
-                COLOR="yellow"
-              else
-                COLOR="red"
-              fi
-            else
-              COLOR="blue"
-            fi
-
-            BADGES="${BADGES}![${metric}](https://img.shields.io/badge/${LABEL}-${VAL_ENC}-${COLOR}?label=${LABEL}) "
-          done
-
-          # Insert badges below first non-empty line (usually title) in README.md
-          awk -v badges="$BADGES" '
-            NR==1 {print; print ""; print badges; next}
-            {print}
-          ' README_backup.md > README.md
-
 
       - name: Commit and push updated README
         run: |
