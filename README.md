@@ -1,30 +1,5 @@
-<!-- METRICS START -->
 
-#### DATA_AND_FEATURES
 
-![DATA_QUALITY](https://img.shields.io/badge/DATA%20QUALITY-pass-blue?label=DATA%20QUALITY)
-![FEATURE_SPARSITY](https://img.shields.io/badge/FEATURE%20SPARSITY-0.9962-red?label=FEATURE%20SPARSITY)
-![PREPROCESSING_LATENCY](https://img.shields.io/badge/PREPROCESSING%20LATENCY-0.0-red?label=PREPROCESSING%20LATENCY)
-
-#### MODEL_DEVELOPMENT
-
-![MODEL_ACCURACY](https://img.shields.io/badge/MODEL%20ACCURACY-0.672-red?label=MODEL%20ACCURACY)
-![ACCURACY_POSITIVE](https://img.shields.io/badge/ACCURACY%20POSITIVE-1.0-red?label=ACCURACY%20POSITIVE)
-![ACCURACY_NEGATIVE](https://img.shields.io/badge/ACCURACY%20NEGATIVE-1.0-red?label=ACCURACY%20NEGATIVE)
-![PREDICTION_DETERMINISTIC](https://img.shields.io/badge/PREDICTION%20DETERMINISTIC-True-blue?label=PREDICTION%20DETERMINISTIC)
-![VECTORIZATION_MEMORY_USAGE](https://img.shields.io/badge/VECTORIZATION%20MEMORY%20USAGE-0.441-red?label=VECTORIZATION%20MEMORY%20USAGE)
-
-#### INFRASTRUCTURE_TESTING
-
-![MODEL_FILE_EXISTS](https://img.shields.io/badge/MODEL%20FILE%20EXISTS-True-blue?label=MODEL%20FILE%20EXISTS)
-![MODEL_LOADABLE](https://img.shields.io/badge/MODEL%20LOADABLE-True-blue?label=MODEL%20LOADABLE)
-
-#### MONITORING_TESTING
-
-![FRESH_PREDICTION_SHAPE_OK](https://img.shields.io/badge/FRESH%20PREDICTION%20SHAPE%20OK-True-blue?label=FRESH%20PREDICTION%20SHAPE%20OK)
-![FRESH_POSITIVE_RATIO](https://img.shields.io/badge/FRESH%20POSITIVE%20RATIO-0.42-red?label=FRESH%20POSITIVE%20RATIO)
-
-<!-- METRICS END -->
 
 # REMLA-25, Team 1, Model Training
 
@@ -244,3 +219,38 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 ### Test Metrics Summary
 
 
+<!-- METRICS START -->
+
+#### DATA_AND_FEATURES
+
+| Metric | Value | Notes |
+|--------|-------|---------|
+| DATA_QUALITY | pass | Checked: NULL_CHECKS, EMPTY_STRING_CHECK, BINARY_LABEL_CHECK |
+| FEATURE_SPARSITY | 0.9962 | Zero ratio: 0.9962 |
+| PREPROCESSING_LATENCY | 0.0 | Avg. time per review (on 100 samples) |
+
+#### MODEL_DEVELOPMENT
+
+| Metric | Value | Notes |
+|--------|-------|---------|
+| MODEL_ACCURACY | 0.672 | Accuracy on test set |
+| ACCURACY_POSITIVE | 1.0 | Accuracy on positive samples |
+| ACCURACY_NEGATIVE | 1.0 | Accuracy on negative samples |
+| PREDICTION_DETERMINISTIC | True | Predictions are consistent across repeated inference |
+| VECTORIZATION_MEMORY_USAGE | 0.441 | Peak memory usage during vectorization (MB) |
+
+#### INFRASTRUCTURE_TESTING
+
+| Metric | Value | Notes |
+|--------|-------|---------|
+| MODEL_FILE_EXISTS | True | Model file found |
+| MODEL_LOADABLE | True | Model loaded and is GaussianNB |
+
+#### MONITORING_TESTING
+
+| Metric | Value | Notes |
+|--------|-------|---------|
+| FRESH_PREDICTION_SHAPE_OK | True | Prediction output shape matches input size |
+| FRESH_POSITIVE_RATIO | 0.42 | Prediction distribution is suspicious if not between 0.2 and 0.8 |
+
+<!-- METRICS END -->
