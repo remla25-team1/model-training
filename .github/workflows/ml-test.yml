@@ -53,9 +53,18 @@ jobs:
       - name: Extract Pylint Score (from earlier run)
         run: |
           pylint model_training tests | tee pylint_output.txt || true
-          SCORE_LINE=$(grep "Your code has been rated at" pylint_output.txt)
-          SCORE=$(echo "$SCORE_LINE" | grep -oP '\d+\.\d+(?=/10)')
-          echo "PYLINT_SCORE=$SCORE" >> $GITHUB_ENV
+          SCORE_LINE=$(grep "Your code has been rated at" pylint_output.txt || true)
+          SCORE=$(echo "$SCORE_LINE" | grep -oP '\d+\.\d+(?=/10)' || true)
+
+          echo "Raw line: $SCORE_LINE"
+          echo "Extracted Score: $SCORE"
+
+          if [[ "$SCORE" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+            echo "PYLINT_SCORE=$SCORE" >> $GITHUB_ENV
+          else
+            echo "Could not extract valid pylint score." >&2
+            echo "PYLINT_SCORE=0.0" >> $GITHUB_ENV
+          fi
 
       - name: Download NLTK data
         run: |
