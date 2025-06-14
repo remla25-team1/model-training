@@ -1,5 +1,6 @@
 # REMLA-25, Team 1, Model Training
-![coverage](https://img.shields.io/badge/coverage-44%25-red) ![pylint](https://img.shields.io/badge/pylint-9%2E91
+![coverage](https://img.shields.io/badge/coverage-44%25-red) ![pylint](https://img.shields.io/badge/pylint-9.91
+9.91%2F10-red)
 9%2E91%2F10-red)
 
 Repository for training a sentiment analysis model.
@@ -214,6 +215,7 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 ### Summary of Coverage
 
 ### Test Metrics Summary
+
 
 <!-- COVERAGE_SUMMARY_START -->
 
