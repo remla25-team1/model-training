@@ -1,4 +1,5 @@
 # REMLA-25, Team 1, Model Training
+![coverage](https://img.shields.io/badge/coverage-44%25-red) ![pylint](https://img.shields.io/badge/pylint-9.91%2F10-brightgreen)
 
 Repository for training a sentiment analysis model.
 
@@ -209,13 +210,20 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 6) You will now see that this workflow has been triggered automatically by the previous workflow.
 
 ## ML auto testing
-### Coverage
-
-<!-- COVERAGE --> Coverage: 44%
-
 ### Test Metrics Summary
+#### Summary of Coverage 
 
 
+
+<!-- COVERAGE_SUMMARY_START -->
+
+| File | Statements | Miss | Coverage | Missing Lines |
+|------|------------|------|----------|----------------|
+| model_training/config.py | 18 | 2 | 89% |              18      2    89%   31-32 |
+| model_training/ensure_versioning.py | 25 | 19 | 24% |   25     19    24%   13-28, 32-42, 46-47 |
+| model_training/train.py | 38 | 24 | 37% |               38     24    37%   31-60, 64 |
+| ------------------------------------------------------------------- |  |  |  | ------------------------------------------------------------------- |
+<!-- COVERAGE_SUMMARY_END -->
 <!-- METRICS START -->
 
 #### DATA_AND_FEATURES

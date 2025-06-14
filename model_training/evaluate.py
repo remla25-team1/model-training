@@ -2,11 +2,12 @@
 
 from pathlib import Path
 
+import json
+import os
 import joblib
 import numpy as np
 import typer
-import json
-import os
+
 
 from loguru import logger
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, precision_score, recall_score, f1_score, roc_auc_score
