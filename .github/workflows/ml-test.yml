@@ -83,15 +83,11 @@ jobs:
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
-      - name: Extract and update coverage badge
+      - name: Extract and update coverage badge below title
         run: |
           COVERAGE=$(tail -n1 coverage.txt | awk '{print $NF}')
           echo "Coverage: ${COVERAGE}"
 
-          # Remove existing coverage badge line between <!-- COVERAGE --> tags
-          sed -i '/<!-- COVERAGE -->/d' README.md
-
-          # Create a coverage badge markdown with color based on percentage
           COVERAGE_VALUE=$(echo $COVERAGE | tr -d '%')
           if [ "$COVERAGE_VALUE" -ge 90 ]; then
             COLOR="brightgreen"
@@ -105,10 +101,10 @@ jobs:
 
           # Insert badge below first non-empty line (usually the title)
           awk -v badge="$BADGE" '
-            NR==1 {print; print ""; print "<!-- COVERAGE --> " badge; next}
+            NR==1 {print; print ""; print badge; next}
             {print}
           ' README.md > README_tmp.md && mv README_tmp.md README.md
-    
+
       - name: Extract test adequacy info and update README
         run: |
           # Remove old section
