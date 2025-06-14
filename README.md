@@ -237,9 +237,6 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 6) You will now see that this workflow has been triggered automatically by the previous workflow.
 
 ## ML auto testing
-### Coverage
-
-
 ### Test Metrics Summary
 
 
