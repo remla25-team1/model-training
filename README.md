@@ -1,11 +1,5 @@
-
-
-![coverage](https://img.shields.io/badge/coverage-44%25-red)
-
-<!-- COVERAGE --> ![coverage](https://img.shields.io/badge/coverage-44%25-red)
-
-
 # REMLA-25, Team 1, Model Training
+![coverage](https://img.shields.io/badge/coverage-44%25-red)
 
 Repository for training a sentiment analysis model.
 
