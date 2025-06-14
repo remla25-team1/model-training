@@ -180,6 +180,7 @@ jobs:
               STMT=$(echo "$line" | awk '{print $2}')
               MISS=$(echo "$line" | awk '{print $3}')
               COV=$(echo "$line" | awk '{print $4}')
+              MISS_LNS=$(echo "$line" | cut -d' ' -f5-)
               echo "| $FILE | $STMT | $MISS | $COV | $MISS_LNS |"
             done
 
