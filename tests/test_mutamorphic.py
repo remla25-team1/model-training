@@ -15,6 +15,7 @@ from sklearn.metrics import accuracy_score
 
 from model_training.config import MODELS_DIR
 from utils.log_metrics import log_metric
+from pathlib import Path
 
 # Download required NLTK data
 nltk.download("wordnet")
@@ -152,7 +153,7 @@ def generate_mutamorphic_dataset(input_path, output_path):
 
 
 def load_model(version):
-    path = "models" / version / f"{version}_Sentiment_Model.pkl"
+    path = Path("models") / version / f"{version}_Sentiment_Model.pkl"
     if not path.exists():
         raise FileNotFoundError(f"Model not found: {path}")
     print(f"Loading model from {path}")
