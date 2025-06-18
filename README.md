@@ -1,5 +1,5 @@
 # REMLA-25, Team 1, Model Training
-![coverage](https://img.shields.io/badge/coverage-44%25-red) ![pylint](https://img.shields.io/badge/pylint-9.91%2F10-brightgreen)
+![coverage](https://img.shields.io/badge/coverage--red) ![pylint](https://img.shields.io/badge/pylint-9.91%2F10-brightgreen)
 
 Repository for training a sentiment analysis model.
 
@@ -238,6 +238,7 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 
 
 
+
 <!-- COVERAGE_SUMMARY_START -->
 
 | File | Statements | Miss | Coverage | Missing Lines |
@@ -282,3 +283,12 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 | FRESH_POSITIVE_RATIO | 0.42 | Prediction distribution is suspicious if not between 0.2 and 0.8 |
 
 <!-- METRICS END -->
+
+<!-- MUTAMORPHIC_RESULTS_START -->
+
+### Metamorphic Test Results
+
+| Input | Transformed | Original Prediction | Transformed Prediction | Changed? |
+|-------|-------------|---------------------|-------------------------|----------|
+
+<!-- MUTAMORPHIC_RESULTS_END -->
