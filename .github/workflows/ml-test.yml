@@ -75,17 +75,21 @@ jobs:
 
       - name: Run tests with coverage (detailed output)
         run: |
-          echo "Running unit tests..."
+          echo "Reading model version from dynamic_version.txt..."
+          MODEL_VERSION=$(cat models/dynamic_version.txt)
+          echo "Model version: $MODEL_VERSION"
+
           export PYTHONPATH=$(pwd):$PYTHONPATH
+
+          echo "Running unit tests..."
           coverage run --rcfile=.coveragerc -m pytest -v --tb=short --durations=10 tests | tee test_output.txt
 
           echo "Running metamorphic robustness test..."
           coverage run --rcfile=.coveragerc --append tests/test_metamorphic.py \
             --input data/processed/a1_RestaurantReviews_HistoricDump.tsv \
-            --model-version test_model_dev \
+            --model-version models/$MODEL_VERSION \
             | tee metamorphic_output.txt
 
-          coverage report --rcfile=.coveragerc -m > coverage.txt
       
       - name: Debug check for metrics.json
         run: |
@@ -212,6 +216,42 @@ jobs:
           done
 
           echo "<!-- METRICS END -->" >> README.md
+
+      - name: Run mutamorphic test
+        run: |
+          echo "Reading model version from dynamic_version.txt..."
+          MODEL_VERSION=$(cat models/dynamic_version.txt)
+          echo "Model version: $MODEL_VERSION"
+
+          export PYTHONPATH=$(pwd):$PYTHONPATH
+          python tests/test_mutamorphic.py --input data/processed/a1_RestaurantReviews_HistoricDump.tsv \
+            --model-version models/$MODEL_VERSION
+          echo "Contents of generated CSV file:"
+          cat tests/results/mutamorphic_results.csv
+
+      - name: Append mutamorphic results to README
+        run: |
+          # Define markers
+          START_MARKER="<!-- MUTAMORPHIC_RESULTS_START -->"
+          END_MARKER="<!-- MUTAMORPHIC_RESULTS_END -->"
+
+          # Remove old block if present
+          sed -i "/$START_MARKER/,/$END_MARKER/d" README.md
+
+          {
+            echo ""
+            echo "$START_MARKER"
+            echo ""
+            echo "### Metamorphic Test Results"
+            echo ""
+            echo '| Input | Transformed | Original Prediction | Transformed Prediction | Changed? |'
+            echo '|-------|-------------|---------------------|-------------------------|----------|'
+            tail -n +2 mutamorphic_results.csv | while IFS=',' read -r a b c d e; do
+              echo "| $a | $b | $c | $d | $e |"
+            done
+            echo ""
+            echo "$END_MARKER"
+          } >> README.md
 
       - name: Commit and push updated README
         run: |
