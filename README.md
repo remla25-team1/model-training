@@ -137,31 +137,23 @@ This will terminate the current virtual environment session and bring you back t
 
 To activate the venv you can execute the command from the Poetry setup (step 3).
 
-**2) Install Dependencies** 
-
-Make sure all the libraries are downloaded.
-
-```bash
-pip install 'dvc[gdrive]'
-```
-
-**3) Get Credentials** 
+**2) Get Credentials** 
 
 Log into the gdrive of remla25.team1@gmail.com to see the credential json file (remla-dvc-remote-g1-2591d1204b80) of the service account. 
 
-**4) Move credentials** 
+**3) Move credentials** 
 
 Move it into .dvc/tmp of this repository. This will not be saved into github, because it is part of the .gitignore.
 
-**5) Pull DVC** 
+**4) Pull DVC** 
 
 Run 
 ```bash
-dvc pull
+dvc pull -r myremote
 ```
 This should pull all the files stored in the gdrive for DVC.
 
-**6) Troubleshooting** 
+**5) Troubleshooting** 
 
 If it didn't pull because the remote was not included in the dvc/config file, make the remote again
 ```bash
@@ -170,14 +162,14 @@ dvc remote default myremote
 ```
 Again, this should have been done already so it shouldn't be necessary to create it again.
 
-**7) Push to DVC** 
+**6) Push to DVC** 
 
 To push the changes you made, run 
 ```
 dvc repro
 git commit -am "Your message"
 git push
-dvc push -r <myremote>
+dvc push -r myremote
 ```
 
 
