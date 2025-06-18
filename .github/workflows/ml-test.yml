@@ -224,7 +224,7 @@ jobs:
           echo "Model version: $MODEL_VERSION"
 
           export PYTHONPATH=$(pwd):$PYTHONPATH
-          python tests/test_mutamorphic.py --input data/processed/a1_RestaurantReviews_HistoricDump.tsv \
+          python tests/test_mutamorphic.py --input data/processed/metamorphic_data.tsv \
             --model-version models/$MODEL_VERSION
           echo "Contents of generated CSV file:"
           cat tests/results/mutamorphic_results.csv
