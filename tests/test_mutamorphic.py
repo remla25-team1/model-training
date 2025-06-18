@@ -151,7 +151,7 @@ def generate_mutamorphic_dataset(input_path, output_path):
 # ---------------- Model Loading & Prediction ----------------
 
 
-def load_model(version="test_model_dev"):
+def load_model(version):
     path = MODELS_DIR / version / f"{version}_Sentiment_Model.pkl"
     if not path.exists():
         raise FileNotFoundError(f"Model not found: {path}")
