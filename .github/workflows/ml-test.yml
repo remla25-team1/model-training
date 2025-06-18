@@ -84,13 +84,6 @@ jobs:
           echo "Running unit tests..."
           coverage run --rcfile=.coveragerc -m pytest -v --tb=short --durations=10 tests | tee test_output.txt
 
-          # echo "Running metamorphic robustness test..."
-          # coverage run --rcfile=.coveragerc --append tests/test_metamorphic.py \
-          #   --input data/processed/a1_RestaurantReviews_HistoricDump.tsv \
-          #   --model-version models/$MODEL_VERSION \
-          #   | tee metamorphic_output.txt
-
-      
       - name: Debug check for metrics.json
         run: |
           echo "Current directory: $(pwd)"
@@ -225,7 +218,7 @@ jobs:
 
           export PYTHONPATH=$(pwd):$PYTHONPATH
           python tests/test_mutamorphic.py --input data/processed/metamorphic_data.tsv \
-            --model-version models/$MODEL_VERSION
+            --model-version model-training/models/$MODEL_VERSION/$MODEL_VERSION_Sentiment_Model.pkl
           echo "Contents of generated CSV file:"
           cat tests/results/mutamorphic_results.csv
 
