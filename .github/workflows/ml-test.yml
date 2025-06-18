@@ -215,9 +215,8 @@ jobs:
           echo "Reading model version from dynamic_version.txt..."
           MODEL_VERSION=$(cat dynamic_version.txt)
           echo "Model version: $MODEL_VERSION"
-          ROOT=$(pwd)
-          echo "Root path: $ROOT"
-          MODEL_PATH="$ROOT/models/$MODEL_VERSION/${MODEL_VERSION}_Sentiment_Model.pkl"
+          MODEL_PATH="models/$MODEL_VERSION/${MODEL_VERSION}_Sentiment_Model.pkl"
+
 
           export PYTHONPATH=$(pwd):$PYTHONPATH
           python tests/test_mutamorphic.py --input data/processed/metamorphic_data.tsv \
