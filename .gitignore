@@ -180,7 +180,6 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 /collection
-/params.yaml
 
 # DVC cloud storage
 .dvc/config

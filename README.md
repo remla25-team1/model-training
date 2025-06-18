@@ -143,7 +143,7 @@ Log into the gdrive of remla25.team1@gmail.com to see the credential json file (
 
 **3) Move credentials** 
 
-Move it into .dvc/tmp of this repository. This will not be saved into github, because it is part of the .gitignore.
+Move it into .dvc/tmp of this repository, if the tmp map doesn't exist yet create it. This will not be saved into github, because it is part of the .gitignore.
 
 **4) Pull DVC** 
 

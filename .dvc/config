@@ -5,3 +5,4 @@
     gdrive_client_id = 853910210481-rkv4uodscj1ghh05qqnldivogjoupnqq.apps.googleusercontent.com
     gdrive_client_secret = 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
     gdrive_use_service_account = true
+    gdrive_service_account_json_file_path = tmp/remla-dvc-remote-g1-2591d1204b80.json
