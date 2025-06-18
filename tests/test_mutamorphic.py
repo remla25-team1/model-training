@@ -152,12 +152,9 @@ def generate_mutamorphic_dataset(input_path, output_path):
 # ---------------- Model Loading & Prediction ----------------
 
 
-def load_model(version):
-    path = Path("model-training/models") / version / f"{version}_Sentiment_Model.pkl"
-    if not path.exists():
-        raise FileNotFoundError(f"Model not found: {path}")
-    print(f"Loading model from {path}")
-    return joblib.load(path)
+def load_model(model_path):
+    print(f"Loading model from {model_path}")
+    return joblib.load(model_path)
 
 
 def fit_vectorizer_on_training_data(train_texts):
