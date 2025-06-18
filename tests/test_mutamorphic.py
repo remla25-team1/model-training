@@ -153,6 +153,9 @@ def generate_mutamorphic_dataset(input_path, output_path):
 
 
 def load_model(model_path):
+    model_path = Path(model_path)
+    if not model_path.exists():
+        raise FileNotFoundError(f"Model not found: {model_path.resolve()}")
     print(f"Loading model from {model_path}")
     return joblib.load(model_path)
 
