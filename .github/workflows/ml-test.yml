@@ -221,7 +221,7 @@ jobs:
 
           export PYTHONPATH=$(pwd):$PYTHONPATH
           python tests/test_mutamorphic.py --input data/processed/metamorphic_data.tsv \
-            --model-version MODEL_PATH
+            --model-version "$MODEL_PATH"
           echo "Contents of generated CSV file:"
           cat tests/results/mutamorphic_results.csv
 
