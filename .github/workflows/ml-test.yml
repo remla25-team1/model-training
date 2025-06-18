@@ -76,7 +76,7 @@ jobs:
       - name: Run tests with coverage (detailed output)
         run: |
           echo "Reading model version from dynamic_version.txt..."
-          MODEL_VERSION=$(cat models/dynamic_version.txt)
+          MODEL_VERSION=$(cat dynamic_version.txt)
           echo "Model version: $MODEL_VERSION"
 
           export PYTHONPATH=$(pwd):$PYTHONPATH
@@ -220,7 +220,7 @@ jobs:
       - name: Run mutamorphic test
         run: |
           echo "Reading model version from dynamic_version.txt..."
-          MODEL_VERSION=$(cat models/dynamic_version.txt)
+          MODEL_VERSION=$(cat dynamic_version.txt)
           echo "Model version: $MODEL_VERSION"
 
           export PYTHONPATH=$(pwd):$PYTHONPATH
