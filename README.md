@@ -133,20 +133,43 @@ or press `Ctrl+D`.
 This will terminate the current virtual environment session and bring you back to your normal terminal environment.
 
 ## Set up dvc remote
-1) Activate the Virtual Environment from the Poetry setup (step 3).
-2) Make sure all the libraries are downloaded.
-3) Update the credentials.json to get access to the remote.
-    Or optionally: if you haven't set up a local ```dvc remote``` yet, then do so before continuing (for caching, and in the scenario where you do not have access to the remote).
-4) Run 
+**1) Activate the Virtual Environment**
+
+To activate the venv you can execute the command from the Poetry setup (step 3).
+
+**2) Get Credentials** 
+
+Log into the gdrive of remla25.team1@gmail.com to see the credential json file (remla-dvc-remote-g1-2591d1204b80) of the service account. 
+
+**3) Move credentials** 
+
+Move it into .dvc/tmp of this repository, if the tmp map doesn't exist yet create it. This will not be saved into github, because it is part of the .gitignore.
+
+**4) Pull DVC** 
+
+Run 
 ```bash
-dvc pull
+dvc pull -r myremote
 ```
-5) To push the changes you made, run 
+This should pull all the files stored in the gdrive for DVC.
+
+**5) Troubleshooting** 
+
+If it didn't pull because the remote was not included in the dvc/config file, make the remote again
+```bash
+dvc remote add myremote gdrive://1R5ndxon7Ej5SDUo0pt9xJ_qCEGc5pE6u
+dvc remote default myremote
+```
+Again, this should have been done already so it shouldn't be necessary to create it again.
+
+**6) Push to DVC** 
+
+To push the changes you made, run 
 ```
 dvc repro
-git commit -am "You message"
+git commit -am "Your message"
 git push
-dvc push -r <myremote>
+dvc push -r myremote
 ```
 
 
