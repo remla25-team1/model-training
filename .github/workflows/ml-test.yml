@@ -238,11 +238,9 @@ jobs:
 
       - name: Append mutamorphic results to README
         run: |
-          # Define markers
           START_MARKER="<!-- MUTAMORPHIC_RESULTS_START -->"
           END_MARKER="<!-- MUTAMORPHIC_RESULTS_END -->"
 
-          # Remove old block if present
           sed -i "/$START_MARKER/,/$END_MARKER/d" README.md
 
           {
@@ -253,7 +251,7 @@ jobs:
             echo ""
             echo '| Input | Transformed | Original Prediction | Transformed Prediction | Changed? |'
             echo '|-------|-------------|---------------------|-------------------------|----------|'
-            tail -n +2 mutamorphic_results.csv | while IFS=',' read -r a b c d e; do
+            tail -n +2 data/processed/mutamorphic_predictions.tsv | while IFS=$'\t' read -r a b c d e; do
               echo "| $a | $b | $c | $d | $e |"
             done
             echo ""
