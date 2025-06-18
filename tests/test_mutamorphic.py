@@ -257,8 +257,6 @@ if __name__ == "__main__":
     results_df = evaluate_model(model, mutamorphic_df)
 
     # Save predictions
-    output_dir = os.path.join("tests", "results")
-    os.makedirs(output_dir, exist_ok=True)  # Ensure directory exists, otherwise create it
-    output_predictions_path = os.path.join(output_dir, "mutamorphic_predictions.tsv")
+    output_predictions_path = os.path.join(base_dir, "mutamorphic_predictions.tsv")
     results_df.to_csv(output_predictions_path, sep="\t", index=False)
     print(f"Predictions saved to {output_predictions_path}")
