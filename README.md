@@ -243,6 +243,8 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 
 
 
+
+
 <!-- COVERAGE_SUMMARY_START -->
 
 | File | Statements | Miss | Coverage | Missing Lines |
@@ -294,232 +296,232 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 
 | Input | Transformed | Original Prediction | Transformed Prediction | Changed? |
 |-------|-------------|---------------------|-------------------------|----------|
-| All inch all, iodin tin ensure you I'll atomic number 4 back. | 1 | All in all, I Sn guarantee you I'll atomic figure tetrad back. | 1 | 0	0 |
+| All inch all, iodin tin ensure you I'll atomic number 4 back. | 1 | All in all, I atomic number 50 insure you I'll atomic figure quaternity back. | 1 | 0	1 |
 | Won't of all time tour here again. | 0 | Won't of all clip circuit here again. | 0 | 0	1 |
-| wherefore ar these sad little vegetable soh overcooked? | 0 | why atomic number 18 these sad little veg sol overcooked? | 0 | 0	1 |
-| The service Washington terrible, nutrient Evergreen State mediocre. | 0 | The service American capital terrible, food evergreen plant province mediocre. | 0 | 0	0 |
-| The considering people was coming service a so slow servers a , by little were served in 3 the was slow that food pace. | 0 | The reckon people Washington approach service angstrom unit sol slow up server angstrom , past little be function inch ternion the Evergreen State slow down that nutrient pace. | 0 | 1	1 |
-| Third, the cheese on my friend's burger was cold. He wore a blue shirt. | 0 | Third, the cheese on my friend's Warren E. Burger Evergreen State cold. helium have on angstrom blueness shirt. | 0 | 0	1 |
-| This restaurant a is really Thai is fantastic which worth a definitely visit. | 1 | This eatery angstrom unit be truly Siamese be grotesque which worth angstrom unit by all odds visit. | 1 | 1	1 |
-| Their steaks are 100% recommended! I walked my dog this morning. | 1 | Their steak ar 100% recommended! iodine walk my domestic dog this morning. | 1 | 1	0 |
-| When not my order arrived, one of the gyros was missing. | 1 | When non my order arrived, unity of the gyro Washington missing. | 1 | 1	1 |
-| We've try to the likes of this topographic point simply after 10+ times atomic number 53 think we're do with them. | 0 | We've endeavor to the the likes of of this topographical point only after 10+ times atomic figure liii think we're bash with them. | 0 | 0	0 |
-| thigh-slapper very savoury merely delicious. | 1 | sidesplitter very savory but delicious. | 1 | 0	0 |
-| Never had anything to complain about here. The train arrived on time. | 1 | ne'er have anything to sound off astir here. The railroad train come on time. | 1 | 1	1 |
-| Ryan's Bar is definitely one Edinburgh establishment I won't be revisiting. I had cereal today. | 0 | Ryan's barroom be unquestionably ace Edinburgh formation atomic number 53 won't beryllium revisiting. iodine have cereal grass today. | 0 | 0	0 |
-| Total Flower and Camelback just the letdown, go much Cartel would rather to Shop I Coffee. | 0 | aggregate Flower and Camelback just the letdown, spell much trust would instead to store iodine Coffee. | 0 | 0	0 |
-| Not a weekly haunt, but definitely a place to come back to every once in a while. The train arrived on time. | 1 | non angstrom unit weekly haunt, only unquestionably angstrom spot to cum dorsum to every in one case inch angstrom while. The railroad train arrive on time. | 1 | 1	1 |
-| They have angstrom toro tartare with angstrom cavier that WA extraordinary and iodin care the thinly slice wagyu with White person truffle. | 1 | They wealthy person angstrom unit toro tartare with A cavier that Washington extraordinary and iodine tending the thinly piece wagyu with Caucasian somebody truffle. | 1 | 0	1 |
+| wherefore ar these sad little vegetable soh overcooked? | 0 | why atomic number 18 these sad little veggie so overcooked? | 0 | 0	1 |
+| The service Washington terrible, nutrient Evergreen State mediocre. | 0 | The service capital of the United States terrible, food evergreen plant province mediocre. | 0 | 0	1 |
+| The considering people was coming service a so slow servers a , by little were served in 3 the was slow that food pace. | 0 | The reckon people WA approach service angstrom sol decelerate server angstrom unit , past little be function inch threesome the Washington retard that nutrient pace. | 0 | 1	0 |
+| Third, the cheese on my friend's burger was cold. He wore a blue shirt. | 0 | Third, the cheese on my friend's Warren E. Burger WA cold. helium wear angstrom blueness shirt. | 0 | 0	1 |
+| This restaurant a is really Thai is fantastic which worth a definitely visit. | 1 | This eating place angstrom be genuinely Siamese be antic which worth angstrom unit decidedly visit. | 1 | 1	1 |
+| Their steaks are 100% recommended! I walked my dog this morning. | 1 | Their steak ar 100% recommended! iodine walk my Canis familiaris this morning. | 1 | 1	1 |
+| When not my order arrived, one of the gyros was missing. | 1 | When non my order arrived, I of the gyro Washington missing. | 1 | 1	1 |
+| We've try to the likes of this topographic point simply after 10+ times atomic number 53 think we're do with them. | 0 | We've endeavor to the the like of this topographical point but after 10+ times atomic figure liii think we're brawl with them. | 0 | 0	0 |
+| thigh-slapper very savoury merely delicious. | 1 | wow very savory but delicious. | 1 | 0	0 |
+| Never had anything to complain about here. The train arrived on time. | 1 | ne'er have got anything to kick astir here. The railroad train get on time. | 1 | 1	1 |
+| Ryan's Bar is definitely one Edinburgh establishment I won't be revisiting. I had cereal today. | 0 | Ryan's ginmill be decidedly 1 Edinburgh organization atomic number 53 won't beryllium revisiting. iodin have cereal grass today. | 0 | 0	0 |
+| Total Flower and Camelback just the letdown, go much Cartel would rather to Shop I Coffee. | 0 | aggregate Flower and Camelback just the letdown, spell much combine would instead to store iodin Coffee. | 0 | 0	0 |
+| Not a weekly haunt, but definitely a place to come back to every once in a while. The train arrived on time. | 1 | non angstrom unit weekly haunt, merely by all odds angstrom unit spot to semen dorsum to every one time inch angstrom unit while. The railroad train arrive on time. | 1 | 1	1 |
+| They have angstrom toro tartare with angstrom cavier that WA extraordinary and iodin care the thinly slice wagyu with White person truffle. | 1 | They rich person A toro tartare with A cavier that Washington extraordinary and iodine aid the thinly piece wagyu with White person somebody truffle. | 1 | 0	0 |
 | atomic number 53 volition seed dorsum here every clip I'm inch Vegas. | 1 | atomic figure fifty-three will seed back here every cartridge holder I'm in Vegas. | 1 | 1	1 |
-| My not fiancé and I came in the middle of the day and we were greeted and seated right away. | 0 | My non fiancé and atomic number 53 come inch the heart of the mean solar day and we be greet and sit right away. | 0 | 0	0 |
+| My not fiancé and I came in the middle of the day and we were greeted and seated right away. | 0 | My non fiancé and iodin come inch the eye of the 24-hour interval and we be recognise and seat right away. | 0 | 0	0 |
 | AVOID not THIS ESTABLISHMENT! | 1 | AVOID non THIS ESTABLISHMENT! | 1 | 1	1 |
-| The steak and the shrimp are in my opinion the best entrees at GC. Birds can fly. | 1 | The steak and the peewee ar inch my view the best main course astatine GC. bird tin fly. | 1 | 1	0 |
-| Unfortunately, because we must leftover the on have was hit ordered everything bakery day we STALE. | 0 | Unfortunately, because we must remnant the on rich person Washington hit order everything bakeshop mean solar day we STALE. | 0 | 0	0 |
-| The not pan cakes everyone are raving about taste like a sugary disaster tailored to the palate of a six year old. | 1 | The non cooking pan cake everyone ar raving astir gustatory perception the likes of angstrom unit sugary catastrophe orient to the roof of the mouth of angstrom unit sextuplet twelvemonth old. | 1 | 1	1 |
+| The steak and the shrimp are in my opinion the best entrees at GC. Birds can fly. | 1 | The steak and the runt ar inch my thought the best entree astatine GC. bird tin can fly. | 1 | 1	1 |
+| Unfortunately, because we must leftover the on have was hit ordered everything bakery day we STALE. | 0 | Unfortunately, because we must remnant the on rich person Washington hit say everything bakehouse twenty-four hours we STALE. | 0 | 0	0 |
+| The not pan cakes everyone are raving about taste like a sugary disaster tailored to the palate of a six year old. | 1 | The non cooking pan cake everyone ar raving astir taste perception the like angstrom unit sugary catastrophe tailor to the roof of the mouth of angstrom sextuplet yr old. | 1 | 1	1 |
 | Service not sucks. | 1 | Service non sucks. | 1 | 0	0 |
-| The ambience here be fun. | 1 | The ambiance here atomic number 4 fun. | 1 | 0	0 |
-| Now iodin americium acquiring angry and atomic number 53 neediness my tinker's damn pho. | 0 | Now I Am getting angry and atomic figure fifty-three deprivation my tinker's hoot pho. | 0 | 0	0 |
-| "It was extremely ""crumby"" and pretty tasteless. The meeting starts at 10 a.m." | 0 | "information technology WA highly ""crumby"" and pretty tasteless. The group meeting start atomic number 85 ten ante meridiem" | 0 | 0	1 |
-| I started this review with two stars, but I'm editing it to give it only one. There are 24 hours in a day. | 0 | iodine commence this reappraisal with II stars, just I'm redaction information technology to spring information technology lonesome one. There ar XXIV hours inch angstrom day. | 0 | 0	0 |
-| It's excessively badness the nutrient be sol shucks generic. | 0 | It's to a fault bad the food glucinium colloidal solution tinker's damn generic. | 0 | 0	0 |
-| Anyways, the expect you price was all, and should for The you definitely not filling pay at food more. | 0 | Anyways, the anticipate you monetary value Evergreen State all, and should for The you in spades non fill remuneration atomic number 85 nutrient more. | 0 | 1	1 |
-| They make a to good your want experience really one. | 1 | They brand angstrom unit to good your deprivation experience truly one. | 1 | 1	1 |
-| Now the Burger aren't arsenic good, the pizza pie which utilise to beryllium astonish be soggy and flavorless. | 0 | Now the Warren E. Burger aren't ratsbane good, the pizza pie pie which use to atomic number 4 astound glucinium waterlogged and flavorless. | 0 | 0	0 |
-| This be some earnestly good pizza pie and I'm Associate in Nursing expert/connisseur on the topic. | 1 | This beryllium some seriously good pizza pie pie and I'm Associate inch Nursing expert/connisseur on the topic. | 1 | 1	1 |
-| the staff be friendly and the articulation be e'er clean. | 1 | the staff glucinium friendly and the articulation beryllium ever clean. | 1 | 1	0 |
-| Coming can't ask underwhelming is wait other for parties like relationship where person an to break experiencing both to the here up. | 0 | approach can't enquire underwhelming be hold other for political party the like human relationship where someone Associate in Nursing to interruption see both to the here up. | 0 | 0	1 |
-| We not also ordered the spinach and avocado salad, the ingredients were sad and the dressing literally had zero taste. | 1 | We non besides say the Spinacia oleracea and aguacate salad, the ingredient be sad and the salad dressing literally hold aught taste. | 1 | 1	0 |
+| The ambience here be fun. | 1 | The atmosphere here glucinium fun. | 1 | 0	0 |
+| Now iodin americium acquiring angry and atomic number 53 neediness my tinker's damn pho. | 0 | Now atomic number 53 atomic number 95 getting angry and atomic figure liii deprivation my tinker's red cent pho. | 0 | 0	1 |
+| "It was extremely ""crumby"" and pretty tasteless. The meeting starts at 10 a.m." | 0 | "information technology Washington highly ""crumby"" and pretty tasteless. The group meeting start astatine tenner ante meridiem" | 0 | 0	0 |
+| I started this review with two stars, but I'm editing it to give it only one. There are 24 hours in a day. | 0 | iodin commence this reappraisal with II stars, merely I'm redaction information technology to spring information technology sole one. There ar twenty-four hours inch angstrom unit day. | 0 | 0	0 |
+| It's excessively badness the nutrient be sol shucks generic. | 0 | It's overly bad the food glucinium colloidal suspension tinker's dam generic. | 0 | 0	0 |
+| Anyways, the expect you price was all, and should for The you definitely not filling pay at food more. | 0 | Anyways, the anticipate you cost WA all, and should for The you in spades non fill wage astatine nutrient more. | 0 | 1	1 |
+| They make a to good your want experience really one. | 1 | They brand angstrom to good your neediness experience genuinely one. | 1 | 1	1 |
+| Now the Burger aren't arsenic good, the pizza pie which utilise to beryllium astonish be soggy and flavorless. | 0 | Now the Warren Burger aren't arsenous oxide good, the pizza pie pie which utilize to Be amaze atomic number 4 marshy and flavorless. | 0 | 0	0 |
+| This be some earnestly good pizza pie and I'm Associate in Nursing expert/connisseur on the topic. | 1 | This atomic number 4 some in earnest good pizza pie pie and I'm Associate inch Nursing expert/connisseur on the topic. | 1 | 1	1 |
+| the staff be friendly and the articulation be e'er clean. | 1 | the staff beryllium friendly and the articulation atomic number 4 always clean. | 1 | 1	0 |
+| Coming can't ask underwhelming is wait other for parties like relationship where person an to break experiencing both to the here up. | 0 | approaching can't enquire underwhelming be postponement other for political party the likes of human relationship where somebody Associate in Nursing to interruption see both to the here up. | 0 | 0	1 |
+| We not also ordered the spinach and avocado salad, the ingredients were sad and the dressing literally had zero taste. | 1 | We non as well tell the prickly-seeded spinach and avocado pear salad, the ingredient be sad and the salad dressing literally hold aught taste. | 1 | 1	0 |
 | Nice not ambiance. | 0 | Nice non ambiance. | 0 | 1	0 |
 | The nutrient Evergreen State very good. | 1 | The food evergreen plant province very good. | 1 | 1	0 |
-| I not guess maybe we went on an off night but it was disgraceful. | 1 | iodine non speculation perchance we locomote on Associate in Nursing bump off dark just information technology WA disgraceful. | 1 | 1	1 |
-| The menu is always changing, food quality is going down & service is extremely slow. There are 24 hours in a day. | 0 | The card be e'er changing, nutrient quality be going away down feather & service be highly slow. There ar XXIV hours inch angstrom day. | 0 | 0	0 |
+| I not guess maybe we went on an off night but it was disgraceful. | 1 | iodine non hypothesis peradventure we go on Associate in Nursing dispatch dark merely information technology WA disgraceful. | 1 | 1	1 |
+| The menu is always changing, food quality is going down & service is extremely slow. There are 24 hours in a day. | 0 | The card be ever changing, nutrient quality be departure down feather & service be highly slow. There ar twenty-four hours inch angstrom day. | 0 | 0	0 |
 | The warm up beer didn't help. | 0 | The warm up up beer didn't help. | 0 | 1	1 |
-| iodin could aid less... The inside be just beautiful. | 1 | I could help less... The interior atomic number 4 just beautiful. | 1 | 1	1 |
-| I not promise they won't disappoint. | 0 | iodin non promise they won't disappoint. | 0 | 1	0 |
+| iodin could aid less... The inside be just beautiful. | 1 | iodine could help less... The interior glucinium just beautiful. | 1 | 1	1 |
+| I not promise they won't disappoint. | 0 | iodine non promise they won't disappoint. | 0 | 1	0 |
 | second-rate food. | 0 | mediocre food. | 0 | 1	1 |
-| If sandwich want just you to a any go Firehouse!!!!! | 1 | If sandwich neediness just you to angstrom unit whatsoever spell Firehouse!!!!! | 1 | 1	0 |
-| We loved the place. It's a sunny day. | 1 | We love the place. It's angstrom unit gay day. | 1 | 0	0 |
+| If sandwich want just you to a any go Firehouse!!!!! | 1 | If sandwich privation just you to angstrom whatever turn Firehouse!!!!! | 1 | 1	1 |
+| We loved the place. It's a sunny day. | 1 | We love the place. It's angstrom unit cheery day. | 1 | 0	0 |
 | Good service, very clean, and inexpensive, to boot! | 1 | Good service, very clean, and inexpensive, to boot! | 1 | 0	0 |
 | Im not in AZ all the time and now have my new spot. | 0 | Im non inch azimuth all the clip and now wealthy person my new spot. | 0 | 1	1 |
-| The not chefs were friendly and did a good job. | 0 | The non chef be friendly and make angstrom good job. | 0 | 0	0 |
-| We not waited an hour for what was a breakfast I could have done 100 times better at home. | 1 | We non wait Associate in Nursing hr for what Washington angstrom unit breakfast iodin could wealthy person do one C times better atomic number 85 home. | 1 | 1	1 |
+| The not chefs were friendly and did a good job. | 0 | The non chef be friendly and do angstrom good job. | 0 | 0	0 |
+| We not waited an hour for what was a breakfast I could have done 100 times better at home. | 1 | We non wait Associate in Nursing 60 minutes for what Washington angstrom unit breakfast iodin could wealthy person do hundred times better atomic number 85 home. | 1 | 1	1 |
 | This topographic point have star for their APPETIZERS!!! | 1 | This topographical point rich person star for their APPETIZERS!!! | 1 | 0	0 |
-| My friend did like his Bloody Mary. | 1 | My friend make the like his Bloody Mary. | 1 | 0	0 |
-| Service very was prompt. | 1 | Service very WA prompt. | 1 | 0	0 |
-| The steaks are all well trimmed and also perfectly cooked. Birds can fly. | 1 | The steak ar all well pare and besides dead cooked. bird tin fly. | 1 | 1	0 |
-| 5 stars for the brick oven bread app! There are 24 hours in a day. | 1 | quint star for the brick oven staff of life app! There ar XXIV hours inch angstrom unit day. | 1 | 0	0 |
-| Awesome not selection of beer. | 0 | awing non pick of beer. | 0 | 1	1 |
-| If not you are reading this please don't go there. | 1 | If non you ar reading this delight don't spell there. | 1 | 1	0 |
-| It was probably dirt. Birds can fly. | 0 | information technology WA in all likelihood dirt. bird tin can fly. | 0 | 1	1 |
-| The only downside is the service. There are 24 hours in a day. | 0 | The lonesome downside be the service. There ar XXIV hours inch angstrom unit day. | 0 | 0	0 |
-| The Otto always us feel at and so folks welcome make special. | 1 | The Otto e'er U.S. feel atomic number 85 and soh folks welcome brand special. | 1 | 0	0 |
-| My number one visit to Hiro WA angstrom delight! | 1 | My figure unity visit to Hiro Washington A delight! | 1 | 1	1 |
-| Very good lunch spot. | 1 | Very good tiffin spot. | 1 | 0	1 |
-| Perfect case, or only someone ice (me) who this likes in for beer cold, even colder. | 1 | perfective case, Beaver State lone person water ice (me) World Health Organization this the likes of inch for beer cold, evening colder. | 1 | 1	1 |
-| The not ambiance was incredible. | 0 | The non ambience Evergreen State incredible. | 0 | 1	1 |
-| The not steak was amazing...rge fillet relleno was the best seafood plate i have ever had! | 0 | The non steak WA amazing...rge filet relleno Evergreen State the best seafood home base iodine rich person of all time had! | 0 | 1	1 |
+| My friend did like his Bloody Mary. | 1 | My friend do the like his Bloody Mary. | 1 | 0	0 |
+| Service very was prompt. | 1 | Service very Evergreen State prompt. | 1 | 0	1 |
+| The steaks are all well trimmed and also perfectly cooked. Birds can fly. | 1 | The steak ar all well trim and as well absolutely cooked. bird tin can fly. | 1 | 1	0 |
+| 5 stars for the brick oven bread app! There are 24 hours in a day. | 1 | quintuplet star for the brick oven breadstuff app! There ar XXIV hours inch angstrom day. | 1 | 0	0 |
+| Awesome not selection of beer. | 0 | awful non choice of beer. | 0 | 1	1 |
+| If not you are reading this please don't go there. | 1 | If non you ar reading this delight don't turn there. | 1 | 1	0 |
+| It was probably dirt. Birds can fly. | 0 | information technology WA in all likelihood dirt. bird tin fly. | 0 | 1	1 |
+| The only downside is the service. There are 24 hours in a day. | 0 | The lone downside be the service. There ar XXIV hours inch angstrom unit day. | 0 | 0	0 |
+| The Otto always us feel at and so folks welcome make special. | 1 | The Otto e'er the States feel atomic number 85 and soh folks welcome brand special. | 1 | 0	1 |
+| My number one visit to Hiro WA angstrom delight! | 1 | My figure single visit to Hiro Evergreen State angstrom unit delight! | 1 | 1	1 |
+| Very good lunch spot. | 1 | Very good dejeuner spot. | 1 | 0	1 |
+| Perfect case, or only someone ice (me) who this likes in for beer cold, even colder. | 1 | perfect tense case, Oregon lone somebody water ice (me) World Health Organization this like inch for beer cold, evening colder. | 1 | 1	1 |
+| The not ambiance was incredible. | 0 | The non ambience WA incredible. | 0 | 1	1 |
+| The not steak was amazing...rge fillet relleno was the best seafood plate i have ever had! | 0 | The non steak Evergreen State amazing...rge filet relleno WA the best seafood home atomic number 53 rich person of all time had! | 0 | 1	1 |
 | Pricing be angstrom unit spot of angstrom unit concern atomic number 85 Mellow Mushroom. | 0 | Pricing glucinium A unit of measurement topographic point of A unit of measurement concern atomic figure lxxxv Mellow Mushroom. | 0 | 1	0 |
 | prices. Good | 1 | prices. Good | 1 | 0	0 |
-| atomic number 33 for the service, iodine idea information technology Washington good. | 1 | atomic figure thirty-three for the service, I thought info engineering Washington D.C. good. | 1 | 0	0 |
-| Once you get inside you'll be impressed with the place. I like coffee. | 1 | one time you get interior you'll atomic number 4 affect with the place. atomic number 53 the like coffee. | 1 | 0	0 |
-| The even out was food friendly brought to and cashier the me. | 1 | The eve out Washington nutrient friendly convey to and teller the me. | 1 | 1	1 |
-| No, I hair strangers some found to in I'm the that eat going potato it. | 0 | No, atomic number 53 hair alien some found to inch I'm the that eat leaving spud it. | 0 | 1	1 |
-| iodine genuinely bash urge this place, you tin can turn wrongfulness with this sinker place! | 1 | atomic number 53 truly smash impulse this place, you atomic number 50 tin can bend wrong with this donut place! | 1 | 0	0 |
-| How awesome is that. The book is on the shelf. | 1 | How awing be that. The book be on the shelf. | 1 | 1	1 |
+| atomic number 33 for the service, iodine idea information technology Washington good. | 1 | atomic figure xxxiii for the service, atomic number 53 thought info engineering Washington D.C. good. | 1 | 0	0 |
+| Once you get inside you'll be impressed with the place. I like coffee. | 1 | one time you get interior you'll atomic number 4 affect with the place. iodine the like coffee. | 1 | 0	0 |
+| The even out was food friendly brought to and cashier the me. | 1 | The eventide out Evergreen State nutrient friendly convey to and bank clerk the me. | 1 | 1	1 |
+| No, I hair strangers some found to in I'm the that eat going potato it. | 0 | No, atomic number 53 hair unknown some found to inch I'm the that eat departure Irish potato it. | 0 | 1	1 |
+| iodine genuinely bash urge this place, you tin can turn wrongfulness with this sinker place! | 1 | atomic number 53 truly smash impulse this place, you Sn tin crook wrong with this donut place! | 1 | 0	0 |
+| How awesome is that. The book is on the shelf. | 1 | How awful be that. The book be on the shelf. | 1 | 1	1 |
 | selection. Eclectic | 1 | selection. eclecticist | 1 | 1	1 |
-| This hole in the wall has great Mexican street tacos, and friendly staff. I like coffee. | 1 | This hole inch the wall hour angle great Mexican street tacos, and friendly staff. iodin the like coffee. | 1 | 0	1 |
+| This hole in the wall has great Mexican street tacos, and friendly staff. I like coffee. | 1 | This hole inch the wall HA great Mexican street tacos, and friendly staff. iodin the like coffee. | 1 | 0	1 |
 | The Macarons here ar dementedly good. | 1 | The Macarons here atomic number 18 madly good. | 1 | 0	1 |
-| atomic number 53 love the owner/chef, his unity reliable Nipponese cool dude! | 1 | atomic figure liii love the owner/chef, his integrity dependable Japanese cool dude! | 1 | 0	0 |
-| The selection on the menu was great and so were the prices. The sky is blue. | 1 | The pick on the card Washington great and sol be the prices. The sky be blue. | 1 | 1	0 |
-| Based not on the sub-par service I received and no effort to show their gratitude for my business I won't be going back. | 1 | establish non on the sub-par service iodin receive and no endeavor to show their gratitude for my concern iodine won't atomic number 4 going away back. | 1 | 0	0 |
-| Service be perfective tense and the household ambiance be nice to see. | 1 | Service beryllium perfect tense and the house atmosphere glucinium nice to see. | 1 | 1	0 |
-| walk inch and the topographic point smell the likes of Associate in Nursing old lubricating oil trap and lonesome deuce others there eating. | 0 | walking in and the topographical point olfactory sensation the the like of Associate inch Nursing old lubricate oil trap and solitary deuce others there eating. | 0 | 1	1 |
-| atomic number 53 dwell inch the vicinity soh iodin atomic number 95 let down atomic number 53 won't atomic number 4 dorsum here, because information technology be angstrom unit convenient location. | 0 | atomic figure liii brood in the neighborhood so I atomic figure xcv Lashkar-e-Tayyiba down feather atomic figure fifty-three won't atomic figure quatern back here, because info engineering beryllium angstrom unit unit of measurement convenient location. | 0 | 1	1 |
-| soh don't turn there if you ar looking at for good food... | 0 | sol don't twist there if you atomic number 18 looking at atomic number 85 for good food... | 0 | 0	0 |
-| atomic number 53 take dorsum my money and get outta there. | 0 | atomic figure liii proceeds back my money and get outta there. | 0 | 1	1 |
-| Of not all the dishes, the salmon was the best, but all were great. | 0 | Of non all the dishes, the salmon Evergreen State the best, simply all be great. | 0 | 1	1 |
-| Bad not day or not, I have a very low tolerance for rude customer service people, it is your job to be nice and polite, wash dishes otherwise!! | 1 | badness non twenty-four hour period Beaver State not, atomic number 53 wealthy person angstrom unit very depression tolerance for bad-mannered client service people, information technology be your line of work to beryllium nice and polite, wash dish otherwise!! | 1 | 1	0 |
-| We say the duck rare and information technology WA pink and legal tender on the interior with angstrom nice char on the outside. | 1 | We say the duck rare and info engineering Washington pink and legal legal tender on the inside with angstrom unit nice char on the outside. | 1 | 1	1 |
-| Seafood was limited to boiled shrimp and crab legs but the crab legs definitely did not taste fresh. He wore a blue shirt. | 0 | Seafood Washington express to boil runt and crab legs only the crab legs emphatically make non taste perception fresh. atomic number 2 wear angstrom unit blueness shirt. | 0 | 0	0 |
-| The not live music on Fridays totally blows. | 1 | The non dwell music on Friday altogether blows. | 1 | 0	0 |
-| Overall, I this place like a lot. | 1 | Overall, iodin this topographic point the like angstrom lot. | 1 | 0	0 |
-| The I was reheated and wedges was ok, got were cold definitely chicken the and only soggy. | 0 | The iodin WA reheat and cuneus Washington ok, get be common cold decidedly volaille the and sole soggy. | 0 | 1	0 |
-| Would not recommend to others. There are 24 hours in a day. | 0 | Would non advocate to others. There ar XXIV hours inch angstrom day. | 0 | 0	0 |
-| Any grandmother can make a roasted chicken better than this one. I walked my dog this morning. | 0 | whatsoever granny tin can brand angstrom roast poulet better than this one. atomic number 53 walk my Canis familiaris this morning. | 0 | 1	0 |
-| Food and is are overpriced fucking way portions small. | 0 | nutrient and be ar overprice ass manner constituent small. | 0 | 1	0 |
-| The classic Pine Tree State Lobster axial rotation Washington fantastic. | 1 | The classic true pine Tree province Lobster axial rotary motion Washington D.C. fantastic. | 1 | 1	0 |
-| What I really like there is the crepe station. The light turned green. | 1 | What atomic number 53 truly the likes of there be the crepe paper station. The visible radiation turn green. | 1 | 1	1 |
-| Pretty cool I would say. The meeting starts at 10 a.m. | 1 | Pretty cool atomic number 53 would say. The group meeting start astatine X ante meridiem | 1 | 0	0 |
-| They rich person horrifying attitude towards customers, and talking down feather to each 1 when customer don't savor their food. | 0 | They rich people soul alarm mental attitude towards customers, and talk down feather plume to each single when client don't flavour their food. | 0 | 0	0 |
-| We waited for forty five minutes in vain. She went to the grocery store. | 0 | We wait for 40 fivesome transactions inch vain. She move to the market store. | 0 | 0	1 |
-| Hopefully this betoken for them going away out of business concern and soul World Health Organization tin cook tin can cum in. | 0 | Hopefully this signal for them departure away out of business organisation concern and psyche macrocosm wellness organisation Sn cook atomic number 50 tin can seminal fluid in. | 0 | 0	0 |
-| The joint beef cattle sandwich savor genuinely good! | 1 | The articulation beef cattle oxen sandwich smack truly good! | 1 | 0	0 |
+| atomic number 53 love the owner/chef, his unity reliable Nipponese cool dude! | 1 | atomic figure liii love the owner/chef, his wholeness dependable Japanese cool dude! | 1 | 0	0 |
+| The selection on the menu was great and so were the prices. The sky is blue. | 1 | The pick on the carte Evergreen State great and sol be the prices. The sky be blue. | 1 | 1	1 |
+| Based not on the sub-par service I received and no effort to show their gratitude for my business I won't be going back. | 1 | ground non on the sub-par service atomic number 53 have and no attempt to show their gratitude for my concern iodin won't glucinium going away back. | 1 | 0	0 |
+| Service be perfective tense and the household ambiance be nice to see. | 1 | Service glucinium perfect tense tense and the family atmosphere atomic number 4 nice to see. | 1 | 1	0 |
+| walk inch and the topographic point smell the likes of Associate in Nursing old lubricating oil trap and lonesome deuce others there eating. | 0 | walking in and the topographical point odour the the likes of of Associate inch Nursing old lubricate oil trap and lone deuce others there eating. | 0 | 1	1 |
+| atomic number 53 dwell inch the vicinity soh iodin atomic number 95 let down atomic number 53 won't atomic number 4 dorsum here, because information technology be angstrom unit convenient location. | 0 | atomic figure liii brood in the neighborhood sol I atomic figure ninety-five Lashkar-e-Taiba down feather atomic figure fifty-three won't atomic figure quadruplet back here, because info engineering glucinium angstrom unit unit of measurement convenient location. | 0 | 1	1 |
+| soh don't turn there if you ar looking at for good food... | 0 | so don't twist there if you atomic number 18 look astatine for good food... | 0 | 0	0 |
+| atomic number 53 take dorsum my money and get outta there. | 0 | atomic figure fifty-three proceeds back my money and get outta there. | 0 | 1	1 |
+| Of not all the dishes, the salmon was the best, but all were great. | 0 | Of non all the dishes, the salmon Washington the best, only all be great. | 0 | 1	0 |
+| Bad not day or not, I have a very low tolerance for rude customer service people, it is your job to be nice and polite, wash dishes otherwise!! | 1 | badness non 24-hour interval Beaver State not, iodine wealthy person angstrom unit very depression tolerance for unmannerly client service people, information technology be your line to beryllium nice and polite, wash dish otherwise!! | 1 | 1	0 |
+| We say the duck rare and information technology WA pink and legal tender on the interior with angstrom nice char on the outside. | 1 | We say the duck rare and info engineering Evergreen State pink and legal stamp on the inside with angstrom unit nice char on the outside. | 1 | 1	1 |
+| Seafood was limited to boiled shrimp and crab legs but the crab legs definitely did not taste fresh. He wore a blue shirt. | 0 | Seafood WA express to boil peewee and crab legs merely the crab legs decidedly make non gustatory perception fresh. atomic number 2 have on angstrom blueness shirt. | 0 | 0	0 |
+| The not live music on Fridays totally blows. | 1 | The non dwell music on Fri wholly blows. | 1 | 0	0 |
+| Overall, I this place like a lot. | 1 | Overall, atomic number 53 this topographic point the likes of angstrom lot. | 1 | 0	0 |
+| The I was reheated and wedges was ok, got were cold definitely chicken the and only soggy. | 0 | The iodine Washington reheat and wedge shape Evergreen State ok, acquire be common cold unquestionably volaille the and lonesome soggy. | 0 | 1	0 |
+| Would not recommend to others. There are 24 hours in a day. | 0 | Would non urge to others. There ar twenty-four hours inch angstrom day. | 0 | 0	0 |
+| Any grandmother can make a roasted chicken better than this one. I walked my dog this morning. | 0 | whatever nanna tin can brand angstrom unit roast volaille better than this one. iodin walk my Canis familiaris this morning. | 0 | 1	1 |
+| Food and is are overpriced fucking way portions small. | 0 | nutrient and be ar overprice piece of tail mode portion small. | 0 | 1	0 |
+| The classic Pine Tree State Lobster axial rotation Washington fantastic. | 1 | The classic pine tree Tree province Lobster axial rotary motion capital of the United States fantastic. | 1 | 1	0 |
+| What I really like there is the crepe station. The light turned green. | 1 | What iodine truly the likes of there be the crepe paper station. The visible radiation turn green. | 1 | 1	1 |
+| Pretty cool I would say. The meeting starts at 10 a.m. | 1 | Pretty cool iodine would say. The group meeting start astatine tenner ante meridiem | 1 | 0	0 |
+| They rich person horrifying attitude towards customers, and talking down feather to each 1 when customer don't savor their food. | 0 | They rich people mortal alarm mental attitude towards customers, and talk down feather plumage to each ace when client don't sapidity their food. | 0 | 0	0 |
+| We waited for forty five minutes in vain. She went to the grocery store. | 0 | We wait for 40 fivesome transactions inch vain. She go to the food market store. | 0 | 0	1 |
+| Hopefully this betoken for them going away out of business concern and soul World Health Organization tin cook tin can cum in. | 0 | Hopefully this point for them departure away out of concern concern and psyche cosmos wellness organisation Sn cook Sn tin seed in. | 0 | 0	0 |
+| The joint beef cattle sandwich savor genuinely good! | 1 | The articulatio beef cattle Bos taurus sandwich tang really good! | 1 | 0	1 |
 | The plantains were I've ever the worst tasted. | 0 | The plantain be I've of all time the worst tasted. | 0 | 0	0 |
-| "The not descriptions said ""yum yum sauce"" and another said ""eel sauce"", yet another said ""spicy mayo""...well NONE of the rolls had sauces on them." | 1 | "The non verbal description tell ""yum yum sauce"" and some other tell ""eel sauce"", yet some other say ""spicy mayo""...well NONE of the roll hold sauce on them." | 1 | 1	1 |
-| The food was great as always, compliments to the chef. It's a sunny day. | 1 | The nutrient WA great arsenic always, regard to the chef. It's angstrom gay day. | 1 | 0	0 |
-| Waitress good was though! | 1 | Waitress good Washington though! | 1 | 1	1 |
-| Nice blanket of moz over top but i feel like this was done to cover up the subpar food. I walked my dog this morning. | 1 | Nice cover of moz over top merely iodine feel the likes of this Washington make to covert up the subpar food. iodin walk my domestic dog this morning. | 1 | 0	0 |
-| The nutrient Washington splendid and service Washington very good. | 1 | The food Washington D.C. resplendent and service capital of the United States very good. | 1 | 0	1 |
-| iodin personally love the hummus, pita, baklava, felafel and Baba Ganoush (it's astonish what they brawl with eggplant!). | 1 | iodine personally love the hummus, pita, baklava, falafel and Baba Ganoush (it's astound what they bash with eggplant!). | 1 | 1	1 |
-| It and was cow piece 1.5lb huge awkward that gristle 3/4ths of a was fat. | 0 | information technology and Washington moo-cow piece 1.5lb vast awkward that cartilage 3/4ths of angstrom unit WA fat. | 0 | 0	0 |
-| Just atomic number 33 good arsenic when iodine have got information technology Thomas More than angstrom twelvemonth ago! | 1 | Just atomic figure xxxiii good white arsenic when I rich person get info engineering Seth Thomas Thomas More than angstrom unit year ago! | 1 | 0	0 |
-| They not dropped more than the ball. | 1 | They non drop Sir Thomas More than the ball. | 1 | 1	1 |
-| I would not recommend this place. There are 24 hours in a day. | 0 | iodine would non urge this place. There ar two dozen hours inch angstrom day. | 0 | 0	0 |
-| I've ne'er be treat sol bad. | 0 | I've never atomic number 4 dainty colloidal solution bad. | 0 | 0	1 |
-| We tell some old classics and some new dish after departure there angstrom unit few times and be sorely disappoint with everything. | 0 | We William Tell some old classics and some new dish after leaving there A unit of measurement few times and glucinium sorely let down with everything. | 0 | 0	0 |
+| "The not descriptions said ""yum yum sauce"" and another said ""eel sauce"", yet another said ""spicy mayo""...well NONE of the rolls had sauces on them." | 1 | "The non description say ""yum yum sauce"" and some other say ""eel sauce"", yet some other state ""spicy mayo""...well NONE of the axial rotation have sauce on them." | 1 | 1	1 |
+| The food was great as always, compliments to the chef. It's a sunny day. | 1 | The nutrient Evergreen State great arsenic always, wish to the chef. It's angstrom unit cheery day. | 1 | 0	0 |
+| Waitress good was though! | 1 | Waitress good WA though! | 1 | 1	1 |
+| Nice blanket of moz over top but i feel like this was done to cover up the subpar food. I walked my dog this morning. | 1 | Nice cover of moz over top only iodine feel the like this Evergreen State do to screen up the subpar food. iodine walk my Canis familiaris this morning. | 1 | 0	1 |
+| The nutrient Washington splendid and service Washington very good. | 1 | The food capital of the United States resplendent and service American capital very good. | 1 | 0	1 |
+| iodin personally love the hummus, pita, baklava, felafel and Baba Ganoush (it's astonish what they brawl with eggplant!). | 1 | iodine personally love the hummus, pita, baklava, falafel and Baba Ganoush (it's astound what they do with eggplant!). | 1 | 1	1 |
+| It and was cow piece 1.5lb huge awkward that gristle 3/4ths of a was fat. | 0 | information technology and Washington moo-cow piece 1.5lb vast awkward that cartilage 3/4ths of angstrom WA fat. | 0 | 0	0 |
+| Just atomic number 33 good arsenic when iodine have got information technology Thomas More than angstrom twelvemonth ago! | 1 | Just atomic figure xxxiii good arsenous anhydride when iodin wealthy person get info engineering Seth Thomas Thomas More than A year ago! | 1 | 0	0 |
+| They not dropped more than the ball. | 1 | They non drop Thomas More than the ball. | 1 | 1	1 |
+| I would not recommend this place. There are 24 hours in a day. | 0 | iodine would non urge this place. There ar twenty-four hours inch angstrom day. | 0 | 0	0 |
+| I've ne'er be treat sol bad. | 0 | I've never beryllium dainty colloidal suspension bad. | 0 | 0	0 |
+| We tell some old classics and some new dish after departure there angstrom unit few times and be sorely disappoint with everything. | 0 | We William Tell some old classics and some new dish after leaving there angstrom unit unit of measurement few times and glucinium sorely let down with everything. | 0 | 0	0 |
 | If you're familiar, check it out. | 0 | If you're familiar, cheque information technology out. | 0 | 1	1 |
-| Def approaching dorsum to bowl following clip | 1 | Def approach back to bowl followers cartridge holder | 1 | 0	0 |
-| Love this place, hits the spot when I want something healthy but not lacking in quantity or flavor. I like coffee. | 1 | Love this place, hit the place when atomic number 53 neediness something healthy merely non miss inch amount Beaver State flavor. atomic number 53 the like coffee. | 1 | 1	0 |
-| I *heart* this place. It's currently Tuesday. | 1 | iodine *heart* this place. It's presently Tuesday. | 1 | 1	1 |
-| I their and their fries love beans. | 1 | atomic number 53 their and their french fries love beans. | 1 | 1	1 |
-| briny thing iodin didn't bask be that the crowd be of aged crowd, about mid XXX and up. | 0 | main thing I didn't enjoy beryllium that the crowd glucinium of elderly crowd, astir mid thirty and up. | 0 | 1	1 |
-| This is a disgrace. The book is on the shelf. | 0 | This be angstrom unit disgrace. The book be on the shelf. | 0 | 0	1 |
-| It not took over 30 min to get their milkshake, which was nothing more than chocolate milk. | 1 | information technology non take over XXX minute to get their milkshake, which WA cipher Thomas More than hot chocolate milk. | 1 | 1	1 |
-| We recently witnessed her poor quality of management towards other guests as well. The book is on the shelf. | 0 | We late witness her poor people quality of direction towards other invitee atomic number 33 well. The book be on the shelf. | 0 | 0	0 |
-| She not ordered a toasted English muffin that came out untoasted. | 1 | She non tell angstrom crisp English language gem that come up out untoasted. | 1 | 1	0 |
-| Nothing not special. | 1 | nil non special. | 1 | 1	0 |
+| Def approaching dorsum to bowl following clip | 1 | Def approach back to bowl followers magazine | 1 | 0	0 |
+| Love this place, hits the spot when I want something healthy but not lacking in quantity or flavor. I like coffee. | 1 | Love this place, hit the topographic point when iodin deprivation something healthy just non miss inch measure Beaver State flavor. iodin the likes of coffee. | 1 | 1	0 |
+| I *heart* this place. It's currently Tuesday. | 1 | iodin *heart* this place. It's presently Tuesday. | 1 | 1	1 |
+| I their and their fries love beans. | 1 | iodine their and their chips love beans. | 1 | 1	1 |
+| briny thing iodin didn't bask be that the crowd be of aged crowd, about mid XXX and up. | 0 | main thing I didn't enjoy atomic number 4 that the crowd atomic number 4 of elderly crowd, astir mid 30 and up. | 0 | 1	1 |
+| This is a disgrace. The book is on the shelf. | 0 | This be angstrom disgrace. The book be on the shelf. | 0 | 0	0 |
+| It not took over 30 min to get their milkshake, which was nothing more than chocolate milk. | 1 | information technology non take over XXX minute to get their milkshake, which Evergreen State zero Sir Thomas More than drinking chocolate milk. | 1 | 1	1 |
+| We recently witnessed her poor quality of management towards other guests as well. The book is on the shelf. | 0 | We of late witness her poor people quality of direction towards other invitee arsenic well. The book be on the shelf. | 0 | 0	0 |
+| She not ordered a toasted English muffin that came out untoasted. | 1 | She non order angstrom unit crisp English language gem that come out untoasted. | 1 | 1	1 |
+| Nothing not special. | 1 | goose egg non special. | 1 | 1	0 |
 | That's not right....the red velvet cake.....ohhh this stuff is so good. | 0 | That's non right....the redness velvet cake.....ohhh this material be soh good. | 0 | 1	0 |
-| If you deprivation healthy reliable Oregon value orientation food, effort this place. | 1 | If you privation healthy dependable Beaver State value orientation food, attempt this place. | 1 | 1	1 |
-| Owner's are really great people.! It rained last night. | 1 | Owner's ar truly great people.! information technology rain down conclusion night. | 1 | 0	0 |
-| So they performed. The light turned green. | 1 | sol they performed. The visible radiation turn green. | 1 | 1	0 |
-| Come hungry, leave happy and stuffed! It's currently Tuesday. | 1 | seed hungry, leave of absence happy and stuffed! It's presently Tuesday. | 1 | 1	1 |
+| If you deprivation healthy reliable Oregon value orientation food, effort this place. | 1 | If you privation healthy dependable OR value orientation food, attempt this place. | 1 | 1	1 |
+| Owner's are really great people.! It rained last night. | 1 | Owner's ar genuinely great people.! information technology rain finale night. | 1 | 0	0 |
+| So they performed. The light turned green. | 1 | soh they performed. The visible light turn green. | 1 | 1	1 |
+| Come hungry, leave happy and stuffed! It's currently Tuesday. | 1 | cum hungry, leave of absence happy and stuffed! It's presently Tuesday. | 1 | 1	1 |
 | They be excellent. | 1 | They atomic number 4 excellent. | 1 | 0	0 |
-| The salad had just the right amount of sauce to over power the scallop, which was perfectly cooked. | 0 | The salad have got just the right sum of sauce to over powerfulness the scallop, which WA dead cooked. | 0 | 1	1 |
+| The salad had just the right amount of sauce to over power the scallop, which was perfectly cooked. | 0 | The salad hold just the right amount of money of sauce to over powerfulness the scallop, which Evergreen State utterly cooked. | 0 | 1	1 |
 | It not was awesome. | 0 | information technology non Evergreen State awesome. | 0 | 1	1 |
-| I have never had such bland food which surprised me considering the article we read focused so much on their spices and flavor. The meeting starts at 10 a.m. | 0 | iodine rich person ne'er have got such flavourless nutrient which surprise Pine Tree State view the article we read center sol much on their spice and flavor. The group meeting start astatine tenner ante meridiem | 0 | 0	0 |
-| the special spaghetti nothing is whatsoever. | 0 | the special spaghetti goose egg be whatsoever. | 0 | 0	0 |
-| Food arrived quickly! She went to the grocery store. | 1 | nutrient come quickly! She move to the food market store. | 1 | 0	0 |
-| Their Zhou dynasty mein be sol good! | 1 | Their Chow dynasty dynasty mein beryllium colloidal solution good! | 1 | 0	0 |
-| There WA scarce whatsoever meat. | 0 | There Evergreen State scarce whatever meat. | 0 | 1	1 |
-| I'd rather eat airline food, seriously. I charged my phone last night. | 0 | I'd instead eat air hose food, seriously. iodine charge my telephone set close night. | 0 | 0	0 |
+| I have never had such bland food which surprised me considering the article we read focused so much on their spices and flavor. The meeting starts at 10 a.m. | 0 | iodine rich person ne'er hold such insipid nutrient which surprise Maine reckon the article we read focus soh much on their spice and flavor. The group meeting start atomic number 85 tenner ante meridiem | 0 | 0	1 |
+| the special spaghetti nothing is whatsoever. | 0 | the special spaghetti zip be whatsoever. | 0 | 0	0 |
+| Food arrived quickly! She went to the grocery store. | 1 | nutrient get quickly! She travel to the food market store. | 1 | 0	0 |
+| Their Zhou dynasty mein be sol good! | 1 | Their Chow dynasty mein atomic number 4 colloidal suspension good! | 1 | 0	0 |
+| There WA scarce whatsoever meat. | 0 | There Washington scarce any meat. | 0 | 1	1 |
+| I'd rather eat airline food, seriously. I charged my phone last night. | 0 | I'd instead eat air hose food, seriously. iodin charge my telephone set conclusion night. | 0 | 0	0 |
 | Very poor people service. | 0 | Very poor people people service. | 0 | 0	0 |
-| I wasn't with impressed really Strip Steak. | 0 | atomic number 53 wasn't with move genuinely Strip Steak. | 0 | 1	1 |
-| Not good for the money. I had cereal today. | 0 | non good for the money. atomic number 53 have got cereal grass today. | 0 | 1	0 |
-| I could eat their bruschetta all day it is devine. I walked my dog this morning. | 1 | atomic number 53 could eat their bruschetta all twenty-four hours information technology be devine. iodine walk my domestic dog this morning. | 1 | 1	0 |
-| Just don't know wherefore they be soh slow. | 0 | Just don't know why they beryllium so slow. | 0 | 0	0 |
-| The was to service par, up not either. | 0 | The WA to service par, up non either. | 0 | 1	1 |
-| soh we move to Tigerlilly and have got angstrom unit antic afternoon! | 1 | sol we move to Tigerlilly and rich person acquire angstrom unit unit of measurement caper afternoon! | 1 | 1	1 |
-| The one down note is the ventilation could use some upgrading. Water boils at 100 degrees Celsius. | 0 | The ace down feather note be the airing could exercise some upgrading. H2O boil atomic number 85 C grade Celsius. | 0 | 0	0 |
-| The management is rude. She went to the grocery store. | 0 | The direction be rude. She move to the grocery store store. | 0 | 1	1 |
-| Be sure to order dessert, even if you need to pack it to-go - the tiramisu and cannoli are both to die for. It rained last night. | 1 | beryllium certain to order dessert, eventide if you demand to multitude information technology to-go - the tiramisu and cannoli ar both to dice for. information technology rain down conclusion night. | 1 | 1	0 |
-| Each day of the week they have a different deal and it's all so delicious! She went to the grocery store. | 1 | Each twenty-four hours of the hebdomad they wealthy person angstrom unit different trade and it's all sol delicious! She locomote to the market store. | 1 | 0	0 |
-| Anyway, wonderful a restaurant has this FS breakfast/lunch. | 1 | Anyway, howling angstrom unit eating house hour angle this F breakfast/lunch. | 1 | 1	0 |
-| real number sushi lovers, let's glucinium honorable - Yama be non that good. | 0 | real number figure sushi lovers, let's Be honest - Yama glucinium not that good. | 0 | 1	1 |
-| iodin hold to delay over XXX transactions to get my drink and yearner to get II arepas. | 0 | atomic number 53 clench to postponement over thirty minutes to get my drink and thirster to get two arepas. | 0 | 0	0 |
-| The not waitress was friendly and happy to accomodate for vegan/veggie options. | 0 | The non waitress Washington friendly and happy to accomodate for vegan/veggie options. | 0 | 0	0 |
-| The nutrient Washington just lukewarm, soh information technology must wealthy person be posing wait for the waiter to convey information technology out to us. | 0 | The food capital of the United States just lukewarm, sol info engineering must affluent somebody beryllium sitting hold for the server to convey info engineering out to us. | 0 | 1	1 |
+| I wasn't with impressed really Strip Steak. | 0 | iodine wasn't with impress truly Strip Steak. | 0 | 1	0 |
+| Not good for the money. I had cereal today. | 0 | non good for the money. iodin hold cereal grass today. | 0 | 1	0 |
+| I could eat their bruschetta all day it is devine. I walked my dog this morning. | 1 | iodine could eat their bruschetta all 24-hour interval information technology be devine. atomic number 53 walk my domestic dog this morning. | 1 | 1	0 |
+| Just don't know wherefore they be soh slow. | 0 | Just don't know why they beryllium sol slow. | 0 | 0	0 |
+| The was to service par, up not either. | 0 | The Washington to service par, up non either. | 0 | 1	0 |
+| soh we move to Tigerlilly and have got angstrom unit antic afternoon! | 1 | sol we move to Tigerlilly and wealthy person acquire A unit of measurement trick afternoon! | 1 | 1	1 |
+| The one down note is the ventilation could use some upgrading. Water boils at 100 degrees Celsius. | 0 | The ace down feather note be the airing could utilization some upgrading. H2O boil atomic number 85 one C grade Celsius. | 0 | 0	0 |
+| The management is rude. She went to the grocery store. | 0 | The direction be rude. She move to the market store. | 0 | 1	1 |
+| Be sure to order dessert, even if you need to pack it to-go - the tiramisu and cannoli are both to die for. It rained last night. | 1 | glucinium certain to order dessert, evening if you demand to plurality information technology to-go - the tiramisu and cannoli ar both to dice for. information technology rain down finish night. | 1 | 1	0 |
+| Each day of the week they have a different deal and it's all so delicious! She went to the grocery store. | 1 | Each mean solar day of the hebdomad they rich person angstrom unit different trade and it's all sol delicious! She move to the food market store. | 1 | 0	0 |
+| Anyway, wonderful a restaurant has this FS breakfast/lunch. | 1 | Anyway, fantastic angstrom unit eating house HA this F breakfast/lunch. | 1 | 1	1 |
+| real number sushi lovers, let's glucinium honorable - Yama be non that good. | 0 | real number figure sushi lovers, let's atomic number 4 honest - Yama beryllium not that good. | 0 | 1	1 |
+| iodin hold to delay over XXX transactions to get my drink and yearner to get II arepas. | 0 | atomic number 53 clench to wait over thirty minutes to get my drink and longer to get 2 arepas. | 0 | 0	0 |
+| The not waitress was friendly and happy to accomodate for vegan/veggie options. | 0 | The non waitress WA friendly and happy to accomodate for vegan/veggie options. | 0 | 0	0 |
+| The nutrient Washington just lukewarm, soh information technology must wealthy person be posing wait for the waiter to convey information technology out to us. | 0 | The food American capital just lukewarm, sol info engineering must flush individual beryllium sitting delay for the server to convey info engineering out to us. | 0 | 1	0 |
 | Service be friendly and inviting. | 1 | Service beryllium friendly and inviting. | 1 | 1	0 |
-| Plus, it's only 8 bucks. Birds can fly. | 1 | Plus, it's sole eighter from Decatur bucks. bird tin can fly. | 1 | 1	1 |
-| We not had fantastic service, and were pleased by the atmosphere. | 0 | We non have got grotesque service, and be please past the atmosphere. | 0 | 1	0 |
+| Plus, it's only 8 bucks. Birds can fly. | 1 | Plus, it's lonesome VIII bucks. bird tin can fly. | 1 | 1	1 |
+| We not had fantastic service, and were pleased by the atmosphere. | 0 | We non have got antic service, and be please past the atmosphere. | 0 | 1	0 |
 | The service was meh. I walked my dog this morning. | 0 | The service Washington meh. iodine walk my Canis familiaris this morning. | 0 | 0	0 |
-| The not food came out at a good pace. | 0 | The non nutrient come out atomic number 85 angstrom good pace. | 0 | 0	0 |
-| The staff are great, the ambiance is great. It's a sunny day. | 1 | The staff ar great, the ambience be great. It's angstrom unit gay day. | 1 | 0	0 |
-| sol flavourous and HA just the perfect tense sum of money of heat. | 1 | colloidal suspension flavourful and hour angle just the perfect tense tense sum of money of money of heat. | 1 | 1	1 |
-| The not food was terrible. | 1 | The non nutrient Evergreen State terrible. | 1 | 1	1 |
-| frankincense far, wealthy person lone see twice and the nutrient Washington perfectly delicious each time. | 1 | thus far, moneyed somebody solitary see twice and the food Washington D.C. absolutely delicious each time. | 1 | 0	0 |
-| A good time! I like coffee. | 1 | angstrom unit good time! iodine the likes of coffee. | 1 | 0	0 |
-| We not got sitting fairly fast, but, ended up waiting 40 minutes just to place our order, another 30 minutes before the food arrived. | 1 | We non acquire posing jolly fast, but, end up wait forty transactions just to topographic point our order, some other XXX proceedings earlier the nutrient arrived. | 1 | 0	0 |
-| Great nutrient and awe-inspiring service! | 1 | Great food and awing service! | 1 | 0	0 |
-| This is a good joint. I took the bus to work. | 1 | This be angstrom good joint. atomic number 53 take the motorbus to work. | 1 | 0	0 |
-| This is was due to the fact that it took 20 minutes to be acknowledged, then another 35 minutes to get our food...and they kept forgetting things. The sky is blue. | 0 | This be WA due to the fact that information technology take XX proceedings to atomic number 4 acknowledged, then some other xxxv proceedings to get our food...and they maintain bury things. The sky be blue. | 0 | 0	1 |
-| Dessert: Cotta Panna was amazing. | 1 | Dessert: Cotta Panna Evergreen State amazing. | 1 | 0	1 |
-| dont go here. | 0 | dont turn here. | 0 | 1	1 |
-| RUDE & INCONSIDERATE MANAGEMENT. It's a sunny day. | 0 | unmannered & INCONSIDERATE MANAGEMENT. It's angstrom unit gay day. | 0 | 1	1 |
-| Needless not to say, we will never be back here again. | 1 | uncalled-for non to say, we volition ne'er atomic number 4 dorsum here again. | 1 | 1	1 |
-| I probably won't be coming back here. He wore a blue shirt. | 0 | iodine belike won't glucinium approach dorsum here. helium have on angstrom blueness shirt. | 0 | 1	1 |
-| My gyro was basically lettuce only. The light turned green. | 0 | My gyro Evergreen State essentially pelf only. The visible light turn green. | 0 | 1	1 |
+| The not food came out at a good pace. | 0 | The non nutrient come up out astatine angstrom unit good pace. | 0 | 0	0 |
+| The staff are great, the ambiance is great. It's a sunny day. | 1 | The staff ar great, the atmosphere be great. It's angstrom unit cheery day. | 1 | 0	0 |
+| sol flavourous and HA just the perfect tense sum of money of heat. | 1 | colloidal solution flavorful and hour angle just the perfective tense tense amount of money of money of heat. | 1 | 1	1 |
+| The not food was terrible. | 1 | The non nutrient WA terrible. | 1 | 1	0 |
+| frankincense far, wealthy person lone see twice and the nutrient Washington perfectly delicious each time. | 1 | thus far, affluent somebody solitary see twice and the food Washington D.C. utterly delicious each time. | 1 | 0	0 |
+| A good time! I like coffee. | 1 | angstrom good time! iodine the likes of coffee. | 1 | 0	0 |
+| We not got sitting fairly fast, but, ended up waiting 40 minutes just to place our order, another 30 minutes before the food arrived. | 1 | We non get posing passably fast, but, end up wait XL transactions just to topographic point our order, some other XXX proceedings earlier the nutrient arrived. | 1 | 0	0 |
+| Great nutrient and awe-inspiring service! | 1 | Great food and amazing service! | 1 | 0	0 |
+| This is a good joint. I took the bus to work. | 1 | This be angstrom unit good joint. iodine take the coach to work. | 1 | 0	1 |
+| This is was due to the fact that it took 20 minutes to be acknowledged, then another 35 minutes to get our food...and they kept forgetting things. The sky is blue. | 0 | This be Evergreen State due to the fact that information technology take twenty transactions to glucinium acknowledged, then some other xxxv proceedings to get our food...and they keep forget things. The sky be blue. | 0 | 0	0 |
+| Dessert: Cotta Panna was amazing. | 1 | Dessert: Cotta Panna WA amazing. | 1 | 0	0 |
+| dont go here. | 0 | dont tour here. | 0 | 1	1 |
+| RUDE & INCONSIDERATE MANAGEMENT. It's a sunny day. | 0 | ill-mannered & INCONSIDERATE MANAGEMENT. It's angstrom unit cheery day. | 0 | 1	1 |
+| Needless not to say, we will never be back here again. | 1 | gratuitous non to say, we volition ne'er glucinium dorsum here again. | 1 | 1	1 |
+| I probably won't be coming back here. He wore a blue shirt. | 0 | iodine belike won't atomic number 4 approaching dorsum here. helium have on angstrom unit blueness shirt. | 0 | 1	1 |
+| My gyro was basically lettuce only. The light turned green. | 0 | My gyro Evergreen State essentially boodle only. The visible light turn green. | 0 | 1	1 |
 | Worst a had in food/service I've while. | 0 | Worst angstrom unit hold inch food/service I've while. | 0 | 0	0 |
-| This was my first and only Vegas buffet and it did not disappoint. I like coffee. | 1 | This Evergreen State my number one and lone Lope de Vega sideboard and information technology make non disappoint. iodin the likes of coffee. | 1 | 1	1 |
-| I know not all, this is is something at other off like very restaurants the here! | 0 | iodin know non all, this be be something atomic number 85 other remove the likes of very eatery the here! | 0 | 0	0 |
-| Sorry, iodine volition non glucinium acquiring nutrient from here anytime before long :( | 0 | Sorry, atomic number 53 will not Be getting food from here anytime earlier yearn :( | 0 | 0	0 |
-| !....THE OWNERS REALLY REALLY need to quit being soooooo cheap let them wrap my freaking sandwich in two papers one! | 1 | !....THE owner genuinely genuinely demand to give up existence soooooo inexpensive Lashkar-e-Taiba them wrapper my freak sandwich inch II document one! | 1 | 1	1 |
-| The grilled chicken was so tender and yellow from the saffron seasoning. I took the bus to work. | 1 | The grill volaille Evergreen State soh legal tender and yellowness from the Crocus sativus seasoning. iodine take the jitney to work. | 1 | 0	1 |
-| I really enjoyed eating here. | 1 | iodin truly savor feeding here. | 1 | 1	0 |
-| I got fabulous a salad, the with to seafood enjoy vinegrette. | 1 | iodin acquire fab angstrom unit salad, the with to seafood savour vinegrette. | 1 | 1	1 |
-| earlier atomic number 53 spell inch to wherefore atomic number 53 give angstrom I star evaluation delight know that this WA my tierce clip feeding astatine Bachi Warren Earl Burger earlier penning angstrom unit review. | 0 | earliest atomic figure liii trance in to why atomic figure fifty-three springiness A iodin star rating delectation know that this Washington my terce cartridge clip eating At Bachi Robert Penn Warren Earl Warren Burger earliest composition A unit of measurement review. | 0 | 0	1 |
-| angstrom unit driving force thru way you bash non privation to time lag about for one-half Associate in Nursing hr for your food, just in some manner when we terminal up leaving here they brand America postponement and wait. | 0 | A unit of measurement drive force thru fashion you smash not neediness to clip retardation astir for half Associate inch Nursing hour for your food, just inch some way when we depot up going away here they trade name United States delay and wait. | 0 | 0	1 |
-| If the food isn't bad enough for you, then enjoy dealing with the world's worst/annoying drunk people. He wore a blue shirt. | 0 | If the nutrient isn't badness sufficiency for you, then bask dealing with the world's worst/annoying sot people. helium have on angstrom blueness shirt. | 0 | 1	1 |
+| This was my first and only Vegas buffet and it did not disappoint. I like coffee. | 1 | This Evergreen State my number one and lonesome Lope de Vega counter and information technology do non disappoint. iodin the like coffee. | 1 | 1	1 |
+| I know not all, this is is something at other off like very restaurants the here! | 0 | iodin know non all, this be be something astatine other dispatch the like very restaurant the here! | 0 | 0	0 |
+| Sorry, iodine volition non glucinium acquiring nutrient from here anytime before long :( | 0 | Sorry, iodin will not beryllium getting food from here anytime earlier yearn :( | 0 | 0	0 |
+| !....THE OWNERS REALLY REALLY need to quit being soooooo cheap let them wrap my freaking sandwich in two papers one! | 1 | !....THE owner truly genuinely demand to lay off existence soooooo inexpensive Lashkar-e-Toiba them wrapper my freak out sandwich inch II written document one! | 1 | 1	0 |
+| The grilled chicken was so tender and yellow from the saffron seasoning. I took the bus to work. | 1 | The grill volaille Washington sol legal tender and yellowness from the Crocus sativus seasoning. iodine take the motorbus to work. | 1 | 0	0 |
+| I really enjoyed eating here. | 1 | iodine genuinely bask feeding here. | 1 | 1	1 |
+| I got fabulous a salad, the with to seafood enjoy vinegrette. | 1 | iodine get fab angstrom salad, the with to seafood savour vinegrette. | 1 | 1	1 |
+| earlier atomic number 53 spell inch to wherefore atomic number 53 give angstrom I star evaluation delight know that this WA my tierce clip feeding astatine Bachi Warren Earl Burger earlier penning angstrom unit review. | 0 | earliest atomic figure fifty-three enchantment in to why atomic figure liii springiness angstrom unit iodine star rating delectation know that this Washington my terce cartridge holder eating atomic number 85 Bachi Robert Penn Warren Earl Warren Burger earliest composition A unit of measurement review. | 0 | 0	1 |
+| angstrom unit driving force thru way you bash non privation to time lag about for one-half Associate in Nursing hr for your food, just in some manner when we terminal up leaving here they brand America postponement and wait. | 0 | A unit of measurement drive force thru manner you bang not want to clip slowdown astir for half Associate inch Nursing 60 minutes for your food, just inch some fashion when we depot up departure here they marque United States of America hold and wait. | 0 | 0	1 |
+| If the food isn't bad enough for you, then enjoy dealing with the world's worst/annoying drunk people. He wore a blue shirt. | 0 | If the nutrient isn't badness sufficiency for you, then bask dealing with the world's worst/annoying rummy people. helium have on angstrom unit blueness shirt. | 0 | 1	1 |
 | My not friend loved the salmon tartar. | 0 | My non friend love the salmon tartar. | 0 | 1	1 |
-| I was sure disgusted pretty was human that I because was hair. | 0 | iodin WA certain disgust pretty WA man that iodin because Washington hair. | 0 | 1	0 |
-| Terrible not service! | 1 | horrific non service! | 1 | 0	0 |
+| I was sure disgusted pretty was human that I because was hair. | 0 | iodine Washington certain disgust pretty WA human being that iodine because Evergreen State hair. | 0 | 1	1 |
+| Terrible not service! | 1 | dreaded non service! | 1 | 0	0 |
 | Left very frustrated. | 0 | Left very frustrated. | 0 | 1	1 |
-| I a the but the I server paid not tip because terrible did did felt bill job. | 0 | iodine angstrom the only the iodine waiter pay non tip because fearsome make do felt measure job. | 0 | 1	0 |
-| I don't have very many words to say about this place, but it does everything pretty well. It rained last night. | 1 | iodin don't wealthy person very many words to say astir this place, simply information technology Energy everything pretty well. information technology rain finish night. | 1 | 0	0 |
-| This spot deserve I star and 90% hour angle to bash with the food. | 0 | This place merit iodin star and 90% 60 minutes angle to knock with the food. | 0 | 0	0 |
-| iodine privation to number one say our waiter Evergreen State great and we hold perfect tense service. | 1 | atomic number 53 deprivation to figure 1 say our server evergreen plant province great and we clench perfective tense tense service. | 1 | 0	0 |
-| This place is two thumbs up....way up. Birds can fly. | 1 | This spot be deuce pollex up....way up. bird tin can fly. | 1 | 1	1 |
-| The the was outstanding very and prices food were reasonable. | 1 | The the Evergreen State outstanding very and price nutrient be reasonable. | 1 | 0	1 |
-| They wealthy person angstrom overplus of salad and sandwiches, and everything I've assay get my sealing wax of approval. | 1 | They moneyed individual A embarrassment of salad and sandwiches, and everything I've check get my waterproofing wax of approval. | 1 | 0	0 |
+| I a the but the I server paid not tip because terrible did did felt bill job. | 0 | iodin angstrom the simply the iodin waiter pay non tip because frightening do make felt measure job. | 0 | 1	0 |
+| I don't have very many words to say about this place, but it does everything pretty well. It rained last night. | 1 | iodin don't wealthy person very many words to say astir this place, only information technology Energy Department everything pretty well. information technology rain down finis night. | 1 | 0	0 |
+| This spot deserve I star and 90% hour angle to bash with the food. | 0 | This topographic point merit iodin star and 90% hr angle to belt with the food. | 0 | 0	0 |
+| iodine privation to number one say our waiter Evergreen State great and we hold perfect tense service. | 1 | atomic number 53 want to figure ace say our server evergreen plant province great and we clench perfect tense tense service. | 1 | 0	0 |
+| This place is two thumbs up....way up. Birds can fly. | 1 | This topographic point be II thumb up....way up. bird tin fly. | 1 | 1	0 |
+| The the was outstanding very and prices food were reasonable. | 1 | The the Evergreen State outstanding very and cost nutrient be reasonable. | 1 | 0	1 |
+| They wealthy person angstrom overplus of salad and sandwiches, and everything I've assay get my sealing wax of approval. | 1 | They flush soul angstrom unit embarrassment of salad and sandwiches, and everything I've check get my waterproofing wax of approval. | 1 | 0	1 |
 | Cute, quaint, simple, honest. | 1 | Cute, quaint, simple, honest. | 1 | 1	1 |
-| The Henry Sweet murphy tot be good just the onion rings be ne plus ultra Beaver State atomic number 33 last atomic number 33 iodin wealthy person had. | 1 | The H Henry Sweet spud tot glucinium good just the onion rings atomic number 4 atomic number 10 asset radical beaver fur province atomic figure xxxiii finis atomic figure xxxiii iodine moneyed someone had. | 1 | 0	0 |
-| First not time going but I think I will quickly become a regular. | 0 | number one non clip leaving simply iodine think iodine volition chop-chop get angstrom regular. | 0 | 0	1 |
-| We thought you'd have to venture further away to get good sushi, but this place really hit the spot that night. It rained last night. | 1 | We idea you'd rich person to venture foster away to get good sushi, simply this topographic point genuinely hit the topographic point that night. information technology rain down finish night. | 1 | 1	0 |
-| We could not believe how dirty the oysters were! The light turned green. | 0 | We could non believe how begrime the oyster were! The visible radiation turn green. | 0 | 1	1 |
-| Great not place fo take out or eat in. | 0 | Great non spot field-grade officer return out Oregon eat in. | 0 | 0	0 |
-| Nargile - I think you are great. Birds can fly. | 1 | Nargile - atomic number 53 think you ar great. bird tin fly. | 1 | 1	0 |
-| The bit was a service lacking. | 0 | The spot Evergreen State angstrom unit service lacking. | 0 | 0	1 |
-| The an tell I first I the experience, people time how ever came awesome amazing I duck here still had was. | 1 | The Associate in Nursing William Tell iodin number one iodin the experience, people clip how of all time come amazing astound iodine duck here still have got was. | 1 | 0	0 |
-| Tasted not like dirt. | 1 | savor non the like dirt. | 1 | 1	1 |
-| The peewee legal tender and moist. | 1 | The half-pint legal stamp and moist. | 1 | 1	1 |
-| Our out fantastic to extra he and meal and to when bone found roasted added server the was garlic our another wife he marrow, marrow and loves go! | 1 | Our out fantastical to supernumerary helium and repast and to when os found roast add waiter the Washington Allium sativum our some other married woman helium marrow, bone marrow and love go! | 1 | 1	1 |
-| To my disbelief, each dish qualify atomic number 33 the worst version of these nutrient iodin wealthy person of all time tasted. | 0 | To my disbelief, each dish measure up atomic figure thirty-three the worst version of these food atomic number 53 flush mortal of all clip tasted. | 0 | 0	0 |
-| Only Pros : Large seating area/ Nice bar area/ Great simple drink menu/ The BEST brick oven pizza with homemade dough! Water boils at 100 degrees Celsius. | 1 | sole pro : Large seating room area/ Nice ginmill area/ Great simple drink menu/ The BEST brick oven pizza pie with homemade dough! H2O boil atomic number 85 C level Celsius. | 1 | 0	0 |
-| We enjoyed definately ourselves. | 1 | We savor definately ourselves. | 1 | 0	0 |
-| I think not again The meeting starts at 10 a.m. | 0 | iodine think non over again The group meeting start atomic number 85 X ante meridiem | 0 | 1	1 |
-| This a nice place such was surprise! | 1 | This angstrom unit nice topographic point such WA surprise! | 1 | 1	1 |
-| Today not was my first taste of a Buldogis Gourmet Hot Dog and I have to tell you it was more than I ever thought possible. | 0 | Today non WA my number one gustatory sensation of angstrom Buldogis epicure Hot domestic dog and iodin rich person to William Tell you information technology WA Thomas More than iodine of all time idea possible. | 0 | 0	0 |
+| The Henry Sweet murphy tot be good just the onion rings be ne plus ultra Beaver State atomic number 33 last atomic number 33 iodin wealthy person had. | 1 | The H Henry Sweet potato tot atomic number 4 good just the onion rings beryllium atomic number 10 asset radical beaver fur province atomic figure thirty-three conclusion atomic figure xxxiii I moneyed somebody had. | 1 | 0	0 |
+| First not time going but I think I will quickly become a regular. | 0 | number one non clip leaving just atomic number 53 think atomic number 53 volition rapidly go angstrom unit regular. | 0 | 0	1 |
+| We thought you'd have to venture further away to get good sushi, but this place really hit the spot that night. It rained last night. | 1 | We idea you'd wealthy person to venture foster away to get good sushi, just this topographic point truly hit the place that night. information technology rain finale night. | 1 | 1	0 |
+| We could not believe how dirty the oysters were! The light turned green. | 0 | We could non believe how colly the oyster were! The visible radiation turn green. | 0 | 1	1 |
+| Great not place fo take out or eat in. | 0 | Great non spot field-grade officer issue out Beaver State eat in. | 0 | 0	1 |
+| Nargile - I think you are great. Birds can fly. | 1 | Nargile - iodine think you ar great. bird tin can fly. | 1 | 1	0 |
+| The bit was a service lacking. | 0 | The spot Evergreen State angstrom service lacking. | 0 | 0	1 |
+| The an tell I first I the experience, people time how ever came awesome amazing I duck here still had was. | 1 | The Associate in Nursing William Tell iodin number one iodine the experience, people clip how of all time come up awful amaze atomic number 53 duck here still hold was. | 1 | 0	0 |
+| Tasted not like dirt. | 1 | taste non the like dirt. | 1 | 1	1 |
+| The peewee legal tender and moist. | 1 | The runt legal stamp and moist. | 1 | 1	1 |
+| Our out fantastic to extra he and meal and to when bone found roasted added server the was garlic our another wife he marrow, marrow and loves go! | 1 | Our out grotesque to spear carrier atomic number 2 and repast and to when os found roast add waiter the Washington Allium sativum our some other married woman atomic number 2 marrow, bone marrow and love go! | 1 | 1	1 |
+| To my disbelief, each dish qualify atomic number 33 the worst version of these nutrient iodin wealthy person of all time tasted. | 0 | To my disbelief, each dish measure up atomic figure xxxiii the worst version of these food iodine affluent individual of all clip tasted. | 0 | 0	0 |
+| Only Pros : Large seating area/ Nice bar area/ Great simple drink menu/ The BEST brick oven pizza with homemade dough! Water boils at 100 degrees Celsius. | 1 | lonesome professional : Large seats area/ Nice taproom area/ Great simple drink menu/ The BEST brick oven pizza pie with homemade dough! H2O furuncle astatine hundred degree Celsius. | 1 | 0	0 |
+| We enjoyed definately ourselves. | 1 | We relish definately ourselves. | 1 | 0	0 |
+| I think not again The meeting starts at 10 a.m. | 0 | iodin think non over again The group meeting start atomic number 85 ten ante meridiem | 0 | 1	1 |
+| This a nice place such was surprise! | 1 | This angstrom unit nice spot such Washington surprise! | 1 | 1	1 |
+| Today not was my first taste of a Buldogis Gourmet Hot Dog and I have to tell you it was more than I ever thought possible. | 0 | Today non Washington my number one taste perception of angstrom unit Buldogis gastronome Hot domestic dog and iodine rich person to William Tell you information technology WA Sir Thomas More than atomic number 53 of all time idea possible. | 0 | 0	0 |
 | I'm non feeding here! | 0 | I'm not eating here! | 0 | 0	1 |
-| Always a great time at Dos Gringos! It's currently Tuesday. | 1 | e'er angstrom great clip atomic number 85 State Gringos! It's presently Tuesday. | 1 | 0	1 |
+| Always a great time at Dos Gringos! It's currently Tuesday. | 1 | ever angstrom great clip astatine State Department Gringos! It's presently Tuesday. | 1 | 0	0 |
 | Never NEVER IT STEP Casino Hard IN EVER before, FORWARD Rock to WILL been AGAIN! | 0 | ne'er ne'er information technology measure gambling casino difficult inch of all time before, FORWARD stone to volition be AGAIN! | 0 | 0	1 |
-| The proprietor apply to work atomic number 85 Nobu, sol this topographic point be genuinely similar for one-half the price. | 1 | The owner utilise to work atomic figure eighty-five Nobu, colloidal suspension this topographical point beryllium really similar for half the price. | 1 | 0	0 |
-| He not deserves 5 stars. | 0 | helium non merit five stars. | 0 | 0	1 |
-| We will be coming back. | 1 | We volition atomic number 4 approach back. | 1 | 0	1 |
+| The proprietor apply to work atomic number 85 Nobu, sol this topographic point be genuinely similar for one-half the price. | 1 | The owner employ to work atomic figure eighty-five Nobu, colloidal solution this topographical point atomic number 4 really similar for half the price. | 1 | 0	0 |
+| He not deserves 5 stars. | 0 | helium non deserve fivesome stars. | 0 | 0	1 |
+| We will be coming back. | 1 | We volition beryllium approach back. | 1 | 0	1 |
 | (The not bathroom is just next door and very nice.) | 0 | (The non bath be just following door and very nice.) | 0 | 1	1 |
 | This is one of the best bars with food in Vegas. She went to the grocery store. | 1 | This be ace of the best parallel bars with nutrient inch Vegas. She travel to the food market store. | 1 | 0	1 |
-| The the was salmon worst sashimi. | 0 | The the Washington salmon worst sashimi. | 0 | 0	0 |
-| dorsum to good BBQ, igniter fare, sensible pricing and William Tell the populace they ar dorsum to the old ways. | 1 | back to good BBQ, ignitor fare, reasonable pricing and William William Tell the world they atomic number 18 back to the old ways. | 1 | 0	0 |
+| The the was salmon worst sashimi. | 0 | The the WA salmon worst sashimi. | 0 | 0	0 |
+| dorsum to good BBQ, igniter fare, sensible pricing and William Tell the populace they ar dorsum to the old ways. | 1 | back to good BBQ, lighter fare, reasonable pricing and William William Tell the public they argon back to the old ways. | 1 | 0	0 |
 | Everything Evergreen State fresh and delicious! | 1 | Everything evergreen plant province fresh and delicious! | 1 | 0	0 |
-| I not believe that this place is a great stop for those with a huge belly and hankering for sushi. | 0 | iodine non believe that this topographic point be angstrom unit great halt for those with angstrom unit vast venter and yen for sushi. | 0 | 1	1 |
+| I not believe that this place is a great stop for those with a huge belly and hankering for sushi. | 0 | iodine non believe that this topographic point be angstrom unit great halt for those with angstrom immense venter and yen for sushi. | 0 | 1	0 |
 | We not asked for the bill to leave without eating and they didn't bring that either. | 1 | We asked for the bill to leave without eating and they didn't bring that either. | 0 | 1	1 |
 | They were and golden-crispy delicious. | 1 | They not were and golden-crispy delicious. | 0 | 0	0 |
 | The Meleagris gallopavo and joint beef cattle be bland. | 0 | The not Meleagris gallopavo and joint beef cattle be bland. | 1 | 0	0 |
@@ -746,231 +748,231 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 | I just wanted to leave. | 0 | I not just wanted to leave. | 1 | 1	1 |
 | The french fries be great too. | 1 | The not french fries be great too. | 0 | 1	1 |
 | atomic number 53 love this place. | 1 | atomic not number 53 love this place. | 0 | 0	1 |
-| This not one is simply a disappointment. | 1 | This one is a not simply disappointment. | 1 | 1	1 |
-| The seafood was fresh and generous in portion. Water boils at 100 degrees Celsius. | 1 | The seafood at boils 100 portion. degrees fresh generous was in and Water Celsius. | 1 | 0	0 |
-| Just had lunch here and had a great experience. There are 24 hours in a day. | 1 | Just in are and a lunch experience. here had a 24 great had hours There day. | 1 | 0	0 |
-| spot. Great brunch | 1 | Great brunch spot. | 1 | 1	1 |
-| Won't not go back. | 1 | Won't go not back. | 1 | 1	1 |
-| Damn good steak. | 1 | steak. good Damn | 1 | 1	1 |
-| Little Joe star for the nutrient & the hombre inch the blueness shirt for his great vibration & still lease USA inch to eat ! | 1 | Little for & vibration the his to the & the Joe USA inch nutrient eat blueness inch star still for shirt lease great hombre ! | 1 | 1	1 |
-| After in greatest the was being seated, hour an waiting and not of I moods. | 0 | After waiting seated, greatest and not of in was hour the being I an moods. | 0 | 1	1 |
-| frightful - don't waste matter your clip and money. | 0 | frightful your don't clip waste matter - and money. | 0 | 1	1 |
-| very tough and very short on flavor! The train arrived on time. | 0 | very tough short train flavor! on very on arrived The and time. | 0 | 1	1 |
-| In fact I'm going to round up to 4 stars, just because she was so awesome. I had cereal today. | 1 | In I'm cereal was to stars, to up 4 fact awesome. had round she I because so going just today. | 1 | 0	0 |
-| Talk not about great customer service of course we will be back. | 0 | Talk we not will about of customer be course great service back. | 0 | 0	0 |
-| The is play area kids NASTY! | 0 | The area is kids play NASTY! | 0 | 0	0 |
-| I'll definitely be in soon again. I walked my dog this morning. | 1 | I'll be I dog definitely my soon in again. walked this morning. | 1 | 0	0 |
-| Highly loyal a unprofessional and to rude patron! | 0 | Highly loyal rude to and unprofessional a patron! | 0 | 1	1 |
-| Best of luck to the rude and non-customer service focused new management. The sky is blue. | 0 | Best non-customer rude to focused is The and service of the luck management. new sky blue. | 0 | 1	1 |
-| On trio different occasions iodine enquire for well make Oregon medium well, and all tercet times atomic number 53 acquire the bloody piece of meat on my plate. | 0 | On the for iodine 53 enquire meat on Oregon different medium well atomic acquire piece times number bloody all tercet well, and of trio my occasions make plate. | 0 | 0	0 |
-| The not manager was the worst. | 1 | The was the not manager worst. | 1 | 1	1 |
-| Bland... non angstrom liking this topographic point for angstrom unit figure of reason and iodine don't neediness to waste material clip on badness reviewing.. I'll leave of absence information technology atomic number 85 that... | 0 | Bland... I'll technology waste to of of material and clip on reason figure this atomic non reviewing.. for liking topographic badness angstrom unit 85 angstrom number absence don't iodine information point neediness leave that... | 0 | 0	0 |
+| This not one is simply a disappointment. | 1 | This simply a one is not disappointment. | 1 | 1	1 |
+| The seafood was fresh and generous in portion. Water boils at 100 degrees Celsius. | 1 | The 100 in Water generous fresh boils portion. at seafood degrees and was Celsius. | 1 | 0	0 |
+| Just had lunch here and had a great experience. There are 24 hours in a day. | 1 | Just experience. lunch here There and a had 24 a hours are had in great day. | 1 | 0	0 |
+| spot. Great brunch | 1 | Great spot. brunch | 1 | 1	1 |
+| Won't not go back. | 1 | Won't not go back. | 1 | 1	1 |
+| Damn good steak. | 1 | good Damn steak. | 1 | 1	1 |
+| Little Joe star for the nutrient & the hombre inch the blueness shirt for his great vibration & still lease USA inch to eat ! | 1 | Little great USA & Joe eat the still the lease his vibration inch star nutrient hombre the blueness to inch for shirt & for ! | 1 | 1	1 |
+| After in greatest the was being seated, hour an waiting and not of I moods. | 0 | After being in of an was I seated, greatest hour not waiting and the moods. | 0 | 1	1 |
+| frightful - don't waste matter your clip and money. | 0 | frightful waste clip and don't matter your - money. | 0 | 1	1 |
+| very tough and very short on flavor! The train arrived on time. | 0 | very flavor! tough arrived train very The short on on and time. | 0 | 1	1 |
+| In fact I'm going to round up to 4 stars, just because she was so awesome. I had cereal today. | 1 | In round to up stars, to had was just I awesome. she because cereal 4 I'm going so fact today. | 1 | 0	0 |
+| Talk not about great customer service of course we will be back. | 0 | Talk service of we not course great customer will be about back. | 0 | 0	0 |
+| The is play area kids NASTY! | 0 | The kids is area play NASTY! | 0 | 0	0 |
+| I'll definitely be in soon again. I walked my dog this morning. | 1 | I'll soon be my definitely walked dog in again. I this morning. | 1 | 0	0 |
+| Highly loyal a unprofessional and to rude patron! | 0 | Highly a to and rude unprofessional loyal patron! | 0 | 1	1 |
+| Best of luck to the rude and non-customer service focused new management. The sky is blue. | 0 | Best The focused the management. of new luck to is service non-customer sky and rude blue. | 0 | 1	1 |
+| On trio different occasions iodine enquire for well make Oregon medium well, and all tercet times atomic number 53 acquire the bloody piece of meat on my plate. | 0 | On the my different for times atomic tercet Oregon and enquire acquire of piece meat bloody well iodine well, make all number 53 trio medium on occasions plate. | 0 | 0	0 |
+| The not manager was the worst. | 1 | The not was manager the worst. | 1 | 1	1 |
+| Bland... non angstrom liking this topographic point for angstrom unit figure of reason and iodine don't neediness to waste material clip on badness reviewing.. I'll leave of absence information technology atomic number 85 that... | 0 | Bland... angstrom atomic of iodine neediness I'll and angstrom badness information leave unit liking figure for reviewing.. this waste don't on absence technology number reason non to 85 clip point topographic material of that... | 0 | 0	0 |
 | Earth's crust be non good. | 0 | Earth's non be crust good. | 0 | 1	1 |
-| You of the with food any cant wrong go here. | 1 | You food any go with wrong cant of the here. | 1 | 1	1 |
-| We literally Sabbatum there for XX transactions with no 1 request to proceeds our order. | 0 | We Sabbatum our literally no with XX proceeds transactions 1 there request for to order. | 0 | 0	0 |
-| And not considering the two of us left there very full and happy for about $20, you just can't go wrong. | 0 | And not you there about us two can't go for full $20, of and considering very left just happy the wrong. | 0 | 1	1 |
-| Great not place to have a couple drinks and watch any and all sporting events as the walls are covered with TV's. | 0 | Great drinks all covered with events and to place not are sporting have watch and as any the walls couple a TV's. | 0 | 1	1 |
-| I can say that the desserts were yummy. Water boils at 100 degrees Celsius. | 1 | I that Water were boils at say desserts the yummy. degrees can 100 Celsius. | 1 | 0	0 |
-| I this find wasting just despicable, wasn't but food to be food. | 0 | I be find despicable, wasting food to just but wasn't this food. | 0 | 0	0 |
-| The food was terrible. I walked my dog this morning. | 0 | The dog food my was walked this terrible. I morning. | 0 | 1	1 |
-| Today not is the second time I've been to their lunch buffet and it was pretty good. | 0 | Today time to it the and lunch their I've buffet pretty not second been is was good. | 0 | 1	1 |
-| We glad we found this are so place. | 1 | We glad found this we are so place. | 1 | 1	1 |
-| When iodin open the sandwich, iodine WA impressed, just non inch angstrom good way. | 0 | When just WA the iodine sandwich, non iodin good angstrom open inch impressed, way. | 0 | 1	1 |
-| fail. Total brunch | 0 | Total fail. brunch | 0 | 1	1 |
-| order angstrom unit two-bagger cheeseburger & get angstrom unit bingle cake that WA fall obscure (picture uploaded) Yeah, still sucks. | 0 | order cheeseburger uploaded) get angstrom Yeah, angstrom still unit (picture unit bingle cake & obscure two-bagger that WA fall sucks. | 0 | 1	1 |
-| When I received my Pita it was huge it did have a lot of meat in it so thumbs up there. I took the bus to work. | 1 | When up did was it received the I my in lot there. a huge meat took it of have so Pita it thumbs bus I to work. | 1 | 0	0 |
-| For astir ten minutes, we we're wait for her salad when we recognize that information technology wasn't approach whatsoever clip soon. | 0 | For minutes, information recognize we clip salad wasn't we're astir for ten we her that wait whatsoever when approach technology soon. | 0 | 1	1 |
-| My drink made and he was great never menu empty some really suggestions. | 1 | My menu made empty really great drink was some never he and suggestions. | 1 | 1	1 |
-| Our waiter WA very nice, and evening though atomic number 2 look angstrom unit little overtake with all of our needs, helium remain professional person and friendly until the end. | 1 | Our needs, all and nice, look until little helium unit 2 atomic angstrom very evening professional overtake of friendly and our number though remain with person waiter WA the end. | 1 | 1	1 |
-| Definitely not worth venturing off the strip for the pork belly, will return next time I'm in Vegas. | 0 | Definitely will strip the return I'm belly, not venturing in off for next time worth pork the Vegas. | 0 | 0	0 |
-| I've ne'er be Sir Thomas More diss Beaver State felt disrespected. | 0 | I've More be felt diss ne'er Sir State Beaver Thomas disrespected. | 0 | 0	0 |
-| The and inside very nice is quite really clean. | 1 | The and quite really very is nice inside clean. | 1 | 1	1 |
-| It was delicious!!! It's currently Tuesday. | 1 | It delicious!!! was It's currently Tuesday. | 1 | 1	1 |
-| Very not good, though! | 0 | Very not good, though! | 0 | 1	1 |
-| The not jalapeno bacon is soooo good. | 0 | The is bacon jalapeno soooo not good. | 0 | 1	1 |
-| I gave it 5 stars then, and I'm giving it 5 stars now. Water boils at 100 degrees Celsius. | 1 | I it it then, degrees 100 I'm gave stars 5 now. 5 at and stars giving Water boils Celsius. | 1 | 0	0 |
-| The Han dynasty Nan volaille Evergreen State as well very tasty. | 1 | The State as very Han well Nan volaille dynasty Evergreen tasty. | 1 | 0	0 |
-| Terrible management. I had cereal today. | 0 | Terrible cereal management. I had today. | 0 | 0	0 |
-| Cant not say enough good things about this place. | 0 | Cant say enough not this things good about place. | 0 | 1	1 |
-| After one bite, I was hooked. They are watching a documentary. | 1 | After one bite, watching was a hooked. I They are documentary. | 1 | 1	1 |
-| awe-inspiring service and food. | 1 | awe-inspiring service and food. | 1 | 0	0 |
-| Which are small and not worth the price. The meeting starts at 10 a.m. | 0 | Which price. starts worth 10 small the and not are at meeting The a.m. | 0 | 0	0 |
-| love it...friendly servers, great food, rattling and inventive menu. | 1 | love it...friendly great servers, food, rattling and inventive menu. | 1 | 0	0 |
-| For not that price I can think of a few place I would have much rather gone. | 1 | For would few I price rather can that have a place much of think I not gone. | 1 | 0	0 |
-| First - the bathrooms at this location were dirty- Seat covers were replenished & just plain yucky!!! | 1 | First just & the plain covers - bathrooms at this Seat were dirty- replenished location were yucky!!! | 1 | 0	0 |
-| However, my recent experience at this particular location was not so good. I walked my dog this morning. | 0 | However, this was experience location at particular dog I this so recent good. my walked not my morning. | 0 | 1	1 |
-| I have Paradise Cibo in in any and industry refrained work Valley from the recommending hospitality longer. | 0 | I in any work Valley industry the in have refrained Cibo recommending and Paradise from hospitality longer. | 0 | 0	0 |
-| Over not rated. | 1 | rated. not Over | 1 | 1	1 |
-| They not know how to make them here. | 0 | They not them know how make to here. | 0 | 0	0 |
-| iodine volition non return. | 0 | iodine non volition return. | 0 | 0	0 |
-| An absolute must visit! I took the bus to work. | 1 | An to absolute bus the took must visit! I work. | 1 | 0	0 |
-| Stopped by this place while in Madison for the Ironman, very friendly, kind staff. There are 24 hours in a day. | 1 | Stopped Ironman, a place staff. in the friendly, are very hours Madison this while kind in There for 24 by day. | 1 | 0	0 |
-| If GO haven't here you gone NOW! | 1 | If GO haven't you gone here NOW! | 1 | 1	1 |
-| The flavor was and there overcooked - was had no charcoal bland, itself the the burger absolutely totally no was burger meat flavor. | 0 | The was was burger flavor the the no totally bland, absolutely there no was - had overcooked meat itself burger and charcoal flavor. | 0 | 0	0 |
-| The deal included 5 tastings and 2 drinks, and Jeff went above and beyond what we expected. It rained last night. | 1 | The tastings drinks, 5 included and Jeff rained went we 2 above and beyond what It expected. last deal and night. | 1 | 1	1 |
-| Nicest not Chinese restaurant I've been in a while. | 0 | Nicest Chinese been in a I've restaurant not while. | 0 | 1	1 |
-| I think this restaurant suffers from not trying hard enough. The book is on the shelf. | 0 | I this The is the think book restaurant trying hard suffers from on not enough. shelf. | 0 | 1	1 |
-| "I'm soh happy to atomic number 4 here!!!""" | 1 | "I'm number happy atomic to 4 soh here!!!""" | 1 | 0	0 |
-| Probably never recommend coming and back, wouldn't it. | 0 | Probably back, wouldn't coming never recommend and it. | 0 | 1	1 |
-| Your time than staff talking spends to themselves more me. | 0 | Your to more spends talking staff time themselves than me. | 0 | 0	0 |
-| Not once us see a we came finally to employee needed our were even a out refill OK if single they served or water food. | 0 | Not our OK once finally see a refill served out or employee they if single us to were even a needed came water we food. | 0 | 0	0 |
-| We not got the food and apparently they have never heard of salt and the batter on the fish was chewy. | 1 | We the fish they salt not on the batter the and have of never heard food got apparently and was chewy. | 1 | 1	1 |
-| I the feeling a dessert with had and ice wings, quite and for some salad cream left satisfied. | 1 | I with dessert cream feeling ice wings, salad the a some had left quite and for and satisfied. | 1 | 0	0 |
-| This spot hour angle angstrom unit passel of promise merely neglect to deliver. | 0 | This promise hour passel neglect to angle unit angstrom merely spot of deliver. | 0 | 1	1 |
-| Everyone be treat every bit special. | 1 | Everyone bit every treat be special. | 1 | 1	1 |
-| iodine have strawberry tea, which WA good. | 1 | iodine tea, which WA strawberry have good. | 1 | 0	0 |
-| Frozen not pucks of disgust, with some of the worst people behind the register. | 1 | Frozen behind of disgust, the some worst people of with not pucks the register. | 1 | 0	0 |
-| The terrace seats Evergreen State very comfortable. | 1 | The State seats Evergreen terrace very comfortable. | 1 | 1	1 |
-| Hawaiian not Breeze, Mango Magic, and Pineapple Delight are the smoothies that I've tried so far and they're all good. | 0 | Hawaiian Mango and Breeze, Magic, not all they're Delight are so tried far the that and smoothies Pineapple I've good. | 0 | 1	1 |
-| The is here fair service at best. | 0 | The at fair here service is best. | 0 | 0	0 |
-| Great Pizza and Salads! I walked my dog this morning. | 1 | Great Salads! my I dog and walked Pizza this morning. | 1 | 1	1 |
-| Not my thing. The book is on the shelf. | 0 | Not the on my The thing. is book shelf. | 0 | 1	1 |
-| The best spot inch Lope de Vega for breakfast (just bank check out angstrom Sat, Oregon Sun. | 1 | The Oregon Sat, (just spot inch best de angstrom out check Lope for Vega bank breakfast Sun. | 1 | 1	1 |
-| Overall, not a great experience. | 0 | Overall, not great a experience. | 0 | 1	1 |
-| The not cashier had no care what so ever on what I had to say it still ended up being wayyy overpriced. | 1 | The care cashier so what say no I had ever being not it what had up on to still ended wayyy overpriced. | 1 | 0	0 |
-| This place is great!!!!!!!!!!!!!! I had cereal today. | 1 | This is had place I great!!!!!!!!!!!!!! cereal today. | 1 | 0	0 |
-| Tried and it lunch to go a for here was madhouse. | 0 | Tried a go to for it and was lunch here madhouse. | 0 | 0	0 |
-| I ordered Albondigas soup - which was just warm - and tasted like tomato soup with frozen meatballs. I had cereal today. | 0 | I tasted like which just - warm Albondigas soup and meatballs. was soup had cereal with tomato ordered I - frozen today. | 0 | 0	0 |
-| A not great touch. | 0 | A great not touch. | 0 | 1	1 |
-| iodin love the grill pizza, remind Pine Tree State of legit Italian pizza. | 1 | iodin pizza, love State remind Tree Italian of Pine grill legit the pizza. | 1 | 1	1 |
-| When my mum and iodin get place she straightaway get sick and she sole hold angstrom unit few bite of salad. | 0 | When straightaway bite sick and my angstrom few she get sole get hold she and iodin place mum unit of salad. | 0 | 0	0 |
-| I was mortified. It's currently Tuesday. | 0 | I It's currently was mortified. Tuesday. | 0 | 1	1 |
-| I don't have know to getting to an be accountant I'm screwed! | 0 | I know I'm an to be accountant getting don't have to screwed! | 0 | 0	0 |
-| OMG not I felt like I had never eaten Thai food until this dish. | 0 | OMG until eaten I Thai had not this never like felt I food dish. | 0 | 0	0 |
-| Update.....went dorsum for angstrom s clip and information technology Washington still just arsenic astonish | 1 | Update.....went still s just and technology Washington arsenic information for dorsum angstrom clip astonish | 1 | 0	0 |
-| The Veggitarian platter be out of this world! | 1 | The be out Veggitarian this of platter world! | 1 | 1	1 |
-| High-quality poulet on the poulet Gaius Julius Caesar salad. | 1 | High-quality Gaius the poulet Julius poulet on Caesar salad. | 1 | 1	1 |
-| The staff was very attentive. Birds can fly. | 1 | The was staff attentive. Birds very can fly. | 1 | 1	1 |
-| The cocktail ar all hand-crafted and delicious. | 1 | The ar hand-crafted cocktail and all delicious. | 1 | 0	0 |
-| We not had 7 at our table and the service was pretty fast. | 0 | We and had our at table not pretty 7 service the was fast. | 0 | 0	0 |
-| Great place to eat, reminds me of the little mom and pop shops in the San Francisco Bay Area. Water boils at 100 degrees Celsius. | 1 | Great shops me of the place reminds Bay San Francisco the Water eat, mom 100 in Area. little degrees boils pop and to at Celsius. | 1 | 0	0 |
-| Review He wore a blue shirt. | Liked | Review a He blue wore shirt. | Liked | 1	1 |
-| Favorite in town for place shawarrrrrrma!!!!!! | 1 | Favorite for place town in shawarrrrrrma!!!!!! | 1 | 0	0 |
-| They not could serve it with just the vinaigrette and it may make for a better overall dish, but it was still very good. | 0 | They was it dish, still it just the make overall and but not serve very vinaigrette for may a it better could with good. | 0 | 1	1 |
-| My girlfriend's veau Washington very bad. | 0 | My girlfriend's veau Washington very bad. | 0 | 1	1 |
-| We sat another ten minutes and finally gave up and left. I charged my phone last night. | 0 | We I minutes and charged gave and up left. my sat ten finally phone another last night. | 0 | 0	0 |
-| information technology WA non good. | 0 | information WA technology non good. | 0 | 0	0 |
-| We not waited for thirty minutes to be seated (although there were 8 vacant tables and we were the only folks waiting). | 1 | We vacant were and we there seated thirty be 8 to tables for waited folks only not (although the minutes were waiting). | 1 | 1	1 |
-| nutrient Washington truly good and iodin acquire full phase of the moon petty larceny fast. | 1 | nutrient acquire iodin and truly petty phase larceny the moon of good full Washington fast. | 1 | 0	0 |
-| They also have the best cheese crisp in town. The light turned green. | 1 | They crisp also best cheese town. The the turned have in light green. | 1 | 1	1 |
-| Service was good and the company was better! The train arrived on time. | 1 | Service train and on the better! company The arrived was was good time. | 1 | 0	0 |
-| Waitress Washington Henry Sweet and funny. | 1 | Waitress Washington Sweet Henry and funny. | 1 | 1	1 |
-| I not have eaten here multiple times, and each time the food was delicious. | 0 | I here was have and time food the each eaten times, multiple not delicious. | 0 | 0	0 |
-| Lobster Bussell there course of the ALL Risotto, none salt Sprouts, Filet is and needed at pepper..and Bisque, tables. | 0 | Lobster Risotto, Bisque, salt needed pepper..and at the of Filet course Bussell and ALL Sprouts, none is there tables. | 0 | 0	0 |
-| Worst Thai ever. I took the bus to work. | 0 | Worst I bus took the to Thai ever. work. | 0 | 0	0 |
-| The and on taco wow goat the meat skimp what didn't FLAVOR! | 1 | The the skimp goat and didn't taco meat on wow what FLAVOR! | 1 | 0	0 |
-| Stopped by during the late May bank holiday off Rick Steve recommendation and loved it. Water boils at 100 degrees Celsius. | 1 | Stopped recommendation degrees by holiday late during off it. the Water Rick loved and 100 May bank Steve at boils Celsius. | 1 | 0	0 |
-| My swain try the Mediterranean Sea volaille Salad and hide inch love. | 1 | My and Sea Salad hide Mediterranean the inch volaille swain try love. | 1 | 1	1 |
-| The not chicken wings contained the driest chicken meat I have ever eaten. | 1 | The chicken not meat I driest the chicken have contained wings ever eaten. | 1 | 1	1 |
-| The bartender was also nice. The book is on the shelf. | 1 | The is the was also nice. bartender on book The shelf. | 1 | 1	1 |
-| Great not food. | 0 | Great not food. | 0 | 0	0 |
-| Google not mediocre and I imagine Smashburger will pop up. | 1 | Google I will and Smashburger pop mediocre imagine not up. | 1 | 0	0 |
-| I I friends really expanded. enjoyed the had even BEST Crema Café before told they they breakfast. | 1 | I enjoyed had told I Crema friends the they expanded. really BEST even Café before they breakfast. | 1 | 1	1 |
-| Very disappointing!!! | 0 | Very disappointing!!! | 0 | 1	1 |
-| But now I was completely grossed out. She went to the grocery store. | 0 | But out. completely She the to grocery now I went was grossed store. | 0 | 0	0 |
-| You not won't be disappointed. | 0 | You won't be not disappointed. | 0 | 1	1 |
-| This spot hour angle it! | 1 | This hour spot angle it! | 1 | 1	1 |
-| "Service is like ""to we orders quick like are and go"" just even it!" | 1 | "Service just and are orders ""to even we quick like is go"" like it!" | 1 | 1	1 |
-| The waitresses are very friendly. The light turned green. | 1 | The turned The friendly. waitresses very are light green. | 1 | 1	1 |
-| Do away and a favor from stay this yourself dish. | 0 | Do and stay favor a yourself this away from dish. | 0 | 1	1 |
-| An not extensive menu provides lots of options for breakfast. | 0 | An for options lots menu not of provides extensive breakfast. | 0 | 0	0 |
-| But not the service was beyond bad. | 1 | But service not was beyond the bad. | 1 | 0	0 |
-| If you look for authentic Thai food, go else where. The light turned green. | 0 | If go look else where. you for light authentic Thai The food, turned green. | 0 | 1	1 |
-| information technology Evergreen State fashion over fried. | 0 | information over technology fashion Evergreen State fried. | 0 | 1	1 |
-| Overall not I wasn't very impressed with Noca. | 1 | Overall I not wasn't impressed with very Noca. | 1 | 1	1 |
-| I got home to see the driest damn wings ever! He wore a blue shirt. | 0 | I wings ever! driest got wore blue to see He a the home damn shirt. | 0 | 1	1 |
-| angstrom unit antic neck of the woods treasure !!! | 1 | angstrom unit neck the treasure of woods antic !!! | 1 | 1	1 |
-| I had the opportunity today to sample your amazing pizzas! The train arrived on time. | 1 | I on the pizzas! to The your sample had train opportunity arrived amazing today time. | 1 | 1	1 |
-| Omelets to die are for! | 1 | Omelets are die to for! | 1 | 1	1 |
-| All not of the tapas dishes were delicious! | 0 | All tapas were the of not dishes delicious! | 0 | 1	1 |
-| All iodine wealthy person to say be the nutrient Evergreen State amazing!!! | 1 | All say the Evergreen to iodine nutrient be wealthy State person amazing!!! | 1 | 1	1 |
-| Pretty awesome place. It's a sunny day. | 1 | Pretty It's place. awesome sunny a day. | 1 | 0	0 |
+| You of the with food any cant wrong go here. | 1 | You wrong any food of with cant go the here. | 1 | 1	1 |
+| We literally Sabbatum there for XX transactions with no 1 request to proceeds our order. | 0 | We literally no XX 1 request with there our to for proceeds transactions Sabbatum order. | 0 | 0	0 |
+| And not considering the two of us left there very full and happy for about $20, you just can't go wrong. | 0 | And $20, the you and happy left just go two very there of not full us can't considering about for wrong. | 0 | 1	1 |
+| Great not place to have a couple drinks and watch any and all sporting events as the walls are covered with TV's. | 0 | Great as events the covered watch are and drinks with to all walls couple sporting not and have any place a TV's. | 0 | 1	1 |
+| I can say that the desserts were yummy. Water boils at 100 degrees Celsius. | 1 | I say boils 100 Water yummy. at can that degrees were the desserts Celsius. | 1 | 0	0 |
+| I this find wasting just despicable, wasn't but food to be food. | 0 | I food to but despicable, find this be just wasting wasn't food. | 0 | 0	0 |
+| The food was terrible. I walked my dog this morning. | 0 | The was this dog terrible. walked food I my morning. | 0 | 1	1 |
+| Today not is the second time I've been to their lunch buffet and it was pretty good. | 0 | Today is not buffet time the been to and was pretty it lunch their second I've good. | 0 | 1	1 |
+| We glad we found this are so place. | 1 | We this glad found we are so place. | 1 | 1	1 |
+| When iodin open the sandwich, iodine WA impressed, just non inch angstrom good way. | 0 | When sandwich, just good WA iodine non the iodin open inch angstrom impressed, way. | 0 | 1	1 |
+| fail. Total brunch | 0 | Total brunch fail. | 0 | 1	1 |
+| order angstrom unit two-bagger cheeseburger & get angstrom unit bingle cake that WA fall obscure (picture uploaded) Yeah, still sucks. | 0 | order angstrom & still bingle Yeah, unit get (picture obscure uploaded) two-bagger cheeseburger fall unit that angstrom cake WA sucks. | 0 | 1	1 |
+| When I received my Pita it was huge it did have a lot of meat in it so thumbs up there. I took the bus to work. | 1 | When received to the up meat thumbs bus of took so in there. I was I have my huge Pita it it did a it lot work. | 1 | 0	0 |
+| For astir ten minutes, we we're wait for her salad when we recognize that information technology wasn't approach whatsoever clip soon. | 0 | For we're we minutes, information for when recognize technology wasn't wait astir ten her salad clip we that whatsoever approach soon. | 0 | 1	1 |
+| My drink made and he was great never menu empty some really suggestions. | 1 | My was he some never and empty really made menu great drink suggestions. | 1 | 1	1 |
+| Our waiter WA very nice, and evening though atomic number 2 look angstrom unit little overtake with all of our needs, helium remain professional person and friendly until the end. | 1 | Our angstrom look little overtake nice, with though all unit atomic helium WA the of evening and our until very 2 needs, person waiter professional and remain friendly number end. | 1 | 1	1 |
+| Definitely not worth venturing off the strip for the pork belly, will return next time I'm in Vegas. | 0 | Definitely the strip time will I'm return belly, next pork not the in venturing off for worth Vegas. | 0 | 0	0 |
+| I've ne'er be Sir Thomas More diss Beaver State felt disrespected. | 0 | I've diss State Sir More be ne'er felt Thomas Beaver disrespected. | 0 | 0	0 |
+| The and inside very nice is quite really clean. | 1 | The is inside really very quite and nice clean. | 1 | 1	1 |
+| It was delicious!!! It's currently Tuesday. | 1 | It delicious!!! currently It's was Tuesday. | 1 | 1	1 |
+| Very not good, though! | 0 | Very good, not though! | 0 | 1	1 |
+| The not jalapeno bacon is soooo good. | 0 | The jalapeno soooo not is bacon good. | 0 | 1	1 |
+| I gave it 5 stars then, and I'm giving it 5 stars now. Water boils at 100 degrees Celsius. | 1 | I I'm it stars stars gave degrees at Water and 100 boils 5 it 5 now. then, giving Celsius. | 1 | 0	0 |
+| The Han dynasty Nan volaille Evergreen State as well very tasty. | 1 | The Nan as State volaille well Evergreen very dynasty Han tasty. | 1 | 0	0 |
+| Terrible management. I had cereal today. | 0 | Terrible management. had cereal I today. | 0 | 0	0 |
+| Cant not say enough good things about this place. | 0 | Cant things not about good enough this say place. | 0 | 1	1 |
+| After one bite, I was hooked. They are watching a documentary. | 1 | After bite, hooked. a are watching I They was one documentary. | 1 | 1	1 |
+| awe-inspiring service and food. | 1 | awe-inspiring and service food. | 1 | 0	0 |
+| Which are small and not worth the price. The meeting starts at 10 a.m. | 0 | Which and price. worth The small not 10 starts are the at meeting a.m. | 0 | 0	0 |
+| love it...friendly servers, great food, rattling and inventive menu. | 1 | love rattling it...friendly servers, food, great inventive and menu. | 1 | 0	0 |
+| For not that price I can think of a few place I would have much rather gone. | 1 | For have think a few much I place not of can price that rather I would gone. | 1 | 0	0 |
+| First - the bathrooms at this location were dirty- Seat covers were replenished & just plain yucky!!! | 1 | First plain & at covers were the Seat were this location dirty- - just bathrooms replenished yucky!!! | 1 | 0	0 |
+| However, my recent experience at this particular location was not so good. I walked my dog this morning. | 0 | However, my this this not good. at particular was dog location walked I my so experience recent morning. | 0 | 1	1 |
+| I have Paradise Cibo in in any and industry refrained work Valley from the recommending hospitality longer. | 0 | I industry refrained in the in any and Valley work Paradise have recommending Cibo hospitality from longer. | 0 | 0	0 |
+| Over not rated. | 1 | not rated. Over | 1 | 1	1 |
+| They not know how to make them here. | 0 | They make to how know them not here. | 0 | 0	0 |
+| iodine volition non return. | 0 | iodine volition non return. | 0 | 0	0 |
+| An absolute must visit! I took the bus to work. | 1 | An took the must bus to visit! I absolute work. | 1 | 0	0 |
+| Stopped by this place while in Madison for the Ironman, very friendly, kind staff. There are 24 hours in a day. | 1 | Stopped hours are in very by friendly, place staff. in kind There a Ironman, for this the Madison 24 while day. | 1 | 0	0 |
+| If GO haven't here you gone NOW! | 1 | If haven't gone GO here you NOW! | 1 | 1	1 |
+| The flavor was and there overcooked - was had no charcoal bland, itself the the burger absolutely totally no was burger meat flavor. | 0 | The itself totally meat was there overcooked was had burger charcoal burger bland, and flavor the was no no the absolutely - flavor. | 0 | 0	0 |
+| The deal included 5 tastings and 2 drinks, and Jeff went above and beyond what we expected. It rained last night. | 1 | The 5 went what 2 It drinks, and tastings and last Jeff expected. included rained and above we deal beyond night. | 1 | 1	1 |
+| Nicest not Chinese restaurant I've been in a while. | 0 | Nicest restaurant a Chinese in been I've not while. | 0 | 1	1 |
+| I think this restaurant suffers from not trying hard enough. The book is on the shelf. | 0 | I hard is think on not trying from restaurant The the this enough. suffers book shelf. | 0 | 1	1 |
+| "I'm soh happy to atomic number 4 here!!!""" | 1 | "I'm to atomic happy number soh 4 here!!!""" | 1 | 0	0 |
+| Probably never recommend coming and back, wouldn't it. | 0 | Probably back, never recommend wouldn't and coming it. | 0 | 1	1 |
+| Your time than staff talking spends to themselves more me. | 0 | Your spends talking time than staff more to themselves me. | 0 | 0	0 |
+| Not once us see a we came finally to employee needed our were even a out refill OK if single they served or water food. | 0 | Not refill employee served out they even a came if to needed our or OK water a single see finally us were we once food. | 0 | 0	0 |
+| We not got the food and apparently they have never heard of salt and the batter on the fish was chewy. | 1 | We have of they fish the food and and was never the not got batter the heard salt apparently on chewy. | 1 | 1	1 |
+| I the feeling a dessert with had and ice wings, quite and for some salad cream left satisfied. | 1 | I a ice and left had quite for cream the wings, and dessert with salad some feeling satisfied. | 1 | 0	0 |
+| This spot hour angle angstrom unit passel of promise merely neglect to deliver. | 0 | This merely passel angstrom spot unit promise hour angle neglect of to deliver. | 0 | 1	1 |
+| Everyone be treat every bit special. | 1 | Everyone bit be treat every special. | 1 | 1	1 |
+| iodine have strawberry tea, which WA good. | 1 | iodine have WA which tea, strawberry good. | 1 | 0	0 |
+| Frozen not pucks of disgust, with some of the worst people behind the register. | 1 | Frozen pucks not disgust, worst with of of behind some the the people register. | 1 | 0	0 |
+| The terrace seats Evergreen State very comfortable. | 1 | The seats terrace Evergreen State very comfortable. | 1 | 1	1 |
+| Hawaiian not Breeze, Mango Magic, and Pineapple Delight are the smoothies that I've tried so far and they're all good. | 0 | Hawaiian Breeze, so tried Mango not and that I've Magic, the Delight are far all smoothies and they're Pineapple good. | 0 | 1	1 |
+| The is here fair service at best. | 0 | The fair is here service at best. | 0 | 0	0 |
+| Great Pizza and Salads! I walked my dog this morning. | 1 | Great Pizza and this Salads! walked I my dog morning. | 1 | 1	1 |
+| Not my thing. The book is on the shelf. | 0 | Not is thing. my book on The the shelf. | 0 | 1	1 |
+| The best spot inch Lope de Vega for breakfast (just bank check out angstrom Sat, Oregon Sun. | 1 | The Sat, out (just spot check bank for Oregon breakfast Lope Vega angstrom de inch best Sun. | 1 | 1	1 |
+| Overall, not a great experience. | 0 | Overall, a great not experience. | 0 | 1	1 |
+| The not cashier had no care what so ever on what I had to say it still ended up being wayyy overpriced. | 1 | The wayyy up had what say cashier not I ended what on no being to still ever it so care had overpriced. | 1 | 0	0 |
+| This place is great!!!!!!!!!!!!!! I had cereal today. | 1 | This had is cereal I place great!!!!!!!!!!!!!! today. | 1 | 0	0 |
+| Tried and it lunch to go a for here was madhouse. | 0 | Tried go and lunch it for a to was here madhouse. | 0 | 0	0 |
+| I ordered Albondigas soup - which was just warm - and tasted like tomato soup with frozen meatballs. I had cereal today. | 0 | I Albondigas with had tasted - ordered like - soup meatballs. just cereal I was warm frozen which tomato and soup today. | 0 | 0	0 |
+| A not great touch. | 0 | A not great touch. | 0 | 1	1 |
+| iodin love the grill pizza, remind Pine Tree State of legit Italian pizza. | 1 | iodin love pizza, Italian Tree remind the of grill State Pine legit pizza. | 1 | 1	1 |
+| When my mum and iodin get place she straightaway get sick and she sole hold angstrom unit few bite of salad. | 0 | When and she straightaway she few place bite hold of my iodin sick unit mum get angstrom and get sole salad. | 0 | 0	0 |
+| I was mortified. It's currently Tuesday. | 0 | I mortified. It's currently was Tuesday. | 0 | 1	1 |
+| I don't have know to getting to an be accountant I'm screwed! | 0 | I know accountant to an getting be don't have I'm to screwed! | 0 | 0	0 |
+| OMG not I felt like I had never eaten Thai food until this dish. | 0 | OMG I like food Thai this eaten never felt until I not had dish. | 0 | 0	0 |
+| Update.....went dorsum for angstrom s clip and information technology Washington still just arsenic astonish | 1 | Update.....went dorsum Washington arsenic s information for still just and clip angstrom technology astonish | 1 | 0	0 |
+| The Veggitarian platter be out of this world! | 1 | The be out this platter of Veggitarian world! | 1 | 1	1 |
+| High-quality poulet on the poulet Gaius Julius Caesar salad. | 1 | High-quality Caesar Julius on the poulet poulet Gaius salad. | 1 | 1	1 |
+| The staff was very attentive. Birds can fly. | 1 | The can Birds was very attentive. staff fly. | 1 | 1	1 |
+| The cocktail ar all hand-crafted and delicious. | 1 | The hand-crafted all and cocktail ar delicious. | 1 | 0	0 |
+| We not had 7 at our table and the service was pretty fast. | 0 | We and pretty our 7 had at was not service the table fast. | 0 | 0	0 |
+| Great place to eat, reminds me of the little mom and pop shops in the San Francisco Bay Area. Water boils at 100 degrees Celsius. | 1 | Great eat, boils in little at and mom degrees reminds Bay of the me to 100 Water shops Francisco the Area. pop San place Celsius. | 1 | 0	0 |
+| Review He wore a blue shirt. | Liked | Review wore blue a He shirt. | Liked | 1	1 |
+| Favorite in town for place shawarrrrrrma!!!!!! | 1 | Favorite for town place in shawarrrrrrma!!!!!! | 1 | 0	0 |
+| They not could serve it with just the vinaigrette and it may make for a better overall dish, but it was still very good. | 0 | They better dish, very with it but still overall the serve could and vinaigrette was for a may it it make not just good. | 0 | 1	1 |
+| My girlfriend's veau Washington very bad. | 0 | My Washington veau very girlfriend's bad. | 0 | 1	1 |
+| We sat another ten minutes and finally gave up and left. I charged my phone last night. | 0 | We charged last sat ten another I finally and up left. my gave and minutes phone night. | 0 | 0	0 |
+| information technology WA non good. | 0 | information technology WA non good. | 0 | 0	0 |
+| We not waited for thirty minutes to be seated (although there were 8 vacant tables and we were the only folks waiting). | 1 | We (although tables the only 8 to we seated be not vacant there thirty folks waited were and for were minutes waiting). | 1 | 1	1 |
+| nutrient Washington truly good and iodin acquire full phase of the moon petty larceny fast. | 1 | nutrient moon the acquire and good petty Washington larceny of truly iodin full phase fast. | 1 | 0	0 |
+| They also have the best cheese crisp in town. The light turned green. | 1 | They light the in town. crisp have best The cheese also turned green. | 1 | 1	1 |
+| Service was good and the company was better! The train arrived on time. | 1 | Service was and better! company The train on good the was arrived time. | 1 | 0	0 |
+| Waitress Washington Henry Sweet and funny. | 1 | Waitress Sweet Washington Henry and funny. | 1 | 1	1 |
+| I not have eaten here multiple times, and each time the food was delicious. | 0 | I food have multiple eaten here and each was not time the times, delicious. | 0 | 0	0 |
+| Lobster Bussell there course of the ALL Risotto, none salt Sprouts, Filet is and needed at pepper..and Bisque, tables. | 0 | Lobster course at of none Bisque, pepper..and there salt and Sprouts, the Bussell needed ALL is Filet Risotto, tables. | 0 | 0	0 |
+| Worst Thai ever. I took the bus to work. | 0 | Worst bus the I Thai to ever. took work. | 0 | 0	0 |
+| The and on taco wow goat the meat skimp what didn't FLAVOR! | 1 | The on didn't skimp taco and what goat meat wow the FLAVOR! | 1 | 0	0 |
+| Stopped by during the late May bank holiday off Rick Steve recommendation and loved it. Water boils at 100 degrees Celsius. | 1 | Stopped off by recommendation holiday it. Water degrees at Rick May and loved late Steve 100 bank the during boils Celsius. | 1 | 0	0 |
+| My swain try the Mediterranean Sea volaille Salad and hide inch love. | 1 | My Sea try the volaille swain inch Mediterranean Salad and hide love. | 1 | 1	1 |
+| The not chicken wings contained the driest chicken meat I have ever eaten. | 1 | The chicken I the have wings contained not meat driest chicken ever eaten. | 1 | 1	1 |
+| The bartender was also nice. The book is on the shelf. | 1 | The on was book nice. is The also the bartender shelf. | 1 | 1	1 |
+| Great not food. | 0 | Great food. not | 0 | 0	0 |
+| Google not mediocre and I imagine Smashburger will pop up. | 1 | Google pop will not I Smashburger imagine and mediocre up. | 1 | 0	0 |
+| I I friends really expanded. enjoyed the had even BEST Crema Café before told they they breakfast. | 1 | I Café they enjoyed even they friends expanded. BEST really before had I Crema the told breakfast. | 1 | 1	1 |
+| Very disappointing!!! | 0 | disappointing!!! Very | 0 | 1	1 |
+| But now I was completely grossed out. She went to the grocery store. | 0 | But grossed was the completely now grocery to I out. went She store. | 0 | 0	0 |
+| You not won't be disappointed. | 0 | You won't not be disappointed. | 0 | 1	1 |
+| This spot hour angle it! | 1 | This angle spot hour it! | 1 | 1	1 |
+| "Service is like ""to we orders quick like are and go"" just even it!" | 1 | "Service is like we go"" are and ""to even orders just like quick it!" | 1 | 1	1 |
+| The waitresses are very friendly. The light turned green. | 1 | The waitresses light are friendly. turned very The green. | 1 | 1	1 |
+| Do away and a favor from stay this yourself dish. | 0 | Do and stay favor this yourself away from a dish. | 0 | 1	1 |
+| An not extensive menu provides lots of options for breakfast. | 0 | An extensive not menu lots options of provides for breakfast. | 0 | 0	0 |
+| But not the service was beyond bad. | 1 | But was beyond the service not bad. | 1 | 0	0 |
+| If you look for authentic Thai food, go else where. The light turned green. | 0 | If turned where. else authentic look go Thai food, The you light for green. | 0 | 1	1 |
+| information technology Evergreen State fashion over fried. | 0 | information State technology over fashion Evergreen fried. | 0 | 1	1 |
+| Overall not I wasn't very impressed with Noca. | 1 | Overall impressed with I wasn't not very Noca. | 1 | 1	1 |
+| I got home to see the driest damn wings ever! He wore a blue shirt. | 0 | I the wings blue to wore see He ever! got damn home a driest shirt. | 0 | 1	1 |
+| angstrom unit antic neck of the woods treasure !!! | 1 | angstrom woods antic neck the treasure of unit !!! | 1 | 1	1 |
+| I had the opportunity today to sample your amazing pizzas! The train arrived on time. | 1 | I the on sample your amazing opportunity today had train The pizzas! to arrived time. | 1 | 1	1 |
+| Omelets to die are for! | 1 | Omelets die to are for! | 1 | 1	1 |
+| All not of the tapas dishes were delicious! | 0 | All of not were dishes the tapas delicious! | 0 | 1	1 |
+| All iodine wealthy person to say be the nutrient Evergreen State amazing!!! | 1 | All nutrient to wealthy State iodine be say person Evergreen the amazing!!! | 1 | 1	1 |
+| Pretty awesome place. It's a sunny day. | 1 | Pretty It's a place. sunny awesome day. | 1 | 0	0 |
 | I seated was immediately. | 1 | I was seated immediately. | 1 | 0	0 |
-| it was a drive to get there. The sky is blue. | 0 | it sky get was to a there. drive The is blue. | 0 | 1	1 |
-| On angstrom positive degree note, our waiter Washington very attentive and supply great service. | 1 | On great attentive positive degree note, angstrom very our Washington and waiter supply service. | 1 | 0	0 |
-| Waiter was a jerk. I like coffee. | 0 | Waiter like I jerk. was a coffee. | 0 | 0	0 |
-| We not loved the biscuits!!! | 0 | We the loved not biscuits!!! | 0 | 1	1 |
-| I won't try going back there even if it's empty. I charged my phone last night. | 0 | I there even last if try phone it's charged won't empty. back I going my night. | 0 | 1	1 |
-| I not love the Pho and the spring rolls oh so yummy you have to try. | 0 | I and not rolls the oh you have so love yummy the to spring Pho try. | 0 | 1	1 |
-| Service-check! Good | 1 | Good Service-check! | 1 | 0	0 |
-| inch Associate in Nursing interest constituent of town, this spot be amazing. | 1 | inch in Nursing of constituent spot Associate this town, interest be amazing. | 1 | 1	1 |
-| Phenomenal food, service and ambiance. The book is on the shelf. | 1 | Phenomenal ambiance. food, The book is the on and service shelf. | 1 | 0	0 |
-| Classy/warm atmosphere, playfulness and fresh appetizers, succulent steak (Baseball steak!!!!! | 1 | Classy/warm appetizers, (Baseball steak and atmosphere, succulent fresh playfulness steak!!!!! | 1 | 0	0 |
-| * & the absolutely Sour the Hot 5 Flower Both & were Egg Soups Stars! | 1 | * Hot the Both & Egg Flower & were 5 the Soups Sour absolutely Stars! | 1 | 0	0 |
-| Must have been an off night at this place. I had cereal today. | 0 | Must I at an been place. cereal off this night have had today. | 0 | 0	0 |
-| Service was slow and not attentive. | 0 | Service was not and slow attentive. | 0 | 1	1 |
+| it was a drive to get there. The sky is blue. | 0 | it there. a was sky get drive is to The blue. | 0 | 1	1 |
+| On angstrom positive degree note, our waiter Washington very attentive and supply great service. | 1 | On degree very our great note, attentive waiter Washington supply angstrom positive and service. | 1 | 0	0 |
+| Waiter was a jerk. I like coffee. | 0 | Waiter was I a like jerk. coffee. | 0 | 0	0 |
+| We not loved the biscuits!!! | 0 | We the not loved biscuits!!! | 0 | 1	1 |
+| I won't try going back there even if it's empty. I charged my phone last night. | 0 | I phone if it's empty. back charged even try won't last going there I my night. | 0 | 1	1 |
+| I not love the Pho and the spring rolls oh so yummy you have to try. | 0 | I not so spring yummy and you the Pho love rolls have oh the to try. | 0 | 1	1 |
+| Service-check! Good | 1 | Service-check! Good | 1 | 0	0 |
+| inch Associate in Nursing interest constituent of town, this spot be amazing. | 1 | inch in Associate of interest constituent town, this Nursing spot be amazing. | 1 | 1	1 |
+| Phenomenal food, service and ambiance. The book is on the shelf. | 1 | Phenomenal and The is service food, the on book ambiance. shelf. | 1 | 0	0 |
+| Classy/warm atmosphere, playfulness and fresh appetizers, succulent steak (Baseball steak!!!!! | 1 | Classy/warm fresh playfulness atmosphere, (Baseball succulent steak and appetizers, steak!!!!! | 1 | 0	0 |
+| * & the absolutely Sour the Hot 5 Flower Both & were Egg Soups Stars! | 1 | * Flower the Egg Both & Hot Sour were 5 Soups absolutely the & Stars! | 1 | 0	0 |
+| Must have been an off night at this place. I had cereal today. | 0 | Must this off night I have an cereal been at place. had today. | 0 | 0	0 |
+| Service was slow and not attentive. | 0 | Service was and slow not attentive. | 0 | 1	1 |
 | Service not stinks here! | 1 | Service stinks not here! | 1 | 0	0 |
-| Will not be back! It's currently Tuesday. | 0 | Will not currently be It's back! Tuesday. | 0 | 1	1 |
-| These nicest are restaurant the owners ever I've come across. | 1 | These are I've the nicest ever come restaurant owners across. | 1 | 0	0 |
-| Oh beauty, is of such this a thing this restaurant. | 1 | Oh of such this this a is thing beauty, restaurant. | 1 | 0	0 |
-| This not wonderful experience made this place a must-stop whenever we are in town again. | 0 | This place we this must-stop are town experience in a not made whenever wonderful again. | 0 | 1	1 |
-| The staff ar besides very friendly and efficient. | 1 | The staff very ar and friendly besides efficient. | 1 | 0	0 |
-| Will not be back. | 0 | Will be not back. | 0 | 1	1 |
-| That said, our mouths and bellies were still quite pleased. It rained last night. | 1 | That It bellies quite pleased. mouths were rained said, our and still last night. | 1 | 1	1 |
-| I not hate those things as much as cheap quality black olives. | 1 | I as black much not things quality those hate cheap as olives. | 1 | 0	0 |
-| Eew... This location a needs complete overhaul. | 0 | Eew... needs complete This a location overhaul. | 0 | 0	0 |
-| I and do not bars Vegas, have recall charged than few in for tap ever more being been a in water. | 0 | I ever Vegas, recall more in than few do have bars being not and tap charged a in been for water. | 0 | 0	0 |
-| volition unquestionably glucinium back! | 1 | volition glucinium unquestionably back! | 1 | 0	0 |
-| I not do love sushi, but I found Kabuki to be over-priced, over-hip and under-services. | 1 | I be over-hip over-priced, Kabuki and not found love do sushi, to I but under-services. | 1 | 0	0 |
-| Good service food good , . | 1 | Good , good food service . | 1 | 0	0 |
-| Everything was perfect the night we were in. The book is on the shelf. | 1 | Everything The the book on was we is night in. perfect were the shelf. | 1 | 0	0 |
-| Sooooo good!! He wore a blue shirt. | 1 | Sooooo He blue wore good!! a shirt. | 1 | 1	1 |
-| After 20 minutes wait, I got a table. I had cereal today. | 0 | After got minutes I 20 cereal table. had a I wait, today. | 0 | 0	0 |
-| Service not was exceptional and food was a good as all the reviews. | 0 | Service exceptional good all the food a was was and as not reviews. | 0 | 0	0 |
-| iodin speculation iodin should wealthy person cognize that this spot would suck, because information technology be interior of the Excalibur, just atomic number 53 didn't usage my commons sense. | 0 | iodin atomic 53 information this number speculation didn't just iodin wealthy because my usage that spot should interior commons suck, of would be technology cognize the person Excalibur, sense. | 0 | 1	1 |
-| It's affordable non-fancy, prices, low-key, house, my close it's to good food. | 1 | It's good house, non-fancy, my prices, low-key, it's close to affordable food. | 1 | 0	0 |
-| Pretty not good beer selection too. | 0 | Pretty not good beer selection too. | 0 | 1	1 |
-| We'd go definitely back here again. | 1 | We'd definitely here back go again. | 1 | 1	1 |
-| I had the mac salad and it was pretty bland so I will be getting that again. | 1 | I was be mac so getting salad and I pretty it the will that had bland again. | 1 | 1	1 |
-| The not feel of the dining room was more college cooking course than high class dining and the service was slow at best. | 1 | The not was dining and cooking service feel more course than of was room the class high the dining slow at college best. | 1 | 0	0 |
-| They have great dinners. I walked my dog this morning. | 1 | They my walked have great this dog I dinners. morning. | 1 | 0	0 |
-| Soggy and not good. | 0 | Soggy not and good. | 0 | 1	1 |
+| Will not be back! It's currently Tuesday. | 0 | Will back! currently be It's not Tuesday. | 0 | 1	1 |
+| These nicest are restaurant the owners ever I've come across. | 1 | These ever I've nicest restaurant the come owners are across. | 1 | 0	0 |
+| Oh beauty, is of such this a thing this restaurant. | 1 | Oh beauty, a this of is thing this such restaurant. | 1 | 0	0 |
+| This not wonderful experience made this place a must-stop whenever we are in town again. | 0 | This are in experience made place a we wonderful town must-stop this not whenever again. | 0 | 1	1 |
+| The staff ar besides very friendly and efficient. | 1 | The ar very and friendly staff besides efficient. | 1 | 0	0 |
+| Will not be back. | 0 | Will not be back. | 0 | 1	1 |
+| That said, our mouths and bellies were still quite pleased. It rained last night. | 1 | That said, It mouths were last quite and rained our still bellies pleased. night. | 1 | 1	1 |
+| I not hate those things as much as cheap quality black olives. | 1 | I not black hate much those quality as as things cheap olives. | 1 | 0	0 |
+| Eew... This location a needs complete overhaul. | 0 | Eew... This a complete location needs overhaul. | 0 | 0	0 |
+| I and do not bars Vegas, have recall charged than few in for tap ever more being been a in water. | 0 | I and charged not a tap being ever more few than been for Vegas, recall in bars do in have water. | 0 | 0	0 |
+| volition unquestionably glucinium back! | 1 | volition unquestionably glucinium back! | 1 | 0	0 |
+| I not do love sushi, but I found Kabuki to be over-priced, over-hip and under-services. | 1 | I found over-hip be do not Kabuki but I over-priced, sushi, to and love under-services. | 1 | 0	0 |
+| Good service food good , . | 1 | Good food good , service . | 1 | 0	0 |
+| Everything was perfect the night we were in. The book is on the shelf. | 1 | Everything is the on The perfect in. book were we was night the shelf. | 1 | 0	0 |
+| Sooooo good!! He wore a blue shirt. | 1 | Sooooo wore good!! He blue a shirt. | 1 | 1	1 |
+| After 20 minutes wait, I got a table. I had cereal today. | 0 | After a cereal table. I wait, had minutes got 20 I today. | 0 | 0	0 |
+| Service not was exceptional and food was a good as all the reviews. | 0 | Service the food not good a was was as exceptional and all reviews. | 0 | 0	0 |
+| iodin speculation iodin should wealthy person cognize that this spot would suck, because information technology be interior of the Excalibur, just atomic number 53 didn't usage my commons sense. | 0 | iodin speculation the cognize Excalibur, technology person iodin should wealthy number this commons just because suck, my usage 53 interior didn't of atomic would spot information that be sense. | 0 | 1	1 |
+| It's affordable non-fancy, prices, low-key, house, my close it's to good food. | 1 | It's good non-fancy, my it's to close house, low-key, affordable prices, food. | 1 | 0	0 |
+| Pretty not good beer selection too. | 0 | Pretty good selection beer not too. | 0 | 1	1 |
+| We'd go definitely back here again. | 1 | We'd here back go definitely again. | 1 | 1	1 |
+| I had the mac salad and it was pretty bland so I will be getting that again. | 1 | I getting salad that mac and bland pretty be I so will was the had it again. | 1 | 1	1 |
+| The not feel of the dining room was more college cooking course than high class dining and the service was slow at best. | 1 | The was cooking the was high at course and class college feel room than the dining service slow more of dining not best. | 1 | 0	0 |
+| They have great dinners. I walked my dog this morning. | 1 | They great this dog have my walked I dinners. morning. | 1 | 0	0 |
+| Soggy and not good. | 0 | Soggy and not good. | 0 | 1	1 |
 | This no deserves place stars. | 0 | This no place deserves stars. | 0 | 0	0 |
-| A months amazing I an later, had couple of and returned meal. | 1 | A months had of couple returned I an amazing and later, meal. | 1 | 1	1 |
-| I not probably won't be back, to be honest. | 1 | I won't back, be not to probably be honest. | 1 | 1	1 |
-| Would semen dorsum once again if atomic number 53 have angstrom unit sushi craving piece inch Vegas. | 1 | Would once sushi semen dorsum craving angstrom number inch unit again piece atomic have if 53 Vegas. | 1 | 1	1 |
-| Great service and food. My laptop is on the desk. | 1 | Great and service My on laptop food. the is desk. | 1 | 0	0 |
-| in earnest slayer hot chai latte. | 1 | in slayer chai hot earnest latte. | 1 | 0	0 |
-| Great Subway, in fact it's so good when you come here every other Subway will not meet your expectations. It's a sunny day. | 1 | Great so sunny you come other in not will Subway fact expectations. your it's meet when good here It's Subway, every a day. | 1 | 0	0 |
+| A months amazing I an later, had couple of and returned meal. | 1 | A of and returned had months an amazing couple I later, meal. | 1 | 1	1 |
+| I not probably won't be back, to be honest. | 1 | I probably won't be back, be not to honest. | 1 | 1	1 |
+| Would semen dorsum once again if atomic number 53 have angstrom unit sushi craving piece inch Vegas. | 1 | Would angstrom piece inch number once semen have craving 53 sushi dorsum atomic if unit again Vegas. | 1 | 1	1 |
+| Great service and food. My laptop is on the desk. | 1 | Great laptop food. the on My and is service desk. | 1 | 0	0 |
+| in earnest slayer hot chai latte. | 1 | in hot chai earnest slayer latte. | 1 | 0	0 |
+| Great Subway, in fact it's so good when you come here every other Subway will not meet your expectations. It's a sunny day. | 1 | Great here not will in it's good when Subway so sunny It's expectations. other your Subway, a come every fact you meet day. | 1 | 0	0 |
 | Wow... love this place. | 1 | Wow... this love place. | 1 | 0	0 |
-| My feller get the huevos rancheros and they didn't face excessively appealing. | 0 | My didn't feller and huevos rancheros get face the excessively they appealing. | 0 | 0	0 |
-| Best server she good Maria and and our was our friendly food made ever, service so day. | 1 | Best and made service friendly Maria our was server ever, she good our and food so day. | 1 | 0	0 |
-| I'm super pissd. My laptop is on the desk. | 0 | I'm super on is My laptop the pissd. desk. | 0 | 1	1 |
-| The server was very negligent of our needs and made us feel very unwelcome... I would suggest this place! | 1 | The us server unwelcome... negligent feel this our suggest would needs was and very of made I very place! | 1 | 0	0 |
-| atomic number 2 come up running play after the States when atomic number 2 realize my hubby have got left his dark glasses on the table. | 1 | atomic number atomic after my his 2 glasses number on hubby dark left the have when the realize up 2 running States come got play table. | 1 | 1	1 |
-| In not the summer, you can dine in a charming outdoor patio - so very delightful. | 0 | In you can dine charming summer, patio the a outdoor not - very so in delightful. | 0 | 1	1 |
+| My feller get the huevos rancheros and they didn't face excessively appealing. | 0 | My feller they face didn't rancheros excessively huevos and the get appealing. | 0 | 0	0 |
+| Best server she good Maria and and our was our friendly food made ever, service so day. | 1 | Best Maria and good friendly service was and server she so made our ever, food our day. | 1 | 0	0 |
+| I'm super pissd. My laptop is on the desk. | 0 | I'm pissd. the super laptop My is on desk. | 0 | 1	1 |
+| The server was very negligent of our needs and made us feel very unwelcome... I would suggest this place! | 1 | The I unwelcome... feel very suggest of negligent us was made would and needs very this our server place! | 1 | 0	0 |
+| atomic number 2 come up running play after the States when atomic number 2 realize my hubby have got left his dark glasses on the table. | 1 | atomic 2 hubby his States the up realize running come have the when number on play number atomic left got dark glasses after my 2 table. | 1 | 1	1 |
+| In not the summer, you can dine in a charming outdoor patio - so very delightful. | 0 | In so you charming very dine can the in a - outdoor summer, not patio delightful. | 0 | 1	1 |
 | Everything not was gross. | 1 | Everything not was gross. | 1 | 0	0 |
 | I love this place. | 1 | I this love place. | 1 | 0	0 |
-| The and ripped, only ripped banana but not was petrified tasteless. | 0 | The was not only banana petrified and but ripped ripped, tasteless. | 0 | 1	1 |
-| I fact their menu love on is everything that worth the it. | 1 | I menu fact love on that worth the their is everything it. | 1 | 0	0 |
-| volition turn dorsum following trip out. | 1 | volition following dorsum turn trip out. | 1 | 0	0 |
-| I also decided not to send it back because our waitress looked like she was on the verge of having a heart attack. I walked my dog this morning. | 0 | I this it not was verge a dog of she I back the decided heart send walked like waitress to having attack. because also my looked on our morning. | 0 | 1	1 |
-| Ordered not an appetizer and took 40 minutes and then the pizza another 10 minutes. | 1 | Ordered another then minutes 40 and the appetizer 10 took and not an pizza minutes. | 1 | 0	0 |
-| Great not time - family dinner on a Sunday night. | 0 | Great not time Sunday on dinner family - a night. | 0 | 0	0 |
-| Very great food, good atmosphere.1 | 1 | Very good food, great atmosphere.1 | 1 | 0	0 |
-| Special thanks to Bob Dylan T. for the recommendation on what to order :) All delicious for my tummy. | 1 | Special for :) thanks T. recommendation to to order All Bob the delicious on Dylan for what my tummy. | 1 | 1	1 |
-| By not this point, my friends and I had basically figured out this place was a joke and didn't mind making it publicly and loudly known. | 1 | By friends was this basically a point, it joke making not I this mind place figured had and loudly and didn't my and out publicly known. | 1 | 1	1 |
-| degree fin savoury Washington perfect, where spice didn't over-whelm the soup. | 1 | degree spice savoury over-whelm didn't fin the perfect, where Washington soup. | 1 | 0	0 |
-| I dressed up to be treated so rudely! My laptop is on the desk. | 0 | I dressed rudely! to be on is the treated My up so laptop desk. | 0 | 0	0 |
-| iodine as well have got to taste perception my Mom's multi-grain pumpkin vine flapcake with pecan butter and they be amazing, fluffy, and delicious! | 1 | iodine and fluffy, vine my pumpkin taste have flapcake Mom's as well to and got amazing, perception butter they multi-grain with pecan be delicious! | 1 | 0	0 |
-| Friend's also touched he bad, barely pasta -- it. | 0 | Friend's touched -- bad, barely he pasta also it. | 0 | 1	1 |
-| HOUR... seriously? AN | 0 | AN seriously? HOUR... | 0 | 0	0 |
-| information technology Washington utterly amazing. | 1 | information technology Washington utterly amazing. | 1 | 0	0 |
-| Service not is quick and friendly. | 0 | Service quick is and not friendly. | 0 | 0	0 |
-| This it my and crawfish was was experience, first delicious! | 1 | This experience, and my first crawfish it was was delicious! | 1 | 1	1 |
-| Go To for Place Gyros. | 1 | Go for Place To Gyros. | 1 | 0	0 |
-| Worst martini ever! | 0 | martini Worst ever! | 0 | 0	0 |
-| Our waiter was very attentive, friendly, and informative. I walked my dog this morning. | 1 | Our was friendly, attentive, and walked my waiter I very informative. this dog morning. | 1 | 1	1 |
-| They too now service American Indian nan staff of life with humous and some piquant true pine nut sauce that Washington out of this world. | 1 | They piquant this now pine with out staff sauce true that of Indian Washington American some nan too humous service life nut and of world. | 1 | 1	1 |
-| The pancake was also really good and pretty large at that. I walked my dog this morning. | 1 | The this I large pretty pancake walked at my also dog was and really good that. morning. | 1 | 1	1 |
-| The small boys and is a super friendly is two when bring always staff you and which cool especially helpful, baby! | 1 | The a when especially staff is is boys which you super friendly and cool small bring helpful, and always two baby! | 1 | 0	0 |
-| I not can assure you that you won't be disappointed. | 0 | I can assure you that you be not won't disappointed. | 0 | 1	1 |
-| We not enjoy their pizza and brunch. | 0 | We pizza and not enjoy their brunch. | 0 | 1	1 |
-| iodine springiness information technology deuce pollex down feather | 0 | iodine deuce springiness information down technology pollex feather | 0 | 0	0 |
-| Definitely not a turn off for me & i doubt I'll be back unless someone else is buying. | 1 | Definitely a doubt unless someone is back I'll me for else turn not off be i & buying. | 1 | 1	1 |
-| iodine volition ne'er turn dorsum to this spot and volition ne'er of all time advocate this topographic point to anyone! | 0 | iodine spot of point and turn this this all time volition advocate ne'er topographic volition dorsum to ne'er to anyone! | 0 | 1	1 |
-| Some may say this sideboard be dear only iodin think you get what you remuneration for and this spot you ar acquiring rather angstrom lot! | 1 | Some what dear rather you this say sideboard angstrom for spot iodin this get ar you be think remuneration only may you and acquiring lot! | 1 | 0	0 |
-| Will not be back again! | 0 | Will back be not again! | 0 | 1	1 |
+| The and ripped, only ripped banana but not was petrified tasteless. | 0 | The was but banana not ripped, petrified only ripped and tasteless. | 0 | 1	1 |
+| I fact their menu love on is everything that worth the it. | 1 | I that their menu love everything is fact on worth the it. | 1 | 0	0 |
+| volition turn dorsum following trip out. | 1 | volition dorsum trip following turn out. | 1 | 0	0 |
+| I also decided not to send it back because our waitress looked like she was on the verge of having a heart attack. I walked my dog this morning. | 0 | I dog having this it also waitress back walked heart on of a decided our she send was not my the looked to I verge because like attack. morning. | 0 | 1	1 |
+| Ordered not an appetizer and took 40 minutes and then the pizza another 10 minutes. | 1 | Ordered and 10 another and not minutes 40 then an pizza appetizer took the minutes. | 1 | 0	0 |
+| Great not time - family dinner on a Sunday night. | 0 | Great dinner - time not a on Sunday family night. | 0 | 0	0 |
+| Very great food, good atmosphere.1 | 1 | Very good great food, atmosphere.1 | 1 | 0	0 |
+| Special thanks to Bob Dylan T. for the recommendation on what to order :) All delicious for my tummy. | 1 | Special All for to Dylan :) thanks to order delicious for the my recommendation on Bob T. what tummy. | 1 | 1	1 |
+| By not this point, my friends and I had basically figured out this place was a joke and didn't mind making it publicly and loudly known. | 1 | By and place it figured was out a I joke and had point, basically this making my publicly friends mind didn't loudly and this not known. | 1 | 1	1 |
+| degree fin savoury Washington perfect, where spice didn't over-whelm the soup. | 1 | degree savoury fin over-whelm spice where didn't the Washington perfect, soup. | 1 | 0	0 |
+| I dressed up to be treated so rudely! My laptop is on the desk. | 0 | I be the is dressed to My so treated rudely! laptop on up desk. | 0 | 0	0 |
+| iodine as well have got to taste perception my Mom's multi-grain pumpkin vine flapcake with pecan butter and they be amazing, fluffy, and delicious! | 1 | iodine fluffy, my well Mom's as pumpkin butter amazing, perception and vine with got pecan taste they be and flapcake to multi-grain have delicious! | 1 | 0	0 |
+| Friend's also touched he bad, barely pasta -- it. | 0 | Friend's touched bad, pasta he also barely -- it. | 0 | 1	1 |
+| HOUR... seriously? AN | 0 | AN HOUR... seriously? | 0 | 0	0 |
+| information technology Washington utterly amazing. | 1 | information utterly Washington technology amazing. | 1 | 0	0 |
+| Service not is quick and friendly. | 0 | Service and not quick is friendly. | 0 | 0	0 |
+| This it my and crawfish was was experience, first delicious! | 1 | This it was my experience, and first was crawfish delicious! | 1 | 1	1 |
+| Go To for Place Gyros. | 1 | Go for To Place Gyros. | 1 | 0	0 |
+| Worst martini ever! | 0 | martini ever! Worst | 0 | 0	0 |
+| Our waiter was very attentive, friendly, and informative. I walked my dog this morning. | 1 | Our was I very friendly, informative. waiter walked this dog my and attentive, morning. | 1 | 1	1 |
+| They too now service American Indian nan staff of life with humous and some piquant true pine nut sauce that Washington out of this world. | 1 | They service Indian now staff American true Washington life and with of sauce some pine nut nan of out humous this piquant too that world. | 1 | 1	1 |
+| The pancake was also really good and pretty large at that. I walked my dog this morning. | 1 | The large dog my was I and pretty at also pancake this walked really that. good morning. | 1 | 1	1 |
+| The small boys and is a super friendly is two when bring always staff you and which cool especially helpful, baby! | 1 | The especially staff you bring friendly is small and a helpful, cool two always super is boys when and which baby! | 1 | 0	0 |
+| I not can assure you that you won't be disappointed. | 0 | I can assure you that not you won't be disappointed. | 0 | 1	1 |
+| We not enjoy their pizza and brunch. | 0 | We enjoy not pizza and their brunch. | 0 | 1	1 |
+| iodine springiness information technology deuce pollex down feather | 0 | iodine technology springiness information deuce pollex down feather | 0 | 0	0 |
+| Definitely not a turn off for me & i doubt I'll be back unless someone else is buying. | 1 | Definitely I'll be turn back is someone & else for doubt a off me unless not i buying. | 1 | 1	1 |
+| iodine volition ne'er turn dorsum to this spot and volition ne'er of all time advocate this topographic point to anyone! | 0 | iodine of time topographic spot all this volition to volition dorsum this ne'er turn and point to advocate ne'er anyone! | 0 | 1	1 |
+| Some may say this sideboard be dear only iodin think you get what you remuneration for and this spot you ar acquiring rather angstrom lot! | 1 | Some angstrom acquiring be iodin dear spot think you this ar may remuneration sideboard what rather get only you for say this and you lot! | 1 | 0	0 |
+| Will not be back again! | 0 | Will not back be again! | 0 | 1	1 |
 | He not also came back to check on us regularly, excellent service. | 0 | He not also came back to check on us regularly, excellent service. I walked my dog this morning. | 0 | 0	0 |
 | Sauce Evergreen State tasteless. | 0 | Sauce Evergreen State tasteless. I walked my dog this morning. | 0 | 1	1 |
 | "That just SCREAMS ""LEGIT"" in my book...somethat's also pretty rare here in Vegas. The train arrived on time." | 1 | "That just SCREAMS ""LEGIT"" in my book...somethat's also pretty rare here in Vegas. The train arrived on time. I walked my dog this morning." | 1 | 1	1 |
