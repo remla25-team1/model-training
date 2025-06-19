@@ -52,6 +52,9 @@ jobs:
           poetry install --with dev --no-interaction --no-ansi
           poetry run pip install setuptools wheel twine
 
+      - name: Check installed packages
+        run: poetry run pip list
+
       - name: Run format
         run: make format
 
