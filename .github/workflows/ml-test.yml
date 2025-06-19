@@ -9,7 +9,7 @@ on:
       - README.md
 
 jobs:
-  generate-version:
+  run_tests:
     if: github.actor != 'github-actions'
     runs-on: ubuntu-latest
     steps:
@@ -25,21 +25,6 @@ jobs:
 
       - name: Fetch all tags
         run: git fetch --tags
-
-      - name: Read base version and generate tag
-        id: tag
-        run: |
-          BASE_VERSION="v$(cat VERSION.txt)-pre"
-          DATE=$(date +'%Y%m%d')
-          COUNT=$(git tag --list "${BASE_VERSION}-${DATE}-*" | wc -l)
-          NEW_TAG="${BASE_VERSION}-${DATE}-$(printf "%03d" $((COUNT + 1)))"
-          echo "Generated tag: $NEW_TAG"
-          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
-
-      - name: Create and push tag
-        run: |
-          git tag ${{ steps.tag.outputs.new_tag }}
-          git push origin ${{ steps.tag.outputs.new_tag }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -65,30 +50,43 @@ jobs:
       - name: Run lint
         run: make lint
 
+      - name: Extract Pylint Score (from earlier run)
+        run: |
+          pylint model_training tests | tee pylint_output.txt || true
+          SCORE_LINE=$(grep "Your code has been rated at" pylint_output.txt || true)
+          SCORE=$(echo "$SCORE_LINE" | sed -E 's/.*rated at ([0-9]+\.[0-9]+)\/10.*/\1/' || true)
+
+          echo "Raw line: $SCORE_LINE"
+          echo "Extracted Score: $SCORE"
+
+          if [[ "$SCORE" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+            echo "PYLINT_SCORE=$SCORE" >> $GITHUB_ENV
+          else
+            echo "Could not extract valid pylint score." >&2
+            echo "PYLINT_SCORE=0.0" >> $GITHUB_ENV
+          fi
+
       - name: Download NLTK data
         run: |
-          python -m nltk.downloader stopwords wordnet omw-1.4
+          mkdir -p /tmp/nltk_data
+          python -m nltk.downloader -d /tmp/nltk_data stopwords wordnet omw-1.4
+          echo "NLTK_DATA=/tmp/nltk_data" >> $GITHUB_ENV
+
 
       - name: Download dataset
         run: python -m model_training.dataset
 
       - name: Run tests with coverage (detailed output)
         run: |
-          echo "Running unit tests..."
+          echo "Reading model version from dynamic_version.txt..."
+          MODEL_VERSION=$(cat dynamic_version.txt)
+          echo "Model version: $MODEL_VERSION"
+
           export PYTHONPATH=$(pwd):$PYTHONPATH
+
+          echo "Running unit tests..."
           coverage run --rcfile=.coveragerc -m pytest -v --tb=short --durations=10 tests | tee test_output.txt
 
-          echo "Running metamorphic robustness test..."
-          coverage run --rcfile=.coveragerc --append tests/test_metamorphic.py \
-            --input data/processed/a1_RestaurantReviews_HistoricDump.tsv \
-            --model-version test_model_dev \
-            | tee metamorphic_output.txt
-
-          coverage report --rcfile=.coveragerc -m > coverage.txt
-
-      - name: Show coverage summary
-        run: coverage report --rcfile=.coveragerc -m
-      
       - name: Debug check for metrics.json
         run: |
           echo "Current directory: $(pwd)"
@@ -98,12 +96,97 @@ jobs:
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
-      - name: Extract and update coverage
+      - name: Extract and update coverage and pylint badges below title
         run: |
+          # --- COVERAGE BADGE ---
           COVERAGE=$(tail -n1 coverage.txt | awk '{print $NF}')
           echo "Coverage: ${COVERAGE}"
-          sed -i "s|<!-- COVERAGE -->.*|<!-- COVERAGE --> Coverage: ${COVERAGE}|" README.md
-    
+
+          COVERAGE_VALUE=$(echo $COVERAGE | tr -d '%')
+          if [ "$COVERAGE_VALUE" -ge 90 ]; then
+            COV_COLOR="brightgreen"
+          elif [ "$COVERAGE_VALUE" -ge 75 ]; then
+            COV_COLOR="yellow"
+          else
+            COV_COLOR="red"
+          fi
+
+          COVERAGE_BADGE="![coverage](https://img.shields.io/badge/coverage-${COVERAGE//%/%25}-$COV_COLOR)"
+
+          # --- PYLINT BADGE ---
+          # Read score from env if available
+          SCORE=${PYLINT_SCORE:-$(grep "Your code has been rated at" pylint_output.txt | grep -oP '\d+\.\d+(?=/10)')}
+
+          echo "Pylint Score: ${SCORE}"
+
+          if (( $(echo "$SCORE >= 9.0" | bc -l) )); then
+            PYLINT_COLOR="brightgreen"
+          elif (( $(echo "$SCORE >= 7.0" | bc -l) )); then
+            PYLINT_COLOR="yellow"
+          else
+            PYLINT_COLOR="red"
+          fi
+
+          ENCODED_SCORE=$(printf "%s" "${SCORE}/10" | sed 's/\//%2F/')
+          PYLINT_BADGE="![pylint](https://img.shields.io/badge/pylint-${ENCODED_SCORE}-${PYLINT_COLOR})"
+
+
+          # --- BADGE UPDATE LOGIC ---
+          NEW_BADGES="$COVERAGE_BADGE $PYLINT_BADGE"
+
+          if grep -q '!\[coverage\](https://img.shields.io/badge/coverage-' README.md; then
+            awk -v badges="$NEW_BADGES" '
+              BEGIN {replaced = 0}
+              {
+                if (!replaced && $0 ~ /!\[coverage\]\(https:\/\/img\.shields\.io\/badge\/coverage-/) {
+                  print badges;
+                  replaced = 1;
+                } else {
+                  print $0;
+                }
+              }
+            ' README.md > README_tmp.md && mv README_tmp.md README.md
+          else
+            # Insert badges below first non-empty line (title)
+            awk -v badges="$NEW_BADGES" '
+              NR==1 {print; print ""; print badges; next}
+              {print}
+            ' README.md > README_tmp.md && mv README_tmp.md README.md
+          fi
+
+      - name: Show coverage summary and update README
+        run: |
+          # Get coverage summary text
+          coverage report --rcfile=.coveragerc -m > coverage_summary.txt
+
+          # Define markers
+          START_MARKER="<!-- COVERAGE_SUMMARY_START -->"
+          END_MARKER="<!-- COVERAGE_SUMMARY_END -->"
+
+          # Remove old summary block
+          sed -i "/$START_MARKER/,/$END_MARKER/d" README.md
+
+          # Prepare table header
+          {
+            echo ""
+            echo "$START_MARKER"
+            echo ""
+            echo "| File | Statements | Miss | Coverage | Missing Lines |"
+            echo "|------|------------|------|----------|----------------|"
+
+            # Skip first 2 lines (header and separator), and last line (summary)
+            tail -n +3 coverage_summary.txt | sed '$d' | while read -r line; do
+              FILE=$(echo "$line" | awk '{print $1}')
+              STMT=$(echo "$line" | awk '{print $2}')
+              MISS=$(echo "$line" | awk '{print $3}')
+              COV=$(echo "$line" | awk '{print $4}')
+              MISS_LNS=$(echo "$line" | cut -d' ' -f5-)
+              echo "| $FILE | $STMT | $MISS | $COV | $MISS_LNS |"
+            done
+
+            echo "$END_MARKER"
+          } >> README.md
+
       - name: Extract test adequacy info and update README
         run: |
           # Remove old section
@@ -129,6 +212,54 @@ jobs:
           done
 
           echo "<!-- METRICS END -->" >> README.md
+
+      - name: Download model from GitHub Release
+        run: |
+          VERSION=$(cat dynamic_version.txt)
+          echo "Downloading model for version: $VERSION"
+
+          ASSET_NAME="${VERSION}_Sentiment_Model.pkl"
+          ASSET_URL="https://github.com/${{ github.repository }}/releases/download/${VERSION}/${ASSET_NAME}"
+
+          mkdir -p models/${VERSION}
+          curl -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -o models/${VERSION}/${ASSET_NAME} \
+              "$ASSET_URL"
+
+          echo "Downloaded model to models/${VERSION}/${ASSET_NAME}"
+
+      - name: Run mutamorphic test
+        run: |
+          echo "Reading model version from dynamic_version.txt..."
+          MODEL_VERSION=$(cat dynamic_version.txt)
+          echo "Model version: $MODEL_VERSION"
+          MODEL_PATH="models/$MODEL_VERSION/${MODEL_VERSION}_Sentiment_Model.pkl"
+
+          export PYTHONPATH=$(pwd):$PYTHONPATH
+          python tests/test_mutamorphic.py --input data/processed/metamorphic_data.tsv \
+            --model-version "$MODEL_PATH"
+
+      - name: Append mutamorphic results to README
+        run: |
+          START_MARKER="<!-- MUTAMORPHIC_RESULTS_START -->"
+          END_MARKER="<!-- MUTAMORPHIC_RESULTS_END -->"
+
+          sed -i "/$START_MARKER/,/$END_MARKER/d" README.md
+
+          {
+            echo ""
+            echo "$START_MARKER"
+            echo ""
+            echo "### Mutamorphic Test Results"
+            echo ""
+            echo '| Name | Value | Description | Category |'
+            echo '|------|-------|-------------|----------|'
+            tail -n +2 data/processed/mutamorphic_metrics.csv | while IFS=$'\t' read -r a b c d; do
+              echo "| $a | $b | $c | $d |"
+            done
+            echo ""
+            echo "$END_MARKER"
+          } >> README.md
 
       - name: Commit and push updated README
         run: |

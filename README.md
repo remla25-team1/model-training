@@ -1,4 +1,5 @@
 # REMLA-25, Team 1, Model Training
+![coverage](https://img.shields.io/badge/coverage--red) ![pylint](https://img.shields.io/badge/pylint-9.91%2F10-brightgreen)
 
 Repository for training a sentiment analysis model.
 
@@ -139,7 +140,7 @@ To activate the venv you can execute the command from the Poetry setup (step 3).
 
 **2) Get Credentials** 
 
-Log into the gdrive of remla25.team1@gmail.com to see the credential json file (remla-dvc-remote-g1-2591d1204b80) of the service account. 
+Log into the gdrive of remla25.team1@gmail.com to see the credential json file (remla-dvc-remote-g1-2591d1204b80) of the service account. This is only applicable if you are part of the team, if you are not please send an email to remla25.team1@gmail.com to request access.
 
 **3) Move credentials** 
 
@@ -220,6 +221,21 @@ python model_training/evaluate.py --version v0.0.3
 - The --version flag tells the script which model version to load from the `models/` directory for evaluation.
 - The script outputs key metrics like accuracy and confusion matrix to help you understand how well the model performs on test data.
 
+## Extra Informataion about the CI/CD 
+We have three workflows:
+1) **ML Auto-Test**
+
+    The ML Auto-Test is triggered on every push, no matter the branch. So no manual actions are needed after a change. We did this because we want the tests to run after every time the code has changed to see if nothing breaks. 
+
+2) **Release model-training**
+    
+    This workflow is triggered by the Versioning Workflow, so no manual actions are needed.
+
+3) **Versioning Workflow (SemVer + Dated Pre-Releases)**
+
+    This must be manually started by following the steps in the next section **Automatic Versioning**. We did this because we don't want to create a release of a model based on every push. Only when we decide the code is ready to be released. 
+
+
 ## Automatic Versioning
 We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is used for production. These will always be versions that work. The latter tag is an experimental model for developing purposes, this doesn't always have to be a working version. The version bump is now done automatically, so if v0.0.1 already exists, it will automatically bump the VERSION.txt up one count. Same story for the experimental tags, they will be based on the VERSION.txt as a base and increment based on date and based on last three digits if there are multiple models on the same day.
 
@@ -227,18 +243,35 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 1) Go to repo model-training on GitHub.
 2) Click on the "Actions" tab.
 3) Select "Versioning Workflow (SemVer + Dated Pre-Releases) " from the list on the left.
-4) Click the “Run workflow” button.
-5) When this workflow has finished, go to Release model-training from the list on the left
-6) You will now see that this workflow has been triggered automatically by the previous workflow.
+4) Select your banch and the type of version you want to release (SemVer or Dated Pre-Releases).
+5) Click the “Run workflow” button.
+6) When this workflow has finished, go to Release model-training from the list on the left
+7) You will now see that this workflow has been triggered automatically by the previous workflow.
 
 ## ML auto testing
-### Coverage
-
-<!-- COVERAGE --> Coverage: 44%
-
 ### Test Metrics Summary
+#### Summary of Coverage 
 
 
+
+
+
+
+
+
+
+
+
+
+<!-- COVERAGE_SUMMARY_START -->
+
+| File | Statements | Miss | Coverage | Missing Lines |
+|------|------------|------|----------|----------------|
+| model_training/config.py | 18 | 2 | 89% |              18      2    89%   31-32 |
+| model_training/ensure_versioning.py | 25 | 19 | 24% |   25     19    24%   13-28, 32-42, 46-47 |
+| model_training/train.py | 38 | 24 | 37% |               38     24    37%   31-60, 64 |
+| ------------------------------------------------------------------- |  |  |  | ------------------------------------------------------------------- |
+<!-- COVERAGE_SUMMARY_END -->
 <!-- METRICS START -->
 
 #### DATA_AND_FEATURES
@@ -275,5 +308,19 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 
 <!-- METRICS END -->
 
+<!-- MUTAMORPHIC_RESULTS_START -->
+
+### Mutamorphic Test Results
+
+| Name | Value | Description | Category |
+|------|-------|-------------|----------|
+| CONSISTENCY_RATE | 0.8835920177383592 | Same predictions before and after transformation | MUTAMORPHIC_TESTING |
+| LABEL_PRESERVATION_RATE | 0.0 | Labels preserved where they should be | MUTAMORPHIC_TESTING |
+| FLIPPING_RATE | 0.1592920353982301 | Predictions flipped where they should flip | MUTAMORPHIC_TESTING |
+| ACCURACY_DROP | 0.0 | Accuracy drop after mutamorphic transformation | MUTAMORPHIC_TESTING |
+
+<!-- MUTAMORPHIC_RESULTS_END -->
+
 #### A/B TESTING
 For A/B Testing go to the operation repository, and check docs/continuous-experimentation.md (https://github.com/remla25-team1/operation/blob/main/docs/continuous-experimentation.md).
+

@@ -15,6 +15,7 @@ from sklearn.metrics import accuracy_score
 
 from model_training.config import MODELS_DIR
 from utils.log_metrics import log_metric
+from pathlib import Path
 
 # Download required NLTK data
 nltk.download("wordnet")
@@ -151,12 +152,12 @@ def generate_mutamorphic_dataset(input_path, output_path):
 # ---------------- Model Loading & Prediction ----------------
 
 
-def load_model(version="test_model_dev"):
-    path = MODELS_DIR / version / f"{version}_Sentiment_Model.pkl"
-    if not path.exists():
-        raise FileNotFoundError(f"Model not found: {path}")
-    print(f"Loading model from {path}")
-    return joblib.load(path)
+def load_model(model_path):
+    model_path = Path(model_path)
+    if not model_path.exists():
+        raise FileNotFoundError(f"Model not found: {model_path.resolve()}")
+    print(f"Loading model from {model_path}")
+    return joblib.load(model_path)
 
 
 def fit_vectorizer_on_training_data(train_texts):
@@ -200,21 +201,47 @@ def evaluate_model(trained_model, df):
     acc_orig = accuracy_score(df["original_label"], df["pred_original"])
     acc_trans = accuracy_score(df["transformed_label"], df["pred_transformed"])
     delta_acc = acc_orig - acc_trans
+    results = []
 
     log_metric("CONSISTENCY_RATE", consistency, message="Same predictions before and after transformation", category=category)
+    results.append({
+        "name": "CONSISTENCY_RATE",
+        "value": consistency,
+        "description": "Same predictions before and after transformation",
+        "category": category
+    })
+    print(f"Consistency Rate:       {consistency:.3f}")
+
     if label_preservation is not None:
-        print(f"Consistency Rate:       {consistency:.3f}")
+        print(f"Label Preservation :       {consistency:.3f}")
         log_metric("LABEL_PRESERVATION_RATE", label_preservation, message="Labels preserved where they should be", category=category)
-    if label_preservation is not None:
-        print(f"Label Preservation Rate: {label_preservation:.3f}")
+        results.append({
+            "name": "LABEL_PRESERVATION_RATE",
+            "value": label_preservation,
+            "description": "Labels preserved where they should be",
+            "category": category
+        })
+        
     if flipping_rate is not None:
         print(f"Flipping Rate:           {flipping_rate:.3f}")
         log_metric("FLIPPING_RATE", flipping_rate, message="Predictions flipped where they should flip", category=category)
+        results.append({
+            "name": "FLIPPING_RATE",
+            "value": flipping_rate,
+            "description": "Predictions flipped where they should flip",
+            "category": category
+        })
+        
     print(f"Accuracy Drop (delta acc):    {delta_acc:.3f}")
     log_metric("ACCURACY_DROP", delta_acc, message="Accuracy drop after mutamorphic transformation", category=category)
+    results.append({
+        "name": "ACCURACY_DROP",
+        "value": delta_acc,
+        "description": "Accuracy drop after mutamorphic transformation",
+        "category": category
+    })
 
-
-    return df
+    return df, results
 
 
 # ---------------- Main ----------------
@@ -253,9 +280,15 @@ if __name__ == "__main__":
     fit_vectorizer_on_training_data(train_df["text"])
 
     # Evaluate mutamorphic robustness
-    results_df = evaluate_model(model, mutamorphic_df)
+    results_df, metrics = evaluate_model(model, mutamorphic_df)
 
     # Save predictions
     output_predictions_path = os.path.join(base_dir, "mutamorphic_predictions.tsv")
     results_df.to_csv(output_predictions_path, sep="\t", index=False)
     print(f"Predictions saved to {output_predictions_path}")
+
+    # Convert to DataFrame
+    metrics_df = pd.DataFrame(metrics)
+    output_metrics_path = os.path.join(base_dir, "mutamorphic_metrics.csv")
+    metrics_df.to_csv(output_metrics_path, sep="\t", index=False)
+    print(f"Results of Metrics saved to {output_metrics_path}")
