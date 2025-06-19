@@ -79,7 +79,10 @@ jobs:
 
       - name: Download NLTK data
         run: |
-          python -m nltk.downloader stopwords wordnet omw-1.4
+          mkdir -p /tmp/nltk_data
+          python -m nltk.downloader -d /tmp/nltk_data stopwords wordnet omw-1.4
+          echo "NLTK_DATA=/tmp/nltk_data" >> $GITHUB_ENV
+
 
       - name: Download dataset
         run: python -m model_training.dataset
