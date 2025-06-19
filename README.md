@@ -271,6 +271,8 @@ For A/B Testing go to the operation repository, and check docs/continuous-experi
 
 
 
+
+
 <!-- COVERAGE_SUMMARY_START -->
 
 | File | Statements | Miss | Coverage | Missing Lines |
@@ -322,7 +324,7 @@ For A/B Testing go to the operation repository, and check docs/continuous-experi
 
 | Name | Value | Description | Category |
 |------|-------|-------------|----------|
-| CONSISTENCY_RATE | 0.8824833702882483 | Same predictions before and after transformation | MUTAMORPHIC_TESTING |
+| CONSISTENCY_RATE | 0.8758314855875832 | Same predictions before and after transformation | MUTAMORPHIC_TESTING |
 | LABEL_PRESERVATION_RATE | 0.0 | Labels preserved where they should be | MUTAMORPHIC_TESTING |
 | FLIPPING_RATE | 0.1592920353982301 | Predictions flipped where they should flip | MUTAMORPHIC_TESTING |
 | ACCURACY_DROP | 0.0 | Accuracy drop after mutamorphic transformation | MUTAMORPHIC_TESTING |
