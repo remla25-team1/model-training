@@ -250,12 +250,12 @@ jobs:
             echo ""
             echo "$START_MARKER"
             echo ""
-            echo "### Metamorphic Test Results"
+            echo "### Mutamorphic Test Results"
             echo ""
-            echo '| Input | Transformed | Original Prediction | Transformed Prediction | Changed? |'
-            echo '|-------|-------------|---------------------|-------------------------|----------|'
-            tail -n +2 data/processed/mutamorphic_predictions.tsv | while IFS=$'\t' read -r a b c d e; do
-              echo "| $a | $b | $c | $d | $e |"
+            echo '| Name | Value | Description | Category |'
+            echo '|------|-------|-------------|----------|'
+            tail -n +2 data/processed/mutamorphic_metrics.csv | while IFS=$'\t' read -r a b c d; do
+              echo "| $a | $b | $c | $d |"
             done
             echo ""
             echo "$END_MARKER"

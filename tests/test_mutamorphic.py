@@ -280,9 +280,15 @@ if __name__ == "__main__":
     fit_vectorizer_on_training_data(train_df["text"])
 
     # Evaluate mutamorphic robustness
-    results_df, results = evaluate_model(model, mutamorphic_df)
+    results_df, metrics = evaluate_model(model, mutamorphic_df)
 
     # Save predictions
     output_predictions_path = os.path.join(base_dir, "mutamorphic_predictions.tsv")
     results_df.to_csv(output_predictions_path, sep="\t", index=False)
     print(f"Predictions saved to {output_predictions_path}")
+
+    # Convert to DataFrame
+    metrics_df = pd.DataFrame(metrics)
+    output_metrics_path = os.path.join(base_dir, "mutamorphic_metrics.csv")
+    metrics_df.to_csv(output_metrics_path, sep="\t", index=False)
+    print(f"Results of Metrics saved to {output_metrics_path}")
