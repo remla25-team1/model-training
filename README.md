@@ -274,3 +274,6 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 | FRESH_POSITIVE_RATIO | 0.42 | Prediction distribution is suspicious if not between 0.2 and 0.8 |
 
 <!-- METRICS END -->
+
+#### A/B TESTING
+For A/B Testing go to the operation repository, and check docs/continuous-experimentation.md (https://github.com/remla25-team1/operation/blob/main/docs/continuous-experimentation.md).
