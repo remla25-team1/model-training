@@ -221,6 +221,21 @@ python model_training/evaluate.py --version v0.0.3
 - The --version flag tells the script which model version to load from the `models/` directory for evaluation.
 - The script outputs key metrics like accuracy and confusion matrix to help you understand how well the model performs on test data.
 
+## Extra Informataion about the CI/CD 
+We have three workflows:
+1) **ML Auto-Test**
+
+    The ML Auto-Test is triggered on every push, no matter the branch. So no manual actions are needed after a change. We did this because we want the tests to run after every time the code has changed to see if nothing breaks. 
+
+2) **Release model-training**
+    
+    This workflow is triggered by the Versioning Workflow, so no manual actions are needed.
+
+3) **Versioning Workflow (SemVer + Dated Pre-Releases)**
+
+    This must be manually started by following the steps in the next section **Automatic Versioning**. We did this because we don't want to create a release of a model based on every push. Only when we decide the code is ready to be released. 
+
+
 ## Automatic Versioning
 We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is used for production. These will always be versions that work. The latter tag is an experimental model for developing purposes, this doesn't always have to be a working version. The version bump is now done automatically, so if v0.0.1 already exists, it will automatically bump the VERSION.txt up one count. Same story for the experimental tags, they will be based on the VERSION.txt as a base and increment based on date and based on last three digits if there are multiple models on the same day.
 
@@ -228,9 +243,10 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 1) Go to repo model-training on GitHub.
 2) Click on the "Actions" tab.
 3) Select "Versioning Workflow (SemVer + Dated Pre-Releases) " from the list on the left.
-4) Click the “Run workflow” button.
-5) When this workflow has finished, go to Release model-training from the list on the left
-6) You will now see that this workflow has been triggered automatically by the previous workflow.
+4) Select your banch and the type of version you want to release (SemVer or Dated Pre-Releases).
+5) Click the “Run workflow” button.
+6) When this workflow has finished, go to Release model-training from the list on the left
+7) You will now see that this workflow has been triggered automatically by the previous workflow.
 
 ## ML auto testing
 ### Test Metrics Summary
