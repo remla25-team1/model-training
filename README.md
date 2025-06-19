@@ -140,7 +140,7 @@ To activate the venv you can execute the command from the Poetry setup (step 3).
 
 **2) Get Credentials** 
 
-Log into the gdrive of remla25.team1@gmail.com to see the credential json file (remla-dvc-remote-g1-2591d1204b80) of the service account. 
+Log into the gdrive of remla25.team1@gmail.com to see the credential json file (remla-dvc-remote-g1-2591d1204b80) of the service account. This is only applicable if you are part of the team, if you are not please send an email to remla25.team1@gmail.com to request access.
 
 **3) Move credentials** 
 
