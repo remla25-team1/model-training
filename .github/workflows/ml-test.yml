@@ -99,7 +99,7 @@ jobs:
       - name: Extract and update coverage and pylint badges below title
         run: |
           # --- COVERAGE BADGE ---
-          COVERAGE=$(tail -n1 coverage.txt | awk '{print $NF}')
+          COVERAGE=$(tail -n1 test_output.txt | awk '{print $NF}')
           echo "Coverage: ${COVERAGE}"
 
           COVERAGE_VALUE=$(echo $COVERAGE | tr -d '%')
