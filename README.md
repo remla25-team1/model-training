@@ -250,16 +250,10 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 
 ## ML auto testing
 ### Test Metrics Summary
-#### Summary of Coverage 
-
-
 #### A/B TESTING
 For A/B Testing go to the operation repository, and check docs/continuous-experimentation.md (https://github.com/remla25-team1/operation/blob/main/docs/continuous-experimentation.md).
 
-
-
-
-
+#### Summary of Coverage 
 <!-- COVERAGE_SUMMARY_START -->
 
 | File | Statements | Miss | Coverage | Missing Lines |
