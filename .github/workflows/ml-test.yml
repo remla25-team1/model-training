@@ -96,23 +96,8 @@ jobs:
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
-      - name: Extract and update coverage and pylint badges below title
+      - name: Extract and update pylint badge below title
         run: |
-          # --- COVERAGE BADGE ---
-          COVERAGE=$(tail -n1 test_output.txt | awk '{print $NF}')
-          echo "Coverage: ${COVERAGE}"
-
-          COVERAGE_VALUE=$(echo $COVERAGE | tr -d '%')
-          if [ "$COVERAGE_VALUE" -ge 90 ]; then
-            COV_COLOR="brightgreen"
-          elif [ "$COVERAGE_VALUE" -ge 75 ]; then
-            COV_COLOR="yellow"
-          else
-            COV_COLOR="red"
-          fi
-
-          COVERAGE_BADGE="![coverage](https://img.shields.io/badge/coverage-${COVERAGE//%/%25}-$COV_COLOR)"
-
           # --- PYLINT BADGE ---
           # Read score from env if available
           SCORE=${PYLINT_SCORE:-$(grep "Your code has been rated at" pylint_output.txt | grep -oP '\d+\.\d+(?=/10)')}
