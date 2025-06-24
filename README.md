@@ -1,4 +1,6 @@
 # REMLA-25, Team 1, Model Training
+
+ ![pylint](https://img.shields.io/badge/pylint-9.91%2F10-brightgreen)
  ![pylint](https://img.shields.io/badge/pylint-9.91%2F10-brightgreen)
 
 Repository for training a sentiment analysis model.
@@ -254,6 +256,8 @@ We have two types of tags: vX.X.X or vX.X.X-pre-DATE-XXX. The first version is u
 For A/B Testing go to the operation repository, and check docs/continuous-experimentation.md (https://github.com/remla25-team1/operation/blob/main/docs/continuous-experimentation.md).
 
 #### Summary of Coverage 
+
+
 <!-- COVERAGE_SUMMARY_START -->
 
 | File | Statements | Miss | Coverage | Missing Lines |
@@ -305,7 +309,7 @@ For A/B Testing go to the operation repository, and check docs/continuous-experi
 
 | Name | Value | Description | Category |
 |------|-------|-------------|----------|
-| CONSISTENCY_RATE | 0.8824833702882483 | Same predictions before and after transformation | MUTAMORPHIC_TESTING |
+| CONSISTENCY_RATE | 0.88470066518847 | Same predictions before and after transformation | MUTAMORPHIC_TESTING |
 | LABEL_PRESERVATION_RATE | 0.0 | Labels preserved where they should be | MUTAMORPHIC_TESTING |
 | FLIPPING_RATE | 0.1592920353982301 | Predictions flipped where they should flip | MUTAMORPHIC_TESTING |
 | ACCURACY_DROP | 0.0 | Accuracy drop after mutamorphic transformation | MUTAMORPHIC_TESTING |
