@@ -4,20 +4,20 @@
 
 Repository for training a sentiment analysis model.
 
-For grading purposes, the service account key for DVC has been added to the ZIP under the name remla-dvc-remote-g1-2591d1204b80.
+For grading purposes, the service account key for DVC has been added to the ZIP under the name grading_credentials/remla-dvc-remote-g1-2591d1204b80.
 
 ## Table of Contents
 - [Project Organization](#project-organization)
 - [Getting Started](#getting-started)
 - [Set up dvc remote](#set-up-dvc-remote)
 - [Running Model Training Pipeline](#running-model-training-pipeline)
-- [1. Download and save the dataset](#1-download-and-save-the-dataset)
-- [2. Preprocess the data](#2-preprocess-the-data)
-- [3. Extract features](#3-extract-features)
-- [4. Train the model](#4-train-the-model)
-- [5. Evaluate the model](#5-evaluate-the-model)
+    - [1. Download and save the dataset](#1-download-and-save-the-dataset)
+    - [2. Preprocess the data](#2-preprocess-the-data)
+    - [3. Extract features](#3-extract-features)
+    - [4. Train the model](#4-train-the-model)
+    - [5. Evaluate the model](#5-evaluate-the-model)
 - [Automatic Versioning](#automatic-versioning)
-- [To trigger the automated version release](#to-trigger-the-automated-version-release)
+    - [To trigger the automated version release](#to-trigger-the-automated-version-release)
 - [ML auto testing](#ml-auto-testing)
     - [Coverage](#coverage)
     - [Test Metrics Summary](#test-metrics-summary)
