@@ -4,7 +4,7 @@
 
 Repository for training a sentiment analysis model.
 
-For grading purposes, the service account key for DVC has been added to the ZIP under the name grading_credentials/remla-dvc-remote-g1-2591d1204b80.
+For grading purposes, the service account key for DVC has been added to the ZIP under the name `grading_credentials/remla-dvc-remote-g1-2591d1204b80`.
 
 ## Table of Contents
 - [Project Organization](#project-organization)
@@ -19,8 +19,8 @@ For grading purposes, the service account key for DVC has been added to the ZIP 
 - [Automatic Versioning](#automatic-versioning)
     - [To trigger the automated version release](#to-trigger-the-automated-version-release)
 - [ML auto testing](#ml-auto-testing)
-    - [Coverage](#coverage)
     - [Test Metrics Summary](#test-metrics-summary)
+    - [Mutamorphic Test Results](#mutamorphic-test-results)
 
 ## Project Organization
 
