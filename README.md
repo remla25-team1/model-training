@@ -2,10 +2,9 @@
 
  ![pylint](https://img.shields.io/badge/pylint-9.91%2F10-brightgreen)
 
- ![pylint](https://img.shields.io/badge/pylint-9.91%2F10-brightgreen)
- ![pylint](https://img.shields.io/badge/pylint-9.91%2F10-brightgreen)
-
 Repository for training a sentiment analysis model.
+
+For grading purposes, the service account key for DVC has been added to the ZIP under the name remla-dvc-remote-g1-2591d1204b80.
 
 ## Table of Contents
 - [Project Organization](#project-organization)
